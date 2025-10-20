@@ -1,0 +1,28 @@
+{
+  "source": "autotrader",
+  "scraped_at": "2025-10-20T00:25:45Z",
+  "listings": [
+    {
+      "id": "autotrader-001",
+      "make": "Hyundai",
+      "model": "Ioniq 5",
+      "year": 2023,
+      "trim": "SEL",
+      "price": 37900,
+      "mileage": 18000,
+      "location": "Sacramento, CA",
+      "url": "https://autotrader.com/listing-001"
+    },
+    {
+      "id": "autotrader-002",
+      "make": "Tesla",
+      "model": "Model 3",
+      "year": 2022,
+      "trim": "Long Range",
+      "price": 39900,
+      "mileage": 25000,
+      "location": "Fresno, CA",
+      "url": "https://autotrader.com/listing-002"
+    }
+  ]
+}

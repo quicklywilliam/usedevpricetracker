@@ -1,0 +1,61 @@
+{
+  "source": "carmax",
+  "scraped_at": "2025-10-18T00:15:32Z",
+  "listings": [
+    {
+      "id": "carmax-001",
+      "make": "Hyundai",
+      "model": "Ioniq 5",
+      "year": 2023,
+      "trim": "SEL",
+      "price": 37990,
+      "mileage": 12000,
+      "location": "San Francisco, CA",
+      "url": "https://carmax.com/listing-001"
+    },
+    {
+      "id": "carmax-002",
+      "make": "Hyundai",
+      "model": "Ioniq 5",
+      "year": 2024,
+      "trim": "Limited",
+      "price": 43500,
+      "mileage": 5000,
+      "location": "San Jose, CA",
+      "url": "https://carmax.com/listing-002"
+    },
+    {
+      "id": "carmax-005",
+      "make": "Hyundai",
+      "model": "Ioniq 5",
+      "year": 2023,
+      "trim": "SEL",
+      "price": 39500,
+      "mileage": 8000,
+      "location": "Palo Alto, CA",
+      "url": "https://carmax.com/listing-005"
+    },
+    {
+      "id": "carmax-003",
+      "make": "Tesla",
+      "model": "Model 3",
+      "year": 2021,
+      "trim": "Long Range",
+      "price": 31500,
+      "mileage": 45000,
+      "location": "Oakland, CA",
+      "url": "https://carmax.com/listing-003"
+    },
+    {
+      "id": "carmax-004",
+      "make": "Tesla",
+      "model": "Model 3",
+      "year": 2022,
+      "trim": "Performance",
+      "price": 41000,
+      "mileage": 18000,
+      "location": "Berkeley, CA",
+      "url": "https://carmax.com/listing-004"
+    }
+  ]
+}

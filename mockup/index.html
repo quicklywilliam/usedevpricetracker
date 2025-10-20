@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV Price Tracker - Mockup v2</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .nav {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .nav button {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            background: #f0f0f0;
+            color: #333;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+
+        .nav button:hover {
+            background: #e0e0e0;
+        }
+
+        .nav button.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin-bottom: 2rem;
+        }
+
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .legend-item:hover {
+            background: #f5f5f5;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+
+        .legend-item.disabled {
+            opacity: 0.4;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 0.75rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .source-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .source-carmax { background: #e3f2fd; color: #1976d2; }
+        .source-carvana { background: #e8f5e9; color: #388e3c; }
+        .source-autotrader { background: #fff3e0; color: #f57c00; }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .status-good { background: #4caf50; }
+        .status-warning { background: #ff9800; }
+        .status-error { background: #f44336; }
+
+        .hidden {
+            display: none;
+        }
+
+        .breadcrumb {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #667eea;
+        }
+
+        .price {
+            font-weight: 600;
+            color: #2e7d32;
+        }
+
+        select {
+            padding: 0.5rem 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 1rem;
+            background: white;
+            cursor: pointer;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>EV Price Tracker</h1>
+        <p class="subtitle">Track used electric vehicle prices across multiple sources</p>
+    </header>
+
+    <div class="container">
+        <div class="nav">
+            <button class="active" onclick="showView('overview')">All Models Overview</button>
+            <button onclick="showView('detail')">Model Detail</button>
+            <select id="modelSelector" onchange="selectModel()" style="margin-left: auto;">
+                <option value="all">All Models</option>
+                <option value="Hyundai Ioniq 5">Hyundai Ioniq 5</option>
+                <option value="Tesla Model 3">Tesla Model 3</option>
+            </select>
+        </div>
+
+        <div id="overviewView">
+            <div class="card">
+                <h2>Source Health</h2>
+                <div class="status-indicator">
+                    <span class="status-dot status-good"></span>
+                    <span><strong>CarMax:</strong> Last updated 2025-10-20 00:15 UTC</span>
+                </div>
+                <div class="status-indicator">
+                    <span class="status-dot status-good"></span>
+                    <span><strong>Carvana:</strong> Last updated 2025-10-20 00:20 UTC</span>
+                </div>
+                <div class="status-indicator">
+                    <span class="status-dot status-warning"></span>
+                    <span><strong>AutoTrader:</strong> Last updated 2025-10-20 00:25 UTC (partial data)</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>All Models Price Trends</h2>
+                <div id="overviewLegend" class="legend"></div>
+                <div class="chart-container">
+                    <canvas id="overviewChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div id="detailView" class="hidden">
+            <div class="card">
+                <div class="breadcrumb">
+                    <a href="#" onclick="showView('overview'); return false;">All Models</a> / <span id="detailModelName"></span>
+                </div>
+                <h2 id="detailTitle">Model Detail</h2>
+                <div class="chart-container">
+                    <canvas id="detailChart"></canvas>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Current Listings</h2>
+                <table id="listingsTable">
+                    <thead>
+                        <tr>
+                            <th>Source</th>
+                            <th>Year</th>
+                            <th>Trim</th>
+                            <th>Price</th>
+                            <th>Mileage</th>
+                            <th>Location</th>
+                            <th>Link</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listingsBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mock data structure
+        const mockData = {
+            sources: ['carmax', 'carvana', 'autotrader'],
+            dates: ['2025-10-15', '2025-10-18', '2025-10-20'],
+            models: ['Hyundai Ioniq 5', 'Tesla Model 3']
+        };
+
+        let allData = [];
+        let overviewChart = null;
+        let detailChart = null;
+        let hiddenModels = new Set();
+
+        // Color palette for different models
+        const modelColors = {
+            'Hyundai Ioniq 5': '#667eea',
+            'Tesla Model 3': '#f59e0b'
+        };
+
+        // Load all data
+        async function loadData() {
+            const promises = [];
+
+            for (const source of mockData.sources) {
+                for (const date of mockData.dates) {
+                    promises.push(
+                        fetch(`data/${source}/${date}.json`)
+                            .then(r => r.json())
+                            .catch(() => null)
+                    );
+                }
+            }
+
+            const results = await Promise.all(promises);
+            allData = results.filter(r => r !== null);
+
+            renderOverview();
+        }
+
+        function getModelKey(listing) {
+            return `${listing.make} ${listing.model}`;
+        }
+
+        function calculateAveragePrice(listings) {
+            if (listings.length === 0) return 0;
+            const sum = listings.reduce((acc, l) => acc + l.price, 0);
+            return Math.round(sum / listings.length);
+        }
+
+        function calculatePriceStats(listings) {
+            if (listings.length === 0) return null;
+            const prices = listings.map(l => l.price);
+            return {
+                min: Math.min(...prices),
+                max: Math.max(...prices),
+                avg: calculateAveragePrice(listings)
+            };
+        }
+
+        function renderOverview() {
+            const priceData = {};
+
+            // Initialize data structure
+            mockData.models.forEach(model => {
+                priceData[model] = {};
+                mockData.dates.forEach(date => {
+                    priceData[model][date] = [];
+                });
+            });
+
+            // Aggregate data
+            allData.forEach(sourceData => {
+                const date = sourceData.scraped_at.split('T')[0];
+                sourceData.listings.forEach(listing => {
+                    const model = getModelKey(listing);
+                    if (priceData[model] && priceData[model][date]) {
+                        priceData[model][date].push(listing);
+                    }
+                });
+            });
+
+            // Calculate average prices
+            const datasets = mockData.models.map(model => {
+                const data = mockData.dates.map(date => {
+                    const listings = priceData[model][date];
+                    return listings.length > 0 ? calculateAveragePrice(listings) : null;
+                });
+
+                return {
+                    label: model,
+                    data: data,
+                    borderColor: modelColors[model],
+                    backgroundColor: modelColors[model] + '20',
+                    tension: 0.3,
+                    hidden: hiddenModels.has(model)
+                };
+            });
+
+            const ctx = document.getElementById('overviewChart');
+
+            if (overviewChart) {
+                overviewChart.destroy();
+            }
+
+            overviewChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: mockData.dates,
+                    datasets: datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        title: {
+                            display: true,
+                            text: 'Average Price Trends Across All Sources'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': $' + context.parsed.y.toLocaleString();
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString();
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Render custom legend
+            renderLegend();
+        }
+
+        function renderLegend() {
+            const legendContainer = document.getElementById('overviewLegend');
+            legendContainer.innerHTML = '';
+
+            mockData.models.forEach(model => {
+                const item = document.createElement('div');
+                item.className = 'legend-item' + (hiddenModels.has(model) ? ' disabled' : '');
+                item.onclick = () => toggleModel(model);
+
+                const color = document.createElement('div');
+                color.className = 'legend-color';
+                color.style.background = modelColors[model];
+
+                const label = document.createElement('span');
+                label.textContent = model;
+
+                item.appendChild(color);
+                item.appendChild(label);
+                legendContainer.appendChild(item);
+            });
+        }
+
+        function toggleModel(model) {
+            if (hiddenModels.has(model)) {
+                hiddenModels.delete(model);
+            } else {
+                hiddenModels.add(model);
+            }
+            renderOverview();
+        }
+
+        function selectModel() {
+            const selector = document.getElementById('modelSelector');
+            const model = selector.value;
+
+            // Update URL
+            const url = new URL(window.location);
+            if (model === 'all') {
+                url.searchParams.delete('model');
+            } else {
+                url.searchParams.set('model', model);
+            }
+            window.history.pushState({}, '', url);
+
+            if (model === 'all') {
+                showView('overview');
+            } else {
+                showView('detail');
+                renderDetail(model);
+            }
+        }
+
+        function loadFromURL() {
+            const url = new URL(window.location);
+            const model = url.searchParams.get('model');
+
+            if (model && mockData.models.includes(model)) {
+                document.getElementById('modelSelector').value = model;
+                showView('detail');
+                renderDetail(model);
+            } else {
+                document.getElementById('modelSelector').value = 'all';
+                showView('overview');
+            }
+        }
+
+        function renderDetail(model) {
+            document.getElementById('detailModelName').textContent = model;
+            document.getElementById('detailTitle').textContent = model + ' - Price History';
+
+            // Collect data by source and date
+            const sourceData = {};
+
+            mockData.sources.forEach(source => {
+                sourceData[source] = {};
+                mockData.dates.forEach(date => {
+                    sourceData[source][date] = [];
+                });
+            });
+
+            allData.forEach(data => {
+                const date = data.scraped_at.split('T')[0];
+                data.listings.forEach(listing => {
+                    if (getModelKey(listing) === model) {
+                        if (sourceData[data.source] && sourceData[data.source][date]) {
+                            sourceData[data.source][date].push(listing);
+                        }
+                    }
+                });
+            });
+
+            // Create datasets per source - with bar showing range and line showing average
+            const datasets = [];
+            const colors = ['#1976d2', '#388e3c', '#f57c00'];
+
+            // Create one bar dataset per date per source showing min-max range
+            // And one line dataset per source showing averages
+
+            mockData.sources.forEach((source, idx) => {
+                const avgData = [];
+                const minData = [];
+                const maxData = [];
+
+                mockData.dates.forEach((date) => {
+                    const listings = sourceData[source][date];
+                    if (listings.length > 0) {
+                        const stats = calculatePriceStats(listings);
+                        avgData.push(stats.avg);
+                        minData.push(stats.min);
+                        maxData.push(stats.max);
+                    } else {
+                        avgData.push(null);
+                        minData.push(null);
+                        maxData.push(null);
+                    }
+                });
+
+                // Bar showing min-max range (as a floating bar)
+                const barData = mockData.dates.map((date, i) => {
+                    if (minData[i] !== null && maxData[i] !== null) {
+                        return [minData[i], maxData[i]];
+                    }
+                    return null;
+                });
+
+                datasets.push({
+                    label: source.charAt(0).toUpperCase() + source.slice(1) + ' Range',
+                    data: barData,
+                    type: 'bar',
+                    backgroundColor: colors[idx] + '50',
+                    borderColor: colors[idx],
+                    borderWidth: 2,
+                    barThickness: 20,
+                    order: idx + 1,
+                    // Make all bars use the same stack to overlap them
+                    stack: 'overlap',
+                    base: 0
+                });
+
+                // Line showing average
+                datasets.push({
+                    label: source.charAt(0).toUpperCase() + source.slice(1) + ' Avg',
+                    data: avgData,
+                    type: 'line',
+                    borderColor: colors[idx],
+                    backgroundColor: colors[idx],
+                    borderWidth: 3,
+                    pointRadius: 6,
+                    pointHoverRadius: 8,
+                    tension: 0.3,
+                    order: 0  // Lines drawn on top
+                });
+            });
+
+            const ctx = document.getElementById('detailChart');
+
+            if (detailChart) {
+                detailChart.destroy();
+            }
+
+            detailChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: mockData.dates,
+                    datasets: datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    // Disable grouped bars - make them stack in same position
+                    interaction: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        },
+                        title: {
+                            display: true,
+                            text: 'Price Range by Source (min/avg/max)'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.dataset.label;
+                                    if (label.includes('Range')) {
+                                        const data = context.raw;
+                                        return label + ': $' + data[0].toLocaleString() + ' - $' + data[1].toLocaleString();
+                                    } else {
+                                        return label + ': $' + context.parsed.y.toLocaleString();
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            offset: true,
+                            grid: {
+                                offset: true
+                            },
+                            stacked: true
+                        },
+                        y: {
+                            beginAtZero: false,
+                            stacked: false,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString();
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Render listings table
+            renderListings(model);
+        }
+
+        function renderListings(model) {
+            const tbody = document.getElementById('listingsBody');
+            tbody.innerHTML = '';
+
+            // Get latest data only
+            const latestData = allData.filter(d => d.scraped_at.startsWith('2025-10-20'));
+
+            const listings = [];
+            latestData.forEach(data => {
+                data.listings.forEach(listing => {
+                    if (getModelKey(listing) === model) {
+                        listings.push({ ...listing, source: data.source });
+                    }
+                });
+            });
+
+            // Sort by price
+            listings.sort((a, b) => a.price - b.price);
+
+            listings.forEach(listing => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><span class="source-badge source-${listing.source}">${listing.source}</span></td>
+                    <td>${listing.year}</td>
+                    <td>${listing.trim}</td>
+                    <td class="price">$${listing.price.toLocaleString()}</td>
+                    <td>${listing.mileage.toLocaleString()} mi</td>
+                    <td>${listing.location}</td>
+                    <td><a href="${listing.url}" target="_blank">View</a></td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function showView(view) {
+            const buttons = document.querySelectorAll('.nav button');
+            buttons.forEach(b => b.classList.remove('active'));
+
+            if (view === 'overview') {
+                document.getElementById('overviewView').classList.remove('hidden');
+                document.getElementById('detailView').classList.add('hidden');
+                buttons[0].classList.add('active');
+
+                // Update URL
+                const url = new URL(window.location);
+                url.searchParams.delete('model');
+                window.history.pushState({}, '', url);
+
+                document.getElementById('modelSelector').value = 'all';
+            } else {
+                document.getElementById('overviewView').classList.add('hidden');
+                document.getElementById('detailView').classList.remove('hidden');
+                buttons[1].classList.add('active');
+            }
+        }
+
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', function() {
+            loadFromURL();
+        });
+
+        // Initialize
+        async function init() {
+            await loadData();
+            loadFromURL();
+        }
+
+        init();
+    </script>
+</body>
+</html>

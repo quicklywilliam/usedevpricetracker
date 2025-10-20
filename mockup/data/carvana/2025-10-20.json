@@ -1,0 +1,61 @@
+{
+  "source": "carvana",
+  "scraped_at": "2025-10-20T00:20:15Z",
+  "listings": [
+    {
+      "id": "carvana-001",
+      "make": "Hyundai",
+      "model": "Ioniq 5",
+      "year": 2023,
+      "trim": "SEL",
+      "price": 38500,
+      "mileage": 15000,
+      "location": "Available Nationwide",
+      "url": "https://carvana.com/listing-001"
+    },
+    {
+      "id": "carvana-004",
+      "make": "Hyundai",
+      "model": "Ioniq 5",
+      "year": 2024,
+      "trim": "Limited",
+      "price": 44500,
+      "mileage": 3000,
+      "location": "Available Nationwide",
+      "url": "https://carvana.com/listing-004"
+    },
+    {
+      "id": "carvana-002",
+      "make": "Tesla",
+      "model": "Model 3",
+      "year": 2021,
+      "trim": "Standard Range Plus",
+      "price": 29000,
+      "mileage": 52000,
+      "location": "Available Nationwide",
+      "url": "https://carvana.com/listing-002"
+    },
+    {
+      "id": "carvana-003",
+      "make": "Tesla",
+      "model": "Model 3",
+      "year": 2022,
+      "trim": "Long Range",
+      "price": 38500,
+      "mileage": 22000,
+      "location": "Available Nationwide",
+      "url": "https://carvana.com/listing-003"
+    },
+    {
+      "id": "carvana-005",
+      "make": "Tesla",
+      "model": "Model 3",
+      "year": 2023,
+      "trim": "Performance",
+      "price": 46000,
+      "mileage": 8000,
+      "location": "Available Nationwide",
+      "url": "https://carvana.com/listing-005"
+    }
+  ]
+}
