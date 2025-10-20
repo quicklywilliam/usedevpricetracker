@@ -1,0 +1,16 @@
+{
+  "name": "used-ev-price-tracker",
+  "version": "1.0.0",
+  "description": "Track used electric vehicle prices across multiple sources",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "scrape": "node scrapers/run-all.js",
+    "test": "vitest"
+  },
+  "keywords": ["ev", "price-tracker", "used-cars"],
+  "author": "",
+  "license": "MIT"
+}
