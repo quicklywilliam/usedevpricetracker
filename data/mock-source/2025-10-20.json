@@ -1,0 +1,30 @@
+{
+  "source": "mock-source",
+  "scraped_at": "2025-10-20T19:11:05.174Z",
+  "listings": [
+    {
+      "id": "mock-1",
+      "make": "Hyundai",
+      "model": "Ioniq 5",
+      "year": 2023,
+      "trim": "Base",
+      "price": 34557,
+      "mileage": 36469,
+      "location": "San Francisco, CA",
+      "url": "https://example.com/listing-1",
+      "listing_date": "2025-10-20"
+    },
+    {
+      "id": "mock-2",
+      "make": "Tesla",
+      "model": "Model 3",
+      "year": 2023,
+      "trim": "Base",
+      "price": 36101,
+      "mileage": 25792,
+      "location": "San Francisco, CA",
+      "url": "https://example.com/listing-2",
+      "listing_date": "2025-10-20"
+    }
+  ]
+}

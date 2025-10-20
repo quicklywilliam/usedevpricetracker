@@ -1,0 +1,5 @@
+{
+  "enabled": true,
+  "source_name": "mock-source",
+  "rate_limit_delay_ms": 1000
+}
