@@ -10,7 +10,25 @@
     "scrape": "node scrapers/run-all.js",
     "test": "vitest"
   },
-  "keywords": ["ev", "price-tracker", "used-cars"],
+  "keywords": [
+    "ev",
+    "price-tracker",
+    "used-cars"
+  ],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@vitejs/plugin-react": "^5.0.4",
+    "axios": "^1.12.2",
+    "chart.js": "^4.5.1",
+    "cheerio": "^1.1.2",
+    "commander": "^14.0.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "vite": "^7.1.11"
+  },
+  "devDependencies": {
+    "@vitest/ui": "^3.2.4",
+    "vitest": "^3.2.4"
+  }
 }
