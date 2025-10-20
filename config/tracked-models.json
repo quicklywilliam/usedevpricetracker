@@ -1,0 +1,12 @@
+{
+  "queries": [
+    {
+      "make": "Hyundai",
+      "model": "Ioniq 5"
+    },
+    {
+      "make": "Tesla",
+      "model": "Model 3"
+    }
+  ]
+}
