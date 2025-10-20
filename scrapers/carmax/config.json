@@ -1,0 +1,5 @@
+{
+  "enabled": true,
+  "source_name": "carmax",
+  "rate_limit_delay_ms": 3000
+}
