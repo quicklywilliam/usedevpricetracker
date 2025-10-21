@@ -9,8 +9,7 @@ Track used electric vehicle prices across multiple sources with automated scrapi
 - **11 EV Models Tracked**: Tesla Model 3/Y/S/X, Nissan Leaf/Ariya, Chevy Bolt EV/EUV, Ford Mustang Mach-E, Hyundai Ioniq 5, Volkswagen ID.4
 - **Interactive Visualizations**:
   - Overview chart showing average prices across all models
-  - Detail charts with price ranges and individual listings
-  - Clickable labels and direct line labels
+  - Click the labels for detailed charts with price ranges and individual listings
 - **Static Deployment**: Hosted on GitHub Pages with no backend required
 
 ## Live Demo
