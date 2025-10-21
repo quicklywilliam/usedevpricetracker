@@ -8,11 +8,6 @@ on:
   # Allow manual trigger for testing
   workflow_dispatch:
 
-  # Run on push to main for initial deployment
-  push:
-    branches:
-      - main
-
 permissions:
   contents: write
   pages: write
