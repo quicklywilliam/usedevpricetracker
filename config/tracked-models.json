@@ -7,6 +7,42 @@
     {
       "make": "Tesla",
       "model": "Model 3"
+    },
+    {
+      "make": "Kia",
+      "model": "EV6"
+    },
+    {
+      "make": "Volkswagen",
+      "model": "ID.4"
+    },
+    {
+      "make": "Nissan",
+      "model": "Ariya"
+    },
+    {
+      "make": "Ford",
+      "model": "Mustang Mach-E"
+    },
+    {
+      "make": "Chevrolet",
+      "model": "Bolt EV"
+    },
+    {
+      "make": "Chevrolet",
+      "model": "Bolt EUV"
+    },
+    {
+      "make": "Chevrolet",
+      "model": "Equinox EV"
+    },
+    {
+      "make": "Honda",
+      "model": "Prologue"
+    },
+    {
+      "make": "Audi",
+      "model": "Q4 e-tron"
     }
   ]
 }

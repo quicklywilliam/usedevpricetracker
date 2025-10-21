@@ -2,7 +2,7 @@ export async function loadAllData() {
   // For local dev, fetch from /data directory
   // For production, fetch from GitHub raw URL or relative path
 
-  const sources = ['mock-source', 'carmax'];
+  const sources = ['mock-source', 'carmax', 'carvana', 'plattauto'];
   const dates = getLast7Days();
 
   const promises = [];

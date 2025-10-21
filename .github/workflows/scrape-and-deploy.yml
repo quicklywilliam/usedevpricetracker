@@ -1,0 +1,100 @@
+name: Scrape Prices and Deploy
+
+on:
+  # Run daily at midnight UTC
+  schedule:
+    - cron: '0 0 * * *'
+
+  # Allow manual trigger for testing
+  workflow_dispatch:
+
+  # Run on push to main for initial deployment
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  scrape-and-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Chromium for Puppeteer
+        run: |
+          npx puppeteer browsers install chrome
+
+      - name: Run all scrapers
+        run: |
+          node scrapers/run-all.js
+        continue-on-error: true
+        env:
+          # Run in CI mode (headless, no sandbox)
+          CI: true
+
+      - name: Check scraper results
+        id: scraper-status
+        run: |
+          if [ -d "data" ] && [ "$(ls -A data)" ]; then
+            echo "scrapers_succeeded=true" >> $GITHUB_OUTPUT
+            echo "✓ Scrapers completed successfully"
+          else
+            echo "scrapers_succeeded=false" >> $GITHUB_OUTPUT
+            echo "⚠️ No scraper data found"
+          fi
+
+      - name: Commit scraper data
+        if: steps.scraper-status.outputs.scrapers_succeeded == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Add only data directory changes
+          git add data/
+
+          # Check if there are changes to commit
+          if git diff --staged --quiet; then
+            echo "No new data to commit"
+          else
+            DATE=$(date +%Y-%m-%d)
+            git commit -m "Update prices for $DATE
+
+            🤖 Generated with GitHub Actions"
+            git push
+          fi
+
+      - name: Build frontend
+        run: npm run build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: scrape-and-build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

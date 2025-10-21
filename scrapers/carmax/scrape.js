@@ -1,86 +1,64 @@
-import fs from 'fs/promises';
 import * as cheerio from 'cheerio';
-import puppeteer from 'puppeteer';
-import { RateLimiter } from '../lib/rate-limiter.js';
-import { writeJsonFile } from '../lib/file-writer.js';
+import { BaseScraper } from '../lib/base-scraper.js';
 
-export async function scrapeCarMax() {
-  console.log('Scraping CarMax...');
-
-  // Read tracked models
-  const configPath = 'config/tracked-models.json';
-  const configData = await fs.readFile(configPath, 'utf-8');
-  const config = JSON.parse(configData);
-
-  const rateLimiter = new RateLimiter(3000);
-  const listings = [];
-
-  // Launch browser once for all queries
-  console.log('  Launching browser...');
-  const browser = await puppeteer.launch({
-    headless: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox']
-  });
-
-  try {
-    const page = await browser.newPage();
-
-    // Set realistic viewport and user agent
-    await page.setViewport({ width: 1920, height: 1080 });
-    await page.setUserAgent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');
-
-    for (const query of config.queries) {
-      console.log(`  Searching for ${query.make} ${query.model}...`);
-
-      await rateLimiter.waitIfNeeded();
-
-      try {
-        // Build CarMax search URL
-        const searchUrl = buildSearchUrl(query.make, query.model);
-        console.log(`  URL: ${searchUrl}`);
-
-        // Navigate to the page
-        await page.goto(searchUrl, {
-          waitUntil: 'networkidle2',
-          timeout: 30000
-        });
-
-        // Wait for search results to load
-        await page.waitForSelector('body', { timeout: 5000 });
-
-        // Wait a bit more for dynamic content
-        await new Promise(resolve => setTimeout(resolve, 2000));
-
-        // Save screenshot and HTML for debugging
-        await page.screenshot({ path: 'debug-carmax.png', fullPage: true });
-        const html = await page.content();
-        await fs.writeFile('debug-carmax.html', html);
-        console.log(`  Saved debug-carmax.png and debug-carmax.html`);
-
-        const $ = cheerio.load(html);
-
-        // Parse listings from search results
-        const pageListings = parseListings($, query.make, query.model);
-        listings.push(...pageListings);
-
-        console.log(`  Found ${pageListings.length} listings`);
-      } catch (error) {
-        console.error(`  Error scraping ${query.make} ${query.model}:`, error.message);
-      }
-    }
-  } finally {
-    await browser.close();
+class CarMaxScraper extends BaseScraper {
+  constructor() {
+    super('carmax', { useStealth: false, rateLimitMs: 3000 });
   }
 
-  const result = {
-    source: 'carmax',
-    scraped_at: new Date().toISOString(),
-    listings
-  };
+  async scrapeModel(query) {
+    const allListings = [];
+    const searchUrl = buildSearchUrl(query.make, query.model);
 
-  await writeJsonFile('carmax', result);
+    await this.page.goto(searchUrl, {
+      waitUntil: 'networkidle2',
+      timeout: 30000
+    });
 
-  return result;
+    // Wait for page body and give time for dynamic content
+    await this.page.waitForSelector('body', { timeout: 5000 });
+    await new Promise(resolve => setTimeout(resolve, 2000));
+
+    let hasMorePages = true;
+    const maxPages = 15;
+    let pageNum = 0;
+
+    while (hasMorePages && pageNum < maxPages) {
+      pageNum++;
+
+      // Wait a bit for content to render
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      // Get page HTML and parse
+      const html = await this.page.content();
+      const $ = cheerio.load(html);
+      const pageListings = parseListings($, query.make, query.model);
+
+      allListings.push(...pageListings);
+
+      // Check for "Load More" button
+      const loadMoreButton = await this.page.$('[data-test="loadMoreButton"]');
+      if (loadMoreButton) {
+        await loadMoreButton.click();
+        await new Promise(resolve => setTimeout(resolve, 2000));
+      } else {
+        hasMorePages = false;
+      }
+    }
+
+    return allListings;
+  }
+}
+
+export async function scrapeCarMax(query) {
+  const scraper = new CarMaxScraper();
+  await scraper.launch();
+
+  try {
+    return await scraper.scrapeQuery(query);
+  } finally {
+    await scraper.close();
+  }
 }
 
 function buildSearchUrl(make, model) {
@@ -107,25 +85,29 @@ function parseListings($, make, model) {
       const price = parseInt(priceText.replace(/[$,*]/g, ''));
 
       // Extract mileage (format: "47K mi" -> 47000)
-      const mileageText = $card.find('.scct--price-miles-info--miles').text().trim();
-      const mileageMatch = mileageText.match(/(\d+)K/);
-      const mileage = mileageMatch ? parseInt(mileageMatch[1]) * 1000 : 0;
+      const mileageText = $card.find('.scct--price-miles-info--mileage').text().trim();
+      const mileageMatch = mileageText.match(/(\d+(?:\.\d+)?)(K?)/i);
+      let mileage = 0;
+      if (mileageMatch) {
+        mileage = parseFloat(mileageMatch[1]);
+        if (mileageMatch[2].toUpperCase() === 'K') {
+          mileage *= 1000;
+        }
+      }
 
-      // Extract year from make-model text
-      const yearMakeText = $card.find('.scct--make-model-info--year-make').text().trim();
-      const yearMatch = yearMakeText.match(/(\d{4})/);
-      const year = yearMatch ? parseInt(yearMatch[1]) : null;
+      // Extract year and trim from title
+      const titleText = $card.find('.scct--make-model-info').text().trim();
+      const yearMatch = titleText.match(/^(\d{4})/);
+      const year = yearMatch ? parseInt(yearMatch[1]) : 0;
 
-      // Extract trim from model-trim text
-      const modelTrimText = $card.find('.scct--make-model-info--model-trim').text().trim();
-      const trim = modelTrimText.replace(model, '').trim() || 'Base';
-
-      // Extract location
-      const locationText = $card.find('.scct--store-transfer-info--transfer').text().trim();
-      const location = locationText.replace('Test drive today at', '').replace('CarMax', '').trim();
+      // Extract trim from model-trim span
+      const trimText = $card.find('.scct--make-model-info--model-trim').text().trim();
+      // Format is usually "Model Trim", extract just the trim part
+      const trimParts = trimText.split(' ');
+      const trim = trimParts.length > 1 ? trimParts.slice(1).join(' ') : 'Base';
 
       // Extract URL
-      const linkElement = $card.find('a[href^="/car/"]').first();
+      const linkElement = $card.find('a.scct--make-model-info-link').first();
       const urlPath = linkElement.attr('href');
       const url = urlPath ? `https://www.carmax.com${urlPath}` : '';
 
@@ -137,8 +119,8 @@ function parseListings($, make, model) {
           year,
           trim,
           price,
-          mileage: mileage || 0,
-          location: location || 'Unknown',
+          mileage: Math.round(mileage),
+          location: 'CarMax',
           url,
           listing_date: new Date().toISOString().split('T')[0]
         });
@@ -153,5 +135,5 @@ function parseListings($, make, model) {
 
 // Run if called directly
 if (import.meta.url === `file://${process.argv[1]}`) {
-  scrapeCarMax().catch(console.error);
+  scrapeCarMax({ make: 'Hyundai', model: 'Ioniq 5' }).catch(console.error);
 }
