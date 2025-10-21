@@ -6,6 +6,7 @@ import './OverviewChart.css';
 export default function OverviewChart({ data, onModelSelect }) {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
+  const labelsContainerRef = useRef(null);
 
   const modelColors = {
     'Hyundai Ioniq 5': '#667eea',
@@ -23,9 +24,6 @@ export default function OverviewChart({ data, onModelSelect }) {
 
   useEffect(() => {
     if (!data || data.length === 0) return;
-
-    // Store label positions for click detection
-    const labelBounds = [];
 
     // Group data by model and date
     const models = [...new Set(data.flatMap(d => d.listings.map(getModelKey)))];
@@ -118,8 +116,6 @@ export default function OverviewChart({ data, onModelSelect }) {
             const meta = chart.getDatasetMeta(i);
             if (!meta.hidden && meta.data.length > 0) {
               const lastPoint = meta.data[meta.data.length - 1];
-              ctx.font = 'bold 12px sans-serif';
-              const textWidth = ctx.measureText(dataset.label).width;
 
               labels.push({
                 text: dataset.label,
@@ -129,7 +125,6 @@ export default function OverviewChart({ data, onModelSelect }) {
                 dataPointY: lastPoint.y,
                 x: lastPoint.x + 20,
                 y: lastPoint.y,
-                width: textWidth,
                 height: 16
               });
             }
@@ -154,10 +149,7 @@ export default function OverviewChart({ data, onModelSelect }) {
             }
           }
 
-          // Clear previous label bounds
-          labelBounds.length = 0;
-
-          // Draw callout lines and labels
+          // Draw callout lines only
           labels.forEach(label => {
             // Draw callout line if label was moved
             if (Math.abs(label.y - label.originalY) > 2) {
@@ -171,81 +163,56 @@ export default function OverviewChart({ data, onModelSelect }) {
               ctx.stroke();
               ctx.globalAlpha = 1.0;
             }
-
-            // Draw label
-            ctx.fillStyle = label.color;
-            ctx.font = 'bold 12px sans-serif';
-            ctx.textAlign = 'left';
-            ctx.textBaseline = 'middle';
-            ctx.fillText(label.text, label.x, label.y);
-
-            // Store bounds for click detection
-            labelBounds.push({
-              x: label.x,
-              y: label.y - label.height / 2,
-              width: label.width,
-              height: label.height,
-              model: label.model
-            });
           });
+
+          // Create DOM labels
+          if (labelsContainerRef.current) {
+            labelsContainerRef.current.innerHTML = '';
+
+            labels.forEach(label => {
+              const linkEl = document.createElement('a');
+              linkEl.href = `?model=${encodeURIComponent(label.model)}`;
+              linkEl.className = 'chart-label';
+              linkEl.style.position = 'absolute';
+              linkEl.style.left = label.x + 'px';
+              linkEl.style.top = (label.y - label.height / 2) + 'px';
+              linkEl.style.color = label.color;
+              linkEl.style.fontWeight = 'bold';
+              linkEl.style.fontSize = '12px';
+              linkEl.style.textDecoration = 'none';
+              linkEl.style.whiteSpace = 'nowrap';
+              linkEl.style.display = 'flex';
+              linkEl.style.alignItems = 'center';
+              linkEl.style.gap = '4px';
+
+              const textSpan = document.createElement('span');
+              textSpan.textContent = label.text;
+
+              const chevron = document.createElement('span');
+              chevron.textContent = '›';
+              chevron.style.fontSize = '14px';
+              chevron.style.opacity = '0.7';
+
+              linkEl.appendChild(textSpan);
+              linkEl.appendChild(chevron);
+
+              linkEl.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (onModelSelect) {
+                  onModelSelect(label.model);
+                }
+              });
+
+              labelsContainerRef.current.appendChild(linkEl);
+            });
+          }
         }
       }]
     });
 
-    // Add click handler for labels
-    const handleCanvasClick = (event) => {
-      const rect = chartRef.current.getBoundingClientRect();
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
-
-      // Check if click is within any label bounds
-      for (const bound of labelBounds) {
-        if (
-          x >= bound.x &&
-          x <= bound.x + bound.width &&
-          y >= bound.y &&
-          y <= bound.y + bound.height
-        ) {
-          if (onModelSelect) {
-            onModelSelect(bound.model);
-          }
-          break;
-        }
-      }
-    };
-
-    // Add mousemove handler to show pointer cursor over labels
-    const handleCanvasMouseMove = (event) => {
-      const rect = chartRef.current.getBoundingClientRect();
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
-
-      let overLabel = false;
-      for (const bound of labelBounds) {
-        if (
-          x >= bound.x &&
-          x <= bound.x + bound.width &&
-          y >= bound.y &&
-          y <= bound.y + bound.height
-        ) {
-          overLabel = true;
-          break;
-        }
-      }
-
-      chartRef.current.style.cursor = overLabel ? 'pointer' : 'default';
-    };
-
-    chartRef.current.addEventListener('click', handleCanvasClick);
-    chartRef.current.addEventListener('mousemove', handleCanvasMouseMove);
-
     return () => {
       if (chartInstance.current) {
         chartInstance.current.destroy();
-      }
-      if (chartRef.current) {
-        chartRef.current.removeEventListener('click', handleCanvasClick);
-        chartRef.current.removeEventListener('mousemove', handleCanvasMouseMove);
       }
     };
   }, [data, onModelSelect]);
@@ -258,6 +225,7 @@ export default function OverviewChart({ data, onModelSelect }) {
     <div className="overview-chart">
       <div className="chart-container">
         <canvas ref={chartRef}></canvas>
+        <div ref={labelsContainerRef} className="chart-labels"></div>
       </div>
     </div>
   );
