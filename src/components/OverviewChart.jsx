@@ -88,9 +88,36 @@ export default function OverviewChart({ data, onModelSelect }) {
           title: {
             display: true,
             text: 'Average Price Trends Across All Sources'
+          },
+          tooltip: {
+            displayColors: false, // Remove the colored box
+            callbacks: {
+              title: (context) => {
+                // Format date as MM/DD
+                const dateStr = context[0].label;
+                const date = new Date(dateStr);
+                return `${date.getMonth() + 1}/${date.getDate()}`;
+              },
+              label: (context) => {
+                // Show model name and price
+                const modelName = context.dataset.label;
+                const price = context.parsed.y;
+                return `${modelName}: $${price.toLocaleString()}`;
+              }
+            }
           }
         },
         scales: {
+          x: {
+            ticks: {
+              callback: (value, index) => {
+                // Format date as MM/DD
+                const dateStr = dates[index];
+                const date = new Date(dateStr);
+                return `${date.getMonth() + 1}/${date.getDate()}`;
+              }
+            }
+          },
           y: {
             beginAtZero: false,
             ticks: {
@@ -197,9 +224,13 @@ export default function OverviewChart({ data, onModelSelect }) {
               linkEl.appendChild(chevron);
 
               linkEl.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (onModelSelect) {
-                  onModelSelect(label.model);
+                // Only prevent default for regular clicks (no modifier keys)
+                // Allow command+click, ctrl+click, middle-click, etc. to work normally
+                if (!e.metaKey && !e.ctrlKey && !e.shiftKey && e.button === 0) {
+                  e.preventDefault();
+                  if (onModelSelect) {
+                    onModelSelect(label.model);
+                  }
                 }
               });
 

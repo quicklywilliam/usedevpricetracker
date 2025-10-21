@@ -137,7 +137,14 @@ export default function DetailChart({ data, model }) {
             text: 'Price Range by Source (min/avg/max)'
           },
           tooltip: {
+            displayColors: false, // Remove the colored box
             callbacks: {
+              title: (context) => {
+                // Format date as MM/DD
+                const dateStr = context[0].label;
+                const date = new Date(dateStr);
+                return `${date.getMonth() + 1}/${date.getDate()}`;
+              },
               label: function(context) {
                 const label = context.dataset.label;
                 if (label.includes('Range')) {
@@ -156,7 +163,15 @@ export default function DetailChart({ data, model }) {
             grid: {
               offset: true
             },
-            stacked: true
+            stacked: true,
+            ticks: {
+              callback: (value, index) => {
+                // Format date as MM/DD
+                const dateStr = dates[index];
+                const date = new Date(dateStr);
+                return `${date.getMonth() + 1}/${date.getDate()}`;
+              }
+            }
           },
           y: {
             beginAtZero: false,
