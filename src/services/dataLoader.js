@@ -7,9 +7,11 @@ export async function loadAllData() {
 
   const promises = [];
 
+  const baseUrl = import.meta.env.BASE_URL || '/';
+
   for (const source of sources) {
     for (const date of dates) {
-      const url = `/data/${source}/${date}.json`;
+      const url = `${baseUrl}data/${source}/${date}.json`;
       promises.push(
         fetch(url)
           .then(r => r.ok ? r.json() : null)
