@@ -1,0 +1,138 @@
+{
+  "source": "mock-source",
+  "scraped_at": "2025-10-21T00:41:36.639Z",
+  "listings": [
+    {
+      "id": "mock-Hyundai-Ioniq 5-1761006997942",
+      "make": "Hyundai",
+      "model": "Ioniq 5",
+      "year": 2023,
+      "trim": "Base",
+      "price": 32216,
+      "mileage": 16609,
+      "location": "San Francisco, CA",
+      "url": "https://example.com/listing-1761006997942",
+      "listing_date": "2025-10-21"
+    },
+    {
+      "id": "mock-Tesla-Model 3-1761007070944",
+      "make": "Tesla",
+      "model": "Model 3",
+      "year": 2023,
+      "trim": "Base",
+      "price": 34148,
+      "mileage": 19807,
+      "location": "San Francisco, CA",
+      "url": "https://example.com/listing-1761007070944",
+      "listing_date": "2025-10-21"
+    },
+    {
+      "id": "mock-Kia-EV6-1761007091519",
+      "make": "Kia",
+      "model": "EV6",
+      "year": 2023,
+      "trim": "Base",
+      "price": 34546,
+      "mileage": 523,
+      "location": "San Francisco, CA",
+      "url": "https://example.com/listing-1761007091519",
+      "listing_date": "2025-10-21"
+    },
+    {
+      "id": "mock-Volkswagen-ID.4-1761007122398",
+      "make": "Volkswagen",
+      "model": "ID.4",
+      "year": 2023,
+      "trim": "Base",
+      "price": 33321,
+      "mileage": 1907,
+      "location": "San Francisco, CA",
+      "url": "https://example.com/listing-1761007122398",
+      "listing_date": "2025-10-21"
+    },
+    {
+      "id": "mock-Nissan-Ariya-1761007143147",
+      "make": "Nissan",
+      "model": "Ariya",
+      "year": 2023,
+      "trim": "Base",
+      "price": 33835,
+      "mileage": 45197,
+      "location": "San Francisco, CA",
+      "url": "https://example.com/listing-1761007143147",
+      "listing_date": "2025-10-21"
+    },
+    {
+      "id": "mock-Ford-Mustang Mach-E-1761007163390",
+      "make": "Ford",
+      "model": "Mustang Mach-E",
+      "year": 2023,
+      "trim": "Base",
+      "price": 34230,
+      "mileage": 24161,
+      "location": "San Francisco, CA",
+      "url": "https://example.com/listing-1761007163390",
+      "listing_date": "2025-10-21"
+    },
+    {
+      "id": "mock-Chevrolet-Bolt EV-1761007184619",
+      "make": "Chevrolet",
+      "model": "Bolt EV",
+      "year": 2023,
+      "trim": "Base",
+      "price": 34067,
+      "mileage": 38905,
+      "location": "San Francisco, CA",
+      "url": "https://example.com/listing-1761007184619",
+      "listing_date": "2025-10-21"
+    },
+    {
+      "id": "mock-Chevrolet-Bolt EUV-1761007214623",
+      "make": "Chevrolet",
+      "model": "Bolt EUV",
+      "year": 2023,
+      "trim": "Base",
+      "price": 30368,
+      "mileage": 19033,
+      "location": "San Francisco, CA",
+      "url": "https://example.com/listing-1761007214623",
+      "listing_date": "2025-10-21"
+    },
+    {
+      "id": "mock-Chevrolet-Equinox EV-1761007234563",
+      "make": "Chevrolet",
+      "model": "Equinox EV",
+      "year": 2023,
+      "trim": "Base",
+      "price": 34349,
+      "mileage": 10199,
+      "location": "San Francisco, CA",
+      "url": "https://example.com/listing-1761007234563",
+      "listing_date": "2025-10-21"
+    },
+    {
+      "id": "mock-Honda-Prologue-1761007263987",
+      "make": "Honda",
+      "model": "Prologue",
+      "year": 2023,
+      "trim": "Base",
+      "price": 32327,
+      "mileage": 31320,
+      "location": "San Francisco, CA",
+      "url": "https://example.com/listing-1761007263987",
+      "listing_date": "2025-10-21"
+    },
+    {
+      "id": "mock-Audi-Q4 e-tron-1761007296638",
+      "make": "Audi",
+      "model": "Q4 e-tron",
+      "year": 2023,
+      "trim": "Base",
+      "price": 30710,
+      "mileage": 31841,
+      "location": "San Francisco, CA",
+      "url": "https://example.com/listing-1761007296638",
+      "listing_date": "2025-10-21"
+    }
+  ]
+}
