@@ -6,6 +6,43 @@ class PlattAutoScraper extends BaseScraper {
     super('plattauto', { useStealth: true, rateLimitMs: 3000 });
   }
 
+  async validateListing(url) {
+    // Navigate to the detail page and extract actual make/model
+    try {
+      await this.page.goto(url, {
+        waitUntil: 'networkidle2',
+        timeout: 30000
+      });
+
+      await this.page.waitForSelector('body', { timeout: 5000 });
+
+      const html = await this.page.content();
+      const $ = cheerio.load(html);
+
+      // Platt Auto detail page structure
+      const titleText = $('h1.dws-vehicle-detail-title, h1').first().text().trim();
+
+      if (!titleText) {
+        return null;
+      }
+
+      // Format: "2024 Honda Prologue" or similar
+      const match = titleText.match(/^(\d{4})\s+([A-Za-z-]+)\s+(.+)$/i);
+
+      if (match) {
+        const make = match[2];
+        const model = match[3];
+
+        return { make, model };
+      }
+
+      return null;
+    } catch (error) {
+      console.error(`Error validating ${url}:`, error.message);
+      return null;
+    }
+  }
+
   async scrapeModel(query) {
     const allListings = [];
     const maxPages = 10;

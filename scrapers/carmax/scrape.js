@@ -6,8 +6,53 @@ class CarMaxScraper extends BaseScraper {
     super('carmax', { useStealth: false, rateLimitMs: 3000 });
   }
 
+  async validateListing(url) {
+    // Navigate to the detail page and extract actual make/model
+    try {
+      await this.page.goto(url, {
+        waitUntil: 'networkidle2',
+        timeout: 30000
+      });
+
+      await this.page.waitForSelector('body', { timeout: 5000 });
+
+      const html = await this.page.content();
+      const $ = cheerio.load(html);
+
+      // CarMax detail page has title like "2023 Tesla Model 3 Long Range"
+      const titleText = $('h1.vehicle-title, h1[class*="title"]').text().trim();
+
+      if (!titleText) {
+        return null;
+      }
+
+      // Parse year, make, model from title
+      // Format: "2023 Tesla Model 3 Long Range"
+      const match = titleText.match(/^(\d{4})\s+([A-Za-z-]+)\s+(.+?)(?:\s+\w+(?:\s+\w+)*)?$/i);
+
+      if (match) {
+        const make = match[2];
+        // Model can be multi-word (e.g., "Model 3", "Mustang Mach-E")
+        // Extract everything after make until we hit the trim
+        const remaining = match[3];
+
+        // For simple case, take first 1-3 words as model
+        const modelParts = remaining.split(/\s+/).slice(0, 3);
+        const model = modelParts.join(' ');
+
+        return { make, model };
+      }
+
+      return null;
+    } catch (error) {
+      console.error(`Error validating ${url}:`, error.message);
+      return null;
+    }
+  }
+
   async scrapeModel(query) {
     const allListings = [];
+    const seenIds = new Set();
     const searchUrl = buildSearchUrl(query.make, query.model);
 
     await this.page.goto(searchUrl, {
@@ -34,13 +79,20 @@ class CarMaxScraper extends BaseScraper {
       const $ = cheerio.load(html);
       const pageListings = parseListings($, query.make, query.model);
 
-      allListings.push(...pageListings);
+      // Deduplicate - only add listings we haven't seen before
+      for (const listing of pageListings) {
+        if (!seenIds.has(listing.id)) {
+          seenIds.add(listing.id);
+          allListings.push(listing);
+        }
+      }
 
-      // Check for "Load More" button
-      const loadMoreButton = await this.page.$('[data-test="loadMoreButton"]');
+      // Check for "See more matches" button
+      const loadMoreButton = await this.page.$('#see-more-button');
+
       if (loadMoreButton) {
         await loadMoreButton.click();
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        await new Promise(resolve => setTimeout(resolve, 3000));
       } else {
         hasMorePages = false;
       }
@@ -110,17 +162,28 @@ function parseListings($, make, model) {
       const yearMatch = titleText.match(/^(\d{4})/);
       const year = yearMatch ? parseInt(yearMatch[1]) : 0;
 
+      // Extract trim from model-trim span first (needed for validation)
+      const trimText = $card.find('.scct--make-model-info--model-trim').text().trim();
+
       // Validate that this listing matches the model we're searching for
       // This filters out suggestions like "Equinox" when searching for "Equinox EV"
       const titleLower = titleText.toLowerCase();
       const modelLower = model.toLowerCase();
+      const trimLower = trimText.toLowerCase();
+
       if (!titleLower.includes(modelLower)) {
         return; // Skip this listing - doesn't match the requested model
       }
 
-      // Extract trim from model-trim span
-      const trimText = $card.find('.scct--make-model-info--model-trim').text().trim();
-      // Format is usually "Model Trim", extract just the trim part
+      // For models ending in "EV", verify the trim also contains "EV"
+      // This prevents "Equinox LT" from matching "Equinox EV" searches
+      if (model.toUpperCase().endsWith(' EV')) {
+        if (!trimLower.includes('ev')) {
+          return; // Skip - trim doesn't contain EV, this is likely the gas model
+        }
+      }
+
+      // Format trim: usually "Model Trim", extract just the trim part
       const trimParts = trimText.split(' ');
       const trim = trimParts.length > 1 ? trimParts.slice(1).join(' ') : 'Base';
 

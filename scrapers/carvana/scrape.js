@@ -6,16 +6,67 @@ class CarvanaScraper extends BaseScraper {
     super('carvana', { useStealth: true, rateLimitMs: 3000 });
   }
 
+  async validateListing(url) {
+    // Navigate to the detail page and extract actual make/model
+    try {
+      await this.page.goto(url, {
+        waitUntil: 'networkidle2',
+        timeout: 30000
+      });
+
+      await this.page.waitForSelector('body', { timeout: 5000 });
+
+      const html = await this.page.content();
+      const $ = cheerio.load(html);
+
+      // Carvana detail page structure
+      const makeModelText = $('[data-qa="base-vehicle-name"]').text().trim();
+
+      if (!makeModelText) {
+        return null;
+      }
+
+      // Format: "2024 Honda Prologue" or "2023 Tesla Model 3"
+      const match = makeModelText.match(/^(\d{4})\s+([A-Za-z-]+)\s+(.+)$/i);
+
+      if (match) {
+        const make = match[2];
+        const model = match[3];
+
+        return { make, model };
+      }
+
+      return null;
+    } catch (error) {
+      console.error(`Error validating ${url}:`, error.message);
+      return null;
+    }
+  }
+
   async scrapeModel(query) {
     const allListings = [];
-    const searchUrl = buildSearchUrl(query.make, query.model);
 
-    await this.page.goto(searchUrl, {
+    // Use the search box - let Carvana's autocomplete handle regularization
+    // This is more robust than constructing filter URLs
+    await this.page.goto('https://www.carvana.com', {
       waitUntil: 'networkidle2',
       timeout: 30000
     });
 
-    // Wait for listings to appear
+    // Find and use the search box
+    await this.page.waitForSelector('input[placeholder*="Search"]', { timeout: 10000 });
+
+    // Type the full search query (make + model)
+    const searchQuery = `${query.make} ${query.model}`;
+    await this.page.type('input[placeholder*="Search"]', searchQuery);
+
+    // Wait a bit for autocomplete to appear
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    // Press Enter to search
+    await this.page.keyboard.press('Enter');
+
+    // Wait for results page to load
     await this.page.waitForSelector('[data-qa="result-tile"]', { timeout: 10000 });
 
     let hasMorePages = true;
@@ -30,6 +81,7 @@ class CarvanaScraper extends BaseScraper {
       // Get page HTML and parse
       const html = await this.page.content();
       const $ = cheerio.load(html);
+
       const pageListings = parseListings($, query.make, query.model);
 
       allListings.push(...pageListings);
@@ -66,54 +118,78 @@ export async function scrapeCarvana(query) {
   }
 }
 
-function buildSearchUrl(make, model) {
-  // Carvana uses a filter-based URL with base64-encoded JSON
-  // Example: https://www.carvana.com/cars/filters?cvnaid=eyJmaWx0ZXJzIjp7Im1ha2VzIjpbeyJuYW1lIjoiTmlzc2FuIiwicGFyZW50TW9kZWxzIjpbeyJuYW1lIjoiQXJpeWEifV19XX19
-
-  const filterObject = {
-    filters: {
-      makes: [
-        {
-          name: make,
-          parentModels: [
-            {
-              name: model
-            }
-          ]
-        }
-      ]
-    }
-  };
-
-  // Base64 encode the JSON
-  const jsonString = JSON.stringify(filterObject);
-  const base64 = Buffer.from(jsonString).toString('base64');
-
-  return `https://www.carvana.com/cars/filters?cvnaid=${base64}`;
-}
-
 function parseListings($, make, model) {
   const listings = [];
 
-  // Carvana result tiles
+  // Find the "WE DIDN'T FIND MANY MATCHES" heading to separate relevant from irrelevant results
+  // Results above this heading are relevant, results below are not
+  const didntFindHeading = $('*').filter((i, el) => {
+    const text = $(el).text().trim();
+    return text.includes("WE DIDN'T FIND MANY MATCHES") || text.includes("WE DIDN'T FIND");
+  }).first();
+
+  const didntFindIndex = didntFindHeading.length > 0
+    ? didntFindHeading.index()
+    : Number.MAX_SAFE_INTEGER;
+
+  // Track non-matching results above the heading - this indicates search isn't working
+  let nonMatchingAboveHeading = 0;
+  let totalAboveHeading = 0;
+
+  // Process all result tiles
   $('[data-qa="result-tile"]').each((i, element) => {
     try {
       const $card = $(element);
+      const cardIndex = $card.index();
+
+      // Extract make/model/year from title
+      const makeModelText = $card.find('[data-qa="make-model"]').text().trim();
+
+      // Check if this listing matches what we're looking for
+      // Use flexible matching - check against our requested model
+      const makeModelLower = makeModelText.toLowerCase();
+      const modelLower = model.toLowerCase();
+      const makeLower = make.toLowerCase();
+
+      const normalizedMakeModel = makeModelLower.replace(/\s+/g, ' ');
+      const normalizedModel = modelLower.replace(/\s+/g, ' ');
+
+      // Match if the make is correct and the model appears in the listing
+      // This handles "IONIQ 5" matching "ioniq 5", "Mach-E" matching "mach-e", etc.
+      const isMatch = makeModelLower.includes(makeLower) &&
+                      normalizedMakeModel.includes(normalizedModel);
+
+      // Track results above the "didn't find" heading
+      if (cardIndex < didntFindIndex) {
+        totalAboveHeading++;
+        if (!isMatch) {
+          nonMatchingAboveHeading++;
+        }
+      }
+
+      // Skip results below the "didn't find" heading
+      if (cardIndex >= didntFindIndex) {
+        return; // Skip non-relevant results
+      }
+
+      // Skip non-matching results (defensive validation)
+      if (!isMatch) {
+        return;
+      }
 
       // Extract price
       const priceText = $card.find('[data-qa="price"]').text().trim();
       const price = parseInt(priceText.replace(/[$,]/g, ''));
 
-      // Extract make/model/year from title
-      const makeModelText = $card.find('[data-qa="make-model"]').text().trim();
-
-      // Format is typically "2023 Tesla Model 3"
+      // Extract year
       const yearMatch = makeModelText.match(/^(\d{4})/);
       const year = yearMatch ? parseInt(yearMatch[1]) : 0;
 
-      // Try to extract trim and mileage from the combined field
-      // Format is typically: "SE Sport Utility 4D • 12K mi"
+      // Extract trim/mileage
       const trimMileageText = $card.find('[data-qa="trim-mileage"]').text().trim();
+
+      // Parse trim and mileage from the combined field
+      // Format is typically: "SE Sport Utility 4D • 12K mi"
 
       let trim = 'Base';
       let mileage = 0;
@@ -171,6 +247,13 @@ function parseListings($, make, model) {
       console.error('    Error parsing listing:', error.message);
     }
   });
+
+  // Defensive check: if we found many non-matching results above the heading,
+  // Carvana's search isn't working properly for this model
+  if (totalAboveHeading > 0 && nonMatchingAboveHeading / totalAboveHeading > 0.5) {
+    console.error(`    ⚠ Warning: ${nonMatchingAboveHeading}/${totalAboveHeading} results above heading don't match ${make} ${model}`);
+    console.error(`    This indicates Carvana's search may not support this model name format`);
+  }
 
   return listings;
 }
