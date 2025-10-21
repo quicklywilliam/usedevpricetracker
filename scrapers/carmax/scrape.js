@@ -63,7 +63,17 @@ export async function scrapeCarMax(query) {
 
 function buildSearchUrl(make, model) {
   // CarMax search URL format
-  // Example: https://www.carmax.com/cars/tesla/model-3
+  // For most models: https://www.carmax.com/cars/tesla/model-3
+  // For models with "EV" suffix or special characters, use search parameter
+
+  // Check if model contains "EV" as a separate word or special characters
+  if (model.match(/\s+EV$/i) || model.includes('.')) {
+    // Use search parameter format
+    const searchTerm = `${make} ${model}`.toLowerCase().replace(/\s+/g, '+');
+    return `https://www.carmax.com/cars?search=${searchTerm}`;
+  }
+
+  // Use path format for standard models
   const makeSlug = make.toLowerCase().replace(/\s+/g, '-');
   const modelSlug = model.toLowerCase().replace(/\s+/g, '-');
   return `https://www.carmax.com/cars/${makeSlug}/${modelSlug}`;
@@ -99,6 +109,14 @@ function parseListings($, make, model) {
       const titleText = $card.find('.scct--make-model-info').text().trim();
       const yearMatch = titleText.match(/^(\d{4})/);
       const year = yearMatch ? parseInt(yearMatch[1]) : 0;
+
+      // Validate that this listing matches the model we're searching for
+      // This filters out suggestions like "Equinox" when searching for "Equinox EV"
+      const titleLower = titleText.toLowerCase();
+      const modelLower = model.toLowerCase();
+      if (!titleLower.includes(modelLower)) {
+        return; // Skip this listing - doesn't match the requested model
+      }
 
       // Extract trim from model-trim span
       const trimText = $card.find('.scct--make-model-info--model-trim').text().trim();
