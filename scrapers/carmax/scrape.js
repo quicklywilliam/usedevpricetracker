@@ -139,8 +139,12 @@ function parseListings($, make, model) {
     try {
       const $card = $(element);
 
-      // Extract stock ID from data-id attribute
-      const stockId = $card.attr('data-id') || `carmax-${i}`;
+      // Extract stock ID from data-id attribute - required for tracking
+      const stockId = $card.attr('data-id');
+      if (!stockId) {
+        console.error(`    ⚠ Warning: Could not extract stock ID from listing`);
+        return; // Skip listings without valid IDs
+      }
 
       // Extract price
       const priceText = $card.find('.scct--price-miles-info--price').text().trim();

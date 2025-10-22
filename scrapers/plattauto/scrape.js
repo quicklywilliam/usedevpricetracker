@@ -132,10 +132,14 @@ function parseListings($, make, model) {
       const urlPath = linkElement.attr('href');
       const url = urlPath ? (urlPath.startsWith('http') ? urlPath : `https://www.plattauto.com${urlPath}`) : '';
 
-      // Extract stock number or VIN for ID
+      // Extract stock number or VIN for ID - required for tracking
       const stockText = $card.find('.dws-vehicle-field-stock-number').text().trim().replace(/\s+/g, ' ');
       const vinText = $card.find('.dws-vehicle-field-vin').text().trim().replace(/\s+/g, ' ');
-      const id = stockText || vinText || `plattauto-${i}`;
+      const id = stockText || vinText;
+      if (!id) {
+        console.error(`    ⚠ Warning: Could not extract stock number or VIN from listing`);
+        return; // Skip listings without valid IDs
+      }
 
       // Skip duplicates - some listings appear multiple times in the DOM
       if (seenIds.has(id)) {

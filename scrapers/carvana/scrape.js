@@ -225,9 +225,13 @@ function parseListings($, make, model) {
       const urlPath = linkElement.attr('href');
       const url = urlPath ? (urlPath.startsWith('http') ? urlPath : `https://www.carvana.com${urlPath}`) : '';
 
-      // Generate ID from URL or index
-      const idMatch = urlPath?.match(/\/(\d+)$/);
-      const id = idMatch ? `carvana-${idMatch[1]}` : `carvana-${i}`;
+      // Extract vehicle ID from URL - required for tracking
+      const idMatch = urlPath?.match(/\/vehicle\/(\d+)/);
+      if (!idMatch) {
+        console.error(`    ⚠ Warning: Could not extract vehicle ID from URL: ${urlPath}`);
+        return; // Skip listings without valid IDs
+      }
+      const id = `carvana-${idMatch[1]}`;
 
       if (price && year) {
         listings.push({
