@@ -53,3 +53,39 @@ export function calculatePriceStats(listings) {
     avg: calculateAveragePrice(listings)
   };
 }
+
+export function findNewListings(allData) {
+  if (allData.length === 0) return [];
+
+  // Get all unique dates and sort them (most recent first)
+  const dates = [...new Set(allData.map(d => d.scraped_at.split('T')[0]))].sort().reverse();
+
+  if (dates.length < 2) {
+    // If we only have one date, all listings are "new"
+    return allData
+      .flatMap(d => d.listings.map(listing => ({ ...listing, source: d.source })))
+      .slice(0, 20);
+  }
+
+  const mostRecentDate = dates[0];
+  const previousDate = dates[1];
+
+  // Get all listings from most recent date (include source)
+  const recentListings = allData
+    .filter(d => d.scraped_at.startsWith(mostRecentDate))
+    .flatMap(d => d.listings.map(listing => ({ ...listing, source: d.source })));
+
+  // Get all listings from previous date
+  const previousListings = allData
+    .filter(d => d.scraped_at.startsWith(previousDate))
+    .flatMap(d => d.listings);
+
+  // Create a Set of previous IDs for fast lookup
+  const previousIds = new Set(previousListings.map(l => l.id));
+
+  // Find listings that exist in recent but not in previous
+  const newListings = recentListings.filter(l => !previousIds.has(l.id));
+
+  // Sort by price (descending) and limit to 20
+  return newListings.sort((a, b) => b.price - a.price).slice(0, 20);
+}

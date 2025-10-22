@@ -1,33 +1,10 @@
 import React from 'react';
 import './ListingsTable.css';
 
-export default function ListingsTable({ data, model }) {
-  if (!data || data.length === 0 || !model) {
+export default function ListingsTable({ listings, title = "Current Listings", emptyMessage = "No listings found", showModel = false }) {
+  if (!listings || listings.length === 0) {
     return null;
   }
-
-  // Get latest data only
-  const latestDate = data
-    .map(d => d.scraped_at)
-    .sort()
-    .reverse()[0]
-    ?.split('T')[0];
-
-  const latestData = data.filter(
-    d => d.scraped_at.startsWith(latestDate)
-  );
-
-  const listings = [];
-  latestData.forEach(sourceData => {
-    sourceData.listings.forEach(listing => {
-      if (`${listing.make} ${listing.model}` === model) {
-        listings.push({ ...listing, source: sourceData.source });
-      }
-    });
-  });
-
-  // Sort by price
-  listings.sort((a, b) => a.price - b.price);
 
   const sourceColors = {
     'mock-source': 'source-mock',
@@ -38,11 +15,17 @@ export default function ListingsTable({ data, model }) {
 
   return (
     <div className="listings-table">
-      <h2>Current Listings</h2>
+      <h2>{title}</h2>
       <table>
         <thead>
           <tr>
             <th>Source</th>
+            {showModel && (
+              <>
+                <th>Make</th>
+                <th>Model</th>
+              </>
+            )}
             <th>Year</th>
             <th>Trim</th>
             <th>Price</th>
@@ -59,6 +42,12 @@ export default function ListingsTable({ data, model }) {
                   {listing.source}
                 </span>
               </td>
+              {showModel && (
+                <>
+                  <td>{listing.make}</td>
+                  <td>{listing.model}</td>
+                </>
+              )}
               <td>{listing.year}</td>
               <td>{listing.trim}</td>
               <td className="price">${listing.price.toLocaleString()}</td>

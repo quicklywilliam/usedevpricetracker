@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { loadAllData, getModelKey } from './services/dataLoader';
 import OverviewChart from './components/OverviewChart';
 import DetailChart from './components/DetailChart';
-import ListingsTable from './components/ListingsTable';
+import ModelListingsView from './components/ModelListingsView';
+import NewListings from './components/NewListings';
 
 function App() {
   const [data, setData] = useState([]);
@@ -73,7 +74,10 @@ function App() {
       </header>
       <main className="container">
         {!selectedModel ? (
-          <OverviewChart data={data} onModelSelect={handleModelSelect} />
+          <>
+            <OverviewChart data={data} onModelSelect={handleModelSelect} />
+            <NewListings data={data} />
+          </>
         ) : (
           <>
             <div className="breadcrumb">
@@ -82,7 +86,7 @@ function App() {
               </a> / {selectedModel}
             </div>
             <DetailChart data={data} model={selectedModel} />
-            <ListingsTable data={data} model={selectedModel} />
+            <ModelListingsView data={data} model={selectedModel} />
           </>
         )}
       </main>
