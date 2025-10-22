@@ -67,10 +67,11 @@ jobs:
             echo "No new data to commit"
           else
             DATE=$(date +%Y-%m-%d)
-            git commit -m "Update prices for $DATE
+            SOURCE_COUNT=$(find data -name "*.json" | wc -l | tr -d ' ')
+            git commit -m "chore: update prices for $DATE ($SOURCE_COUNT sources)
 
-            🤖 Generated with GitHub Actions"
-            git push
+🤖 Generated with GitHub Actions"
+            git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
           fi
 
       - name: Build frontend
