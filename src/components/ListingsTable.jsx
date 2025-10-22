@@ -1,7 +1,7 @@
 import React from 'react';
 import './ListingsTable.css';
 
-export default function ListingsTable({ listings, title = "Current Listings", emptyMessage = "No listings found", showModel = false }) {
+export default function ListingsTable({ listings, title = "Current Listings", emptyMessage = "No listings found", showModel = false, showPriceChange = false }) {
   if (!listings || listings.length === 0) {
     return null;
   }
@@ -29,6 +29,7 @@ export default function ListingsTable({ listings, title = "Current Listings", em
             <th>Year</th>
             <th>Trim</th>
             <th>Price</th>
+            {showPriceChange && <th>Change</th>}
             <th>Mileage</th>
             <th>Location</th>
             <th>Link</th>
@@ -51,6 +52,17 @@ export default function ListingsTable({ listings, title = "Current Listings", em
               <td>{listing.year}</td>
               <td>{listing.trim}</td>
               <td className="price">${listing.price.toLocaleString()}</td>
+              {showPriceChange && (
+                <td>
+                  {listing.priceChange !== undefined ? (
+                    <span className={`price-change ${listing.priceChange > 0 ? 'price-increase' : 'price-decrease'}`}>
+                      {listing.priceChange > 0 ? '↑' : '↓'} ${Math.abs(listing.priceChange).toLocaleString()}
+                    </span>
+                  ) : (
+                    <span className="price-change-new">NEW</span>
+                  )}
+                </td>
+              )}
               <td>{listing.mileage.toLocaleString()} mi</td>
               <td>{listing.location}</td>
               <td>

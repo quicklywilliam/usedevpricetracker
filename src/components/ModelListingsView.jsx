@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ListingsTable from './ListingsTable';
-import { findNewListings } from '../services/dataLoader';
+import { findNewListings, findListingsWithPriceChanges } from '../services/dataLoader';
 import './ModelListingsView.css';
 
 export default function ModelListingsView({ data, model }) {
@@ -65,13 +65,19 @@ export default function ModelListingsView({ data, model }) {
   // Sort by price
   allListings.sort((a, b) => a.price - b.price);
 
-  // Get new listings and filter for this model
+  // Get new listings and price-changed listings, filter for this model
   const newListings = findNewListings(data).filter(
     listing => `${listing.make} ${listing.model}` === model
   );
+  const priceChangedListings = findListingsWithPriceChanges(data).filter(
+    listing => `${listing.make} ${listing.model}` === model
+  );
 
-  const listings = activeTab === 'all' ? allListings : newListings;
-  const title = activeTab === 'all' ? 'All Listings' : 'New Listings';
+  // Combine new and price-changed listings
+  const newAndChangedListings = [...newListings, ...priceChangedListings];
+
+  const listings = activeTab === 'all' ? allListings : newAndChangedListings;
+  const title = activeTab === 'all' ? 'All Listings' : 'New & Changed Listings';
 
   return (
     <div className="model-listings-view">
@@ -86,10 +92,14 @@ export default function ModelListingsView({ data, model }) {
           className={`tab ${activeTab === 'new' ? 'active' : ''}`}
           onClick={() => handleTabChange('new')}
         >
-          New Listings ({newListings.length})
+          New & Changed ({newAndChangedListings.length})
         </button>
       </div>
-      <ListingsTable listings={listings} title={title} />
+      <ListingsTable
+        listings={listings}
+        title={title}
+        showPriceChange={activeTab === 'new'}
+      />
     </div>
   );
 }

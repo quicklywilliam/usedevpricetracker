@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ListingsTable from './ListingsTable';
-import { findNewListings } from '../services/dataLoader';
+import { findNewListings, findListingsWithPriceChanges } from '../services/dataLoader';
 import './NewListings.css';
 
 export default function NewListings({ data }) {
@@ -31,19 +31,23 @@ export default function NewListings({ data }) {
     return null;
   }
 
-  const allNewListings = findNewListings(data);
+  const newListings = findNewListings(data);
+  const priceChangedListings = findListingsWithPriceChanges(data);
 
-  if (allNewListings.length === 0) {
+  // Combine new and price-changed listings
+  const allListings = [...newListings, ...priceChangedListings];
+
+  if (allListings.length === 0) {
     return null;
   }
 
   // Get unique sources
-  const sources = [...new Set(allNewListings.map(l => l.source))].sort();
+  const sources = [...new Set(allListings.map(l => l.source))].sort();
 
   // Filter listings by source
   const filteredListings = selectedSource === 'all'
-    ? allNewListings
-    : allNewListings.filter(l => l.source === selectedSource);
+    ? allListings
+    : allListings.filter(l => l.source === selectedSource);
 
   const handleSourceChange = (source) => {
     setSelectedSource(source);
@@ -60,8 +64,8 @@ export default function NewListings({ data }) {
     <div className="new-listings">
       <div className="new-listings-header">
         <div>
-          <h2>New Listings</h2>
-          <p className="subtitle">Recently added vehicles from the latest scrape</p>
+          <h2>New & Changed Listings</h2>
+          <p className="subtitle">Recently added vehicles and price changes from the latest scrape</p>
         </div>
         <div className="source-filter">
           <label htmlFor="source-select">Filter by source:</label>
@@ -70,9 +74,9 @@ export default function NewListings({ data }) {
             value={selectedSource}
             onChange={(e) => handleSourceChange(e.target.value)}
           >
-            <option value="all">All Sources ({allNewListings.length})</option>
+            <option value="all">All Sources ({allListings.length})</option>
             {sources.map(source => {
-              const count = allNewListings.filter(l => l.source === source).length;
+              const count = allListings.filter(l => l.source === source).length;
               const displayName = source.charAt(0).toUpperCase() + source.slice(1);
               return (
                 <option key={source} value={source}>
@@ -86,8 +90,9 @@ export default function NewListings({ data }) {
       <ListingsTable
         listings={filteredListings}
         title=""
-        emptyMessage="No new listings found"
+        emptyMessage="No new or changed listings found"
         showModel={true}
+        showPriceChange={true}
       />
     </div>
   );

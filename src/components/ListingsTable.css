@@ -78,3 +78,27 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+.price-change {
+  font-weight: 600;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+.price-increase {
+  color: #d32f2f;
+}
+
+.price-decrease {
+  color: #2e7d32;
+}
+
+.price-change-new {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background: #667eea;
+  color: white;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
