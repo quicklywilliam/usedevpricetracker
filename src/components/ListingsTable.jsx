@@ -15,7 +15,6 @@ export default function ListingsTable({ listings, title = "Current Listings", em
 
   return (
     <div className="listings-table">
-      <h2>{title}</h2>
       <table>
         <thead>
           <tr>

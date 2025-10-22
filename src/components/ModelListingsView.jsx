@@ -1,48 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import ListingsTable from './ListingsTable';
+import React from 'react';
+import VehicleListingTabs from './VehicleListingTabs';
 import { findNewListings, findListingsWithPriceChanges } from '../services/dataLoader';
 import './ModelListingsView.css';
 
 export default function ModelListingsView({ data, model }) {
-  const [activeTab, setActiveTab] = useState('all');
-
-  // Load tab from URL on mount
-  useEffect(() => {
-    const url = new URL(window.location);
-    const tab = url.searchParams.get('tab');
-    if (tab === 'new' || tab === 'all') {
-      setActiveTab(tab);
-    }
-  }, []);
-
-  // Handle browser back/forward
-  useEffect(() => {
-    const handlePopState = () => {
-      const url = new URL(window.location);
-      const tab = url.searchParams.get('tab') || 'all';
-      setActiveTab(tab);
-    };
-
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
-  }, []);
-
   if (!data || data.length === 0 || !model) {
     return null;
   }
 
-  const handleTabChange = (tab) => {
-    setActiveTab(tab);
-    const url = new URL(window.location);
-    if (tab === 'all') {
-      url.searchParams.delete('tab');
-    } else {
-      url.searchParams.set('tab', tab);
-    }
-    window.history.pushState({}, '', url);
-  };
-
-  // Get latest data only for "all" tab
+  // Get latest data for "all" tab
   const latestDate = data
     .map(d => d.scraped_at)
     .sort()
@@ -73,32 +39,13 @@ export default function ModelListingsView({ data, model }) {
     listing => `${listing.make} ${listing.model}` === model
   );
 
-  // Combine new and price-changed listings
-  const newAndChangedListings = [...newListings, ...priceChangedListings];
-
-  const listings = activeTab === 'all' ? allListings : newAndChangedListings;
-  const title = activeTab === 'all' ? 'All Listings' : 'New & Changed Listings';
-
   return (
     <div className="model-listings-view">
-      <div className="tabs">
-        <button
-          className={`tab ${activeTab === 'all' ? 'active' : ''}`}
-          onClick={() => handleTabChange('all')}
-        >
-          All Listings ({allListings.length})
-        </button>
-        <button
-          className={`tab ${activeTab === 'new' ? 'active' : ''}`}
-          onClick={() => handleTabChange('new')}
-        >
-          New & Changed ({newAndChangedListings.length})
-        </button>
-      </div>
-      <ListingsTable
-        listings={listings}
-        title={title}
-        showPriceChange={activeTab === 'new'}
+      <VehicleListingTabs
+        newListings={newListings}
+        changedListings={priceChangedListings}
+        allListings={allListings}
+        showModel={false}
       />
     </div>
   );

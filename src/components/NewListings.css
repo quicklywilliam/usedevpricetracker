@@ -7,11 +7,7 @@
 }
 
 .new-listings-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 1.5rem;
-  gap: 2rem;
+  margin-bottom: 0;
 }
 
 .new-listings h2 {

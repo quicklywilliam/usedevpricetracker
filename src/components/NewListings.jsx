@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ListingsTable from './ListingsTable';
+import VehicleListingTabs from './VehicleListingTabs';
 import { findNewListings, findListingsWithPriceChanges } from '../services/dataLoader';
 import './NewListings.css';
 
@@ -34,7 +34,7 @@ export default function NewListings({ data }) {
   const newListings = findNewListings(data);
   const priceChangedListings = findListingsWithPriceChanges(data);
 
-  // Combine new and price-changed listings
+  // Combine new and price-changed listings for source filtering
   const allListings = [...newListings, ...priceChangedListings];
 
   if (allListings.length === 0) {
@@ -45,9 +45,13 @@ export default function NewListings({ data }) {
   const sources = [...new Set(allListings.map(l => l.source))].sort();
 
   // Filter listings by source
-  const filteredListings = selectedSource === 'all'
-    ? allListings
-    : allListings.filter(l => l.source === selectedSource);
+  const filteredNewListings = selectedSource === 'all'
+    ? newListings
+    : newListings.filter(l => l.source === selectedSource);
+
+  const filteredChangedListings = selectedSource === 'all'
+    ? priceChangedListings
+    : priceChangedListings.filter(l => l.source === selectedSource);
 
   const handleSourceChange = (source) => {
     setSelectedSource(source);
@@ -60,39 +64,34 @@ export default function NewListings({ data }) {
     window.history.pushState({}, '', url);
   };
 
+  const sourceFilterElement = (
+    <div className="source-filter">
+      <select
+        id="source-select"
+        value={selectedSource}
+        onChange={(e) => handleSourceChange(e.target.value)}
+      >
+        <option value="all">All Dealers ({allListings.length})</option>
+        {sources.map(source => {
+          const count = allListings.filter(l => l.source === source).length;
+          const displayName = source.charAt(0).toUpperCase() + source.slice(1);
+          return (
+            <option key={source} value={source}>
+              {displayName} ({count})
+            </option>
+          );
+        })}
+      </select>
+    </div>
+  );
+
   return (
     <div className="new-listings">
-      <div className="new-listings-header">
-        <div>
-          <h2>New & Changed Listings</h2>
-          <p className="subtitle">Recently added vehicles and price changes from the latest scrape</p>
-        </div>
-        <div className="source-filter">
-          <label htmlFor="source-select">Filter by source:</label>
-          <select
-            id="source-select"
-            value={selectedSource}
-            onChange={(e) => handleSourceChange(e.target.value)}
-          >
-            <option value="all">All Sources ({allListings.length})</option>
-            {sources.map(source => {
-              const count = allListings.filter(l => l.source === source).length;
-              const displayName = source.charAt(0).toUpperCase() + source.slice(1);
-              return (
-                <option key={source} value={source}>
-                  {displayName} ({count})
-                </option>
-              );
-            })}
-          </select>
-        </div>
-      </div>
-      <ListingsTable
-        listings={filteredListings}
-        title=""
-        emptyMessage="No new or changed listings found"
+      <VehicleListingTabs
+        newListings={filteredNewListings}
+        changedListings={filteredChangedListings}
         showModel={true}
-        showPriceChange={true}
+        sourceFilter={sourceFilterElement}
       />
     </div>
   );
