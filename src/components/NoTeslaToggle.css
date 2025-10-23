@@ -1,8 +1,4 @@
 .no-tesla-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
   background: white;
   padding: 1rem 1.5rem;
   border-radius: 8px;

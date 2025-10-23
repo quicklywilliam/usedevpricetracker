@@ -99,10 +99,14 @@ function App() {
 
   return (
     <div className="app">
-      <NoTeslaToggle enabled={noTesla} onChange={handleNoTeslaToggle} />
       <header>
-        <h1>Used EV Finder</h1>
-        <p>Compare used electric vehicle prices from multiple dealers and track changes over time.</p>
+        <div className="header-content">
+          <div>
+            <h1>Used EV Finder</h1>
+            <p>Compare used electric vehicle prices from multiple dealers and track changes over time.</p>
+          </div>
+          <NoTeslaToggle enabled={noTesla} onChange={handleNoTeslaToggle} />
+        </div>
       </header>
       <main className="container">
         {!selectedModel ? (
