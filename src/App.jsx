@@ -4,12 +4,14 @@ import OverviewChart from './components/OverviewChart';
 import DetailChart from './components/DetailChart';
 import ModelListingsView from './components/ModelListingsView';
 import NewListings from './components/NewListings';
+import NoTeslaToggle from './components/NoTeslaToggle';
 
 function App() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedModel, setSelectedModel] = useState(null);
+  const [noTesla, setNoTesla] = useState(false);
 
   useEffect(() => {
     loadAllData()
@@ -22,6 +24,10 @@ function App() {
         const modelParam = url.searchParams.get('model');
         if (modelParam && modelParam !== 'all') {
           setSelectedModel(modelParam);
+        }
+        const noTeslaParam = url.searchParams.get('noTesla');
+        if (noTeslaParam === 'true') {
+          setNoTesla(true);
         }
       })
       .catch(err => {
@@ -36,6 +42,8 @@ function App() {
       const url = new URL(window.location);
       const modelParam = url.searchParams.get('model');
       setSelectedModel(modelParam && modelParam !== 'all' ? modelParam : null);
+      const noTeslaParam = url.searchParams.get('noTesla');
+      setNoTesla(noTeslaParam === 'true');
     };
 
     window.addEventListener('popstate', handlePopState);
@@ -54,6 +62,27 @@ function App() {
     window.history.pushState({}, '', url);
   };
 
+  const handleNoTeslaToggle = (enabled) => {
+    setNoTesla(enabled);
+    const url = new URL(window.location);
+    if (enabled) {
+      url.searchParams.set('noTesla', 'true');
+    } else {
+      url.searchParams.delete('noTesla');
+    }
+    window.history.pushState({}, '', url);
+  };
+
+  // Filter out Tesla listings if NO TESLA is enabled
+  const filterTesla = (data) => {
+    if (!noTesla) return data;
+
+    return data.map(sourceData => ({
+      ...sourceData,
+      listings: sourceData.listings.filter(listing => listing.make !== 'Tesla')
+    }));
+  };
+
   if (loading) {
     return <div className="loading">Loading price data...</div>;
   }
@@ -62,12 +91,15 @@ function App() {
     return <div className="error">Error: {error}</div>;
   }
 
-  const models = data.length > 0
-    ? [...new Set(data.flatMap(d => d.listings.map(getModelKey)))]
+  const filteredData = filterTesla(data);
+
+  const models = filteredData.length > 0
+    ? [...new Set(filteredData.flatMap(d => d.listings.map(getModelKey)))]
     : [];
 
   return (
     <div className="app">
+      <NoTeslaToggle enabled={noTesla} onChange={handleNoTeslaToggle} />
       <header>
         <h1>Used EV Finder</h1>
         <p>Compare used electric vehicle prices from multiple dealers and track changes over time.</p>
@@ -75,8 +107,8 @@ function App() {
       <main className="container">
         {!selectedModel ? (
           <>
-            <OverviewChart data={data} onModelSelect={handleModelSelect} />
-            <NewListings data={data} />
+            <OverviewChart data={filteredData} onModelSelect={handleModelSelect} />
+            <NewListings data={filteredData} />
           </>
         ) : (
           <>
@@ -85,8 +117,8 @@ function App() {
                 All Models
               </a> / {selectedModel}
             </div>
-            <DetailChart data={data} model={selectedModel} />
-            <ModelListingsView data={data} model={selectedModel} />
+            <DetailChart data={filteredData} model={selectedModel} />
+            <ModelListingsView data={filteredData} model={selectedModel} />
           </>
         )}
       </main>
