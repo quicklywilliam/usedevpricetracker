@@ -1,5 +1,6 @@
 import * as cheerio from 'cheerio';
 import { BaseScraper } from '../lib/base-scraper.js';
+import { MIN_VEHICLES } from '../lib/config.js';
 
 class CarvanaScraper extends BaseScraper {
   constructor() {
@@ -45,7 +46,6 @@ class CarvanaScraper extends BaseScraper {
 
   async scrapeModel(query) {
     const allListings = [];
-    const MIN_VEHICLES = 250;
 
     // Use the search box - let Carvana's autocomplete handle regularization
     // This is more robust than constructing filter URLs

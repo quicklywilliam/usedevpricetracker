@@ -1,5 +1,6 @@
 import * as cheerio from 'cheerio';
 import { BaseScraper } from '../lib/base-scraper.js';
+import { MIN_VEHICLES } from '../lib/config.js';
 
 class CarMaxScraper extends BaseScraper {
   constructor() {
@@ -54,7 +55,6 @@ class CarMaxScraper extends BaseScraper {
     const allListings = [];
     const seenIds = new Set();
     const searchUrl = buildSearchUrl(query.make, query.model);
-    const MIN_VEHICLES = 250;
 
     await this.page.goto(searchUrl, {
       waitUntil: 'networkidle2',

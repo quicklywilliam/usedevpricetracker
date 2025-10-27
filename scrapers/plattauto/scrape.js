@@ -1,5 +1,6 @@
 import * as cheerio from 'cheerio';
 import { BaseScraper } from '../lib/base-scraper.js';
+import { MIN_VEHICLES } from '../lib/config.js';
 
 class PlattAutoScraper extends BaseScraper {
   constructor() {
@@ -45,8 +46,7 @@ class PlattAutoScraper extends BaseScraper {
 
   async scrapeModel(query) {
     const allListings = [];
-    const MIN_VEHICLES = 250;
-    const maxPages = 100; // High enough to get to 250 vehicles
+    const maxPages = 100; // High enough to get to MIN_VEHICLES
 
     for (let pageNum = 1; pageNum <= maxPages && allListings.length < MIN_VEHICLES; pageNum++) {
       const searchUrl = buildSearchUrl(query.make, query.model, pageNum);
