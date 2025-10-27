@@ -7946,5 +7946,11 @@
       "url": "https://www.carmax.com/car/28020512",
       "listing_date": "2025-10-23"
     }
+  ],
+  "models_exceeded_max_vehicles": [
+    {
+      "make": "Tesla",
+      "model": "Model 3"
+    }
   ]
 }

@@ -7874,5 +7874,11 @@
       "url": "https://www.carmax.com/car/27638430",
       "listing_date": "2025-10-22"
     }
+  ],
+  "models_exceeded_max_vehicles": [
+    {
+      "make": "Tesla",
+      "model": "Model 3"
+    }
   ]
 }

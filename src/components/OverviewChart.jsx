@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
-import { getModelKey, calculateAveragePrice } from '../services/dataLoader';
+import { getModelKey, calculateAveragePrice, modelExceededMaxOnDate } from '../services/dataLoader';
+import { createInventoryScale } from '../utils/inventoryScale';
 import './OverviewChart.css';
 
 export default function OverviewChart({ data, onModelSelect }) {
@@ -47,18 +48,38 @@ export default function OverviewChart({ data, onModelSelect }) {
       });
     });
 
+    // Collect all inventory counts for scaling
+    const allCounts = [];
+    models.forEach(model => {
+      dates.forEach(date => {
+        allCounts.push(priceData[model][date].length);
+      });
+    });
+
+    // Create inventory-based size scale
+    const getPointSize = createInventoryScale(allCounts);
+
+    // Create price datasets with variable point sizes based on inventory
     const datasets = models.map(model => {
       const dataPoints = dates.map(date => {
         const listings = priceData[model][date];
         return listings.length > 0 ? calculateAveragePrice(listings) : null;
       });
 
+      // Calculate point radius based on inventory count
+      const pointRadii = dates.map(date => {
+        const count = priceData[model][date].length;
+        return getPointSize(count);
+      });
+
       return {
         label: model,
         data: dataPoints,
         borderColor: modelColors[model] || '#666',
-        backgroundColor: (modelColors[model] || '#666') + '20',
-        tension: 0.3
+        backgroundColor: modelColors[model] || '#666',
+        tension: 0.3,
+        pointRadius: pointRadii,
+        pointHoverRadius: pointRadii.map(r => r + 2)
       };
     });
 
@@ -99,10 +120,26 @@ export default function OverviewChart({ data, onModelSelect }) {
                 return `${date.getMonth() + 1}/${date.getDate()}`;
               },
               label: (context) => {
-                // Show model name and price
                 const modelName = context.dataset.label;
                 const price = context.parsed.y;
-                return `${modelName}: $${price.toLocaleString()}`;
+                const dateIndex = context.dataIndex;
+                const date = dates[dateIndex];
+                const listings = priceData[modelName][date];
+                const count = listings.length;
+
+                // Extract make and model from modelName (e.g., "Tesla Model 3")
+                const parts = modelName.split(' ');
+                const make = parts[0];
+                const model = parts.slice(1).join(' ');
+
+                // Check if this model exceeded max on this date
+                const exceededMax = modelExceededMaxOnDate(data, make, model, date);
+                const stockLabel = exceededMax ? `Over ${count} cars` : `${count} cars`;
+
+                return [
+                  `${modelName}: $${price.toLocaleString()}`,
+                  `Stock: ${stockLabel}`
+                ];
               }
             }
           }
@@ -119,6 +156,7 @@ export default function OverviewChart({ data, onModelSelect }) {
             }
           },
           y: {
+            position: 'left',
             beginAtZero: false,
             ticks: {
               callback: value => '$' + value.toLocaleString()

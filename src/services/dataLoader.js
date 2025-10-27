@@ -141,3 +141,20 @@ export function findListingsWithPriceChanges(allData) {
   // Sort by absolute price change (descending)
   return changedListings.sort((a, b) => Math.abs(b.priceChange) - Math.abs(a.priceChange));
 }
+
+/**
+ * Check if a model exceeded the max vehicle count for any source on a given date
+ * @param {Array} allData - All data from all sources
+ * @param {string} make - Make of the vehicle
+ * @param {string} model - Model of the vehicle
+ * @param {string} date - Date to check (YYYY-MM-DD format)
+ * @returns {boolean} True if any source exceeded max for this model on this date
+ */
+export function modelExceededMaxOnDate(allData, make, model, date) {
+  const dataForDate = allData.filter(d => d.scraped_at.startsWith(date));
+
+  return dataForDate.some(sourceData => {
+    const exceededModels = sourceData.models_exceeded_max_vehicles || [];
+    return exceededModels.some(m => m.make === make && m.model === model);
+  });
+}

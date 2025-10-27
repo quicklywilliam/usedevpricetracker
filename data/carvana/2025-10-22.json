@@ -9086,5 +9086,11 @@
       "url": "https://www.carvana.com/vehicle/3914225?refSource=srp",
       "listing_date": "2025-10-22"
     }
+  ],
+  "models_exceeded_max_vehicles": [
+    {
+      "make": "Tesla",
+      "model": "Model 3"
+    }
   ]
 }

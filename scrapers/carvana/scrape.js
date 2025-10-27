@@ -45,6 +45,7 @@ class CarvanaScraper extends BaseScraper {
 
   async scrapeModel(query) {
     const allListings = [];
+    const MIN_VEHICLES = 250;
 
     // Use the search box - let Carvana's autocomplete handle regularization
     // This is more robust than constructing filter URLs
@@ -70,10 +71,10 @@ class CarvanaScraper extends BaseScraper {
     await this.page.waitForSelector('[data-qa="result-tile"]', { timeout: 10000 });
 
     let hasMorePages = true;
-    const maxPages = 15;
+    const maxPages = 100; // High enough to get to 250 vehicles
     let pageNum = 0;
 
-    while (hasMorePages && pageNum < maxPages) {
+    while (hasMorePages && pageNum < maxPages && allListings.length < MIN_VEHICLES) {
       pageNum++;
 
       await new Promise(resolve => setTimeout(resolve, 1000));
@@ -85,6 +86,12 @@ class CarvanaScraper extends BaseScraper {
       const pageListings = parseListings($, query.make, query.model);
 
       allListings.push(...pageListings);
+
+      // Stop if we've reached the minimum
+      if (allListings.length >= MIN_VEHICLES) {
+        hasMorePages = false;
+        break;
+      }
 
       // Check for next page button
       const nextButton = await this.page.evaluateHandle(() => {
@@ -103,7 +110,11 @@ class CarvanaScraper extends BaseScraper {
       }
     }
 
-    return allListings;
+    // Return object with listings and exceeded flag
+    return {
+      listings: allListings,
+      exceededMax: allListings.length >= MIN_VEHICLES
+    };
   }
 }
 

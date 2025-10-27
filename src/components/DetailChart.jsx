@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
-import { calculatePriceStats } from '../services/dataLoader';
+import { calculatePriceStats, modelExceededMaxOnDate } from '../services/dataLoader';
 import { createLabelPlugin } from '../utils/chartLabels';
+import { createInventoryScale } from '../utils/inventoryScale';
 import './DetailChart.css';
 
 export default function DetailChart({ data, model }) {
@@ -41,15 +42,28 @@ export default function DetailChart({ data, model }) {
       }
     });
 
+    // Collect all inventory counts for scaling
+    const allCounts = [];
+    sources.forEach(source => {
+      dates.forEach(date => {
+        allCounts.push(sourceData[source][date].length);
+      });
+    });
+
+    // Create inventory-based size scale
+    const getPointSize = createInventoryScale(allCounts);
+
     const datasets = [];
 
     sources.forEach((source, idx) => {
       const avgData = [];
       const minData = [];
       const maxData = [];
+      const inventoryCounts = [];
 
       dates.forEach(date => {
         const listings = sourceData[source][date];
+        inventoryCounts.push(listings.length);
         if (listings.length > 0) {
           const stats = calculatePriceStats(listings);
           avgData.push(stats.avg);
@@ -68,6 +82,9 @@ export default function DetailChart({ data, model }) {
         }
         return null;
       });
+
+      // Calculate point sizes based on inventory
+      const pointRadii = inventoryCounts.map(count => getPointSize(count));
 
       const color = colors[source] || '#666';
       // Give each source a different bar width so they don't overlap
@@ -97,11 +114,12 @@ export default function DetailChart({ data, model }) {
         borderColor: color,
         backgroundColor: color,
         borderWidth: 3,
-        pointStyle: 'crossRot', // X shape
-        pointRadius: 4,
-        pointHoverRadius: 6,
+        pointRadius: pointRadii,
+        pointHoverRadius: pointRadii.map(r => r + 2),
         tension: 0.3,
-        order: 0
+        order: 0,
+        inventoryCounts: inventoryCounts, // Store for tooltip
+        sourceName: source // Store source name for exceeded check
       });
     });
 
@@ -151,7 +169,35 @@ export default function DetailChart({ data, model }) {
                   const data = context.raw;
                   return label + ': $' + data[0].toLocaleString() + ' - $' + data[1].toLocaleString();
                 } else {
-                  return label + ': $' + context.parsed.y.toLocaleString();
+                  const price = context.parsed.y;
+                  const inventoryCounts = context.dataset.inventoryCounts;
+                  const count = inventoryCounts ? inventoryCounts[context.dataIndex] : 0;
+
+                  // Extract make and model from the model name (passed from parent)
+                  const parts = model.split(' ');
+                  const make = parts[0];
+                  const modelName = parts.slice(1).join(' ');
+
+                  // Get date for this data point
+                  const date = dates[context.dataIndex];
+
+                  // Check if this model exceeded max on this date for this source
+                  const sourceName = context.dataset.sourceName;
+                  const dataForDateAndSource = data.filter(
+                    d => d.scraped_at.startsWith(date) && d.source === sourceName
+                  );
+
+                  const exceededMax = dataForDateAndSource.some(sourceData => {
+                    const exceededModels = sourceData.models_exceeded_max_vehicles || [];
+                    return exceededModels.some(m => m.make === make && m.model === modelName);
+                  });
+
+                  const stockLabel = exceededMax ? `Over ${count} cars` : `${count} cars`;
+
+                  return [
+                    label + ': $' + price.toLocaleString(),
+                    'Stock: ' + stockLabel
+                  ];
                 }
               }
             }

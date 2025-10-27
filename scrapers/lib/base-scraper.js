@@ -53,8 +53,19 @@ export class BaseScraper {
     await this.rateLimiter.waitIfNeeded();
 
     try {
-      const listings = await this.scrapeModel(query);
-      await appendListings(this.sourceName, listings);
+      const result = await this.scrapeModel(query);
+
+      // Handle both old format (array) and new format (object with listings and exceededMax)
+      const listings = Array.isArray(result) ? result : result.listings;
+      const exceededMax = result.exceededMax || false;
+
+      await appendListings(
+        this.sourceName,
+        listings,
+        exceededMax,
+        exceededMax ? { make: query.make, model: query.model } : null
+      );
+
       console.log(`  ✓ Found ${listings.length} listings`);
       return listings;
     } catch (error) {

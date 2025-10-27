@@ -54,6 +54,7 @@ class CarMaxScraper extends BaseScraper {
     const allListings = [];
     const seenIds = new Set();
     const searchUrl = buildSearchUrl(query.make, query.model);
+    const MIN_VEHICLES = 250;
 
     await this.page.goto(searchUrl, {
       waitUntil: 'networkidle2',
@@ -65,10 +66,10 @@ class CarMaxScraper extends BaseScraper {
     await new Promise(resolve => setTimeout(resolve, 2000));
 
     let hasMorePages = true;
-    const maxPages = 15;
+    const maxPages = 100; // High enough to get to 250 vehicles
     let pageNum = 0;
 
-    while (hasMorePages && pageNum < maxPages) {
+    while (hasMorePages && pageNum < maxPages && allListings.length < MIN_VEHICLES) {
       pageNum++;
 
       // Wait a bit for content to render
@@ -87,6 +88,12 @@ class CarMaxScraper extends BaseScraper {
         }
       }
 
+      // Stop if we've reached the minimum
+      if (allListings.length >= MIN_VEHICLES) {
+        hasMorePages = false;
+        break;
+      }
+
       // Check for "See more matches" button
       const loadMoreButton = await this.page.$('#see-more-button');
 
@@ -98,7 +105,11 @@ class CarMaxScraper extends BaseScraper {
       }
     }
 
-    return allListings;
+    // Return object with listings and exceeded flag
+    return {
+      listings: allListings,
+      exceededMax: allListings.length >= MIN_VEHICLES
+    };
   }
 }
 

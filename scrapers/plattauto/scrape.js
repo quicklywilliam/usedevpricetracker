@@ -45,9 +45,10 @@ class PlattAutoScraper extends BaseScraper {
 
   async scrapeModel(query) {
     const allListings = [];
-    const maxPages = 10;
+    const MIN_VEHICLES = 250;
+    const maxPages = 100; // High enough to get to 250 vehicles
 
-    for (let pageNum = 1; pageNum <= maxPages; pageNum++) {
+    for (let pageNum = 1; pageNum <= maxPages && allListings.length < MIN_VEHICLES; pageNum++) {
       const searchUrl = buildSearchUrl(query.make, query.model, pageNum);
 
       await this.page.goto(searchUrl, {
@@ -64,10 +65,17 @@ class PlattAutoScraper extends BaseScraper {
 
       if (pageListings.length === 0) break;
       allListings.push(...pageListings);
+
+      // Stop if we've reached the minimum
+      if (allListings.length >= MIN_VEHICLES) break;
       if (pageListings.length < 10) break;
     }
 
-    return allListings;
+    // Return object with listings and exceeded flag
+    return {
+      listings: allListings,
+      exceededMax: allListings.length >= MIN_VEHICLES
+    };
   }
 }
 
