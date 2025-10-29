@@ -149,7 +149,7 @@ function App() {
       <header>
         <div className="header-content">
           <div>
-            <h1>Used EV Finder</h1>
+            <h1>Used EV Tracker</h1>
             <p>Compare used electric vehicle prices from multiple dealers and track changes over time.</p>
           </div>
           <NoTeslaToggle enabled={noTesla} onChange={handleNoTeslaToggle} />
