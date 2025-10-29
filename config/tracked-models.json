@@ -43,6 +43,14 @@
     {
       "make": "Audi",
       "model": "Q4 e-tron"
+    },
+    {
+      "make": "BMW",
+      "model": "i4"
+    },
+    {
+      "make": "BMW",
+      "model": "i5"
     }
   ]
 }
