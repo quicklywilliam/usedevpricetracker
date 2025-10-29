@@ -35,7 +35,8 @@ export function createInventoryScale(inventoryCounts) {
     Infinity
   ];
 
-  const sizes = [1, 3, 4.5, 6, 7.5, 9, 10.5];
+  // More dramatic size progression with exponential-like growth
+  const sizes = [2, 4, 7, 10, 14, 18, 22];
 
   // Return a function that maps count to size
   return (count) => {

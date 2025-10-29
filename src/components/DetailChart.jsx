@@ -1,14 +1,16 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Chart from 'chart.js/auto';
-import { calculatePriceStats, modelExceededMaxOnDate } from '../services/dataLoader';
+import { calculatePriceStats, modelExceededMaxOnDate, calculateAverageDaysOnMarket } from '../services/dataLoader';
 import { createLabelPlugin } from '../utils/chartLabels';
 import { createInventoryScale } from '../utils/inventoryScale';
 import './DetailChart.css';
 
-export default function DetailChart({ data, model }) {
+export default function DetailChart({ data, model, onDateSelect, selectedDate }) {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
   const labelBoundsRef = useRef([]);
+  const dateLabelsContainerRef = useRef(null);
+  const [dotSizeMode, setDotSizeMode] = useState('stock'); // 'stock' or 'days'
 
   const colors = {
     'mock-source': '#1976d2',
@@ -36,22 +38,31 @@ export default function DetailChart({ data, model }) {
       const date = item.scraped_at.split('T')[0];
       const filteredListings = item.listings.filter(
         l => `${l.make} ${l.model}` === model
-      );
+      ).map(listing => ({ ...listing, source: item.source })); // Add source field
       if (sourceData[item.source] && sourceData[item.source][date]) {
         sourceData[item.source][date].push(...filteredListings);
       }
     });
 
-    // Collect all inventory counts for scaling
+    // Collect all inventory counts and avg days for scaling
     const allCounts = [];
+    const allAvgDays = [];
     sources.forEach(source => {
       dates.forEach(date => {
-        allCounts.push(sourceData[source][date].length);
+        const listings = sourceData[source][date];
+        allCounts.push(listings.length);
+        const avgDays = calculateAverageDaysOnMarket(data, listings, date);
+        if (avgDays !== null) {
+          allAvgDays.push(avgDays);
+        }
       });
     });
 
-    // Create inventory-based size scale
-    const getPointSize = createInventoryScale(allCounts);
+    // Create scales based on mode
+    const getPointSizeFromStock = createInventoryScale(allCounts);
+    const getPointSizeFromDays = allAvgDays.length > 0
+      ? createInventoryScale(allAvgDays)
+      : () => 5; // Fallback if no days data
 
     const datasets = [];
 
@@ -83,8 +94,16 @@ export default function DetailChart({ data, model }) {
         return null;
       });
 
-      // Calculate point sizes based on inventory
-      const pointRadii = inventoryCounts.map(count => getPointSize(count));
+      // Calculate point sizes based on selected mode
+      const pointRadii = dates.map((date, i) => {
+        if (dotSizeMode === 'days') {
+          const listings = sourceData[source][date];
+          const avgDays = calculateAverageDaysOnMarket(data, listings, date);
+          return avgDays !== null ? getPointSizeFromDays(avgDays) : 5;
+        } else {
+          return getPointSizeFromStock(inventoryCounts[i]);
+        }
+      });
 
       const color = colors[source] || '#666';
       // Give each source a different bar width so they don't overlap
@@ -167,9 +186,14 @@ export default function DetailChart({ data, model }) {
                 const label = context.dataset.label;
                 if (label.includes('Range')) {
                   const data = context.raw;
+                  // Skip if no data for this point
+                  if (!data || !Array.isArray(data)) return null;
                   return label + ': $' + data[0].toLocaleString() + ' - $' + data[1].toLocaleString();
                 } else {
                   const price = context.parsed.y;
+                  // Skip if no data for this point
+                  if (price === null || price === undefined) return null;
+
                   const inventoryCounts = context.dataset.inventoryCounts;
                   const count = inventoryCounts ? inventoryCounts[context.dataIndex] : 0;
 
@@ -194,10 +218,21 @@ export default function DetailChart({ data, model }) {
 
                   const stockLabel = exceededMax ? `Over ${count} cars` : `${count} cars`;
 
-                  return [
+                  // Get listings for this source and date
+                  const listings = sourceData[sourceName]?.[date] || [];
+                  const avgDays = calculateAverageDaysOnMarket(data, listings, date);
+                  const daysLabel = avgDays !== null ? `Avg days on market: ${avgDays}` : null;
+
+                  const result = [
                     label + ': $' + price.toLocaleString(),
                     'Stock: ' + stockLabel
                   ];
+
+                  if (daysLabel) {
+                    result.push(daysLabel);
+                  }
+
+                  return result;
                 }
               }
             }
@@ -211,12 +246,7 @@ export default function DetailChart({ data, model }) {
             },
             stacked: true,
             ticks: {
-              callback: (value, index) => {
-                // Format date as MM/DD
-                const dateStr = dates[index];
-                const date = new Date(dateStr);
-                return `${date.getMonth() + 1}/${date.getDate()}`;
-              }
+              display: false // Hide default labels, we'll use custom DOM elements
             }
           },
           y: {
@@ -228,7 +258,64 @@ export default function DetailChart({ data, model }) {
           }
         }
       },
-      plugins: [createLabelPlugin(labelBoundsRef)]
+      plugins: [
+        createLabelPlugin(labelBoundsRef),
+        {
+          afterDatasetsDraw: (chart) => {
+            // Create DOM elements for clickable date labels
+            if (dateLabelsContainerRef.current && onDateSelect) {
+              dateLabelsContainerRef.current.innerHTML = '';
+
+              const xScale = chart.scales.x;
+              const yScale = chart.scales.y;
+
+              dates.forEach((date, index) => {
+                const xPos = xScale.getPixelForValue(index);
+                const yPos = yScale.bottom + 10; // Position below the chart
+
+                const dateObj = new Date(date);
+                const formattedDate = `${dateObj.getMonth() + 1}/${dateObj.getDate()}`;
+
+                const linkEl = document.createElement('a');
+                linkEl.href = '#';
+                linkEl.className = 'date-label';
+                if (date === selectedDate) {
+                  linkEl.classList.add('selected');
+                }
+                linkEl.style.position = 'absolute';
+                linkEl.style.left = xPos + 'px';
+                linkEl.style.top = yPos + 'px';
+                linkEl.style.transform = 'translateX(-50%)';
+                linkEl.style.textDecoration = 'none';
+                linkEl.style.whiteSpace = 'nowrap';
+                linkEl.style.display = 'flex';
+                linkEl.style.alignItems = 'center';
+                linkEl.style.gap = '2px';
+                linkEl.style.fontSize = '11px';
+                linkEl.style.cursor = 'pointer';
+
+                const textSpan = document.createElement('span');
+                textSpan.textContent = formattedDate;
+
+                const chevron = document.createElement('span');
+                chevron.textContent = '›';
+                chevron.style.fontSize = '12px';
+                chevron.style.opacity = '0.6';
+
+                linkEl.appendChild(textSpan);
+                linkEl.appendChild(chevron);
+
+                linkEl.addEventListener('click', (e) => {
+                  e.preventDefault();
+                  onDateSelect(date);
+                });
+
+                dateLabelsContainerRef.current.appendChild(linkEl);
+              });
+            }
+          }
+        }
+      ]
     });
 
     return () => {
@@ -236,13 +323,27 @@ export default function DetailChart({ data, model }) {
         chartInstance.current.destroy();
       }
     };
-  }, [data, model]);
+  }, [data, model, onDateSelect, selectedDate, dotSizeMode]);
 
   return (
     <div className="detail-chart">
       <h2>{model} - Price History</h2>
+      <div className="chart-header">
+        <div className="chart-controls">
+          <label htmlFor="detail-dot-size-mode">Dot size represents:</label>
+          <select
+            id="detail-dot-size-mode"
+            value={dotSizeMode}
+            onChange={(e) => setDotSizeMode(e.target.value)}
+          >
+            <option value="stock">Stock Count</option>
+            <option value="days">Avg Days on Market</option>
+          </select>
+        </div>
+      </div>
       <div className="chart-container">
         <canvas ref={chartRef}></canvas>
+        <div ref={dateLabelsContainerRef} className="date-labels"></div>
       </div>
     </div>
   );

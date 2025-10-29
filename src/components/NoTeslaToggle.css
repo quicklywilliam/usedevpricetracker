@@ -1,9 +1,9 @@
 .no-tesla-toggle {
-  background: white;
+  background: var(--bg-secondary);
   padding: 1rem 1.5rem;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  border: 2px solid #e0e0e0;
+  box-shadow: 0 4px 12px var(--shadow);
+  border: 2px solid var(--border-color);
 }
 
 .toggle-label {
@@ -54,7 +54,7 @@
   font-weight: 700;
   font-size: 1.1rem;
   letter-spacing: 0.5px;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .toggle-checkbox:checked ~ .toggle-text {

@@ -44,6 +44,23 @@ class CarvanaScraper extends BaseScraper {
     }
   }
 
+  detectStatus({ html }) {
+    const htmlLower = html.toLowerCase();
+
+    // Check for purchase in progress or pending
+    if (htmlLower.includes('purchase in progress') || htmlLower.includes('purchase pending') || htmlLower.includes('another customer started purchasing')) {
+      return 'selling';
+    }
+
+    // Check for not available
+    if (htmlLower.includes('is no longer available') || htmlLower.includes('not available')) {
+      return 'sold';
+    }
+
+    // If page loads normally with vehicle details, it's available
+    return 'available';
+  }
+
   async scrapeModel(query) {
     const allListings = [];
 

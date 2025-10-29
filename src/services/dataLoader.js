@@ -60,7 +60,7 @@ export function calculatePriceStats(listings) {
   };
 }
 
-export function findNewListings(allData) {
+export function findNewListings(allData, targetDate = null) {
   if (allData.length === 0) return [];
 
   // Get all unique dates and sort them (most recent first)
@@ -73,8 +73,18 @@ export function findNewListings(allData) {
       .sort((a, b) => b.price - a.price);
   }
 
-  const mostRecentDate = dates[0];
-  const previousDate = dates[1];
+  // Use targetDate if provided, otherwise use most recent
+  const mostRecentDate = targetDate || dates[0];
+  const dateIndex = dates.indexOf(mostRecentDate);
+  const previousDate = dateIndex >= 0 && dateIndex < dates.length - 1 ? dates[dateIndex + 1] : null;
+
+  if (!previousDate) {
+    // If no previous date, return all listings for this date as "new"
+    return allData
+      .filter(d => d.scraped_at.startsWith(mostRecentDate))
+      .flatMap(d => d.listings.map(listing => ({ ...listing, source: d.source })))
+      .sort((a, b) => b.price - a.price);
+  }
 
   // Get all listings from most recent date (include source)
   const recentListings = allData
@@ -96,7 +106,7 @@ export function findNewListings(allData) {
   return newListings.sort((a, b) => b.price - a.price);
 }
 
-export function findListingsWithPriceChanges(allData) {
+export function findListingsWithPriceChanges(allData, targetDate = null) {
   if (allData.length === 0) return [];
 
   // Get all unique dates and sort them (most recent first)
@@ -106,8 +116,14 @@ export function findListingsWithPriceChanges(allData) {
     return [];
   }
 
-  const mostRecentDate = dates[0];
-  const previousDate = dates[1];
+  // Use targetDate if provided, otherwise use most recent
+  const mostRecentDate = targetDate || dates[0];
+  const dateIndex = dates.indexOf(mostRecentDate);
+  const previousDate = dateIndex >= 0 && dateIndex < dates.length - 1 ? dates[dateIndex + 1] : null;
+
+  if (!previousDate) {
+    return [];
+  }
 
   // Get all listings from most recent date (include source)
   const recentListings = allData
@@ -157,4 +173,172 @@ export function modelExceededMaxOnDate(allData, make, model, date) {
     const exceededModels = sourceData.models_exceeded_max_vehicles || [];
     return exceededModels.some(m => m.make === make && m.model === model);
   });
+}
+
+/**
+ * Check if a specific source/make/model exceeded max on a given date
+ * @param {Array} allData - All data from all sources
+ * @param {string} source - Source name (e.g., 'carmax', 'carvana')
+ * @param {string} make - Make of the vehicle
+ * @param {string} model - Model of the vehicle
+ * @param {string} date - Date to check (YYYY-MM-DD format)
+ * @returns {boolean} True if this specific source exceeded max for this model on this date
+ */
+function sourceModelExceededMaxOnDate(allData, source, make, model, date) {
+  const dataForSourceAndDate = allData.find(
+    d => d.source === source && d.scraped_at.startsWith(date)
+  );
+
+  if (!dataForSourceAndDate) return false;
+
+  const exceededModels = dataForSourceAndDate.models_exceeded_max_vehicles || [];
+  return exceededModels.some(m => m.make === make && m.model === model);
+}
+
+/**
+ * Find vehicles that have been confirmed as sold or are selling via URL validation
+ * @param {Array} allData - All data from all sources
+ * @param {string} targetDate - Optional target date (defaults to most recent)
+ * @returns {Array} Array of sold/selling listings with source info and displayStatus
+ */
+export function findSoldListings(allData, targetDate = null) {
+  if (allData.length === 0) return [];
+
+  // Get the most recent date or use targetDate
+  const dates = [...new Set(allData.map(d => d.scraped_at.split('T')[0]))].sort().reverse();
+  const mostRecentDate = targetDate || dates[0];
+
+  // Get all listings from target date that have purchase_status === 'sold' or 'selling'
+  const soldListings = [];
+
+  allData
+    .filter(d => d.scraped_at.startsWith(mostRecentDate))
+    .forEach(sourceData => {
+      sourceData.listings.forEach(listing => {
+        if (listing.purchase_status === 'sold' || listing.purchase_status === 'selling') {
+          soldListings.push({
+            ...listing,
+            source: sourceData.source,
+            displayStatus: listing.purchase_status === 'selling' ? 'Sale Pending' : 'Sold'
+          });
+        }
+      });
+    });
+
+  // Sort by status first (selling before sold), then by price (descending)
+  return soldListings.sort((a, b) => {
+    if (a.purchase_status === 'selling' && b.purchase_status === 'sold') return -1;
+    if (a.purchase_status === 'sold' && b.purchase_status === 'selling') return 1;
+    return b.price - a.price;
+  });
+}
+
+/**
+ * Find vehicles that are currently selling (reserved, purchase in progress, etc.)
+ * @param {Array} allData - All data from all sources
+ * @returns {Array} Array of selling listings with source info
+ */
+export function findSellingListings(allData) {
+  if (allData.length === 0) return [];
+
+  // Get the most recent date
+  const dates = [...new Set(allData.map(d => d.scraped_at.split('T')[0]))].sort().reverse();
+  const mostRecentDate = dates[0];
+
+  // Get all listings from most recent date that have purchase_status === 'selling'
+  const sellingListings = [];
+
+  allData
+    .filter(d => d.scraped_at.startsWith(mostRecentDate))
+    .forEach(sourceData => {
+      sourceData.listings.forEach(listing => {
+        if (listing.purchase_status === 'selling') {
+          sellingListings.push({
+            ...listing,
+            source: sourceData.source
+          });
+        }
+      });
+    });
+
+  // Sort by price (descending)
+  return sellingListings.sort((a, b) => b.price - a.price);
+}
+
+/**
+ * Calculate days on market for a listing
+ * @param {Array} allData - All data from all sources
+ * @param {string} listingId - The listing ID
+ * @param {string} source - The source name
+ * @param {string} targetDate - The date to calculate from (YYYY-MM-DD format)
+ * @param {string} purchaseStatus - Current purchase status
+ * @returns {number|null} Days on market or null if can't be calculated
+ */
+export function calculateDaysOnMarket(allData, listingId, source, targetDate, purchaseStatus) {
+  // Get all dates, sorted oldest to newest
+  const dates = [...new Set(allData.map(d => d.scraped_at.split('T')[0]))].sort();
+
+  // Find first date this listing appeared
+  let firstSeenDate = null;
+  let statusChangeDate = null;
+
+  for (const date of dates) {
+    const dataForDate = allData.filter(
+      d => d.source === source && d.scraped_at.startsWith(date)
+    );
+
+    for (const sourceData of dataForDate) {
+      const listing = sourceData.listings.find(l => l.id === listingId);
+
+      if (listing) {
+        if (!firstSeenDate) {
+          firstSeenDate = date;
+        }
+
+        // Track when status changed to selling or sold
+        if ((listing.purchase_status === 'selling' || listing.purchase_status === 'sold') && !statusChangeDate) {
+          statusChangeDate = date;
+        }
+      }
+    }
+  }
+
+  if (!firstSeenDate) return null;
+
+  // Calculate end date based on status
+  let endDate;
+  if (purchaseStatus === 'selling' || purchaseStatus === 'sold') {
+    // Use the date when status first changed
+    endDate = statusChangeDate || targetDate;
+  } else {
+    // For available vehicles, use target date
+    endDate = targetDate;
+  }
+
+  // Calculate days difference
+  const firstDate = new Date(firstSeenDate);
+  const lastDate = new Date(endDate);
+  const diffTime = Math.abs(lastDate - firstDate);
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+  return diffDays;
+}
+
+/**
+ * Calculate average days on market for a set of listings
+ * @param {Array} allData - All data from all sources
+ * @param {Array} listings - Array of listings
+ * @param {string} targetDate - The date to calculate from
+ * @returns {number|null} Average days on market
+ */
+export function calculateAverageDaysOnMarket(allData, listings, targetDate) {
+  if (!listings || listings.length === 0) return null;
+
+  const daysOnMarket = listings.map(listing =>
+    calculateDaysOnMarket(allData, listing.id, listing.source, targetDate, listing.purchase_status)
+  ).filter(days => days !== null);
+
+  if (daysOnMarket.length === 0) return null;
+
+  return Math.round(daysOnMarket.reduce((sum, days) => sum + days, 0) / daysOnMarket.length);
 }

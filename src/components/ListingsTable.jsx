@@ -1,7 +1,7 @@
 import React from 'react';
 import './ListingsTable.css';
 
-export default function ListingsTable({ listings, title = "Current Listings", emptyMessage = "No listings found", showModel = false, showPriceChange = false }) {
+export default function ListingsTable({ listings, title = "Current Listings", emptyMessage = "No listings found", showModel = false, showPriceChange = false, showDaysOnMarket = false, showStatus = false }) {
   if (!listings || listings.length === 0) {
     return null;
   }
@@ -29,6 +29,8 @@ export default function ListingsTable({ listings, title = "Current Listings", em
             <th>Trim</th>
             <th>Price</th>
             {showPriceChange && <th>Change</th>}
+            {showStatus && <th>Status</th>}
+            {showDaysOnMarket && <th>Days on Market</th>}
             <th>Mileage</th>
             <th>Location</th>
             <th>Link</th>
@@ -60,6 +62,20 @@ export default function ListingsTable({ listings, title = "Current Listings", em
                   ) : (
                     <span className="price-change-new">NEW</span>
                   )}
+                </td>
+              )}
+              {showStatus && (
+                <td>
+                  <span className={`status-badge ${listing.purchase_status === 'selling' ? 'status-selling' : 'status-sold'}`}>
+                    {listing.displayStatus || 'Sold'}
+                  </span>
+                </td>
+              )}
+              {showDaysOnMarket && (
+                <td>
+                  {listing.daysOnMarket !== undefined && listing.daysOnMarket !== null
+                    ? `${listing.daysOnMarket} ${listing.daysOnMarket === 1 ? 'day' : 'days'}`
+                    : '-'}
                 </td>
               )}
               <td>{listing.mileage.toLocaleString()} mi</td>

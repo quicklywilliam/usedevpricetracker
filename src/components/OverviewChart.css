@@ -1,8 +1,45 @@
 .overview-chart {
-  background: white;
+  background: var(--bg-secondary);
   border-radius: 8px;
   padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 4px var(--shadow-sm);
+}
+
+.chart-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.chart-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.chart-controls label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.chart-controls select {
+  padding: 0.375rem 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.chart-controls select:hover {
+  border-color: var(--border-light);
+}
+
+.chart-controls select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 .legend {
@@ -23,7 +60,7 @@
 }
 
 .legend-item:hover {
-  background: #f5f5f5;
+  background: var(--hover-bg);
 }
 
 .legend-item.disabled {
@@ -59,4 +96,36 @@
 
 .chart-label:hover {
   text-decoration: underline !important;
+}
+
+.date-labels {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.date-label {
+  pointer-events: auto;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #6b7280;
+  font-weight: normal;
+}
+
+.date-label:hover {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.date-label.selected {
+  color: #2563eb;
+  font-weight: bold;
+}
+
+.date-label.selected:hover {
+  color: #1d4ed8;
 }

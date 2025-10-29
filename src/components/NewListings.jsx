@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import VehicleListingTabs from './VehicleListingTabs';
-import { findNewListings, findListingsWithPriceChanges } from '../services/dataLoader';
+import { findNewListings, findListingsWithPriceChanges, findSoldListings, calculateDaysOnMarket } from '../services/dataLoader';
 import './NewListings.css';
 
-export default function NewListings({ data }) {
+export default function NewListings({ data, selectedDate }) {
   const [selectedSource, setSelectedSource] = useState('all');
 
   // Load source filter from URL on mount
@@ -31,11 +31,12 @@ export default function NewListings({ data }) {
     return null;
   }
 
-  const newListings = findNewListings(data);
-  const priceChangedListings = findListingsWithPriceChanges(data);
+  const newListings = findNewListings(data, selectedDate);
+  const priceChangedListings = findListingsWithPriceChanges(data, selectedDate);
+  const soldListings = findSoldListings(data, selectedDate);
 
-  // Combine new and price-changed listings for source filtering
-  const allListings = [...newListings, ...priceChangedListings];
+  // Combine new, price-changed, and sold listings for source filtering
+  const allListings = [...newListings, ...priceChangedListings, ...soldListings];
 
   if (allListings.length === 0) {
     return null;
@@ -44,14 +45,30 @@ export default function NewListings({ data }) {
   // Get unique sources
   const sources = [...new Set(allListings.map(l => l.source))].sort();
 
-  // Filter listings by source
-  const filteredNewListings = selectedSource === 'all'
+  // Filter listings by source and add days on market
+  const filteredNewListings = (selectedSource === 'all'
     ? newListings
-    : newListings.filter(l => l.source === selectedSource);
+    : newListings.filter(l => l.source === selectedSource)
+  ).map(listing => ({
+    ...listing,
+    daysOnMarket: calculateDaysOnMarket(data, listing.id, listing.source, selectedDate, listing.purchase_status)
+  }));
 
-  const filteredChangedListings = selectedSource === 'all'
+  const filteredChangedListings = (selectedSource === 'all'
     ? priceChangedListings
-    : priceChangedListings.filter(l => l.source === selectedSource);
+    : priceChangedListings.filter(l => l.source === selectedSource)
+  ).map(listing => ({
+    ...listing,
+    daysOnMarket: calculateDaysOnMarket(data, listing.id, listing.source, selectedDate, listing.purchase_status)
+  }));
+
+  const filteredSoldListings = (selectedSource === 'all'
+    ? soldListings
+    : soldListings.filter(l => l.source === selectedSource)
+  ).map(listing => ({
+    ...listing,
+    daysOnMarket: calculateDaysOnMarket(data, listing.id, listing.source, selectedDate, listing.purchase_status)
+  }));
 
   const handleSourceChange = (source) => {
     setSelectedSource(source);
@@ -71,13 +88,12 @@ export default function NewListings({ data }) {
         value={selectedSource}
         onChange={(e) => handleSourceChange(e.target.value)}
       >
-        <option value="all">All Dealers ({allListings.length})</option>
+        <option value="all">All Dealers</option>
         {sources.map(source => {
-          const count = allListings.filter(l => l.source === source).length;
           const displayName = source.charAt(0).toUpperCase() + source.slice(1);
           return (
             <option key={source} value={source}>
-              {displayName} ({count})
+              {displayName}
             </option>
           );
         })}
@@ -90,6 +106,7 @@ export default function NewListings({ data }) {
       <VehicleListingTabs
         newListings={filteredNewListings}
         changedListings={filteredChangedListings}
+        soldListings={filteredSoldListings}
         showModel={true}
         sourceFilter={sourceFilterElement}
       />

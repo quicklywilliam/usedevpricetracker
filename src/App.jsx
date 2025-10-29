@@ -12,6 +12,7 @@ function App() {
   const [error, setError] = useState(null);
   const [selectedModel, setSelectedModel] = useState(null);
   const [noTesla, setNoTesla] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(null);
 
   useEffect(() => {
     loadAllData()
@@ -19,8 +20,23 @@ function App() {
         setData(results);
         setLoading(false);
 
+        // Get the most recent date
+        const dates = results.length > 0
+          ? [...new Set(results.map(d => d.scraped_at.split('T')[0]))].sort().reverse()
+          : [];
+        const mostRecentDate = dates[0];
+
         // Load from URL
         const url = new URL(window.location);
+
+        // Load date from URL, or use most recent
+        const dateParam = url.searchParams.get('date');
+        if (dateParam && dates.includes(dateParam)) {
+          setSelectedDate(dateParam);
+        } else if (mostRecentDate) {
+          setSelectedDate(mostRecentDate);
+        }
+
         const modelParam = url.searchParams.get('model');
         if (modelParam && modelParam !== 'all') {
           setSelectedModel(modelParam);
@@ -44,11 +60,21 @@ function App() {
       setSelectedModel(modelParam && modelParam !== 'all' ? modelParam : null);
       const noTeslaParam = url.searchParams.get('noTesla');
       setNoTesla(noTeslaParam === 'true');
+
+      // Handle date parameter
+      const dateParam = url.searchParams.get('date');
+      if (dateParam) {
+        setSelectedDate(dateParam);
+      } else if (data.length > 0) {
+        // If no date param, use most recent
+        const dates = [...new Set(data.map(d => d.scraped_at.split('T')[0]))].sort().reverse();
+        setSelectedDate(dates[0]);
+      }
     };
 
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
-  }, []);
+  }, [data]);
 
   const handleModelSelect = (model) => {
     const url = new URL(window.location);
@@ -69,6 +95,26 @@ function App() {
       url.searchParams.set('noTesla', 'true');
     } else {
       url.searchParams.delete('noTesla');
+    }
+    window.history.pushState({}, '', url);
+  };
+
+  const handleDateSelect = (date) => {
+    setSelectedDate(date);
+
+    // Get the most recent date to determine if we should include date param
+    const dates = data.length > 0
+      ? [...new Set(data.map(d => d.scraped_at.split('T')[0]))].sort().reverse()
+      : [];
+    const mostRecentDate = dates[0];
+
+    const url = new URL(window.location);
+    if (date === mostRecentDate) {
+      // If selecting today (most recent), remove the date parameter
+      url.searchParams.delete('date');
+    } else {
+      // Otherwise, set the date parameter
+      url.searchParams.set('date', date);
     }
     window.history.pushState({}, '', url);
   };
@@ -111,8 +157,13 @@ function App() {
       <main className="container">
         {!selectedModel ? (
           <>
-            <OverviewChart data={filteredData} onModelSelect={handleModelSelect} />
-            <NewListings data={filteredData} />
+            <OverviewChart
+              data={filteredData}
+              onModelSelect={handleModelSelect}
+              onDateSelect={handleDateSelect}
+              selectedDate={selectedDate}
+            />
+            <NewListings data={filteredData} selectedDate={selectedDate} />
           </>
         ) : (
           <>
@@ -121,8 +172,17 @@ function App() {
                 All Models
               </a> / {selectedModel}
             </div>
-            <DetailChart data={filteredData} model={selectedModel} />
-            <ModelListingsView data={filteredData} model={selectedModel} />
+            <DetailChart
+              data={filteredData}
+              model={selectedModel}
+              onDateSelect={handleDateSelect}
+              selectedDate={selectedDate}
+            />
+            <ModelListingsView
+              data={filteredData}
+              model={selectedModel}
+              selectedDate={selectedDate}
+            />
           </>
         )}
       </main>

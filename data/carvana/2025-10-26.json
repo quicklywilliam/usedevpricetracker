@@ -588,7 +588,8 @@
       "mileage": 37000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3897550?refSource=srp",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "purchase_status": "sold"
     },
     {
       "id": "carvana-3896292",
@@ -648,7 +649,8 @@
       "mileage": 20000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3947722?refSource=srp",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "purchase_status": "sold"
     },
     {
       "id": "carvana-3961824",
@@ -5076,7 +5078,8 @@
       "mileage": 14000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3948940?refSource=srp",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "purchase_status": "selling"
     },
     {
       "id": "carvana-3869059",
@@ -5100,7 +5103,8 @@
       "mileage": 42000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3933910?refSource=srp",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "purchase_status": "selling"
     },
     {
       "id": "carvana-3900028",
@@ -6096,7 +6100,8 @@
       "mileage": 71000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3808240?refSource=srp",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "purchase_status": "sold"
     },
     {
       "id": "carvana-3901475",
@@ -6948,7 +6953,8 @@
       "mileage": 27000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3952490?refSource=srp",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "purchase_status": "sold"
     },
     {
       "id": "carvana-3957549",
@@ -7032,7 +7038,8 @@
       "mileage": 29000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3901567?refSource=srp",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "purchase_status": "sold"
     },
     {
       "id": "carvana-3918439",
@@ -7620,7 +7627,8 @@
       "mileage": 47000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3864811?refSource=srp",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "purchase_status": "sold"
     },
     {
       "id": "carvana-3974598",
@@ -8004,7 +8012,8 @@
       "mileage": 54000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3909769?refSource=srp",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "purchase_status": "sold"
     },
     {
       "id": "carvana-3913145",
@@ -8016,7 +8025,8 @@
       "mileage": 20000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3913145?refSource=srp",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "purchase_status": "sold"
     },
     {
       "id": "carvana-3836541",
@@ -8796,7 +8806,8 @@
       "mileage": 30000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3939283?refSource=srp",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "purchase_status": "sold"
     },
     {
       "id": "carvana-3943994",
@@ -8808,7 +8819,8 @@
       "mileage": 21000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3943994?refSource=srp",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "purchase_status": "sold"
     },
     {
       "id": "carvana-3948799",
@@ -8856,7 +8868,8 @@
       "mileage": 27000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3879435?refSource=srp",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "purchase_status": "sold"
     },
     {
       "id": "carvana-3921625",
@@ -8904,7 +8917,8 @@
       "mileage": 17000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3924804?refSource=srp",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "purchase_status": "sold"
     },
     {
       "id": "carvana-3856632",
@@ -8928,7 +8942,8 @@
       "mileage": 2000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3955452?refSource=srp",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "purchase_status": "selling"
     },
     {
       "id": "carvana-3894133",
@@ -9552,7 +9567,8 @@
       "mileage": 18000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3933441?refSource=srp",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "purchase_status": "sold"
     },
     {
       "id": "carvana-3948931",

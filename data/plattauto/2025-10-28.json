@@ -1,6 +1,6 @@
 {
   "source": "plattauto",
-  "scraped_at": "2025-10-28T00:11:39.474Z",
+  "scraped_at": "2025-10-29T01:07:08.118Z",
   "listings": [
     {
       "id": "Stock Number A252117",
@@ -12,7 +12,7 @@
       "mileage": 24065,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252117/",
-      "listing_date": "2025-10-28"
+      "listing_date": "2025-10-29"
     },
     {
       "id": "Stock Number A252115",
@@ -24,7 +24,7 @@
       "mileage": 26978,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252115/",
-      "listing_date": "2025-10-28"
+      "listing_date": "2025-10-29"
     },
     {
       "id": "Stock Number A252118",
@@ -36,7 +36,7 @@
       "mileage": 22641,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252118/",
-      "listing_date": "2025-10-28"
+      "listing_date": "2025-10-29"
     },
     {
       "id": "Stock Number A252097",
@@ -48,7 +48,7 @@
       "mileage": 18806,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252097/",
-      "listing_date": "2025-10-28"
+      "listing_date": "2025-10-29"
     },
     {
       "id": "Stock Number A252130",
@@ -60,19 +60,7 @@
       "mileage": 16265,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252130/",
-      "listing_date": "2025-10-28"
-    },
-    {
-      "id": "Stock Number A252134",
-      "make": "Hyundai",
-      "model": "Ioniq 5",
-      "year": 2023,
-      "trim": "SEL SPORT UTILITY 4D",
-      "price": 24884,
-      "mileage": 31513,
-      "location": "Platt Auto",
-      "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252134/",
-      "listing_date": "2025-10-28"
+      "listing_date": "2025-10-29"
     },
     {
       "id": "Stock Number A252116",
@@ -84,7 +72,19 @@
       "mileage": 26596,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252116/",
-      "listing_date": "2025-10-28"
+      "listing_date": "2025-10-29"
+    },
+    {
+      "id": "Stock Number A252134",
+      "make": "Hyundai",
+      "model": "Ioniq 5",
+      "year": 2023,
+      "trim": "SEL SPORT UTILITY 4D",
+      "price": 24884,
+      "mileage": 31513,
+      "location": "Platt Auto",
+      "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252134/",
+      "listing_date": "2025-10-29"
     },
     {
       "id": "Stock Number A252156",
@@ -96,19 +96,7 @@
       "mileage": 29315,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252156/",
-      "listing_date": "2025-10-28"
-    },
-    {
-      "id": "Stock Number A252128",
-      "make": "Hyundai",
-      "model": "Ioniq 5",
-      "year": 2023,
-      "trim": "LIMITED SPORT UTILITY 4D",
-      "price": 28575,
-      "mileage": 25954,
-      "location": "Platt Auto",
-      "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252128/",
-      "listing_date": "2025-10-28"
+      "listing_date": "2025-10-29"
     },
     {
       "id": "Stock Number A252098",
@@ -120,7 +108,19 @@
       "mileage": 18794,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252098/",
-      "listing_date": "2025-10-28"
+      "listing_date": "2025-10-29"
+    },
+    {
+      "id": "Stock Number A252128",
+      "make": "Hyundai",
+      "model": "Ioniq 5",
+      "year": 2023,
+      "trim": "LIMITED SPORT UTILITY 4D",
+      "price": 28575,
+      "mileage": 25954,
+      "location": "Platt Auto",
+      "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252128/",
+      "listing_date": "2025-10-29"
     },
     {
       "id": "Stock Number A252133",
@@ -132,7 +132,7 @@
       "mileage": 18193,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252133/",
-      "listing_date": "2025-10-28"
+      "listing_date": "2025-10-29"
     },
     {
       "id": "Stock Number A252164",
@@ -144,7 +144,19 @@
       "mileage": 39844,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252164/",
-      "listing_date": "2025-10-28"
+      "listing_date": "2025-10-29"
+    },
+    {
+      "id": "Stock Number A252113",
+      "make": "Hyundai",
+      "model": "Ioniq 5",
+      "year": 2022,
+      "trim": "LIMITED SPORT UTILITY 4D",
+      "price": 27620,
+      "mileage": 32867,
+      "location": "Platt Auto",
+      "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252113/",
+      "listing_date": "2025-10-29"
     },
     {
       "id": "Stock Number A252124",
@@ -156,7 +168,115 @@
       "mileage": 13150,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252124/",
-      "listing_date": "2025-10-28"
+      "listing_date": "2025-10-29"
+    },
+    {
+      "id": "Stock Number A252178",
+      "make": "Tesla",
+      "model": "Model 3",
+      "year": 2023,
+      "trim": "STANDARD SEDAN 4D",
+      "price": 24417,
+      "mileage": 28180,
+      "location": "Platt Auto",
+      "url": "https://www.plattauto.com/inventory/tesla/model-3/a252178/",
+      "listing_date": "2025-10-29"
+    },
+    {
+      "id": "Stock Number A252131",
+      "make": "Tesla",
+      "model": "Model 3",
+      "year": 2023,
+      "trim": "STANDARD SEDAN 4D",
+      "price": 25840,
+      "mileage": 25382,
+      "location": "Platt Auto",
+      "url": "https://www.plattauto.com/inventory/tesla/model-3/a252131/",
+      "listing_date": "2025-10-29"
+    },
+    {
+      "id": "Stock Number A252120",
+      "make": "Tesla",
+      "model": "Model 3",
+      "year": 2023,
+      "trim": "STANDARD SEDAN 4D",
+      "price": 23447,
+      "mileage": 47895,
+      "location": "Platt Auto",
+      "url": "https://www.plattauto.com/inventory/tesla/model-3/a252120/",
+      "listing_date": "2025-10-29"
+    },
+    {
+      "id": "Stock Number A252153",
+      "make": "Tesla",
+      "model": "Model 3",
+      "year": 2023,
+      "trim": "STANDARD SEDAN 4D",
+      "price": 25877,
+      "mileage": 15532,
+      "location": "Platt Auto",
+      "url": "https://www.plattauto.com/inventory/tesla/model-3/a252153/",
+      "listing_date": "2025-10-29"
+    },
+    {
+      "id": "Stock Number A252161",
+      "make": "Tesla",
+      "model": "Model 3",
+      "year": 2022,
+      "trim": "LONG RANGE SEDAN 4D",
+      "price": 27114,
+      "mileage": 18669,
+      "location": "Platt Auto",
+      "url": "https://www.plattauto.com/inventory/tesla/model-3/a252161/",
+      "listing_date": "2025-10-29"
+    },
+    {
+      "id": "Stock Number A252108",
+      "make": "Tesla",
+      "model": "Model 3",
+      "year": 2022,
+      "trim": "STANDARD SEDAN 4D",
+      "price": 23887,
+      "mileage": 36863,
+      "location": "Platt Auto",
+      "url": "https://www.plattauto.com/inventory/tesla/model-3/a252108/",
+      "listing_date": "2025-10-29"
+    },
+    {
+      "id": "Stock Number A252149",
+      "make": "Tesla",
+      "model": "Model 3",
+      "year": 2021,
+      "trim": "STANDARD RANGE PLUS SEDAN 4D",
+      "price": 22477,
+      "mileage": 33746,
+      "location": "Platt Auto",
+      "url": "https://www.plattauto.com/inventory/tesla/model-3/a252149/",
+      "listing_date": "2025-10-29"
+    },
+    {
+      "id": "Stock Number A252160",
+      "make": "Tesla",
+      "model": "Model 3",
+      "year": 2020,
+      "trim": "LONG RANGE SEDAN 4D",
+      "price": 22970,
+      "mileage": 43992,
+      "location": "Platt Auto",
+      "url": "https://www.plattauto.com/inventory/tesla/model-3/a252160/",
+      "listing_date": "2025-10-29"
+    },
+    {
+      "id": "Stock Number A252147",
+      "make": "Kia",
+      "model": "EV6",
+      "year": 2022,
+      "trim": "WIND SPORT UTILITY 4D",
+      "price": 24447,
+      "mileage": 45349,
+      "location": "Platt Auto",
+      "url": "https://www.plattauto.com/inventory/kia/ev6/a252147/",
+      "listing_date": "2025-10-29"
     },
     {
       "id": "Stock Number A252100",
@@ -168,7 +288,7 @@
       "mileage": 35771,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/volkswagen/id-4/a252100/",
-      "listing_date": "2025-10-28"
+      "listing_date": "2025-10-29"
     },
     {
       "id": "Stock Number A252135",
@@ -180,7 +300,7 @@
       "mileage": 22426,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/ford/mustang-mach-e/a252135/",
-      "listing_date": "2025-10-28"
+      "listing_date": "2025-10-29"
     },
     {
       "id": "Stock Number A252143",
@@ -192,7 +312,7 @@
       "mileage": 22468,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/chevrolet/bolt-ev/a252143/",
-      "listing_date": "2025-10-28"
+      "listing_date": "2025-10-29"
     },
     {
       "id": "Stock Number A251879",
@@ -204,7 +324,7 @@
       "mileage": 30803,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/chevrolet/bolt-euv/a251879/",
-      "listing_date": "2025-10-28"
+      "listing_date": "2025-10-29"
     },
     {
       "id": "Stock Number A252140",
@@ -216,7 +336,7 @@
       "mileage": 39148,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/chevrolet/bolt-euv/a252140/",
-      "listing_date": "2025-10-28"
+      "listing_date": "2025-10-29"
     },
     {
       "id": "Stock Number A252129",
@@ -228,7 +348,7 @@
       "mileage": 42006,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/audi/q4-e-tron/a252129/",
-      "listing_date": "2025-10-28"
+      "listing_date": "2025-10-29"
     }
   ],
   "models_exceeded_max_vehicles": []

@@ -1,14 +1,14 @@
 .listings-table {
-  background: white;
+  background: var(--bg-secondary);
   border-radius: 8px;
   padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 4px var(--shadow-sm);
 }
 
 .listings-table h2 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  color: #667eea;
+  color: var(--primary-color);
 }
 
 table {
@@ -19,17 +19,17 @@ table {
 th, td {
   text-align: left;
   padding: 0.75rem;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--border-color);
 }
 
 th {
-  background: #f8f9fa;
+  background: var(--hover-bg);
   font-weight: 600;
-  color: #667eea;
+  color: var(--primary-color);
 }
 
 tr:hover {
-  background: #f8f9fa;
+  background: var(--hover-bg);
 }
 
 .source-badge {
@@ -67,11 +67,11 @@ tr:hover {
 
 .price {
   font-weight: 600;
-  color: #2e7d32;
+  color: var(--success-color);
 }
 
 a {
-  color: #667eea;
+  color: var(--primary-color);
   text-decoration: none;
 }
 
@@ -86,19 +86,38 @@ a:hover {
 }
 
 .price-increase {
-  color: #d32f2f;
+  color: var(--error-color);
 }
 
 .price-decrease {
-  color: #2e7d32;
+  color: var(--success-color);
 }
 
 .price-change-new {
   display: inline-block;
   padding: 0.25rem 0.5rem;
-  background: #667eea;
+  background: var(--primary-color);
   color: white;
   border-radius: 4px;
   font-size: 0.75rem;
   font-weight: 600;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.status-selling {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.status-sold {
+  background-color: #fee2e2;
+  color: #991b1b;
 }

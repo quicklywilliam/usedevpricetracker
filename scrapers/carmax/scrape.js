@@ -51,6 +51,25 @@ class CarMaxScraper extends BaseScraper {
     }
   }
 
+  detectStatus({ html, statusCode }) {
+    const htmlLower = html.toLowerCase();
+
+    // Check for sold status first (before reserved, since page might have both keywords)
+    if (htmlLower.includes('sold\n') || htmlLower.includes('>sold<') ||
+        statusCode === 404 || htmlLower.includes('page not found') ||
+        htmlLower.includes('this car is sold') || htmlLower.includes('vehicle has been sold')) {
+      return 'sold';
+    }
+
+    // Check for reserved status
+    if (htmlLower.includes('reserved') || htmlLower.includes('this car is on hold')) {
+      return 'selling';
+    }
+
+    // If page loads normally with vehicle details, it's available
+    return 'available';
+  }
+
   async scrapeModel(query) {
     const allListings = [];
     const seenIds = new Set();

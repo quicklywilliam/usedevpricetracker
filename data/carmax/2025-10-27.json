@@ -6384,7 +6384,8 @@
       "mileage": 0,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27638075",
-      "listing_date": "2025-10-27"
+      "listing_date": "2025-10-27",
+      "purchase_status": "sold"
     },
     {
       "id": "28042783",
@@ -6672,7 +6673,8 @@
       "mileage": 0,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27966889",
-      "listing_date": "2025-10-27"
+      "listing_date": "2025-10-27",
+      "purchase_status": "sold"
     },
     {
       "id": "27639683",
@@ -7728,7 +7730,8 @@
       "mileage": 0,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27977554",
-      "listing_date": "2025-10-27"
+      "listing_date": "2025-10-27",
+      "purchase_status": "selling"
     },
     {
       "id": "27932647",

@@ -180,7 +180,8 @@
       "mileage": 37263,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/tesla/model-3/a252162/",
-      "listing_date": "2025-10-27"
+      "listing_date": "2025-10-27",
+      "purchase_status": "sold"
     },
     {
       "id": "Stock Number A252120",
@@ -216,7 +217,8 @@
       "mileage": 18562,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/tesla/model-3/a252161/",
-      "listing_date": "2025-10-27"
+      "listing_date": "2025-10-27",
+      "purchase_status": "sold"
     },
     {
       "id": "Stock Number A252108",

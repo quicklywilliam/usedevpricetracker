@@ -4,7 +4,7 @@ import { MIN_VEHICLES } from '../lib/config.js';
 
 class PlattAutoScraper extends BaseScraper {
   constructor() {
-    super('plattauto', { useStealth: true, rateLimitMs: 3000 });
+    super('plattauto', { useStealth: true, rateLimitMs: 5000 });
   }
 
   async validateListing(url) {
@@ -44,6 +44,16 @@ class PlattAutoScraper extends BaseScraper {
     }
   }
 
+  detectStatus({ html, finalUrl, originalUrl, wasRedirected }) {
+    // Platt Auto redirects to homepage when listing is sold
+    if (wasRedirected && (finalUrl === 'https://www.plattauto.com/' || finalUrl === 'https://www.plattauto.com/inventory/')) {
+      return 'sold';
+    }
+
+    // If page loads normally, listing is still available
+    return 'available';
+  }
+
   async scrapeModel(query) {
     const allListings = [];
     const maxPages = 100; // High enough to get to MIN_VEHICLES
@@ -56,8 +66,18 @@ class PlattAutoScraper extends BaseScraper {
         timeout: 30000
       });
 
-      await this.page.waitForSelector('.dws-vehicle-listing-item', { timeout: 10000 });
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Extra delay to let JavaScript fully render
+      await new Promise(resolve => setTimeout(resolve, 3000));
+
+      // Try to wait for listings, but don't fail if they don't appear
+      try {
+        await this.page.waitForSelector('.dws-vehicle-listing-item', { timeout: 20000 });
+        await new Promise(resolve => setTimeout(resolve, 1000));
+      } catch (error) {
+        // Selector didn't appear - might be no results or slow page load
+        // Try waiting a bit longer and proceed anyway
+        await new Promise(resolve => setTimeout(resolve, 3000));
+      }
 
       const html = await this.page.content();
       const $ = cheerio.load(html);

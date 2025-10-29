@@ -5,6 +5,7 @@ import './VehicleListingTabs.css';
 export default function VehicleListingTabs({
   newListings,
   changedListings,
+  soldListings = null,
   allListings = null,
   showModel = false,
   sourceFilter = null
@@ -15,10 +16,10 @@ export default function VehicleListingTabs({
   useEffect(() => {
     const url = new URL(window.location);
     const tab = url.searchParams.get('tab');
-    if (tab === 'new' || tab === 'changed' || (allListings && tab === 'all')) {
+    if (tab === 'new' || tab === 'changed' || tab === 'sold' || (allListings && tab === 'all')) {
       setActiveTab(tab);
     }
-  }, [allListings]);
+  }, [allListings, soldListings]);
 
   // Handle browser back/forward
   useEffect(() => {
@@ -51,6 +52,9 @@ export default function VehicleListingTabs({
   } else if (activeTab === 'changed') {
     listings = changedListings;
     title = 'Price Changes';
+  } else if (activeTab === 'sold' && soldListings) {
+    listings = soldListings;
+    title = 'Sold Vehicles';
   } else if (activeTab === 'all' && allListings) {
     listings = allListings;
     title = 'All Listings';
@@ -72,6 +76,14 @@ export default function VehicleListingTabs({
           >
             Price Changes ({changedListings.length})
           </button>
+          {soldListings && (
+            <button
+              className={`tab ${activeTab === 'sold' ? 'active' : ''}`}
+              onClick={() => handleTabChange('sold')}
+            >
+              Sold ({soldListings.length})
+            </button>
+          )}
           {allListings && (
             <button
               className={`tab ${activeTab === 'all' ? 'active' : ''}`}
@@ -92,9 +104,12 @@ export default function VehicleListingTabs({
         title={title}
         showPriceChange={activeTab === 'changed'}
         showModel={showModel}
+        showStatus={activeTab === 'sold'}
+        showDaysOnMarket={true}
         emptyMessage={
           activeTab === 'new' ? 'No new listings found' :
           activeTab === 'changed' ? 'No price changes found' :
+          activeTab === 'sold' ? 'No sold vehicles found' :
           'No listings found'
         }
       />

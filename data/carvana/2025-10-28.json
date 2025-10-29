@@ -1,6 +1,6 @@
 {
   "source": "carvana",
-  "scraped_at": "2025-10-28T00:11:35.244Z",
+  "scraped_at": "2025-10-28T21:41:39.803Z",
   "listings": [
     {
       "id": "carvana-3947057",
@@ -252,18 +252,6 @@
       "mileage": 36000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3948046?refSource=srp",
-      "listing_date": "2025-10-28"
-    },
-    {
-      "id": "carvana-3861868",
-      "make": "Hyundai",
-      "model": "Ioniq 5",
-      "year": 2022,
-      "trim": "Limited",
-      "price": 32590,
-      "mileage": 24000,
-      "location": "Carvana",
-      "url": "https://www.carvana.com/vehicle/3861868?refSource=srp",
       "listing_date": "2025-10-28"
     },
     {
@@ -867,30 +855,6 @@
       "listing_date": "2025-10-28"
     },
     {
-      "id": "carvana-3933167",
-      "make": "Tesla",
-      "model": "Model 3",
-      "year": 2021,
-      "trim": "Long Range",
-      "price": 28990,
-      "mileage": 28000,
-      "location": "Carvana",
-      "url": "https://www.carvana.com/vehicle/3933167?refSource=srp",
-      "listing_date": "2025-10-28"
-    },
-    {
-      "id": "carvana-3932111",
-      "make": "Tesla",
-      "model": "Model 3",
-      "year": 2020,
-      "trim": "Standard Range Plus",
-      "price": 21990,
-      "mileage": 71000,
-      "location": "Carvana",
-      "url": "https://www.carvana.com/vehicle/3932111?refSource=srp",
-      "listing_date": "2025-10-28"
-    },
-    {
       "id": "carvana-3953266",
       "make": "Tesla",
       "model": "Model 3",
@@ -975,18 +939,6 @@
       "listing_date": "2025-10-28"
     },
     {
-      "id": "carvana-3906947",
-      "make": "Tesla",
-      "model": "Model 3",
-      "year": 2020,
-      "trim": "Standard Range Plus",
-      "price": 24990,
-      "mileage": 39000,
-      "location": "Carvana",
-      "url": "https://www.carvana.com/vehicle/3906947?refSource=srp",
-      "listing_date": "2025-10-28"
-    },
-    {
       "id": "carvana-3869063",
       "make": "Tesla",
       "model": "Model 3",
@@ -996,30 +948,6 @@
       "mileage": 60000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3869063?refSource=srp",
-      "listing_date": "2025-10-28"
-    },
-    {
-      "id": "carvana-3941644",
-      "make": "Tesla",
-      "model": "Model 3",
-      "year": 2022,
-      "trim": "Standard",
-      "price": 28590,
-      "mileage": 17000,
-      "location": "Carvana",
-      "url": "https://www.carvana.com/vehicle/3941644?refSource=srp",
-      "listing_date": "2025-10-28"
-    },
-    {
-      "id": "carvana-3947358",
-      "make": "Tesla",
-      "model": "Model 3",
-      "year": 2020,
-      "trim": "Standard Range Plus",
-      "price": 22990,
-      "mileage": 64000,
-      "location": "Carvana",
-      "url": "https://www.carvana.com/vehicle/3947358?refSource=srp",
       "listing_date": "2025-10-28"
     },
     {
@@ -1131,30 +1059,6 @@
       "listing_date": "2025-10-28"
     },
     {
-      "id": "carvana-3908447",
-      "make": "Tesla",
-      "model": "Model 3",
-      "year": 2020,
-      "trim": "Standard Range Plus",
-      "price": 24590,
-      "mileage": 41000,
-      "location": "Carvana",
-      "url": "https://www.carvana.com/vehicle/3908447?refSource=srp",
-      "listing_date": "2025-10-28"
-    },
-    {
-      "id": "carvana-3914300",
-      "make": "Tesla",
-      "model": "Model 3",
-      "year": 2019,
-      "trim": "Standard Range Plus",
-      "price": 22990,
-      "mileage": 60000,
-      "location": "Carvana",
-      "url": "https://www.carvana.com/vehicle/3914300?refSource=srp",
-      "listing_date": "2025-10-28"
-    },
-    {
       "id": "carvana-3898498",
       "make": "Tesla",
       "model": "Model 3",
@@ -1227,18 +1131,6 @@
       "listing_date": "2025-10-28"
     },
     {
-      "id": "carvana-3940647",
-      "make": "Tesla",
-      "model": "Model 3",
-      "year": 2020,
-      "trim": "Long Range",
-      "price": 29590,
-      "mileage": 19000,
-      "location": "Carvana",
-      "url": "https://www.carvana.com/vehicle/3940647?refSource=srp",
-      "listing_date": "2025-10-28"
-    },
-    {
       "id": "carvana-3932119",
       "make": "Tesla",
       "model": "Model 3",
@@ -1260,18 +1152,6 @@
       "mileage": 42000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3929711?refSource=srp",
-      "listing_date": "2025-10-28"
-    },
-    {
-      "id": "carvana-3946574",
-      "make": "Tesla",
-      "model": "Model 3",
-      "year": 2018,
-      "trim": "Mid Range",
-      "price": 25590,
-      "mileage": 35000,
-      "location": "Carvana",
-      "url": "https://www.carvana.com/vehicle/3946574?refSource=srp",
       "listing_date": "2025-10-28"
     },
     {
@@ -3099,18 +2979,6 @@
       "listing_date": "2025-10-28"
     },
     {
-      "id": "carvana-3935474",
-      "make": "Ford",
-      "model": "Mustang Mach-E",
-      "year": 2022,
-      "trim": "GT",
-      "price": 34590,
-      "mileage": 22000,
-      "location": "Carvana",
-      "url": "https://www.carvana.com/vehicle/3935474?refSource=srp",
-      "listing_date": "2025-10-28"
-    },
-    {
       "id": "carvana-3906345",
       "make": "Ford",
       "model": "Mustang Mach-E",
@@ -3360,18 +3228,6 @@
       "mileage": 22000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3953530?refSource=srp",
-      "listing_date": "2025-10-28"
-    },
-    {
-      "id": "carvana-3942325",
-      "make": "Ford",
-      "model": "Mustang Mach-E",
-      "year": 2021,
-      "trim": "Select",
-      "price": 21990,
-      "mileage": 62000,
-      "location": "Carvana",
-      "url": "https://www.carvana.com/vehicle/3942325?refSource=srp",
       "listing_date": "2025-10-28"
     },
     {
@@ -3912,18 +3768,6 @@
       "mileage": 37000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3970092?refSource=srp",
-      "listing_date": "2025-10-28"
-    },
-    {
-      "id": "carvana-3865326",
-      "make": "Chevrolet",
-      "model": "Bolt EV",
-      "year": 2023,
-      "trim": "1LT",
-      "price": 18990,
-      "mileage": 44000,
-      "location": "Carvana",
-      "url": "https://www.carvana.com/vehicle/3865326?refSource=srp",
       "listing_date": "2025-10-28"
     },
     {
@@ -5856,6 +5700,102 @@
       "mileage": 3000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3953548?refSource=srp",
+      "listing_date": "2025-10-28"
+    },
+    {
+      "id": "carvana-3971231",
+      "make": "Hyundai",
+      "model": "Ioniq 5",
+      "year": 2025,
+      "trim": "SE",
+      "price": 30990,
+      "mileage": 24000,
+      "location": "Carvana",
+      "url": "https://www.carvana.com/vehicle/3971231?refSource=srp",
+      "listing_date": "2025-10-28"
+    },
+    {
+      "id": "carvana-3971378",
+      "make": "Hyundai",
+      "model": "Ioniq 5",
+      "year": 2024,
+      "trim": "Limited",
+      "price": 29990,
+      "mileage": 27000,
+      "location": "Carvana",
+      "url": "https://www.carvana.com/vehicle/3971378?refSource=srp",
+      "listing_date": "2025-10-28"
+    },
+    {
+      "id": "carvana-3976118",
+      "make": "Hyundai",
+      "model": "Ioniq 5",
+      "year": 2024,
+      "trim": "SEL",
+      "price": 25990,
+      "mileage": 26000,
+      "location": "Carvana",
+      "url": "https://www.carvana.com/vehicle/3976118?refSource=srp",
+      "listing_date": "2025-10-28"
+    },
+    {
+      "id": "carvana-3947069",
+      "make": "Hyundai",
+      "model": "Ioniq 5",
+      "year": 2023,
+      "trim": "SE",
+      "price": 26590,
+      "mileage": 15000,
+      "location": "Carvana",
+      "url": "https://www.carvana.com/vehicle/3947069?refSource=srp",
+      "listing_date": "2025-10-28"
+    },
+    {
+      "id": "carvana-3928333",
+      "make": "Hyundai",
+      "model": "Ioniq 5",
+      "year": 2022,
+      "trim": "SEL",
+      "price": 25590,
+      "mileage": 49000,
+      "location": "Carvana",
+      "url": "https://www.carvana.com/vehicle/3928333?refSource=srp",
+      "listing_date": "2025-10-28"
+    },
+    {
+      "id": "carvana-3971400",
+      "make": "Hyundai",
+      "model": "Ioniq 5",
+      "year": 2024,
+      "trim": "SE",
+      "price": 24590,
+      "mileage": 41000,
+      "location": "Carvana",
+      "url": "https://www.carvana.com/vehicle/3971400?refSource=srp",
+      "listing_date": "2025-10-28"
+    },
+    {
+      "id": "carvana-3971359",
+      "make": "Hyundai",
+      "model": "Ioniq 5",
+      "year": 2024,
+      "trim": "Limited",
+      "price": 28590,
+      "mileage": 40000,
+      "location": "Carvana",
+      "url": "https://www.carvana.com/vehicle/3971359?refSource=srp",
+      "listing_date": "2025-10-28"
+    },
+    {
+      "id": "carvana-3971405",
+      "make": "Hyundai",
+      "model": "Ioniq 5",
+      "year": 2023,
+      "trim": "Limited",
+      "price": 27990,
+      "mileage": 42000,
+      "location": "Carvana",
+      "url": "https://www.carvana.com/vehicle/3971405?refSource=srp",
       "listing_date": "2025-10-28"
     }
   ],

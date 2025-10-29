@@ -1,13 +1,15 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Chart from 'chart.js/auto';
-import { getModelKey, calculateAveragePrice, modelExceededMaxOnDate } from '../services/dataLoader';
+import { getModelKey, calculateAveragePrice, modelExceededMaxOnDate, calculateAverageDaysOnMarket } from '../services/dataLoader';
 import { createInventoryScale } from '../utils/inventoryScale';
 import './OverviewChart.css';
 
-export default function OverviewChart({ data, onModelSelect }) {
+export default function OverviewChart({ data, onModelSelect, onDateSelect, selectedDate }) {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
   const labelsContainerRef = useRef(null);
+  const dateLabelsContainerRef = useRef(null);
+  const [dotSizeMode, setDotSizeMode] = useState('stock'); // 'stock' or 'days'
 
   const modelColors = {
     'Hyundai Ioniq 5': '#667eea',
@@ -43,21 +45,31 @@ export default function OverviewChart({ data, onModelSelect }) {
       sourceData.listings.forEach(listing => {
         const model = getModelKey(listing);
         if (priceData[model] && priceData[model][date]) {
-          priceData[model][date].push(listing);
+          // Add source field to listing for days on market calculation
+          priceData[model][date].push({ ...listing, source: sourceData.source });
         }
       });
     });
 
-    // Collect all inventory counts for scaling
+    // Collect all inventory counts and average days for scaling
     const allCounts = [];
+    const allAvgDays = [];
     models.forEach(model => {
       dates.forEach(date => {
-        allCounts.push(priceData[model][date].length);
+        const listings = priceData[model][date];
+        allCounts.push(listings.length);
+        const avgDays = calculateAverageDaysOnMarket(data, listings, date);
+        if (avgDays !== null) {
+          allAvgDays.push(avgDays);
+        }
       });
     });
 
-    // Create inventory-based size scale
-    const getPointSize = createInventoryScale(allCounts);
+    // Create scales based on mode
+    const getPointSizeFromStock = createInventoryScale(allCounts);
+    const getPointSizeFromDays = allAvgDays.length > 0
+      ? createInventoryScale(allAvgDays) // Reuse inventory scale logic for days
+      : () => 5; // Fallback if no days data
 
     // Create price datasets with variable point sizes based on inventory
     const datasets = models.map(model => {
@@ -66,10 +78,16 @@ export default function OverviewChart({ data, onModelSelect }) {
         return listings.length > 0 ? calculateAveragePrice(listings) : null;
       });
 
-      // Calculate point radius based on inventory count
+      // Calculate point radius based on selected mode
       const pointRadii = dates.map(date => {
-        const count = priceData[model][date].length;
-        return getPointSize(count);
+        const listings = priceData[model][date];
+        if (dotSizeMode === 'days') {
+          const avgDays = calculateAverageDaysOnMarket(data, listings, date);
+          return avgDays !== null ? getPointSizeFromDays(avgDays) : 5;
+        } else {
+          const count = listings.length;
+          return getPointSizeFromStock(count);
+        }
       });
 
       return {
@@ -136,10 +154,20 @@ export default function OverviewChart({ data, onModelSelect }) {
                 const exceededMax = modelExceededMaxOnDate(data, make, model, date);
                 const stockLabel = exceededMax ? `Over ${count} cars` : `${count} cars`;
 
-                return [
+                // Calculate average days on market
+                const avgDays = calculateAverageDaysOnMarket(data, listings, date);
+                const daysLabel = avgDays !== null ? `Avg days on market: ${avgDays}` : null;
+
+                const result = [
                   `${modelName}: $${price.toLocaleString()}`,
                   `Stock: ${stockLabel}`
                 ];
+
+                if (daysLabel) {
+                  result.push(daysLabel);
+                }
+
+                return result;
               }
             }
           }
@@ -147,12 +175,7 @@ export default function OverviewChart({ data, onModelSelect }) {
         scales: {
           x: {
             ticks: {
-              callback: (value, index) => {
-                // Format date as MM/DD
-                const dateStr = dates[index];
-                const date = new Date(dateStr);
-                return `${date.getMonth() + 1}/${date.getDate()}`;
-              }
+              display: false // Hide default labels, we'll use custom DOM elements
             }
           },
           y: {
@@ -163,11 +186,13 @@ export default function OverviewChart({ data, onModelSelect }) {
             }
           }
         },
-        onClick: (event, elements) => {
+        onClick: (event, elements, chart) => {
+          // Check if clicking on a model line/point
           if (elements.length > 0 && onModelSelect) {
             const datasetIndex = elements[0].datasetIndex;
             const model = models[datasetIndex];
             onModelSelect(model);
+            return;
           }
         }
       },
@@ -275,6 +300,58 @@ export default function OverviewChart({ data, onModelSelect }) {
               labelsContainerRef.current.appendChild(linkEl);
             });
           }
+
+          // Create DOM elements for clickable date labels
+          if (dateLabelsContainerRef.current && onDateSelect) {
+            dateLabelsContainerRef.current.innerHTML = '';
+
+            const xScale = chart.scales.x;
+            const yScale = chart.scales.y;
+
+            dates.forEach((date, index) => {
+              const xPos = xScale.getPixelForValue(index);
+              const yPos = yScale.bottom + 10; // Position below the chart
+
+              const dateObj = new Date(date);
+              const formattedDate = `${dateObj.getMonth() + 1}/${dateObj.getDate()}`;
+
+              const linkEl = document.createElement('a');
+              linkEl.href = '#';
+              linkEl.className = 'date-label';
+              if (date === selectedDate) {
+                linkEl.classList.add('selected');
+              }
+              linkEl.style.position = 'absolute';
+              linkEl.style.left = xPos + 'px';
+              linkEl.style.top = yPos + 'px';
+              linkEl.style.transform = 'translateX(-50%)';
+              linkEl.style.textDecoration = 'none';
+              linkEl.style.whiteSpace = 'nowrap';
+              linkEl.style.display = 'flex';
+              linkEl.style.alignItems = 'center';
+              linkEl.style.gap = '2px';
+              linkEl.style.fontSize = '11px';
+              linkEl.style.cursor = 'pointer';
+
+              const textSpan = document.createElement('span');
+              textSpan.textContent = formattedDate;
+
+              const chevron = document.createElement('span');
+              chevron.textContent = '›';
+              chevron.style.fontSize = '12px';
+              chevron.style.opacity = '0.6';
+
+              linkEl.appendChild(textSpan);
+              linkEl.appendChild(chevron);
+
+              linkEl.addEventListener('click', (e) => {
+                e.preventDefault();
+                onDateSelect(date);
+              });
+
+              dateLabelsContainerRef.current.appendChild(linkEl);
+            });
+          }
         }
       }]
     });
@@ -284,7 +361,7 @@ export default function OverviewChart({ data, onModelSelect }) {
         chartInstance.current.destroy();
       }
     };
-  }, [data, onModelSelect]);
+  }, [data, onModelSelect, onDateSelect, selectedDate, dotSizeMode]);
 
   const models = data.length > 0
     ? [...new Set(data.flatMap(d => d.listings.map(getModelKey)))]
@@ -292,9 +369,23 @@ export default function OverviewChart({ data, onModelSelect }) {
 
   return (
     <div className="overview-chart">
+      <div className="chart-header">
+        <div className="chart-controls">
+          <label htmlFor="dot-size-mode">Dot size represents:</label>
+          <select
+            id="dot-size-mode"
+            value={dotSizeMode}
+            onChange={(e) => setDotSizeMode(e.target.value)}
+          >
+            <option value="stock">Stock Count</option>
+            <option value="days">Avg Days on Market</option>
+          </select>
+        </div>
+      </div>
       <div className="chart-container">
         <canvas ref={chartRef}></canvas>
         <div ref={labelsContainerRef} className="chart-labels"></div>
+        <div ref={dateLabelsContainerRef} className="date-labels"></div>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import puppeteer from 'puppeteer';
 import { RateLimiter } from './rate-limiter.js';
 import { appendListings } from './file-writer.js';
+import { loadPreviousData, findMissingListings, validateMissingListings } from './status-validator.js';
 
 /**
  * Base scraper that handles browser management and common logic
@@ -59,19 +60,64 @@ export class BaseScraper {
       const listings = Array.isArray(result) ? result : result.listings;
       const exceededMax = result.exceededMax || false;
 
+      // Validate missing listings for this model
+      const validatedListings = await this.validateMissingListingsForModel(query, listings);
+
+      // Combine current listings with validated (selling/sold) listings
+      const allListings = [...listings, ...validatedListings];
+
       await appendListings(
         this.sourceName,
-        listings,
+        allListings,
         exceededMax,
         exceededMax ? { make: query.make, model: query.model } : null
       );
 
-      console.log(`  ✓ Found ${listings.length} listings`);
-      return listings;
+      console.log(`  ✓ Found ${listings.length} listings (${validatedListings.length} validated)`);
+      return allListings;
     } catch (error) {
       console.error(`  ✗ Error:`, error.message);
       return [];
     }
+  }
+
+  async validateMissingListingsForModel(query, currentListings) {
+    // Check if subclass has detectStatus method
+    if (typeof this.detectStatus !== 'function') {
+      return []; // Skip validation if not implemented
+    }
+
+    // Load previous data
+    const previousData = loadPreviousData(this.sourceName);
+    if (!previousData || !previousData.listings) {
+      return [];
+    }
+
+    // Filter previous listings for this specific model
+    const previousModelListings = previousData.listings.filter(
+      l => l.make === query.make && l.model === query.model
+    );
+
+    if (previousModelListings.length === 0) {
+      return [];
+    }
+
+    // Find missing listings (present in previous but not in current)
+    const missingListings = findMissingListings(previousModelListings, currentListings);
+
+    if (missingListings.length === 0) {
+      return [];
+    }
+
+    console.log(`  Validating ${missingListings.length} missing ${query.make} ${query.model} listings...`);
+
+    // Validate each missing listing
+    return await validateMissingListings(
+      this.page,
+      missingListings,
+      this.detectStatus.bind(this),
+      this.rateLimitMs
+    );
   }
 
   /**

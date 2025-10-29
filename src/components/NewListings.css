@@ -1,8 +1,8 @@
 .new-listings {
-  background: white;
+  background: var(--bg-secondary);
   border-radius: 8px;
   padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 4px var(--shadow-sm);
   margin-top: 2rem;
 }
 
@@ -13,11 +13,11 @@
 .new-listings h2 {
   font-size: 1.5rem;
   margin: 0 0 0.25rem 0;
-  color: #667eea;
+  color: var(--primary-color);
 }
 
 .new-listings .subtitle {
-  color: #666;
+  color: var(--text-secondary);
   font-size: 0.875rem;
   margin: 0;
 }
@@ -31,27 +31,27 @@
 
 .source-filter label {
   font-size: 0.875rem;
-  color: #666;
+  color: var(--text-secondary);
   font-weight: 500;
 }
 
 .source-filter select {
   padding: 0.5rem 1rem;
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--border-color);
   border-radius: 4px;
   font-size: 0.875rem;
-  color: #333;
-  background: white;
+  color: var(--text-primary);
+  background: var(--bg-secondary);
   cursor: pointer;
   transition: border-color 0.2s;
 }
 
 .source-filter select:hover {
-  border-color: #667eea;
+  border-color: var(--primary-color);
 }
 
 .source-filter select:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: var(--primary-color);
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }

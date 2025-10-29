@@ -1,6 +1,6 @@
 {
   "source": "carmax",
-  "scraped_at": "2025-10-28T00:11:24.436Z",
+  "scraped_at": "2025-10-28T21:37:35.397Z",
   "listings": [
     {
       "id": "27567255",
@@ -44,7 +44,7 @@
       "model": "Ioniq 5",
       "year": 2024,
       "trim": "5 Limited",
-      "price": 39998,
+      "price": 38998,
       "mileage": 0,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28065492",
@@ -4488,6 +4488,30 @@
       "mileage": 0,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27749903",
+      "listing_date": "2025-10-28"
+    },
+    {
+      "id": "28094826",
+      "make": "Hyundai",
+      "model": "Ioniq 5",
+      "year": 2023,
+      "trim": "5 Limited",
+      "price": 32998,
+      "mileage": 0,
+      "location": "CarMax",
+      "url": "https://www.carmax.com/car/28094826",
+      "listing_date": "2025-10-28"
+    },
+    {
+      "id": "28018151",
+      "make": "Hyundai",
+      "model": "Ioniq 5",
+      "year": 2024,
+      "trim": "5 Limited",
+      "price": 32998,
+      "mileage": 0,
+      "location": "CarMax",
+      "url": "https://www.carmax.com/car/28018151",
       "listing_date": "2025-10-28"
     }
   ],
