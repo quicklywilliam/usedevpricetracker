@@ -5,6 +5,7 @@ import DetailChart from './components/DetailChart';
 import ModelListingsView from './components/ModelListingsView';
 import NewListings from './components/NewListings';
 import NoTeslaToggle from './components/NoTeslaToggle';
+import Footer from './components/Footer';
 
 function App() {
   const [data, setData] = useState([]);
@@ -186,6 +187,7 @@ function App() {
           </>
         )}
       </main>
+      <Footer />
     </div>
   );
 }
