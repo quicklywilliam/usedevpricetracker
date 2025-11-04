@@ -45,6 +45,11 @@ tr:hover {
   color: #1976d2;
 }
 
+.source-autotrader {
+  background: #fff4e6;
+  color: #e65100;
+}
+
 .source-carmax {
   background: #fff3e0;
   color: #f57c00;

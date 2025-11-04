@@ -14,6 +14,7 @@ export default function DetailChart({ data, model, onDateSelect, selectedDate })
 
   const colors = {
     'mock-source': '#1976d2',
+    'autotrader': '#e65100',
     'carmax': '#f57c00',
     'carvana': '#00a9ce',
     'plattauto': '#43a047'

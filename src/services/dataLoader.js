@@ -2,7 +2,7 @@ export async function loadAllData() {
   // For local dev, fetch from /data directory
   // For production, fetch from GitHub raw URL or relative path
 
-  const sources = ['carmax', 'carvana', 'plattauto'];
+  const sources = ['autotrader', 'carmax', 'carvana', 'plattauto'];
 
   // Add mock-source in development mode only
   if (import.meta.env.DEV) {
