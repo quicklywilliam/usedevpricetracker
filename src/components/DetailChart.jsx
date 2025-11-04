@@ -15,7 +15,8 @@ export default function DetailChart({
   onTimeRangeChange,
   timeRangeOptions,
   dateLabels,
-  availableDates
+  availableDates,
+  loading = false
 }) {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
@@ -250,6 +251,14 @@ export default function DetailChart({
       options: {
         responsive: true,
         maintainAspectRatio: false,
+        animation: false,
+        transitions: {
+          active: {
+            animation: {
+              duration: 0
+            }
+          }
+        },
         layout: {
           padding: {
             right: 100 // Add space for labels on the right
@@ -439,7 +448,7 @@ export default function DetailChart({
         chartInstance.current.destroy();
       }
     };
-  }, [data, model, onDateSelect, selectedDate, dotSizeMode, dateLabels, availableDates]);
+  }, [data, model, onDateSelect, selectedDate, dotSizeMode, dateLabels, availableDates, loading]);
 
   const rangeOptions = Array.isArray(timeRangeOptions) ? timeRangeOptions : [];
   const activeRangeId = timeRangeId ?? (rangeOptions[0]?.id ?? null);
@@ -480,6 +489,9 @@ export default function DetailChart({
         </div>
       </div>
       <div className="chart-container">
+        {loading && (!data || data.length === 0) && (
+          <div className="chart-loading">Loading price data...</div>
+        )}
         <canvas ref={chartRef}></canvas>
         <div ref={dateLabelsContainerRef} className="date-labels"></div>
       </div>

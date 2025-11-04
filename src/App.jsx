@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { loadAllData } from './services/dataLoader';
+import { loadAllData, getModelKey } from './services/dataLoader';
 import OverviewChart from './components/OverviewChart';
 import DetailChart from './components/DetailChart';
 import ModelListingsView from './components/ModelListingsView';
 import NewListings from './components/NewListings';
 import NoTeslaToggle from './components/NoTeslaToggle';
 import Footer from './components/Footer';
-import { CATEGORY_TABS, DEFAULT_CATEGORY, filterDataByCategory } from './utils/modelCategories';
+import { CATEGORY_TABS, DEFAULT_CATEGORY, isModelInCategory } from './utils/modelCategories';
 
 const TIME_RANGE_OPTIONS = [
   { id: '7d', label: '7 Days', days: 7 },
@@ -23,13 +23,16 @@ function getTimeRangeOption(rangeId) {
 
 function App() {
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [dataLoading, setDataLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedModel, setSelectedModel] = useState(null);
   const [noTesla, setNoTesla] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(DEFAULT_CATEGORY);
   const [timeRangeId, setTimeRangeId] = useState(DEFAULT_RANGE_ID);
+  const [loadedDays, setLoadedDays] = useState(0);
+  const [categoryDataCache, setCategoryDataCache] = useState({});
+  const [categoryLoadedDays, setCategoryLoadedDays] = useState({});
 
   const activeRangeOption = useMemo(
     () => getTimeRangeOption(timeRangeId),
@@ -107,70 +110,102 @@ function App() {
 
   useEffect(() => {
     let isMounted = true;
+    let urlParamsInitialized = false;
 
-    loadAllData(MAX_TIME_RANGE_DAYS)
-      .then(results => {
-        if (!isMounted) {
-          return;
+    // Read URL params first
+    const url = new URL(window.location);
+    const rangeParam = url.searchParams.get('range');
+    const validRangeIds = TIME_RANGE_OPTIONS.map(option => option.id);
+    const initialRangeId = rangeParam && validRangeIds.includes(rangeParam)
+      ? rangeParam
+      : DEFAULT_RANGE_ID;
+    const initialRange = TIME_RANGE_OPTIONS.find(opt => opt.id === initialRangeId);
+    const daysToLoad = initialRange?.days || 30;
+
+    // Get initial category from URL
+    const categoryParam = url.searchParams.get('category');
+    const initialCategory = (categoryParam && CATEGORY_TABS.some(tab => tab.id === categoryParam))
+      ? categoryParam
+      : DEFAULT_CATEGORY;
+
+    // Create filter function for the selected category
+    const categoryFilter = (listing) => {
+      const modelKey = getModelKey(listing);
+      return isModelInCategory(modelKey, initialCategory);
+    };
+
+    // Load data progressively, starting with what's needed for the current time range
+    loadAllData(daysToLoad, {
+      batchSize: 7, // Load 7 days at a time
+      filterListings: categoryFilter, // Only load listings for selected category
+      onProgress: (progressData) => {
+        if (!isMounted) return;
+
+        // Update data as each batch arrives
+        setData(progressData);
+
+        // Initialize URL params only once when we have data
+        if (!urlParamsInitialized && progressData.length > 0) {
+          urlParamsInitialized = true;
+
+          const uniqueDates = [...new Set(progressData.map(d => d.scraped_at.split('T')[0]))].sort().reverse();
+          const mostRecentDate = uniqueDates[0] || null;
+
+          const modelParam = url.searchParams.get('model');
+          if (modelParam && modelParam !== 'all') {
+            setSelectedModel(modelParam);
+          }
+
+          const noTeslaParam = url.searchParams.get('noTesla');
+          if (noTeslaParam === 'true') {
+            setNoTesla(true);
+          }
+
+          setSelectedCategory(initialCategory);
+
+          setTimeRangeId(initialRangeId);
+
+          if (rangeParam && rangeParam !== initialRangeId) {
+            const updatedUrl = new URL(window.location);
+            if (initialRangeId === DEFAULT_RANGE_ID) {
+              updatedUrl.searchParams.delete('range');
+            } else {
+              updatedUrl.searchParams.set('range', initialRangeId);
+            }
+            window.history.replaceState({}, '', updatedUrl);
+          }
+
+          const dateParam = url.searchParams.get('date');
+          if (dateParam && uniqueDates.includes(dateParam)) {
+            setSelectedDate(dateParam);
+          } else if (mostRecentDate) {
+            setSelectedDate(mostRecentDate);
+          }
         }
+      }
+    })
+      .then(results => {
+        if (!isMounted) return;
 
         setData(results);
-        setLoading(false);
+        setDataLoading(false);
+        setLoadedDays(daysToLoad);
 
-        const uniqueDates = results.length > 0
-          ? [...new Set(results.map(d => d.scraped_at.split('T')[0]))].sort().reverse()
-          : [];
-        const mostRecentDate = uniqueDates[0] || null;
-
-        const url = new URL(window.location);
-
-        const modelParam = url.searchParams.get('model');
-        if (modelParam && modelParam !== 'all') {
-          setSelectedModel(modelParam);
-        }
-
-        const noTeslaParam = url.searchParams.get('noTesla');
-        if (noTeslaParam === 'true') {
-          setNoTesla(true);
-        }
-
-        const categoryParam = url.searchParams.get('category');
-        if (categoryParam && CATEGORY_TABS.some(tab => tab.id === categoryParam)) {
-          setSelectedCategory(categoryParam);
-        } else {
-          setSelectedCategory(DEFAULT_CATEGORY);
-        }
-
-        const rangeParam = url.searchParams.get('range');
-        const validRangeIds = TIME_RANGE_OPTIONS.map(option => option.id);
-        const resolvedRangeId = rangeParam && validRangeIds.includes(rangeParam)
-          ? rangeParam
-          : DEFAULT_RANGE_ID;
-        setTimeRangeId(resolvedRangeId);
-
-        if (rangeParam && rangeParam !== resolvedRangeId) {
-          const updatedUrl = new URL(window.location);
-          if (resolvedRangeId === DEFAULT_RANGE_ID) {
-            updatedUrl.searchParams.delete('range');
-          } else {
-            updatedUrl.searchParams.set('range', resolvedRangeId);
-          }
-          window.history.replaceState({}, '', updatedUrl);
-        }
-
-        const dateParam = url.searchParams.get('date');
-        if (dateParam && uniqueDates.includes(dateParam)) {
-          setSelectedDate(dateParam);
-        } else if (mostRecentDate) {
-          setSelectedDate(mostRecentDate);
-        }
+        // Cache the data for this category
+        setCategoryDataCache(prev => ({
+          ...prev,
+          [initialCategory]: results
+        }));
+        setCategoryLoadedDays(prev => ({
+          ...prev,
+          [initialCategory]: daysToLoad
+        }));
       })
       .catch(err => {
-        if (!isMounted) {
-          return;
-        }
+        if (!isMounted) return;
+
         setError(err.message);
-        setLoading(false);
+        setDataLoading(false);
       });
 
     return () => {
@@ -254,6 +289,54 @@ function App() {
       url.searchParams.set('category', categoryId);
     }
     window.history.pushState({}, '', url);
+
+    const newRange = TIME_RANGE_OPTIONS.find(opt => opt.id === timeRangeId);
+    const daysNeeded = newRange?.days || 30;
+    const cachedData = categoryDataCache[categoryId];
+    const cachedDays = categoryLoadedDays[categoryId] || 0;
+
+    // If we have cached data for this category and it has enough days, use it
+    if (cachedData && cachedDays >= daysNeeded) {
+      setData(cachedData);
+      setLoadedDays(cachedDays);
+      return;
+    }
+
+    // Otherwise, load data with new category filter
+    setDataLoading(true);
+    setData([]);
+
+    const categoryFilter = (listing) => {
+      const modelKey = getModelKey(listing);
+      return isModelInCategory(modelKey, categoryId);
+    };
+
+    loadAllData(daysNeeded, {
+      batchSize: 7,
+      filterListings: categoryFilter,
+      onProgress: (progressData) => {
+        setData(progressData);
+      }
+    })
+      .then(results => {
+        setData(results);
+        setLoadedDays(daysNeeded);
+        setDataLoading(false);
+
+        // Cache the data for this category
+        setCategoryDataCache(prev => ({
+          ...prev,
+          [categoryId]: results
+        }));
+        setCategoryLoadedDays(prev => ({
+          ...prev,
+          [categoryId]: daysNeeded
+        }));
+      })
+      .catch(err => {
+        setError(err.message);
+        setDataLoading(false);
+      });
   };
 
   const handleTimeRangeChange = (rangeId, { replaceHistory = false } = {}) => {
@@ -261,6 +344,9 @@ function App() {
     if (!rangeId || rangeId === timeRangeId || !validRangeIds.includes(rangeId)) {
       return;
     }
+
+    const newRange = TIME_RANGE_OPTIONS.find(opt => opt.id === rangeId);
+    const daysNeeded = newRange?.days || 30;
 
     setTimeRangeId(rangeId);
 
@@ -271,6 +357,43 @@ function App() {
       url.searchParams.set('range', rangeId);
     }
     window.history[replaceHistory ? 'replaceState' : 'pushState']({}, '', url);
+
+    // Load additional data if needed
+    if (daysNeeded > loadedDays) {
+      setDataLoading(true);
+
+      const categoryFilter = (listing) => {
+        const modelKey = getModelKey(listing);
+        return isModelInCategory(modelKey, selectedCategory);
+      };
+
+      loadAllData(daysNeeded, {
+        batchSize: 7,
+        filterListings: categoryFilter,
+        onProgress: (progressData) => {
+          setData(progressData);
+        }
+      })
+        .then(results => {
+          setData(results);
+          setLoadedDays(daysNeeded);
+          setDataLoading(false);
+
+          // Update cache for current category
+          setCategoryDataCache(prev => ({
+            ...prev,
+            [selectedCategory]: results
+          }));
+          setCategoryLoadedDays(prev => ({
+            ...prev,
+            [selectedCategory]: daysNeeded
+          }));
+        })
+        .catch(err => {
+          setError(err.message);
+          setDataLoading(false);
+        });
+    }
   };
 
   const handleDateSelect = (date, { replaceHistory = false, force = false } = {}) => {
@@ -323,16 +446,8 @@ function App() {
     });
   }, [data, rangeDateLabels]);
 
-  if (loading) {
-    return <div className="loading">Loading price data...</div>;
-  }
-
-  if (error) {
-    return <div className="error">Error: {error}</div>;
-  }
-
+  // Data is already filtered by category at load time, just need to filter Tesla
   const filteredData = filterTesla(dateFilteredData);
-  const categoryFilteredData = filterDataByCategory(filteredData, selectedCategory);
 
   const activeCategory = CATEGORY_TABS.find(tab => tab.id === selectedCategory) || CATEGORY_TABS[0] || null;
   const categoryDescription = activeCategory?.description ?? '';
@@ -368,10 +483,12 @@ function App() {
         )}
       </header>
       <main className="container">
-        {!selectedModel ? (
+        {error ? (
+          <div className="error">Error: {error}</div>
+        ) : !selectedModel ? (
           <>
             <OverviewChart
-              data={categoryFilteredData}
+              data={filteredData}
               onModelSelect={handleModelSelect}
               onDateSelect={handleDateSelect}
               selectedDate={selectedDate}
@@ -380,8 +497,9 @@ function App() {
               timeRangeOptions={TIME_RANGE_OPTIONS}
               dateLabels={rangeDateLabels}
               availableDates={availableRangeDates}
+              loading={dataLoading}
             />
-            <NewListings data={categoryFilteredData} selectedDate={selectedDate} />
+            <NewListings data={filteredData} selectedDate={selectedDate} loading={dataLoading} />
           </>
         ) : (
           <>
@@ -400,11 +518,13 @@ function App() {
               timeRangeOptions={TIME_RANGE_OPTIONS}
               dateLabels={rangeDateLabels}
               availableDates={availableRangeDates}
+              loading={dataLoading}
             />
             <ModelListingsView
               data={filteredData}
               model={selectedModel}
               selectedDate={selectedDate}
+              loading={dataLoading}
             />
           </>
         )}

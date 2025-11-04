@@ -1,10 +1,17 @@
 const DEFAULT_MAX_DAYS = 7;
 const DEFAULT_MISSING_STREAK_THRESHOLD = 120;
 
+/**
+ * Progressively load data starting from most recent dates
+ * @param {number} maxDays - Maximum number of days to load
+ * @param {Object} options - Options for loading
+ * @param {Function} options.onProgress - Callback called with incremental results as they arrive
+ * @param {number} options.missingStreakThreshold - Stop loading after this many consecutive missing days
+ * @param {number} options.batchSize - Number of dates to load per batch (default 7)
+ * @param {Function} options.filterListings - Optional function to filter listings (listing => boolean)
+ * @returns {Promise<Array>} All loaded data
+ */
 export async function loadAllData(maxDays = DEFAULT_MAX_DAYS, options = {}) {
-  // For local dev, fetch from /data directory
-  // For production, fetch from GitHub raw URL or relative path
-
   const sources = ['autotrader', 'carmax', 'carvana', 'plattauto'];
 
   // Add mock-source in development mode only
@@ -22,49 +29,85 @@ export async function loadAllData(maxDays = DEFAULT_MAX_DAYS, options = {}) {
       : DEFAULT_MISSING_STREAK_THRESHOLD
   );
 
+  const batchSize = options.batchSize || 7;
+  const onProgress = options.onProgress;
+  const filterListings = options.filterListings;
   const baseUrl = import.meta.env.BASE_URL || '/';
 
-  const resultsBySource = await Promise.all(
-    sources.map(async (source) => {
-      const sourceResults = [];
-      let missingStreak = 0;
+  const allResults = [];
 
-      for (const date of dates) {
-        const url = `${baseUrl}data/${source}/${date}.json`;
+  // Process dates in batches (most recent first)
+  for (let batchStart = 0; batchStart < dates.length; batchStart += batchSize) {
+    const batchDates = dates.slice(batchStart, batchStart + batchSize);
 
-        try {
-          const response = await fetch(url);
-          if (!response.ok) {
+    // Load all sources for this batch in parallel
+    const batchResults = await Promise.all(
+      sources.map(async (source) => {
+        const sourceResults = [];
+        let missingStreak = 0;
+
+        for (const date of batchDates) {
+          const url = `${baseUrl}data/${source}/${date}.json`;
+
+          try {
+            const response = await fetch(url);
+            if (!response.ok) {
+              missingStreak += 1;
+              if (missingStreak >= missingThreshold) {
+                break;
+              }
+              continue;
+            }
+
+            const json = await response.json();
+            if (json) {
+              // Filter listings if filter function provided
+              if (filterListings && Array.isArray(json.listings)) {
+                const filteredListings = json.listings.filter(filterListings);
+                // Only include this data if it has listings after filtering
+                if (filteredListings.length > 0) {
+                  sourceResults.push({
+                    ...json,
+                    listings: filteredListings
+                  });
+                }
+              } else {
+                sourceResults.push(json);
+              }
+              missingStreak = 0;
+            } else {
+              missingStreak += 1;
+              if (missingStreak >= missingThreshold) {
+                break;
+              }
+            }
+          } catch (err) {
             missingStreak += 1;
             if (missingStreak >= missingThreshold) {
               break;
             }
-            continue;
-          }
-
-          const json = await response.json();
-          if (json) {
-            sourceResults.push(json);
-            missingStreak = 0;
-          } else {
-            missingStreak += 1;
-            if (missingStreak >= missingThreshold) {
-              break;
-            }
-          }
-        } catch (err) {
-          missingStreak += 1;
-          if (missingStreak >= missingThreshold) {
-            break;
           }
         }
-      }
 
-      return sourceResults;
-    })
-  );
+        return sourceResults;
+      })
+    );
 
-  return resultsBySource.flat();
+    const batchFlat = batchResults.flat();
+    allResults.push(...batchFlat);
+
+    // Call progress callback if provided
+    if (onProgress && batchFlat.length > 0) {
+      onProgress([...allResults]);
+    }
+
+    // If all sources had no data for this batch, we can stop early
+    if (batchFlat.length === 0) {
+      break;
+    }
+  }
+
+  return allResults;
 }
 
 function getLastNDays(count) {

@@ -14,7 +14,8 @@ export default function OverviewChart({
   onTimeRangeChange,
   timeRangeOptions,
   dateLabels,
-  availableDates
+  availableDates,
+  loading = false
 }) {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
@@ -593,6 +594,14 @@ export default function OverviewChart({
       options: {
         responsive: true,
         maintainAspectRatio: false,
+        animation: false,
+        transitions: {
+          active: {
+            animation: {
+              duration: 0
+            }
+          }
+        },
         layout: {
           padding: {
             right: showModelLabels ? 140 : 24 // Reduce padding when labels hidden
@@ -1079,7 +1088,7 @@ export default function OverviewChart({
         chartInstance.current = null;
       }
     };
-  }, [data, onModelSelect, onDateSelect, selectedDate, dotSizeMode, prefersDark, dateLabels, availableDates, showModelLabels]);
+  }, [data, onModelSelect, onDateSelect, selectedDate, dotSizeMode, prefersDark, dateLabels, availableDates, showModelLabels, loading]);
 
   const rangeOptions = Array.isArray(timeRangeOptions) ? timeRangeOptions : [];
   const activeRangeId = timeRangeId ?? (rangeOptions[0]?.id ?? null);
@@ -1178,6 +1187,9 @@ export default function OverviewChart({
         </div>
       )}
       <div className="chart-container">
+        {loading && (!data || data.length === 0) && (
+          <div className="chart-loading">Loading price data...</div>
+        )}
         <canvas ref={chartRef}></canvas>
         <div ref={labelsContainerRef} className="chart-labels"></div>
         <div ref={dateLabelsContainerRef} className="date-labels"></div>

@@ -3,8 +3,11 @@ import VehicleListingTabs from './VehicleListingTabs';
 import { findNewListings, findListingsWithPriceChanges, findSoldListings, calculateDaysOnMarket } from '../services/dataLoader';
 import './ModelListingsView.css';
 
-export default function ModelListingsView({ data, model, selectedDate }) {
+export default function ModelListingsView({ data, model, selectedDate, loading = false }) {
   if (!data || data.length === 0 || !model) {
+    if (loading) {
+      return <div className="loading">Loading model details...</div>;
+    }
     return null;
   }
 

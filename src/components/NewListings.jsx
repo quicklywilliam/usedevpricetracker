@@ -3,7 +3,7 @@ import VehicleListingTabs from './VehicleListingTabs';
 import { findNewListings, findListingsWithPriceChanges, findSoldListings, calculateDaysOnMarket } from '../services/dataLoader';
 import './NewListings.css';
 
-export default function NewListings({ data, selectedDate }) {
+export default function NewListings({ data, selectedDate, loading = false }) {
   const [selectedSource, setSelectedSource] = useState('all');
 
   // Load source filter from URL on mount
@@ -28,6 +28,13 @@ export default function NewListings({ data, selectedDate }) {
   }, []);
 
   if (!data || data.length === 0) {
+    if (loading) {
+      return (
+        <div className="new-listings">
+          <div className="loading">Loading new listings...</div>
+        </div>
+      );
+    }
     return null;
   }
 
