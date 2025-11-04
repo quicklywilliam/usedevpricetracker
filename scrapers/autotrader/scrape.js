@@ -31,7 +31,7 @@ class AutotraderScraper extends BaseScraper {
    * Fallback: GenAI API (direct search interpretation)
    */
   async getModelCodes(make, model) {
-    const searchTerm = `${make} ${model}`;
+    const searchTerm = `used ${make} ${model}`;
 
     console.log(`    Looking up model codes for "${searchTerm}"...`);
 
@@ -45,20 +45,36 @@ class AutotraderScraper extends BaseScraper {
       });
 
       if (keywordsResponse.data && keywordsResponse.data.length > 0) {
-        // Find first result with both makeCode and modelCode
-        // that contains words from our model search (relevance check)
+        const searchTermLower = searchTerm.toLowerCase();
         const modelWords = model.toLowerCase().split(/\s+/);
 
-        const match = keywordsResponse.data.find(item => {
-          if (!item.codes || !item.codes.makeCode || !item.codes.modelCode) {
-            return false;
+        // Filter valid results with codes
+        const validResults = keywordsResponse.data.filter(item =>
+          item.codes && item.codes.makeCode && item.codes.modelCode
+        );
+
+        // First, try to find an exact match
+        let match = validResults.find(item =>
+          (item.name || '').toLowerCase() === searchTermLower
+        );
+
+        // If no exact match, find the shortest match that contains our model words
+        if (!match) {
+          const relevantMatches = validResults.filter(item => {
+            const nameLower = (item.name || '').toLowerCase();
+            // Must contain all significant words from the model
+            return modelWords.every(word =>
+              word.length <= 2 || nameLower.includes(word)  // Skip short words like "ev"
+            );
+          });
+
+          // Pick the shortest match (most specific, least extra content)
+          if (relevantMatches.length > 0) {
+            match = relevantMatches.reduce((shortest, item) =>
+              item.name.length < shortest.name.length ? item : shortest
+            );
           }
-          // Check if the matched name contains any significant word from our model
-          const nameLower = (item.name || '').toLowerCase();
-          return modelWords.some(word =>
-            word.length > 2 && nameLower.includes(word)  // Skip short words like "ev"
-          );
-        });
+        }
 
         if (match) {
           const makeCode = match.codes.makeCode[0];
@@ -117,7 +133,8 @@ class AutotraderScraper extends BaseScraper {
           zip: this.zip,
           numRecords,
           firstRecord: startRecord,
-          sortBy: 'relevance'
+          sortBy: 'relevance',
+          listingType: 'USED'
         },
         headers: {
           'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'
