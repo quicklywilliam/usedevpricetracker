@@ -58,35 +58,70 @@ node scrapers/mock-source/generate-mock-history.js
 │   ├── deploy.yml              # Deploy-only workflow (on push)
 │   └── scrape-and-deploy.yml   # Daily scraping workflow
 ├── data/                       # Scraped price data (JSON)
+│   ├── autotrader/
 │   ├── carmax/
 │   ├── carvana/
 │   ├── plattauto/
 │   └── mock-source/
 ├── scrapers/
-│   ├── shared/
-│   │   └── scraper-utils.js    # Shared scraper utilities
+│   ├── lib/                    # Shared scraper utilities
+│   │   ├── base-scraper.js     # Abstract base scraper class
+│   │   ├── config.js           # Shared configuration
+│   │   ├── file-writer.js      # Data persistence utilities
+│   │   ├── http-client.js      # HTTP request utilities
+│   │   ├── rate-limiter.js     # Request rate limiting
+│   │   └── status-validator.js # Data validation utilities
+│   ├── autotrader/
+│   │   ├── config.json
+│   │   ├── scrape.js
+│   │   ├── scrape.test.js
+│   │   └── README.md
 │   ├── carmax/
+│   │   ├── config.json
 │   │   └── scrape.js
 │   ├── carvana/
+│   │   ├── config.json
 │   │   └── scrape.js
 │   ├── plattauto/
+│   │   ├── config.json
 │   │   └── scrape.js
 │   ├── mock-source/
-│   │   └── scrape.js
+│   │   ├── config.json
+│   │   ├── scrape.js
+│   │   └── generate-mock-history.js
 │   ├── run-all.js              # Run all scrapers sequentially
-│   └── generate-mock-history.js
+│   └── TEMPLATE.md             # Template for new scrapers
 ├── src/
 │   ├── components/
+│   │   ├── DetailChart.jsx     # Per-model price ranges chart
+│   │   ├── DetailChart.css
+│   │   ├── Footer.jsx          # Site footer
+│   │   ├── Footer.css
+│   │   ├── ListingsTable.jsx   # Individual listings table
+│   │   ├── ListingsTable.css
+│   │   ├── ModelListingsView.jsx # Model-specific listings view
+│   │   ├── ModelListingsView.css
+│   │   ├── NewListings.jsx     # New listings panel
+│   │   ├── NewListings.css
+│   │   ├── NoTeslaToggle.jsx   # Toggle to exclude Tesla
+│   │   ├── NoTeslaToggle.css
 │   │   ├── OverviewChart.jsx   # Main overview with all models
-│   │   ├── DetailChart.jsx     # Per-model price ranges
-│   │   └── ListingsTable.jsx   # Individual listings table
+│   │   ├── OverviewChart.css
+│   │   ├── VehicleListingTabs.jsx # Tabs for switching between models
+│   │   └── VehicleListingTabs.css
 │   ├── services/
 │   │   └── dataLoader.js       # Load and process JSON data
 │   ├── utils/
-│   │   └── chartLabels.js      # Reusable chart label plugin
-│   └── App.jsx
+│   │   ├── chartLabels.js      # Reusable chart label plugin
+│   │   ├── inventoryScale.js   # Inventory scale calculations
+│   │   ├── modelCategories.js  # Model categorization logic
+│   │   └── numberFormat.js     # Number formatting utilities
+│   ├── App.jsx                 # Main application component
+│   ├── main.jsx                # Application entry point
+│   └── index.css               # Global styles
 ├── config/
-│   └── models.json             # EV models to track
+│   └── tracked-models.json     # EV models to track
+├── index.html                  # HTML template
 └── vite.config.js              # Vite config with data copy plugin
 ```
 
@@ -159,17 +194,6 @@ The app is configured for GitHub Pages deployment at `/usedevpricetracker/`:
 export default defineConfig({
   base: '/usedevpricetracker/'
 });
-```
-
-### Models to Track
-
-Edit `config/models.json` to add/remove models:
-
-```json
-[
-  { "make": "Tesla", "model": "Model 3" },
-  { "make": "Nissan", "model": "Ariya" }
-]
 ```
 
 ## License
