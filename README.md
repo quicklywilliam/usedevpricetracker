@@ -1,30 +1,19 @@
 # Used EV Price Tracker
 
-Track used electric vehicle prices across multiple sources with automated scraping and visualization.
+A website tracking used EV prices, currently live [here](https://quicklywilliam.github.io/usedevpricetracker/). It's part market tracker, part price guide, part shopping tool. This is currently just a small hobby project, but bug reports and feature requests are welcome.
 
 ## Features
 
-- **Automated Daily Scraping**: GitHub Actions runs scrapers daily at midnight UTC
-- **Multiple Sources**: CarMax, Carvana, Platt Auto, and extensible to more
-- **11 EV Models Tracked**: Tesla Model 3/Y/S/X, Nissan Leaf/Ariya, Chevy Bolt EV/EUV, Ford Mustang Mach-E, Hyundai Ioniq 5, Volkswagen ID.4
+- **Multiple Sources**: CarMax, Carvana and Autotrader. Easiy extensible to more
+- **Tracks Individua EV Models**: Currently tracks 16 different models, see [tracked-models.json](https://github.com/quicklywilliam/usedevpricetracker/blob/main/config/tracked-models.json).
 - **Interactive Visualizations**:
-  - Overview chart showing average prices across all models
-  - Click the labels for detailed charts with price ranges and individual listings
-- **Static Deployment**: Hosted on GitHub Pages with no backend required
-
-## Live Demo
-
-Visit the live tracker at: https://quicklywilliam.github.io/usedevpricetracker/
 
 ## Architecture
 
-- **Data Storage**: JSON files in `/data/{source}/{date}.json` committed to repository
-- **Scraping**: Puppeteer-based scrapers running in GitHub Actions
+- **Static Deployment**: Hosted on GitHub Pages with no backend required
+- **Automated Daily Data Digestion**: GitHub Actions runs scrappers daily at midnight UTC
+- **Simple Data Storage**: JSON files in `/data/{source}/{date}.json` committed to repository
 - **Frontend**: React app with Chart.js visualizations
-- **Deployment**: GitHub Pages for static hosting
-- **Workflows**:
-  - `deploy.yml`: Runs on every push to main, builds and deploys frontend only
-  - `scrape-and-deploy.yml`: Runs daily at midnight UTC, scrapes all sources, commits data, then deploys
 
 ## Quick Start
 
@@ -46,9 +35,7 @@ node scrapers/run-all.js
 
 Run a specific scraper:
 ```bash
-node scrapers/carmax/scrape.js
-node scrapers/carvana/scrape.js
-node scrapers/plattauto/scrape.js
+node scrapers/run-all.js --source=carvana
 ```
 
 Run mock scraper for testing:
@@ -60,7 +47,7 @@ node scrapers/mock-source/scrape.js
 
 For testing visualizations with multiple days of data:
 ```bash
-node scrapers/generate-mock-history.js
+node scrapers/mock-source/generate-mock-history.js
 ```
 
 ## Project Structure
@@ -105,61 +92,7 @@ node scrapers/generate-mock-history.js
 
 ## Adding a New Scraper
 
-All scrapers use shared utilities from `scrapers/shared/scraper-utils.js` for consistency:
-
-1. **Create scraper directory**:
-   ```bash
-   mkdir scrapers/newsource
-   ```
-
-2. **Create `scrape.js`** using the template pattern:
-   ```javascript
-   import { setupScraper, scrapeModel } from '../shared/scraper-utils.js';
-
-   const SOURCE_NAME = 'newsource';
-
-   async function scrapeListings(page, make, model) {
-     const url = buildSearchUrl(make, model);
-     await page.goto(url, { waitUntil: 'networkidle0' });
-
-     return await page.evaluate(() => {
-       const listings = [];
-       document.querySelectorAll('.listing-card').forEach(card => {
-         listings.push({
-           price: parseInt(card.querySelector('.price').textContent.replace(/\D/g, '')),
-           year: parseInt(card.querySelector('.year').textContent),
-           trim: card.querySelector('.trim').textContent.trim(),
-           mileage: parseInt(card.querySelector('.mileage').textContent.replace(/\D/g, '')),
-           url: card.querySelector('a').href
-         });
-       });
-       return listings;
-     });
-   }
-
-   function buildSearchUrl(make, model) {
-     return `https://newsource.com/cars/${make}-${model}`;
-   }
-
-   (async () => {
-     const { browser, models } = await setupScraper(SOURCE_NAME);
-
-     try {
-       for (const { make, model } of models) {
-         await scrapeModel(browser, SOURCE_NAME, make, model, scrapeListings);
-       }
-     } finally {
-       await browser.close();
-     }
-   })();
-   ```
-
-3. **Add to run-all.js** in the scrapers array
-
-4. **Test locally**:
-   ```bash
-   node scrapers/newsource/scrape.js
-   ```
+All scrapers use shared utilities from `scrapers/lib` for consistency. See [here](https://github.com/quicklywilliam/usedevpricetracker/blob/main/scrapers/TEMPLATE.md) for more information.
 
 ## GitHub Actions Workflows
 
@@ -191,39 +124,6 @@ To manually run the scraping workflow:
 ```bash
 gh workflow run "Scrape Prices and Deploy"
 ```
-
-## Data Format
-
-Each scraper outputs JSON files with this structure:
-
-```json
-{
-  "source": "carmax",
-  "date": "2025-10-20",
-  "listings": [
-    {
-      "make": "Tesla",
-      "model": "Model 3",
-      "year": 2023,
-      "trim": "Long Range",
-      "price": 35990,
-      "mileage": 12500,
-      "url": "https://..."
-    }
-  ]
-}
-```
-
-## Tracked Models
-
-Configured in `config/models.json`:
-
-- Tesla: Model 3, Model Y, Model S, Model X
-- Nissan: Leaf, Ariya
-- Chevrolet: Bolt EV, Bolt EUV
-- Ford: Mustang Mach-E
-- Hyundai: Ioniq 5
-- Volkswagen: ID.4
 
 ## Development
 
