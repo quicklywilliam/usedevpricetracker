@@ -247,8 +247,3 @@ function parseListings($, make, model) {
 
   return listings;
 }
-
-// Run if called directly
-if (import.meta.url === `file://${process.argv[1]}`) {
-  scrapeCarMax({ make: 'Hyundai', model: 'Ioniq 5' }).catch(console.error);
-}

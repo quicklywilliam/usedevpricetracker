@@ -7,7 +7,15 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 async function runAllScrapers() {
-  console.log('Starting scraper run...\n');
+  // Check for --source argument
+  const sourceArg = process.argv.find(arg => arg.startsWith('--source='));
+  const targetSource = sourceArg ? sourceArg.split('=')[1] : null;
+
+  if (targetSource) {
+    console.log(`Starting scraper run for ${targetSource}...\n`);
+  } else {
+    console.log('Starting scraper run...\n');
+  }
 
   // Read tracked models
   const configPath = path.join(__dirname, '..', 'config', 'tracked-models.json');
@@ -30,6 +38,11 @@ async function runAllScrapers() {
       await fs.access(scrapePath);
 
       const scraperConfig = JSON.parse(await fs.readFile(scraperConfigPath, 'utf-8'));
+
+      // Skip if targeting specific source and this isn't it
+      if (targetSource && entry.name !== targetSource) {
+        continue;
+      }
 
       if (scraperConfig.enabled) {
         const scraper = await import(scrapePath);

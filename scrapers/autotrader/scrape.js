@@ -260,10 +260,3 @@ export async function scrapeAutotrader(query) {
     await scraper.close();
   }
 }
-
-// Run if called directly
-if (import.meta.url === `file://${process.argv[1]}`) {
-  scrapeAutotrader({ make: 'Tesla', model: 'Model 3' })
-    .then(() => console.log('Done!'))
-    .catch(console.error);
-}

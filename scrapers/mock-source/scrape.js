@@ -19,8 +19,3 @@ export async function scrapeMockSource(query) {
   await appendListings('mock-source', [listing]);
   return [listing];
 }
-
-// Run if called directly
-if (import.meta.url === `file://${process.argv[1]}`) {
-  scrapeMockSource({ make: 'Hyundai', model: 'Ioniq 5' }).catch(console.error);
-}
