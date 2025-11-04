@@ -451,9 +451,22 @@ export default function OverviewChart({
         maxCountsSeries.push(metrics.maxCount);
         avgDaysSeries.push(metrics.avgDays);
 
-        const radius = dotSizeMode === 'days'
+        const baseRadius = dotSizeMode === 'days'
           ? (metrics.avgDays !== null ? getPointSizeFromDays(metrics.avgDays) : 5)
           : (metrics.avgCount > 0 ? getPointSizeFromStock(metrics.avgCount) : 5);
+
+        // Progressive scaling based on viewport width
+        const getScaleFactor = () => {
+          if (typeof window === 'undefined') return 1;
+          const width = window.innerWidth;
+          // Full size at 1200px and above, scale down to 0.3x at 320px
+          if (width >= 1200) return 1;
+          if (width <= 320) return 0.3;
+          // Linear interpolation between 320px and 1200px
+          return 0.3 + ((width - 320) / (1200 - 320)) * 0.7;
+        };
+
+        const radius = baseRadius * getScaleFactor();
         pointRadii.push(radius);
       });
 
@@ -779,15 +792,27 @@ export default function OverviewChart({
             if (meta.dataset) {
               const line = meta.dataset;
               line.options.borderWidth = isHovered ? 3 : hasHover ? 1.25 : 2;
+
+              // Use same dimming logic as ranges for consistency
+              const lineAlpha = hasHover
+                ? (isHovered ? 1.0 : (prefersDark ? 0.15 : 0.1))
+                : 1.0;
+
               line.options.borderColor = isHovered
                 ? baseColor
-                : hasHover ? toRgba(baseColor, 0.3) : baseColor;
+                : hasHover ? toRgba(baseColor, lineAlpha) : baseColor;
               const pointFill = isHovered
                 ? baseColor
-                : hasHover ? toRgba(baseColor, 0.35) : baseColor;
-              const pointBorder = isHovered
+                : hasHover ? toRgba(baseColor, lineAlpha * 1.2) : baseColor;
+
+              // Dim point borders for non-hovered models
+              const pointBorderBase = isHovered
                 ? adjustLightness(baseColor, -0.12)
-                : adjustLightness(baseColor, hasHover ? -0.08 : -0.03);
+                : adjustLightness(baseColor, -0.08);
+              const pointBorder = hasHover && !isHovered
+                ? toRgba(pointBorderBase, lineAlpha)
+                : pointBorderBase;
+
               line.options.pointBackgroundColor = pointFill;
               line.options.pointBorderColor = pointBorder;
 
