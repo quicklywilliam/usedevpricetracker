@@ -1,45 +1,65 @@
 .listings-table {
   background: var(--bg-secondary);
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 1.5rem;
-  box-shadow: 0 2px 4px var(--shadow-sm);
-  overflow-x: auto;
+  box-shadow: 0 2px 6px var(--shadow-sm);
 }
 
-.listings-table h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: var(--primary-color);
+.listings-table__surface {
+  max-width: 100%;
+  overflow-x: auto;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.02));
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 0 0 1px var(--border-color);
 }
 
 table {
   width: 100%;
-  border-collapse: collapse;
-  min-width: 720px;
+  min-width: 700px;
+  border-collapse: separate;
+  border-spacing: 0;
 }
 
-th, td {
-  text-align: left;
-  padding: 0.75rem;
-  border-bottom: 1px solid var(--border-color);
-}
-
-th {
-  background: var(--hover-bg);
+thead th {
   font-weight: 600;
-  color: var(--primary-color);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  background: transparent;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-tr:hover {
-  background: var(--hover-bg);
+tbody td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  font-size: 0.95rem;
+}
+
+tbody tr:last-of-type td {
+  border-bottom: none;
+}
+
+tbody tr {
+  transition: background-color 0.18s ease, transform 0.18s ease;
+}
+
+tbody tr:hover {
+  background: rgba(102, 126, 234, 0.08);
+  transform: translateX(2px);
 }
 
 .source-badge {
   display: inline-block;
-  padding: 0.25rem 0.75rem;
-  border-radius: 12px;
-  font-size: 0.875rem;
-  font-weight: 500;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
 }
 
 .source-mock {
@@ -74,21 +94,38 @@ tr:hover {
 
 .price {
   font-weight: 600;
-  color: var(--success-color);
+  color: var(--text-primary);
 }
 
-a {
+.listings-table__link {
   color: var(--primary-color);
+  font-weight: 600;
   text-decoration: none;
+  position: relative;
 }
 
-a:hover {
-  text-decoration: underline;
+.listings-table__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transform: translateY(4px);
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.listings-table__link:hover::after,
+.listings-table__link:focus-visible::after {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .price-change {
   font-weight: 600;
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   white-space: nowrap;
 }
 
@@ -102,31 +139,43 @@ a:hover {
 
 .price-change-new {
   display: inline-block;
-  padding: 0.25rem 0.5rem;
+  padding: 0.25rem 0.55rem;
   background: var(--primary-color);
-  color: white;
-  border-radius: 4px;
-  font-size: 0.75rem;
+  color: #fff;
+  border-radius: 999px;
+  font-size: 0.72rem;
   font-weight: 600;
+  letter-spacing: 0.04em;
 }
 
 .status-badge {
-  display: inline-block;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 0.875rem;
-  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
   white-space: nowrap;
 }
 
+.status-badge::before {
+  content: '';
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.7;
+}
+
 .status-selling {
-  background-color: #fef3c7;
-  color: #92400e;
+  background-color: rgba(250, 204, 21, 0.18);
+  color: #b45309;
 }
 
 .status-sold {
-  background-color: #fee2e2;
-  color: #991b1b;
+  background-color: rgba(239, 68, 68, 0.18);
+  color: #dc2626;
 }
 
 @media (max-width: 900px) {
@@ -134,25 +183,29 @@ a:hover {
     padding: 1.25rem;
   }
 
-  th, td {
-    padding: 0.6rem;
+  tbody td {
+    padding: 0.75rem 0.85rem;
     font-size: 0.9rem;
   }
 }
 
 @media (max-width: 768px) {
   .listings-table {
-    padding: 1.1rem;
-    border-radius: 6px;
+    padding: 1.1rem 1rem;
+    border-radius: 10px;
+  }
+
+  .listings-table__surface {
+    border-radius: 10px;
   }
 
   table {
-    min-width: 640px;
+    min-width: 620px;
   }
 
   .source-badge {
-    font-size: 0.75rem;
-    padding: 0.2rem 0.55rem;
+    font-size: 0.72rem;
+    padding: 0.25rem 0.6rem;
   }
 
   .price-change {
@@ -162,15 +215,19 @@ a:hover {
 
 @media (max-width: 540px) {
   .listings-table {
-    padding: 0.85rem;
+    padding: 0.75rem 0.5rem;
   }
 
-  th, td {
-    padding: 0.45rem 0.5rem;
+  tbody td {
+    padding: 0.6rem 0.75rem;
     font-size: 0.85rem;
   }
 
   table {
-    min-width: 600px;
+    min-width: 580px;
+  }
+
+  .listings-table__surface {
+    border-radius: 9px;
   }
 }

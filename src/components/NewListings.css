@@ -26,35 +26,60 @@
 .source-filter {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
   white-space: nowrap;
 }
 
-.source-filter label {
-  font-size: 0.875rem;
+.source-filter__label {
+  font-size: 0.85rem;
   color: var(--text-secondary);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.source-filter__control {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg-primary);
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1px var(--border-color);
+  transition: box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.source-filter__control:focus-within {
+  box-shadow: inset 0 0 0 2px rgba(102, 126, 234, 0.35);
+}
+
+.source-filter__control::after {
+  content: '';
+  position: absolute;
+  right: 0.85rem;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 2px solid var(--text-secondary);
+  border-bottom: 2px solid var(--text-secondary);
+  transform: rotate(45deg) translateY(-20%);
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.source-filter__control select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  background: transparent;
+  padding: 0.5rem 2.25rem 0.5rem 1rem;
+  font-size: 0.9rem;
   font-weight: 500;
-}
-
-.source-filter select {
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
-  font-size: 0.875rem;
   color: var(--text-primary);
-  background: var(--bg-secondary);
   cursor: pointer;
-  transition: border-color 0.2s;
 }
 
-.source-filter select:hover {
-  border-color: var(--primary-color);
-}
-
-.source-filter select:focus {
+.source-filter__control select:focus {
   outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 @media (max-width: 768px) {
@@ -65,25 +90,25 @@
 
   .source-filter {
     width: 100%;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 0.75rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.6rem;
     white-space: normal;
   }
 
-  .source-filter label {
-    font-size: 0.8rem;
+  .source-filter__label {
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
   }
 
-  .source-filter select {
+  .source-filter__control {
     width: 100%;
-    font-size: 0.85rem;
   }
 }
 
 @media (max-width: 540px) {
   .new-listings {
-    padding: 1rem;
+    padding: 0.75rem 0.5rem;
     margin-top: 1.25rem;
   }
 
@@ -93,5 +118,9 @@
 
   .source-filter {
     gap: 0.5rem;
+  }
+
+  .source-filter__control select {
+    font-size: 0.85rem;
   }
 }

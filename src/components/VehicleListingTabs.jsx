@@ -46,52 +46,44 @@ export default function VehicleListingTabs({
 
   // Get the listings to display based on active tab
   let listings, title;
+  const tabConfigs = [
+    { id: 'new', label: 'New', count: newListings.length },
+    { id: 'changed', label: 'Price Change', count: changedListings.length },
+    soldListings ? { id: 'sold', label: 'Sold', count: soldListings.length } : null,
+    allListings ? { id: 'all', label: 'All', count: allListings.length } : null
+  ].filter(Boolean);
+
   if (activeTab === 'new') {
     listings = newListings;
-    title = 'New Listings';
+    title = 'New';
   } else if (activeTab === 'changed') {
     listings = changedListings;
-    title = 'Price Changes';
+    title = 'Price Change';
   } else if (activeTab === 'sold' && soldListings) {
     listings = soldListings;
-    title = 'Sold Vehicles';
+    title = 'Sold';
   } else if (activeTab === 'all' && allListings) {
     listings = allListings;
-    title = 'All Listings';
+    title = 'All';
   }
 
   return (
     <div className="vehicle-listing-tabs">
       <div className="tabs-container">
         <div className="tabs">
-          <button
-            className={`tab ${activeTab === 'new' ? 'active' : ''}`}
-            onClick={() => handleTabChange('new')}
-          >
-            New ({newListings.length})
-          </button>
-          <button
-            className={`tab ${activeTab === 'changed' ? 'active' : ''}`}
-            onClick={() => handleTabChange('changed')}
-          >
-            Price Changes ({changedListings.length})
-          </button>
-          {soldListings && (
+          {tabConfigs.map(tab => (
             <button
-              className={`tab ${activeTab === 'sold' ? 'active' : ''}`}
-              onClick={() => handleTabChange('sold')}
+              key={tab.id}
+              className={`tab ${activeTab === tab.id ? 'active' : ''}`}
+              onClick={() => handleTabChange(tab.id)}
+              aria-label={`${tab.label} (${tab.count})`}
             >
-              Sold ({soldListings.length})
+              <span className="tab__label">{tab.label}</span>
+              <span className="tab__count" aria-hidden="true">
+                ({tab.count})
+              </span>
             </button>
-          )}
-          {allListings && (
-            <button
-              className={`tab ${activeTab === 'all' ? 'active' : ''}`}
-              onClick={() => handleTabChange('all')}
-            >
-              All Listings ({allListings.length})
-            </button>
-          )}
+          ))}
         </div>
         {sourceFilter && (
           <div className="tabs-filter">

@@ -83,21 +83,26 @@ export default function NewListings({ data, selectedDate }) {
 
   const sourceFilterElement = (
     <div className="source-filter">
-      <select
-        id="source-select"
-        value={selectedSource}
-        onChange={(e) => handleSourceChange(e.target.value)}
-      >
-        <option value="all">All Dealers</option>
-        {sources.map(source => {
-          const displayName = source.charAt(0).toUpperCase() + source.slice(1);
-          return (
-            <option key={source} value={source}>
-              {displayName}
-            </option>
-          );
-        })}
-      </select>
+      <label className="source-filter__label" htmlFor="source-select">
+        Source
+      </label>
+      <div className="source-filter__control">
+        <select
+          id="source-select"
+          value={selectedSource}
+          onChange={(e) => handleSourceChange(e.target.value)}
+        >
+          <option value="all">All Sources</option>
+          {sources.map(source => {
+            const displayName = source.charAt(0).toUpperCase() + source.slice(1);
+            return (
+              <option key={source} value={source}>
+                {displayName}
+              </option>
+            );
+          })}
+        </select>
+      </div>
     </div>
   );
 

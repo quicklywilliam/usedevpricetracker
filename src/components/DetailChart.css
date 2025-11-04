@@ -13,17 +13,55 @@
   color: var(--primary-color);
 }
 
-.chart-header {
+.detail-chart .chart-header {
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 1rem;
   gap: 1rem;
 }
 
-.chart-controls {
+.detail-chart .chart-range-controls {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.detail-chart .chart-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.detail-chart .range-button {
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.detail-chart .range-button:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.detail-chart .range-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+}
+
+.detail-chart .range-button.active {
+  background: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
+  box-shadow: 0 6px 14px rgba(102, 126, 234, 0.25);
 }
 
 .chart-controls label {
@@ -88,6 +126,12 @@
   color: #1d4ed8;
 }
 
+.date-label.disabled {
+  opacity: 0.35;
+  pointer-events: none;
+  cursor: default;
+}
+
 @media (max-width: 900px) {
   .detail-chart {
     padding: 1.35rem;
@@ -107,13 +151,20 @@
     font-size: 1.35rem;
   }
 
-  .chart-header {
-    justify-content: flex-start;
+  .detail-chart .chart-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
   }
 
-  .chart-controls {
+  .detail-chart .chart-range-controls {
+    width: 100%;
+  }
+
+  .detail-chart .chart-controls {
     flex-wrap: wrap;
     justify-content: flex-start;
+    margin-left: 0;
   }
 
   .chart-container {
@@ -123,7 +174,7 @@
 
 @media (max-width: 540px) {
   .detail-chart {
-    padding: 1rem;
+    padding: 0.75rem 0.5rem;
     margin-bottom: 1.5rem;
   }
 

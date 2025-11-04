@@ -1,4 +1,7 @@
-export async function loadAllData() {
+const DEFAULT_MAX_DAYS = 7;
+const DEFAULT_MISSING_STREAK_THRESHOLD = 120;
+
+export async function loadAllData(maxDays = DEFAULT_MAX_DAYS, options = {}) {
   // For local dev, fetch from /data directory
   // For production, fetch from GitHub raw URL or relative path
 
@@ -9,30 +12,64 @@ export async function loadAllData() {
     sources.push('mock-source');
   }
 
-  const dates = getLast7Days();
+  const daysToFetch = Math.max(1, Number.isFinite(maxDays) ? Math.floor(maxDays) : DEFAULT_MAX_DAYS);
+  const dates = getLastNDays(daysToFetch);
 
-  const promises = [];
+  const missingThreshold = Math.max(
+    1,
+    Number.isFinite(options.missingStreakThreshold)
+      ? Math.floor(options.missingStreakThreshold)
+      : DEFAULT_MISSING_STREAK_THRESHOLD
+  );
 
   const baseUrl = import.meta.env.BASE_URL || '/';
 
-  for (const source of sources) {
-    for (const date of dates) {
-      const url = `${baseUrl}data/${source}/${date}.json`;
-      promises.push(
-        fetch(url)
-          .then(r => r.ok ? r.json() : null)
-          .catch(() => null)
-      );
-    }
-  }
+  const resultsBySource = await Promise.all(
+    sources.map(async (source) => {
+      const sourceResults = [];
+      let missingStreak = 0;
 
-  const results = await Promise.all(promises);
-  return results.filter(r => r !== null);
+      for (const date of dates) {
+        const url = `${baseUrl}data/${source}/${date}.json`;
+
+        try {
+          const response = await fetch(url);
+          if (!response.ok) {
+            missingStreak += 1;
+            if (missingStreak >= missingThreshold) {
+              break;
+            }
+            continue;
+          }
+
+          const json = await response.json();
+          if (json) {
+            sourceResults.push(json);
+            missingStreak = 0;
+          } else {
+            missingStreak += 1;
+            if (missingStreak >= missingThreshold) {
+              break;
+            }
+          }
+        } catch (err) {
+          missingStreak += 1;
+          if (missingStreak >= missingThreshold) {
+            break;
+          }
+        }
+      }
+
+      return sourceResults;
+    })
+  );
+
+  return resultsBySource.flat();
 }
 
-function getLast7Days() {
+function getLastNDays(count) {
   const dates = [];
-  for (let i = 0; i < 7; i++) {
+  for (let i = 0; i < count; i++) {
     const date = new Date();
     date.setDate(date.getDate() - i);
     dates.push(date.toISOString().split('T')[0]);

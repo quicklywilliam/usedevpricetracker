@@ -6,17 +6,55 @@
   overflow: hidden;
 }
 
-.chart-header {
+.overview-chart .chart-header {
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 1rem;
   gap: 1rem;
 }
 
-.chart-controls {
+.overview-chart .chart-range-controls {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.overview-chart .chart-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.overview-chart .range-button {
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.overview-chart .range-button:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.overview-chart .range-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+}
+
+.overview-chart .range-button.active {
+  background: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
+  box-shadow: 0 6px 14px rgba(102, 126, 234, 0.25);
 }
 
 .chart-controls label {
@@ -78,6 +116,89 @@
 .chart-container {
   position: relative;
   height: 400px;
+}
+
+.mobile-model-list {
+  display: none;
+}
+
+.mobile-model-list-item {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  background: var(--bg-secondary);
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.mobile-model-list-item.active {
+  border-color: var(--primary-color);
+  box-shadow: 0 6px 14px rgba(102, 126, 234, 0.18);
+  transform: translateY(-1px);
+}
+
+.mobile-model-list-item__select {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.75rem;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.mobile-model-list-item__select:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 2px rgba(102, 126, 234, 0.35);
+}
+
+.mobile-model-list-item__swatch {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.mobile-model-list-item__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.mobile-model-list-item__name {
+  color: var(--text-primary);
+}
+
+.mobile-model-list-item__price {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.mobile-model-list-item__disclosure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  border-left: 1px solid var(--border-light);
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.mobile-model-list-item__disclosure:hover {
+  background: var(--hover-bg);
+}
+
+.mobile-model-list-item__disclosure:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 2px rgba(102, 126, 234, 0.35);
 }
 
 .chart-labels {
@@ -151,6 +272,12 @@
   color: #1d4ed8;
 }
 
+.date-label.disabled {
+  opacity: 0.35;
+  pointer-events: none;
+  cursor: default;
+}
+
 @media (max-width: 900px) {
   .overview-chart {
     padding: 1.35rem;
@@ -166,13 +293,33 @@
     padding: 1.25rem;
   }
 
-  .chart-header {
-    justify-content: flex-start;
+  .overview-chart .chart-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
   }
 
-  .chart-controls {
+  .overview-chart .chart-range-controls {
+    width: 100%;
+  }
+
+  .overview-chart .chart-controls {
     flex-wrap: wrap;
     justify-content: flex-start;
+    margin-left: 0;
+  }
+
+  .mobile-model-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.65rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    width: 100%;
+  }
+
+  .chart-labels {
+    display: none;
   }
 
   .legend {
@@ -188,7 +335,7 @@
 
 @media (max-width: 540px) {
   .overview-chart {
-    padding: 1rem;
+    padding: 0.75rem 0.5rem;
   }
 
   .chart-controls label {

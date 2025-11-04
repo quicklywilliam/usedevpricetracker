@@ -3,9 +3,20 @@ import Chart from 'chart.js/auto';
 import { calculatePriceStats, modelExceededMaxOnDate, calculateAverageDaysOnMarket } from '../services/dataLoader';
 import { createLabelPlugin } from '../utils/chartLabels';
 import { createInventoryScale } from '../utils/inventoryScale';
+import { formatCurrencyShort } from '../utils/numberFormat';
 import './DetailChart.css';
 
-export default function DetailChart({ data, model, onDateSelect, selectedDate }) {
+export default function DetailChart({
+  data,
+  model,
+  onDateSelect,
+  selectedDate,
+  timeRangeId,
+  onTimeRangeChange,
+  timeRangeOptions,
+  dateLabels,
+  availableDates
+}) {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
   const labelBoundsRef = useRef([]);
@@ -23,9 +34,16 @@ export default function DetailChart({ data, model, onDateSelect, selectedDate })
   useEffect(() => {
     if (!data || data.length === 0 || !model) return;
 
+    const availableDateSet = new Set(Array.isArray(availableDates) ? availableDates : []);
+
     // Filter data for selected model
     const sources = [...new Set(data.map(d => d.source))];
-    const dates = [...new Set(data.map(d => d.scraped_at.split('T')[0]))].sort();
+    const providedDates = Array.isArray(dateLabels) && dateLabels.length > 0
+      ? dateLabels
+      : null;
+    const dates = providedDates
+      ? providedDates
+      : [...new Set(data.map(d => d.scraped_at.split('T')[0]))].sort();
 
     const sourceData = {};
     sources.forEach(source => {
@@ -51,7 +69,10 @@ export default function DetailChart({ data, model, onDateSelect, selectedDate })
     sources.forEach(source => {
       dates.forEach(date => {
         const listings = sourceData[source][date];
-        allCounts.push(listings.length);
+        const count = listings.length;
+        if (count > 0) {
+          allCounts.push(count);
+        }
         const avgDays = calculateAverageDaysOnMarket(data, listings, date);
         if (avgDays !== null) {
           allAvgDays.push(avgDays);
@@ -142,6 +163,78 @@ export default function DetailChart({ data, model, onDateSelect, selectedDate })
         sourceName: source // Store source name for exceeded check
       });
     });
+
+    const labelCount = dates.length;
+
+    const formatAxisLabel = (index) => {
+      if (index < 0 || index >= labelCount) return '';
+      const dateString = dates[index];
+      const dateObj = new Date(dateString);
+      if (Number.isNaN(dateObj.getTime())) {
+        return dateString;
+      }
+
+      const isFirst = index === 0;
+      const isLast = index === labelCount - 1;
+      const isFirstOfMonth = dateObj.getDate() === 1;
+
+      const monthLabel = dateObj.toLocaleDateString(undefined, { month: 'short' });
+      const monthYearLabel = dateObj.toLocaleDateString(undefined, { month: 'short', year: 'numeric' });
+      const monthDayLabel = `${dateObj.getMonth() + 1}/${dateObj.getDate()}`;
+
+      if (labelCount > 540) {
+        if (isFirst || isLast || (isFirstOfMonth && dateObj.getMonth() % 6 === 0)) {
+          return monthYearLabel;
+        }
+        if (isFirstOfMonth && dateObj.getMonth() % 3 === 0) {
+          return monthLabel;
+        }
+        return '';
+      }
+
+      if (labelCount > 365) {
+        if (isFirst || isLast || (isFirstOfMonth && dateObj.getMonth() % 3 === 0)) {
+          return monthYearLabel;
+        }
+        if (isFirstOfMonth) {
+          return monthLabel;
+        }
+        return '';
+      }
+
+      if (labelCount > 120) {
+        if (isFirst || isLast || isFirstOfMonth) {
+          return monthLabel;
+        }
+        return '';
+      }
+
+      if (labelCount > 60) {
+        if (isFirst || isLast || isFirstOfMonth || index % 14 === 0) {
+          return monthDayLabel;
+        }
+        return '';
+      }
+
+      if (labelCount > 30) {
+        if (isFirst || isLast || index % 7 === 0) {
+          return monthDayLabel;
+        }
+        return '';
+      }
+
+      if (labelCount > 14) {
+        if (isFirst || isLast || index % 3 === 0) {
+          return monthDayLabel;
+        }
+        return '';
+      }
+
+      if (isFirst || isLast || index % 2 === 0) {
+        return monthDayLabel;
+      }
+      return '';
+    };
 
     if (chartInstance.current) {
       chartInstance.current.destroy();
@@ -247,14 +340,18 @@ export default function DetailChart({ data, model, onDateSelect, selectedDate })
             },
             stacked: true,
             ticks: {
-              display: false // Hide default labels, we'll use custom DOM elements
+              autoSkip: false,
+              maxRotation: 0,
+              callback: (_value, index) => {
+                return formatAxisLabel(index);
+              }
             }
           },
           y: {
             beginAtZero: false,
             stacked: false,
             ticks: {
-              callback: value => '$' + value.toLocaleString()
+              callback: value => formatCurrencyShort(value)
             }
           }
         }
@@ -270,30 +367,41 @@ export default function DetailChart({ data, model, onDateSelect, selectedDate })
               const xScale = chart.scales.x;
               const yScale = chart.scales.y;
 
-              dates.forEach((date, index) => {
+              const clickableDates = availableDateSet.size > 0
+                ? dates.filter(date => availableDateSet.has(date))
+                : dates;
+
+              clickableDates.forEach((date) => {
+                const index = dates.indexOf(date);
+                if (index === -1) {
+                  return;
+                }
                 const xPos = xScale.getPixelForValue(index);
                 const yPos = yScale.bottom + 10; // Position below the chart
 
                 const dateObj = new Date(date);
                 const formattedDate = `${dateObj.getMonth() + 1}/${dateObj.getDate()}`;
 
-                const linkEl = document.createElement('a');
-                linkEl.href = '#';
-                linkEl.className = 'date-label';
-                if (date === selectedDate) {
-                  linkEl.classList.add('selected');
-                }
-                linkEl.style.position = 'absolute';
-                linkEl.style.left = xPos + 'px';
-                linkEl.style.top = yPos + 'px';
-                linkEl.style.transform = 'translateX(-50%)';
-                linkEl.style.textDecoration = 'none';
-                linkEl.style.whiteSpace = 'nowrap';
+              const linkEl = document.createElement('a');
+              linkEl.className = 'date-label';
+              const hasData = availableDateSet.size === 0 ? true : availableDateSet.has(date);
+              if (date === selectedDate && hasData) {
+                linkEl.classList.add('selected');
+              }
+              if (!hasData) {
+                linkEl.classList.add('disabled');
+                linkEl.setAttribute('aria-disabled', 'true');
+              }
+              linkEl.style.position = 'absolute';
+              linkEl.style.left = xPos + 'px';
+              linkEl.style.top = yPos + 'px';
+              linkEl.style.transform = 'translateX(-50%)';
+              linkEl.style.textDecoration = 'none';
+              linkEl.style.whiteSpace = 'nowrap';
                 linkEl.style.display = 'flex';
                 linkEl.style.alignItems = 'center';
                 linkEl.style.gap = '2px';
                 linkEl.style.fontSize = '11px';
-                linkEl.style.cursor = 'pointer';
 
                 const textSpan = document.createElement('span');
                 textSpan.textContent = formattedDate;
@@ -303,17 +411,24 @@ export default function DetailChart({ data, model, onDateSelect, selectedDate })
                 chevron.style.fontSize = '12px';
                 chevron.style.opacity = '0.6';
 
-                linkEl.appendChild(textSpan);
-                linkEl.appendChild(chevron);
+              linkEl.appendChild(textSpan);
+              linkEl.appendChild(chevron);
 
+              if (hasData) {
+                linkEl.style.cursor = 'pointer';
+                linkEl.href = '#';
                 linkEl.addEventListener('click', (e) => {
                   e.preventDefault();
                   onDateSelect(date);
                 });
+              } else {
+                linkEl.style.cursor = 'default';
+                linkEl.tabIndex = -1;
+              }
 
-                dateLabelsContainerRef.current.appendChild(linkEl);
-              });
-            }
+              dateLabelsContainerRef.current.appendChild(linkEl);
+            });
+          }
           }
         }
       ]
@@ -324,14 +439,36 @@ export default function DetailChart({ data, model, onDateSelect, selectedDate })
         chartInstance.current.destroy();
       }
     };
-  }, [data, model, onDateSelect, selectedDate, dotSizeMode]);
+  }, [data, model, onDateSelect, selectedDate, dotSizeMode, dateLabels, availableDates]);
+
+  const rangeOptions = Array.isArray(timeRangeOptions) ? timeRangeOptions : [];
+  const activeRangeId = timeRangeId ?? (rangeOptions[0]?.id ?? null);
 
   return (
     <div className="detail-chart">
       <h2>{model} - Price History</h2>
       <div className="chart-header">
+        <div className="chart-range-controls">
+          {rangeOptions.map(option => {
+            const isActive = option.id === activeRangeId;
+            return (
+              <button
+                key={option.id}
+                type="button"
+                className={`range-button${isActive ? ' active' : ''}`}
+                onClick={() => {
+                  if (typeof onTimeRangeChange === 'function') {
+                    onTimeRangeChange(option.id);
+                  }
+                }}
+              >
+                {option.label}
+              </button>
+            );
+          })}
+        </div>
         <div className="chart-controls">
-          <label htmlFor="detail-dot-size-mode">Dot size represents:</label>
+          <label htmlFor="detail-dot-size-mode">Show:</label>
           <select
             id="detail-dot-size-mode"
             value={dotSizeMode}
