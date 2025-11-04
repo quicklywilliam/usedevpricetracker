@@ -31,7 +31,9 @@ export default function OverviewChart({
   const [mobileModelSummaries, setMobileModelSummaries] = useState([]);
   const [hoveredModel, setHoveredModel] = useState(null);
   const [activeModel, setActiveModel] = useState(null);
+  const [dotSizeMenuOpen, setDotSizeMenuOpen] = useState(false);
   const hoveredModelRef = useRef(null);
+  const dotSizeButtonRef = useRef(null);
 
   const parseDateUtc = (dateStr) => {
     const [year, month, day] = dateStr.split('-').map(Number);
@@ -219,6 +221,17 @@ export default function OverviewChart({
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  useEffect(() => {
+    if (!dotSizeMenuOpen) return;
+    const handleClickOutside = (event) => {
+      if (dotSizeButtonRef.current && !dotSizeButtonRef.current.contains(event.target)) {
+        setDotSizeMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [dotSizeMenuOpen]);
 
   useEffect(() => {
     const highlightModel = hoveredModel || activeModel;
@@ -521,7 +534,7 @@ export default function OverviewChart({
 
     const withAverage = modelSummaries
       .filter(summary => summary.average !== null && summary.average !== undefined)
-      .sort((a, b) => a.average - b.average);
+      .sort((a, b) => b.average - a.average);
     const withoutAverage = modelSummaries.filter(summary => summary.average === null || summary.average === undefined);
     const sortedSummaries = [...withAverage, ...withoutAverage];
 
@@ -617,7 +630,8 @@ export default function OverviewChart({
         },
         layout: {
           padding: {
-            right: showModelLabels ? 140 : 24 // Reduce padding when labels hidden
+            right: showModelLabels ? 140 : 24, // Reduce padding when labels hidden
+            bottom: 20 // Add bottom padding for date labels
           }
         },
         plugins: {
@@ -625,8 +639,7 @@ export default function OverviewChart({
             display: false
           },
           title: {
-            display: true,
-            text: 'Average Price Trends Across All Sources'
+            display: false
           },
           tooltip: {
             displayColors: false, // Remove the colored box
@@ -1153,16 +1166,44 @@ export default function OverviewChart({
             );
           })}
         </div>
-        <div className="chart-controls">
-          <label htmlFor="dot-size-mode">Show:</label>
-          <select
-            id="dot-size-mode"
-            value={dotSizeMode}
-            onChange={(e) => setDotSizeMode(e.target.value)}
+        <div className="dot-size-selector" ref={dotSizeButtonRef}>
+          <button
+            type="button"
+            className="dot-size-button"
+            onClick={() => setDotSizeMenuOpen(!dotSizeMenuOpen)}
+            aria-label="Change dot size mode"
+            aria-expanded={dotSizeMenuOpen}
           >
-            <option value="stock">Stock Count</option>
-            <option value="days">Avg Days on Market</option>
-          </select>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="4.5" fill="currentColor" opacity="0.3" />
+              <path d="M3 12 L7.5 12 M16.5 12 L21 12" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+              <path d="M4.5 10 L3 12 L4.5 14 M19.5 10 L21 12 L19.5 14" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            </svg>
+          </button>
+          {dotSizeMenuOpen && (
+            <div className="dot-size-menu">
+              <button
+                type="button"
+                className={`dot-size-menu-item${dotSizeMode === 'stock' ? ' active' : ''}`}
+                onClick={() => {
+                  setDotSizeMode('stock');
+                  setDotSizeMenuOpen(false);
+                }}
+              >
+                Stock Count
+              </button>
+              <button
+                type="button"
+                className={`dot-size-menu-item${dotSizeMode === 'days' ? ' active' : ''}`}
+                onClick={() => {
+                  setDotSizeMode('days');
+                  setDotSizeMenuOpen(false);
+                }}
+              >
+                Avg Days on Market
+              </button>
+            </div>
+          )}
         </div>
       </div>
       {!showModelLabels && mobileModelSummaries.length > 0 && (
