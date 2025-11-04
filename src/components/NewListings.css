@@ -4,6 +4,7 @@
   padding: 1.5rem;
   box-shadow: 0 2px 4px var(--shadow-sm);
   margin-top: 2rem;
+  overflow: hidden;
 }
 
 .new-listings-header {
@@ -54,4 +55,43 @@
   outline: none;
   border-color: var(--primary-color);
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+@media (max-width: 768px) {
+  .new-listings {
+    padding: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  .source-filter {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    white-space: normal;
+  }
+
+  .source-filter label {
+    font-size: 0.8rem;
+  }
+
+  .source-filter select {
+    width: 100%;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .new-listings {
+    padding: 1rem;
+    margin-top: 1.25rem;
+  }
+
+  .new-listings h2 {
+    font-size: 1.35rem;
+  }
+
+  .source-filter {
+    gap: 0.5rem;
+  }
 }

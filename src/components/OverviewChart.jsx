@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Chart from 'chart.js/auto';
-import { getModelKey, calculateAveragePrice, modelExceededMaxOnDate, calculateAverageDaysOnMarket } from '../services/dataLoader';
+import { getModelKey, modelExceededMaxOnDate, calculateAverageDaysOnMarket, calculatePriceStats } from '../services/dataLoader';
 import { createInventoryScale } from '../utils/inventoryScale';
 import './OverviewChart.css';
 
@@ -10,6 +10,8 @@ export default function OverviewChart({ data, onModelSelect, onDateSelect, selec
   const labelsContainerRef = useRef(null);
   const dateLabelsContainerRef = useRef(null);
   const [dotSizeMode, setDotSizeMode] = useState('stock'); // 'stock' or 'days'
+  const [hoveredModel, setHoveredModel] = useState(null);
+  const hoveredModelRef = useRef(null);
 
   const modelColors = {
     'Hyundai Ioniq 5': '#667eea',
@@ -22,8 +24,141 @@ export default function OverviewChart({ data, onModelSelect, onDateSelect, selec
     'Chevrolet Bolt EUV': '#84cc16',
     'Chevrolet Equinox EV': '#06b6d4',
     'Honda Prologue': '#6366f1',
-    'Audi Q4 e-tron': '#d946ef'
+    'Audi Q4 e-tron': '#d946ef',
+    'Volkswagen e-Golf': '#1d4ed8',
+    'BMW i4': '#4c1d95',
+    'BMW i5': '#9333ea',
+    'BMW i3': '#14b8a6'
   };
+
+  const hexToRgb = (hex) => {
+    if (!hex) return null;
+    let normalized = hex.replace('#', '');
+    if (normalized.length === 3) {
+      normalized = normalized.split('').map(ch => ch + ch).join('');
+    }
+    if (normalized.length !== 6) return null;
+    const intVal = parseInt(normalized, 16);
+    return {
+      r: (intVal >> 16) & 255,
+      g: (intVal >> 8) & 255,
+      b: intVal & 255
+    };
+  };
+
+  const rgbToHex = (r, g, b) => {
+    const toHex = (value) => value.toString(16).padStart(2, '0');
+    return `#${toHex(Math.max(0, Math.min(255, r)))}${toHex(Math.max(0, Math.min(255, g)))}${toHex(Math.max(0, Math.min(255, b)))}`;
+  };
+
+  const toRgba = (hex, alpha) => {
+    if (!hex) return `rgba(102, 102, 102, ${alpha})`;
+    const rgb = hexToRgb(hex);
+    if (!rgb) return `rgba(102, 102, 102, ${alpha})`;
+    const { r, g, b } = rgb;
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  };
+
+  const rgbToHsl = ({ r, g, b }) => {
+    r /= 255;
+    g /= 255;
+    b /= 255;
+    const max = Math.max(r, g, b);
+    const min = Math.min(r, g, b);
+    let h = 0;
+    let s = 0;
+    const l = (max + min) / 2;
+    if (max !== min) {
+      const d = max - min;
+      s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+      switch (max) {
+        case r:
+          h = (g - b) / d + (g < b ? 6 : 0);
+          break;
+        case g:
+          h = (b - r) / d + 2;
+          break;
+        case b:
+          h = (r - g) / d + 4;
+          break;
+      }
+      h /= 6;
+    }
+    return { h, s, l };
+  };
+
+  const hslToRgb = ({ h, s, l }) => {
+    const hue2rgb = (p, q, t) => {
+      if (t < 0) t += 1;
+      if (t > 1) t -= 1;
+      if (t < 1 / 6) return p + (q - p) * 6 * t;
+      if (t < 1 / 2) return q;
+      if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+      return p;
+    };
+
+    let r;
+    let g;
+    let b;
+
+    if (s === 0) {
+      r = g = b = l; // achromatic
+    } else {
+      const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+      const p = 2 * l - q;
+      r = hue2rgb(p, q, h + 1 / 3);
+      g = hue2rgb(p, q, h);
+      b = hue2rgb(p, q, h - 1 / 3);
+    }
+
+    return {
+      r: Math.round(r * 255),
+      g: Math.round(g * 255),
+      b: Math.round(b * 255)
+    };
+  };
+
+  const adjustLightness = (hex, delta) => {
+    const rgb = hexToRgb(hex);
+    if (!rgb) return hex;
+    const hsl = rgbToHsl(rgb);
+    hsl.l = Math.max(0, Math.min(1, hsl.l + delta));
+    const adjustedRgb = hslToRgb(hsl);
+    return rgbToHex(adjustedRgb.r, adjustedRgb.g, adjustedRgb.b);
+  };
+
+  const [prefersDark, setPrefersDark] = useState(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) {
+      return false;
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return;
+    const mql = window.matchMedia('(prefers-color-scheme: dark)');
+    const handler = (event) => setPrefersDark(event.matches);
+    mql.addEventListener('change', handler);
+    return () => mql.removeEventListener('change', handler);
+  }, []);
+
+  useEffect(() => {
+    hoveredModelRef.current = hoveredModel;
+    const chart = chartInstance.current;
+    if (chart && chart.ctx) {
+      chart.draw();
+    }
+
+    if (labelsContainerRef.current) {
+      const labelEls = labelsContainerRef.current.querySelectorAll('[data-model]');
+      labelEls.forEach(labelEl => {
+        const labelModel = labelEl.getAttribute('data-model');
+        const isHovered = hoveredModel && labelModel === hoveredModel;
+        labelEl.classList.toggle('hovered', isHovered);
+        labelEl.classList.toggle('dimmed', Boolean(hoveredModel) && !isHovered);
+      });
+    }
+  }, [hoveredModel]);
 
   useEffect(() => {
     if (!data || data.length === 0) return;
@@ -71,34 +206,85 @@ export default function OverviewChart({ data, onModelSelect, onDateSelect, selec
       ? createInventoryScale(allAvgDays) // Reuse inventory scale logic for days
       : () => 5; // Fallback if no days data
 
-    // Create price datasets with variable point sizes based on inventory
-    const datasets = models.map(model => {
-      const dataPoints = dates.map(date => {
-        const listings = priceData[model][date];
-        return listings.length > 0 ? calculateAveragePrice(listings) : null;
-      });
+    const datasets = [];
 
-      // Calculate point radius based on selected mode
+    let globalMin = Infinity;
+    let globalMax = -Infinity;
+
+    models.forEach(model => {
+      const avgPoints = [];
+      const minPoints = [];
+      const maxPoints = [];
+
       const pointRadii = dates.map(date => {
         const listings = priceData[model][date];
         if (dotSizeMode === 'days') {
           const avgDays = calculateAverageDaysOnMarket(data, listings, date);
           return avgDays !== null ? getPointSizeFromDays(avgDays) : 5;
-        } else {
-          const count = listings.length;
-          return getPointSizeFromStock(count);
+        }
+        const count = listings.length;
+        return getPointSizeFromStock(count);
+      });
+
+      dates.forEach(date => {
+        const listings = priceData[model][date];
+        if (!listings || listings.length === 0) {
+          avgPoints.push(null);
+          minPoints.push(null);
+          maxPoints.push(null);
+          return;
+        }
+
+        const stats = calculatePriceStats(listings);
+        if (!stats) {
+          avgPoints.push(null);
+          minPoints.push(null);
+          maxPoints.push(null);
+          return;
+        }
+
+        avgPoints.push(stats.avg);
+        minPoints.push(stats.min);
+        maxPoints.push(stats.max);
+
+        if (stats.min < globalMin) {
+          globalMin = stats.min;
+        }
+        if (stats.max > globalMax) {
+          globalMax = stats.max;
         }
       });
 
-      return {
+      const baseColor = modelColors[model] || '#666';
+      const rangeFillColor = prefersDark ? toRgba(baseColor, 0.6) : toRgba(baseColor, 0.25);
+      const rangeBorderColor = baseColor;
+
+      datasets.push({
         label: model,
-        data: dataPoints,
-        borderColor: modelColors[model] || '#666',
-        backgroundColor: modelColors[model] || '#666',
+        data: avgPoints,
+        borderColor: baseColor,
+        backgroundColor: baseColor,
+        borderWidth: 2,
         tension: 0.3,
         pointRadius: pointRadii,
-        pointHoverRadius: pointRadii.map(r => r + 2)
-      };
+        pointHoverRadius: pointRadii.map(r => r + 2),
+        pointHitRadius: pointRadii,
+        pointBackgroundColor: baseColor,
+        pointBorderColor: prefersDark
+          ? adjustLightness(baseColor, -0.15)
+          : adjustLightness(baseColor, -0.05),
+        isAverageLine: true,
+        modelName: model,
+        order: 0,
+        z: 10,
+        priceRange: {
+          min: minPoints,
+          max: maxPoints,
+          fillStyle: rangeFillColor,
+          borderColor: rangeBorderColor,
+          baseColor
+        }
+      });
     });
 
     if (chartInstance.current) {
@@ -130,6 +316,7 @@ export default function OverviewChart({ data, onModelSelect, onDateSelect, selec
           },
           tooltip: {
             displayColors: false, // Remove the colored box
+            filter: (tooltipItem) => tooltipItem.dataset?.isAverageLine,
             callbacks: {
               title: (context) => {
                 // Format date as MM/DD
@@ -138,15 +325,15 @@ export default function OverviewChart({ data, onModelSelect, onDateSelect, selec
                 return `${date.getMonth() + 1}/${date.getDate()}`;
               },
               label: (context) => {
-                const modelName = context.dataset.label;
+                const datasetModelName = context.dataset.modelName || context.dataset.label;
                 const price = context.parsed.y;
                 const dateIndex = context.dataIndex;
                 const date = dates[dateIndex];
-                const listings = priceData[modelName][date];
+                const listings = (priceData[datasetModelName] && priceData[datasetModelName][date]) || [];
                 const count = listings.length;
 
                 // Extract make and model from modelName (e.g., "Tesla Model 3")
-                const parts = modelName.split(' ');
+                const parts = datasetModelName.split(' ');
                 const make = parts[0];
                 const model = parts.slice(1).join(' ');
 
@@ -158,13 +345,21 @@ export default function OverviewChart({ data, onModelSelect, onDateSelect, selec
                 const avgDays = calculateAverageDaysOnMarket(data, listings, date);
                 const daysLabel = avgDays !== null ? `Avg days on market: ${avgDays}` : null;
 
+                const stats = calculatePriceStats(listings);
+                const rangeLabel = stats
+                  ? `Range: $${stats.min.toLocaleString()} - $${stats.max.toLocaleString()}`
+                  : null;
+
                 const result = [
-                  `${modelName}: $${price.toLocaleString()}`,
+                  `${datasetModelName}: $${price.toLocaleString()}`,
                   `Stock: ${stockLabel}`
                 ];
 
                 if (daysLabel) {
                   result.push(daysLabel);
+                }
+                if (rangeLabel) {
+                  result.push(rangeLabel);
                 }
 
                 return result;
@@ -181,22 +376,163 @@ export default function OverviewChart({ data, onModelSelect, onDateSelect, selec
           y: {
             position: 'left',
             beginAtZero: false,
+            suggestedMin: Number.isFinite(globalMin) ? Math.floor(globalMin * 0.95) : undefined,
+            suggestedMax: Number.isFinite(globalMax) ? Math.ceil(globalMax * 1.05) : undefined,
             ticks: {
               callback: value => '$' + value.toLocaleString()
             }
           }
         },
+        onHover: (_event, elements, chart) => {
+          if (elements.length > 0) {
+            const element = elements[0];
+            const dataset = chart.data.datasets[element.datasetIndex];
+            if (dataset && dataset.isAverageLine) {
+              setHoveredModel(dataset.modelName);
+              return;
+            }
+          }
+          setHoveredModel(null);
+        },
+        onLeave: () => {
+          setHoveredModel(null);
+        },
         onClick: (event, elements, chart) => {
           // Check if clicking on a model line/point
           if (elements.length > 0 && onModelSelect) {
             const datasetIndex = elements[0].datasetIndex;
-            const model = models[datasetIndex];
-            onModelSelect(model);
+            const dataset = chart.data.datasets[datasetIndex];
+            if (dataset && dataset.isAverageLine) {
+              onModelSelect(dataset.modelName);
+            }
             return;
           }
         }
       },
       plugins: [{
+        beforeDatasetsDraw: (chart) => {
+          const ctx = chart.ctx;
+          const xScale = chart.scales.x;
+          const yScale = chart.scales.y;
+
+          if (!ctx || typeof ctx.save !== 'function' || !xScale || !yScale) {
+            return;
+          }
+          const hovered = hoveredModelRef.current;
+          const hasHover = Boolean(hovered);
+
+          chart.data.datasets.forEach((dataset, datasetIndex) => {
+            if (!dataset.isAverageLine || !dataset.priceRange) {
+              return;
+            }
+
+            const meta = chart.getDatasetMeta(datasetIndex);
+            if (!meta || meta.hidden) {
+              return;
+            }
+
+            const { min, max, baseColor } = dataset.priceRange;
+            if (!Array.isArray(min) || !Array.isArray(max)) {
+              return;
+            }
+
+            const isHovered = hasHover && dataset.modelName === hovered;
+            const fillAlpha = hasHover
+              ? (isHovered ? (prefersDark ? 0.45 : 0.28) : (prefersDark ? 0.05 : 0.03))
+              : (prefersDark ? 0.18 : 0.12);
+            const strokeAlpha = hasHover
+              ? (isHovered ? 0.9 : 0.18)
+              : 0.35;
+            const fillStyle = toRgba(baseColor, fillAlpha);
+            const borderColor = toRgba(baseColor, strokeAlpha);
+
+            if (meta.dataset) {
+              const line = meta.dataset;
+              line.options.borderWidth = isHovered ? 3 : hasHover ? 1.25 : 2;
+              line.options.borderColor = isHovered
+                ? baseColor
+                : hasHover ? toRgba(baseColor, 0.3) : baseColor;
+              const pointFill = isHovered
+                ? baseColor
+                : hasHover ? toRgba(baseColor, 0.35) : baseColor;
+              const pointBorder = isHovered
+                ? adjustLightness(baseColor, -0.12)
+                : adjustLightness(baseColor, hasHover ? -0.08 : -0.03);
+              line.options.pointBackgroundColor = pointFill;
+              line.options.pointBorderColor = pointBorder;
+
+              meta.data.forEach((point, pointIndex) => {
+                const radiusArray = Array.isArray(dataset.pointRadius) ? dataset.pointRadius : [];
+                const radius = radiusArray.length > 0
+                  ? radiusArray[pointIndex] ?? radiusArray[radiusArray.length - 1]
+                  : dataset.pointRadius || point.options?.radius || 4;
+                point.options.radius = radius;
+                point.options.backgroundColor = pointFill;
+                point.options.borderColor = pointBorder;
+              });
+            }
+
+            ctx.save();
+            ctx.fillStyle = fillStyle;
+            ctx.strokeStyle = borderColor;
+            ctx.lineWidth = isHovered ? 2 : 1;
+
+            let inSegment = false;
+            let upperPoints = [];
+            let lowerPoints = [];
+
+            const flushSegment = () => {
+              if (upperPoints.length < 2 || lowerPoints.length < 2) {
+                upperPoints = [];
+                lowerPoints = [];
+                inSegment = false;
+                return;
+              }
+
+              ctx.beginPath();
+              ctx.moveTo(upperPoints[0].x, upperPoints[0].y);
+              for (let i = 1; i < upperPoints.length; i++) {
+                ctx.lineTo(upperPoints[i].x, upperPoints[i].y);
+              }
+              for (let i = lowerPoints.length - 1; i >= 0; i--) {
+                ctx.lineTo(lowerPoints[i].x, lowerPoints[i].y);
+              }
+              ctx.closePath();
+              ctx.fill();
+              ctx.stroke();
+
+              upperPoints = [];
+              lowerPoints = [];
+              inSegment = false;
+            };
+
+            dates.forEach((date, index) => {
+              const minVal = min[index];
+              const maxVal = max[index];
+
+              if (minVal == null || maxVal == null) {
+                flushSegment();
+                return;
+              }
+
+              const upper = Math.max(minVal, maxVal);
+              const lower = Math.min(minVal, maxVal);
+              const x = xScale.getPixelForValue(index);
+              const upperY = yScale.getPixelForValue(upper);
+              const lowerY = yScale.getPixelForValue(lower);
+
+              upperPoints.push({ x, y: upperY });
+              lowerPoints.push({ x, y: lowerY });
+              inSegment = true;
+            });
+
+            if (inSegment) {
+              flushSegment();
+            }
+
+            ctx.restore();
+          });
+        },
         afterDatasetsDraw: (chart) => {
           const ctx = chart.ctx;
 
@@ -204,20 +540,22 @@ export default function OverviewChart({ data, onModelSelect, onDateSelect, selec
           const labels = [];
           chart.data.datasets.forEach((dataset, i) => {
             const meta = chart.getDatasetMeta(i);
-            if (!meta.hidden && meta.data.length > 0) {
-              const lastPoint = meta.data[meta.data.length - 1];
-
-              labels.push({
-                text: dataset.label,
-                model: dataset.label,
-                color: dataset.borderColor,
-                dataPointX: lastPoint.x,
-                dataPointY: lastPoint.y,
-                x: lastPoint.x + 20,
-                y: lastPoint.y,
-                height: 16
-              });
+            if (!dataset.isAverageLine || !meta || meta.hidden || meta.data.length === 0) {
+              return;
             }
+
+            const lastPoint = meta.data[meta.data.length - 1];
+
+            labels.push({
+              text: dataset.label,
+              model: dataset.modelName || dataset.label,
+              color: dataset.borderColor,
+              dataPointX: lastPoint.x,
+              dataPointY: lastPoint.y,
+              x: lastPoint.x + 20,
+              y: lastPoint.y,
+              height: 16
+            });
           });
 
           // Sort by y position to process from top to bottom
@@ -263,6 +601,7 @@ export default function OverviewChart({ data, onModelSelect, onDateSelect, selec
               const linkEl = document.createElement('a');
               linkEl.href = `?model=${encodeURIComponent(label.model)}`;
               linkEl.className = 'chart-label';
+              linkEl.dataset.model = label.model;
               linkEl.style.position = 'absolute';
               linkEl.style.left = label.x + 'px';
               linkEl.style.top = (label.y - label.height / 2) + 'px';
@@ -295,6 +634,14 @@ export default function OverviewChart({ data, onModelSelect, onDateSelect, selec
                     onModelSelect(label.model);
                   }
                 }
+              });
+
+              linkEl.addEventListener('mouseenter', () => {
+                setHoveredModel(label.model);
+              });
+
+              linkEl.addEventListener('mouseleave', () => {
+                setHoveredModel(null);
               });
 
               labelsContainerRef.current.appendChild(linkEl);
@@ -359,13 +706,10 @@ export default function OverviewChart({ data, onModelSelect, onDateSelect, selec
     return () => {
       if (chartInstance.current) {
         chartInstance.current.destroy();
+        chartInstance.current = null;
       }
     };
-  }, [data, onModelSelect, onDateSelect, selectedDate, dotSizeMode]);
-
-  const models = data.length > 0
-    ? [...new Set(data.flatMap(d => d.listings.map(getModelKey)))]
-    : [];
+  }, [data, onModelSelect, onDateSelect, selectedDate, dotSizeMode, prefersDark]);
 
   return (
     <div className="overview-chart">

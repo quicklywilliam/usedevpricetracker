@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { loadAllData, getModelKey } from './services/dataLoader';
+import { loadAllData } from './services/dataLoader';
 import OverviewChart from './components/OverviewChart';
 import DetailChart from './components/DetailChart';
 import ModelListingsView from './components/ModelListingsView';
 import NewListings from './components/NewListings';
 import NoTeslaToggle from './components/NoTeslaToggle';
 import Footer from './components/Footer';
+import { CATEGORY_TABS, DEFAULT_CATEGORY, filterDataByCategory } from './utils/modelCategories';
 
 function App() {
   const [data, setData] = useState([]);
@@ -14,6 +15,7 @@ function App() {
   const [selectedModel, setSelectedModel] = useState(null);
   const [noTesla, setNoTesla] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(DEFAULT_CATEGORY);
 
   useEffect(() => {
     loadAllData()
@@ -46,6 +48,13 @@ function App() {
         if (noTeslaParam === 'true') {
           setNoTesla(true);
         }
+
+        const categoryParam = url.searchParams.get('category');
+        if (categoryParam && CATEGORY_TABS.some(tab => tab.id === categoryParam)) {
+          setSelectedCategory(categoryParam);
+        } else {
+          setSelectedCategory(DEFAULT_CATEGORY);
+        }
       })
       .catch(err => {
         setError(err.message);
@@ -70,6 +79,13 @@ function App() {
         // If no date param, use most recent
         const dates = [...new Set(data.map(d => d.scraped_at.split('T')[0]))].sort().reverse();
         setSelectedDate(dates[0]);
+      }
+
+      const categoryParam = url.searchParams.get('category');
+      if (categoryParam && CATEGORY_TABS.some(tab => tab.id === categoryParam)) {
+        setSelectedCategory(categoryParam);
+      } else {
+        setSelectedCategory(DEFAULT_CATEGORY);
       }
     };
 
@@ -96,6 +112,21 @@ function App() {
       url.searchParams.set('noTesla', 'true');
     } else {
       url.searchParams.delete('noTesla');
+    }
+    window.history.pushState({}, '', url);
+  };
+
+  const handleCategorySelect = (categoryId) => {
+    if (categoryId === selectedCategory) {
+      return;
+    }
+
+    setSelectedCategory(categoryId);
+    const url = new URL(window.location);
+    if (categoryId === DEFAULT_CATEGORY) {
+      url.searchParams.delete('category');
+    } else {
+      url.searchParams.set('category', categoryId);
     }
     window.history.pushState({}, '', url);
   };
@@ -139,10 +170,10 @@ function App() {
   }
 
   const filteredData = filterTesla(data);
+  const categoryFilteredData = filterDataByCategory(filteredData, selectedCategory);
 
-  const models = filteredData.length > 0
-    ? [...new Set(filteredData.flatMap(d => d.listings.map(getModelKey)))]
-    : [];
+  const activeCategory = CATEGORY_TABS.find(tab => tab.id === selectedCategory) || CATEGORY_TABS[0] || null;
+  const categoryDescription = activeCategory?.description ?? '';
 
   return (
     <div className="app">
@@ -150,21 +181,40 @@ function App() {
         <div className="header-content">
           <div>
             <h1>Used EV Tracker</h1>
-            <p>Compare used electric vehicle prices from multiple dealers and track changes over time.</p>
           </div>
           <NoTeslaToggle enabled={noTesla} onChange={handleNoTeslaToggle} />
         </div>
+        {!selectedModel && (
+          <div className="category-filter">
+            <div className="category-tabs" role="tablist" aria-label="Model price categories">
+              {CATEGORY_TABS.map(tab => (
+                <button
+                  key={tab.id}
+                  type="button"
+                  className={`category-tab${tab.id === selectedCategory ? ' active' : ''}`}
+                  onClick={() => handleCategorySelect(tab.id)}
+                  aria-pressed={tab.id === selectedCategory}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+            {categoryDescription && (
+              <p className="category-helper">{categoryDescription}</p>
+            )}
+          </div>
+        )}
       </header>
       <main className="container">
         {!selectedModel ? (
           <>
             <OverviewChart
-              data={filteredData}
+              data={categoryFilteredData}
               onModelSelect={handleModelSelect}
               onDateSelect={handleDateSelect}
               selectedDate={selectedDate}
             />
-            <NewListings data={filteredData} selectedDate={selectedDate} />
+            <NewListings data={categoryFilteredData} selectedDate={selectedDate} />
           </>
         ) : (
           <>

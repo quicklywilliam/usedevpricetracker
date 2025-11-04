@@ -46,6 +46,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background: var(--bg-primary);
   color: var(--text-primary);
+  line-height: 1.5;
 }
 
 header {
@@ -60,6 +61,7 @@ header {
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
+  flex-wrap: wrap;
 }
 
 header h1 {
@@ -145,4 +147,129 @@ header p {
 
 .breadcrumb a:hover {
   text-decoration: underline;
+}
+
+.category-filter {
+  margin-top: 0.75rem;
+  padding: 0;
+}
+
+.category-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.category-tab {
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.category-tab:hover,
+.category-tab:focus-visible {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.2);
+  outline: none;
+}
+
+.category-tab.active {
+  background: white;
+  border-color: white;
+  color: #667eea;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.category-helper {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+@media (max-width: 1024px) {
+  header {
+    padding: 2rem 1.75rem;
+  }
+
+  .container {
+    padding: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  header h1 {
+    font-size: 1.75rem;
+  }
+
+  header p {
+    font-size: 0.95rem;
+  }
+
+  .container {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .category-filter {
+    margin-top: 0.75rem;
+  }
+
+  .category-tabs {
+    gap: 0.5rem;
+  }
+
+  .category-tab {
+    flex: 1 1 calc(50% - 0.5rem);
+    text-align: center;
+  }
+}
+
+@media (max-width: 540px) {
+  header {
+    padding: 1.5rem 1rem;
+  }
+
+  .container {
+    padding: 1.25rem 1rem 2.5rem;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  .category-filter {
+    margin-top: 0.5rem;
+  }
+
+  .category-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .category-tab {
+    flex: 0 0 auto;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .category-helper {
+    font-size: 0.9rem;
+  }
 }

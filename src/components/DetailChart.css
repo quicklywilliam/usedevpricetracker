@@ -4,6 +4,7 @@
   padding: 1.5rem;
   margin-bottom: 2rem;
   box-shadow: 0 2px 4px var(--shadow-sm);
+  overflow: hidden;
 }
 
 .detail-chart h2 {
@@ -16,6 +17,7 @@
   display: flex;
   justify-content: flex-end;
   margin-bottom: 1rem;
+  gap: 1rem;
 }
 
 .chart-controls {
@@ -84,4 +86,53 @@
 
 .date-label.selected:hover {
   color: #1d4ed8;
+}
+
+@media (max-width: 900px) {
+  .detail-chart {
+    padding: 1.35rem;
+  }
+
+  .chart-container {
+    height: 360px;
+  }
+}
+
+@media (max-width: 768px) {
+  .detail-chart {
+    padding: 1.25rem;
+  }
+
+  .detail-chart h2 {
+    font-size: 1.35rem;
+  }
+
+  .chart-header {
+    justify-content: flex-start;
+  }
+
+  .chart-controls {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .chart-container {
+    height: 320px;
+  }
+}
+
+@media (max-width: 540px) {
+  .detail-chart {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .chart-controls label,
+  .chart-controls select {
+    font-size: 0.8rem;
+  }
+
+  .chart-container {
+    height: 260px;
+  }
 }

@@ -4,6 +4,7 @@
   border-radius: 8px;
   box-shadow: 0 4px 12px var(--shadow);
   border: 2px solid var(--border-color);
+  display: inline-flex;
 }
 
 .toggle-label {
@@ -63,4 +64,40 @@
 
 .toggle-label:hover .toggle-switch {
   box-shadow: 0 0 8px rgba(239, 68, 68, 0.3);
+}
+
+@media (max-width: 768px) {
+  .no-tesla-toggle {
+    width: 100%;
+    padding: 0.85rem 1rem;
+  }
+
+  .toggle-label {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .toggle-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .no-tesla-toggle {
+    padding: 0.75rem 0.85rem;
+  }
+
+  .toggle-switch {
+    width: 50px;
+    height: 26px;
+  }
+
+  .toggle-switch::after {
+    width: 20px;
+    height: 20px;
+  }
+
+  .toggle-checkbox:checked + .toggle-switch::after {
+    transform: translateX(24px);
+  }
 }

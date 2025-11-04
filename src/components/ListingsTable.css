@@ -3,6 +3,7 @@
   border-radius: 8px;
   padding: 1.5rem;
   box-shadow: 0 2px 4px var(--shadow-sm);
+  overflow-x: auto;
 }
 
 .listings-table h2 {
@@ -14,6 +15,7 @@
 table {
   width: 100%;
   border-collapse: collapse;
+  min-width: 720px;
 }
 
 th, td {
@@ -125,4 +127,50 @@ a:hover {
 .status-sold {
   background-color: #fee2e2;
   color: #991b1b;
+}
+
+@media (max-width: 900px) {
+  .listings-table {
+    padding: 1.25rem;
+  }
+
+  th, td {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .listings-table {
+    padding: 1.1rem;
+    border-radius: 6px;
+  }
+
+  table {
+    min-width: 640px;
+  }
+
+  .source-badge {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.55rem;
+  }
+
+  .price-change {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .listings-table {
+    padding: 0.85rem;
+  }
+
+  th, td {
+    padding: 0.45rem 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  table {
+    min-width: 600px;
+  }
 }

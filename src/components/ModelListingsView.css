@@ -4,4 +4,25 @@
   padding: 1.5rem;
   box-shadow: 0 2px 4px var(--shadow-sm);
   margin-top: 2rem;
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .model-listings-view {
+    padding: 1.35rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .model-listings-view {
+    padding: 1.25rem;
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .model-listings-view {
+    padding: 1rem;
+    margin-top: 1.25rem;
+  }
 }

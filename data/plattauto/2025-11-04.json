@@ -1,6 +1,6 @@
 {
   "source": "plattauto",
-  "scraped_at": "2025-11-04T00:17:11.272Z",
+  "scraped_at": "2025-11-04T04:50:11.222Z",
   "listings": [
     {
       "id": "Stock Number A252117",
@@ -481,6 +481,30 @@
       "mileage": 42006,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/audi/q4-e-tron/a252129/",
+      "listing_date": "2025-11-04"
+    },
+    {
+      "id": "Stock Number A252167",
+      "make": "Nissan",
+      "model": "Leaf",
+      "year": 2023,
+      "trim": "S HATCHBACK 4D",
+      "price": 16443,
+      "mileage": 7560,
+      "location": "Platt Auto",
+      "url": "https://www.plattauto.com/inventory/nissan/leaf/a252167/",
+      "listing_date": "2025-11-04"
+    },
+    {
+      "id": "Stock Number A241209",
+      "make": "BMW",
+      "model": "i3",
+      "year": 2018,
+      "trim": "S HATCHBACK 4D",
+      "price": 14888,
+      "mileage": 58061,
+      "location": "Platt Auto",
+      "url": "https://www.plattauto.com/inventory/bmw/i3/a241209/",
       "listing_date": "2025-11-04"
     }
   ],
