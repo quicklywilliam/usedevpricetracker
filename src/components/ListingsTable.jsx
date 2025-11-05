@@ -22,6 +22,12 @@ export default function ListingsTable({
     'plattauto': 'source-plattauto'
   };
 
+  const formatMileage = (mileage) => {
+    if (!mileage) return '-';
+    const thousands = Math.round(mileage / 1000);
+    return `${thousands}k`;
+  };
+
   return (
       <div className="listings-table__surface">
         <table>
@@ -64,7 +70,7 @@ export default function ListingsTable({
                 )}
                 <td data-label="Trim">{listing.year || '-'}</td>
                 <td data-label="Trim">{listing.trim || '-'}</td>
-                <td>{listing.mileage.toLocaleString()} mi</td>
+                <td>{formatMileage(listing.mileage)} mi</td>
                 {showStatus && (
                   <td className="col-status" data-label="Status">
                     <span className={`status-badge ${listing.purchase_status === 'selling' ? 'status-selling' : 'status-sold'}`}>
