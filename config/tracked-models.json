@@ -2,7 +2,7 @@
   "defaultCategory": "mid-range",
   "categories": {
     "cheap": {
-      "label": "Cheap",
+      "label": "Cheaper",
       "description": "Smaller, cheaper EVs for around town",
       "models": [
         {
