@@ -89,56 +89,9 @@
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
-.chart-container {
-  position: relative;
-  height: 400px;
-}
-
-.date-labels {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.date-label {
-  pointer-events: auto;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  color: #6b7280;
-  font-weight: normal;
-}
-
-.date-label:hover {
-  color: #2563eb;
-  text-decoration: none;
-}
-
-.date-label.selected {
-  color: #2563eb;
-  font-weight: bold;
-}
-
-.date-label.selected:hover {
-  color: #1d4ed8;
-}
-
-.date-label.disabled {
-  opacity: 0.35;
-  pointer-events: none;
-  cursor: default;
-}
-
 @media (max-width: 900px) {
   .detail-chart {
     padding: 1.35rem;
-  }
-
-  .chart-container {
-    height: 360px;
   }
 }
 
@@ -166,10 +119,6 @@
     justify-content: flex-start;
     margin-left: 0;
   }
-
-  .chart-container {
-    height: 320px;
-  }
 }
 
 @media (max-width: 540px) {
@@ -181,9 +130,5 @@
   .chart-controls label,
   .chart-controls select {
     font-size: 0.8rem;
-  }
-
-  .chart-container {
-    height: 260px;
   }
 }

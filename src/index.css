@@ -52,8 +52,7 @@ body {
 header {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  padding: 2rem;
-  padding-bottom: 0.5rem;
+  padding: 0.75rem 1.5rem 0.5rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
@@ -61,13 +60,13 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
   flex-wrap: wrap;
 }
 
 header h1 {
   font-size: 2rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.15rem;
 }
 
 header p {
@@ -312,8 +311,7 @@ header p {
 
 @media (max-width: 768px) {
   header {
-    padding: 1.75rem 1.25rem;
-    padding-bottom: 0.5rem;
+    padding: 0.5rem 1.25rem 0.5rem;
   }
 
   .header-content {
@@ -355,8 +353,7 @@ header p {
 
 @media (max-width: 540px) {
   header {
-    padding: 1.5rem 0.5rem;
-    padding-bottom: 0.5rem;
+    padding: 0.5rem 0.5rem 0.5rem;
   }
 
   .header-content {

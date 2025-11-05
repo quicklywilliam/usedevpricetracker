@@ -1,0 +1,348 @@
+.price-range-chart {
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 2px 4px var(--shadow-sm);
+  overflow: hidden;
+}
+
+.price-range-chart .chart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  gap: 0.75rem;
+}
+
+.price-range-chart .chart-range-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.price-range-chart .range-button {
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.price-range-chart .range-button:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.price-range-chart .range-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+}
+
+.price-range-chart .range-button.active {
+  background: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
+  box-shadow: 0 6px 14px rgba(102, 126, 234, 0.25);
+}
+
+.dot-size-selector {
+  position: relative;
+}
+
+.dot-size-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dot-size-button:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background: var(--hover-bg);
+}
+
+.dot-size-button:focus-visible {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+}
+
+.dot-size-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  min-width: 180px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  z-index: 100;
+}
+
+.dot-size-menu-item {
+  display: block;
+  width: 100%;
+  padding: 0.65rem 0.875rem;
+  border: none;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.dot-size-menu-item:hover {
+  background: var(--hover-bg);
+}
+
+.dot-size-menu-item.active {
+  background: rgba(102, 126, 234, 0.1);
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.dot-size-menu-item:not(:last-child) {
+  border-bottom: 1px solid var(--border-light);
+}
+
+.chart-container {
+  position: relative;
+  height: 500px;
+}
+
+.mobile-item-list {
+  display: none;
+}
+
+.mobile-item-list-item {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  background: var(--bg-secondary);
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.mobile-item-list-item.active {
+  border-color: var(--primary-color);
+  box-shadow: 0 6px 14px rgba(102, 126, 234, 0.18);
+  transform: translateY(-1px);
+}
+
+.mobile-item-list-item__select {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.75rem;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.mobile-item-list-item__select:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 2px rgba(102, 126, 234, 0.35);
+}
+
+.mobile-item-list-item__swatch {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.mobile-item-list-item__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.mobile-item-list-item__name {
+  color: var(--text-primary);
+}
+
+.mobile-item-list-item__disclosure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  border-left: 1px solid var(--border-light);
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.mobile-item-list-item__disclosure:hover {
+  background: var(--hover-bg);
+}
+
+.mobile-item-list-item__disclosure:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 2px rgba(102, 126, 234, 0.35);
+}
+
+.chart-labels {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.chart-label {
+  pointer-events: auto;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.chart-label:hover {
+  text-decoration: underline !important;
+}
+
+.chart-label.hovered {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-weight: 700;
+  text-decoration: none !important;
+  opacity: 1;
+}
+
+@media (prefers-color-scheme: light) {
+  .chart-label.hovered {
+    background: rgba(0, 0, 0, 0.05);
+  }
+}
+
+.chart-label.dimmed {
+  opacity: 0.35;
+}
+
+.date-labels {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.date-label {
+  pointer-events: auto;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #6b7280;
+  font-weight: normal;
+}
+
+.date-label:hover {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.date-label.selected {
+  color: #2563eb;
+  font-weight: bold;
+}
+
+.date-label.selected:hover {
+  color: #1d4ed8;
+}
+
+.date-label.disabled {
+  opacity: 0.35;
+  pointer-events: none;
+  cursor: default;
+}
+
+.chart-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+@media (max-width: 900px) {
+  .price-range-chart {
+    padding: 1.35rem;
+  }
+
+  .chart-container {
+    height: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+  .price-range-chart {
+    padding: 1.25rem;
+  }
+
+  .price-range-chart .chart-header {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .price-range-chart .chart-range-controls {
+    flex: 1;
+  }
+
+  .dot-size-selector {
+    flex-shrink: 0;
+  }
+
+  .mobile-item-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.65rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    width: 100%;
+  }
+
+  .chart-labels {
+    display: none;
+  }
+
+  .chart-container {
+    height: 400px;
+  }
+}
+
+@media (max-width: 540px) {
+  .price-range-chart {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .chart-container {
+    height: 350px;
+  }
+}
