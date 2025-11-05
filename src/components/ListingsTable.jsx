@@ -32,6 +32,7 @@ export default function ListingsTable({
               )}
               <th className="col-price">Price</th>
               {showPriceChange && <th className="col-change">Change</th>}
+              <th>Year</th>
               <th>Trim</th>
               <th>Mileage</th>
               {showStatus && <th className="col-status">Status</th>}
@@ -61,6 +62,7 @@ export default function ListingsTable({
                     )}
                   </td>
                 )}
+                <td data-label="Trim">{listing.year || '-'}</td>
                 <td data-label="Trim">{listing.trim || '-'}</td>
                 <td>{listing.mileage.toLocaleString()} mi</td>
                 {showStatus && (
