@@ -182,9 +182,9 @@ function parseListings($, make, model) {
       const price = parseInt(priceText.replace(/[$,*]/g, ''));
 
       // Extract mileage (format: "47K mi" -> 47000)
-      const mileageText = $card.find('.scct--price-miles-info--mileage').text().trim();
+      const mileageText = $card.find('.scct--price-miles-info--miles').text().trim();
       const mileageMatch = mileageText.match(/(\d+(?:\.\d+)?)(K?)/i);
-      let mileage = 0;
+      let mileage = null;
       if (mileageMatch) {
         mileage = parseFloat(mileageMatch[1]);
         if (mileageMatch[2].toUpperCase() === 'K') {
@@ -195,7 +195,7 @@ function parseListings($, make, model) {
       // Extract year and trim from title
       const titleText = $card.find('.scct--make-model-info').text().trim();
       const yearMatch = titleText.match(/^(\d{4})/);
-      const year = yearMatch ? parseInt(yearMatch[1]) : 0;
+      const year = yearMatch ? parseInt(yearMatch[1]) : null;
 
       // Extract trim from model-trim span first (needed for validation)
       const trimText = $card.find('.scct--make-model-info--model-trim').text().trim();
@@ -220,27 +220,25 @@ function parseListings($, make, model) {
 
       // Format trim: usually "Model Trim", extract just the trim part
       const trimParts = trimText.split(' ');
-      const trim = trimParts.length > 1 ? trimParts.slice(1).join(' ') : 'Base';
+      const trim = trimParts.length > 1 ? trimParts.slice(1).join(' ') : null;
 
       // Extract URL
       const linkElement = $card.find('a.scct--make-model-info-link').first();
       const urlPath = linkElement.attr('href');
-      const url = urlPath ? `https://www.carmax.com${urlPath}` : '';
+      const url = urlPath ? `https://www.carmax.com${urlPath}` : null;
 
-      if (price && year) {
-        listings.push({
-          id: stockId,
-          make,
-          model,
-          year,
-          trim,
-          price,
-          mileage: Math.round(mileage),
-          location: 'CarMax',
-          url,
-          listing_date: new Date().toISOString().split('T')[0]
-        });
-      }
+      listings.push({
+        id: stockId,
+        make,
+        model,
+        year,
+        trim,
+        price: price || null,
+        mileage: mileage != null ? Math.round(mileage) : null,
+        location: 'CarMax',
+        url,
+        listing_date: new Date().toISOString().split('T')[0]
+      });
     } catch (error) {
       console.error('    Error parsing listing:', error.message);
     }

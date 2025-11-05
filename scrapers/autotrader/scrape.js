@@ -173,41 +173,25 @@ class AutotraderScraper extends BaseScraper {
     // Extract data from API response
     const id = apiListing.id;
     const year = apiListing.year;
-    const trim = apiListing.trim?.name || 'Base';
+    const trim = apiListing.trim?.name || null;
     const vin = apiListing.vin;
 
     // Parse mileage (API returns string like "68,203")
-    const mileageStr = apiListing.mileage?.value || apiListing.specifications?.mileage?.value || '0';
-    const mileage = parseInt(mileageStr.replace(/,/g, ''));
+    const mileageStr = apiListing.mileage?.value || apiListing.specifications?.mileage?.value;
+    const mileage = mileageStr ? parseInt(mileageStr.replace(/,/g, '')) : null;
 
     // Parse price
-    const price = parseInt(apiListing.pricingDetail?.salePrice || 0);
+    const priceValue = apiListing.pricingDetail?.salePrice;
+    const price = priceValue ? parseInt(priceValue) : null;
 
     // Build listing URL
-    const url = `${this.baseUrl}/cars-for-sale/vehicle/${id}`;
-
-    // Validate listing has reasonable data
-    if (!price || price < 1000 || price > 500000) {
-      throw new Error(`Invalid price: ${price}`);
-    }
-
-    if (mileage < 0 || mileage > 500000) {
-      throw new Error(`Invalid mileage: ${mileage}`);
-    }
-
-    if (!year || year < 2010 || year > new Date().getFullYear() + 1) {
-      throw new Error(`Invalid year: ${year}`);
-    }
-
-    if (!id) {
-      throw new Error('Missing listing ID');
-    }
+    const url = id ? `${this.baseUrl}/cars-for-sale/vehicle/${id}` : null;
 
     return {
-      id: `autotrader-${id}`,
+      id: id ? `autotrader-${id}` : null,
       make: requestedMake,
       model: requestedModel,
-      year,
+      year: year || null,
       trim,
       price,
       mileage,
@@ -240,15 +224,9 @@ class AutotraderScraper extends BaseScraper {
       }
 
       // Step 3: Convert to standard format
-      const listings = [];
-      for (const apiListing of result.listings) {
-        try {
-          const listing = this.convertToListing(apiListing, query.make, query.model);
-          listings.push(listing);
-        } catch (error) {
-          console.error(`    ⚠ Warning: Skipping invalid listing:`, error.message);
-        }
-      }
+      const listings = result.listings.map(apiListing =>
+        this.convertToListing(apiListing, query.make, query.model)
+      );
 
       // Check if we need to fetch more listings (pagination)
       const exceededMax = result.totalResultCount > targetCount;

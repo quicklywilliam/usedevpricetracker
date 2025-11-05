@@ -212,7 +212,7 @@ function parseListings($, make, model) {
 
       // Extract year
       const yearMatch = makeModelText.match(/^(\d{4})/);
-      const year = yearMatch ? parseInt(yearMatch[1]) : 0;
+      const year = yearMatch ? parseInt(yearMatch[1]) : null;
 
       // Extract trim/mileage
       const trimMileageText = $card.find('[data-qa="trim-mileage"]').text().trim();
@@ -220,13 +220,13 @@ function parseListings($, make, model) {
       // Parse trim and mileage from the combined field
       // Format is typically: "SE Sport Utility 4D • 12K mi"
 
-      let trim = 'Base';
-      let mileage = 0;
+      let trim = null;
+      let mileage = null;
 
       if (trimMileageText) {
         // Split by bullet point to separate trim from mileage
         const parts = trimMileageText.split('•').map(s => s.trim());
-        trim = parts[0] || 'Base';
+        trim = parts[0] || null;
 
         // Extract mileage from second part
         const mileageText = parts[1] || '';
@@ -241,18 +241,18 @@ function parseListings($, make, model) {
       } else {
         // Fallback: try to extract from makeModelText
         const trimMatch = makeModelText.match(/^\d{4}\s+\w+\s+[\w\s-]+\s+(.+)$/i);
-        trim = trimMatch ? trimMatch[1] : 'Base';
+        trim = trimMatch ? trimMatch[1] : null;
 
         // Fallback: try to find mileage from old selector
         const oldMileageText = $card.find('[data-qa="mileage"]').text().trim();
         const oldMileageMatch = oldMileageText.match(/(\d+(?:,\d+)*)/);
-        mileage = oldMileageMatch ? parseInt(oldMileageMatch[1].replace(/,/g, '')) * 1000 : 0;
+        mileage = oldMileageMatch ? parseInt(oldMileageMatch[1].replace(/,/g, '')) * 1000 : null;
       }
 
       // Extract URL
       const linkElement = $card.find('a').first();
       const urlPath = linkElement.attr('href');
-      const url = urlPath ? (urlPath.startsWith('http') ? urlPath : `https://www.carvana.com${urlPath}`) : '';
+      const url = urlPath ? (urlPath.startsWith('http') ? urlPath : `https://www.carvana.com${urlPath}`) : null;
 
       // Extract vehicle ID from URL - required for tracking
       const idMatch = urlPath?.match(/\/vehicle\/(\d+)/);
@@ -262,20 +262,18 @@ function parseListings($, make, model) {
       }
       const id = `carvana-${idMatch[1]}`;
 
-      if (price && year) {
-        listings.push({
-          id,
-          make,
-          model,
-          year,
-          trim,
-          price,
-          mileage,
-          location: 'Carvana',
-          url,
-          listing_date: new Date().toISOString().split('T')[0]
-        });
-      }
+      listings.push({
+        id,
+        make,
+        model,
+        year,
+        trim,
+        price: price || null,
+        mileage,
+        location: 'Carvana',
+        url,
+        listing_date: new Date().toISOString().split('T')[0]
+      });
     } catch (error) {
       console.error('    Error parsing listing:', error.message);
     }

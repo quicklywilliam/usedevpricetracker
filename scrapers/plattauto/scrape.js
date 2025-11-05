@@ -145,21 +145,21 @@ function parseListings($, make, model) {
 
       // Format is typically "2023 Hyundai Ioniq 5 SEL"
       const yearMatch = titleText.match(/^(\d{4})/);
-      const year = yearMatch ? parseInt(yearMatch[1]) : 0;
+      const year = yearMatch ? parseInt(yearMatch[1]) : null;
 
       // Extract mileage
       const mileageText = $card.find('.dws-vehicle-field-mileage').text().trim();
       const mileageMatch = mileageText.match(/(\d+(?:,\d+)*)/);
-      const mileage = mileageMatch ? parseInt(mileageMatch[1].replace(/,/g, '')) : 0;
+      const mileage = mileageMatch ? parseInt(mileageMatch[1].replace(/,/g, '')) : null;
 
       // Extract trim (remove "Trim " prefix if present)
       const trimText = $card.find('.dws-vehicle-field-trim').text().trim().replace(/\s+/g, ' ');
-      const trim = trimText.replace(/^Trim\s+/i, '') || 'Base';
+      const trim = trimText.replace(/^Trim\s+/i, '') || null;
 
       // Extract URL
       const linkElement = $card.find('.dws-vehicle-listing-item-title a').first();
       const urlPath = linkElement.attr('href');
-      const url = urlPath ? (urlPath.startsWith('http') ? urlPath : `https://www.plattauto.com${urlPath}`) : '';
+      const url = urlPath ? (urlPath.startsWith('http') ? urlPath : `https://www.plattauto.com${urlPath}`) : null;
 
       // Extract stock number or VIN for ID - required for tracking
       const stockText = $card.find('.dws-vehicle-field-stock-number').text().trim().replace(/\s+/g, ' ');
@@ -175,21 +175,19 @@ function parseListings($, make, model) {
         return;
       }
 
-      if (price && year) {
-        seenIds.add(id);
-        listings.push({
-          id,
-          make,
-          model,
-          year,
-          trim,
-          price,
-          mileage: mileage || 0,
-          location: 'Platt Auto',
-          url,
-          listing_date: new Date().toISOString().split('T')[0]
-        });
-      }
+      seenIds.add(id);
+      listings.push({
+        id,
+        make,
+        model,
+        year,
+        trim,
+        price: price || null,
+        mileage,
+        location: 'Platt Auto',
+        url,
+        listing_date: new Date().toISOString().split('T')[0]
+      });
     } catch (error) {
       console.error('    Error parsing listing:', error.message);
     }

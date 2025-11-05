@@ -2,6 +2,7 @@ import puppeteer from 'puppeteer';
 import { RateLimiter } from './rate-limiter.js';
 import { appendListings } from './file-writer.js';
 import { loadPreviousData, findMissingListings, validateMissingListings } from './status-validator.js';
+import { validateListings, shouldFailSource, formatValidationErrors } from './listing-validator.js';
 
 /**
  * Base scraper that handles browser management and common logic
@@ -60,11 +61,25 @@ export class BaseScraper {
       const listings = Array.isArray(result) ? result : result.listings;
       const exceededMax = result.exceededMax || false;
 
-      // Validate missing listings for this model
-      const validatedListings = await this.validateMissingListingsForModel(query, listings);
+      // Validate all listings
+      const validation = validateListings(listings, query);
 
-      // Combine current listings with validated (selling/sold) listings
-      const allListings = [...listings, ...validatedListings];
+      // Log validation results
+      if (validation.stats.invalid > 0) {
+        console.error(`    ⚠ Warning: Skipping ${validation.stats.invalid} invalid listing(s)`);
+      }
+
+      // Check if source should fail based on validation
+      if (shouldFailSource(validation.stats)) {
+        const errorMsg = formatValidationErrors(validation.stats);
+        throw new Error(errorMsg);
+      }
+
+      // Validate missing listings for this model (only for valid listings)
+      const validatedListings = await this.validateMissingListingsForModel(query, validation.validListings);
+
+      // Combine current valid listings with validated (selling/sold) listings
+      const allListings = [...validation.validListings, ...validatedListings];
 
       await appendListings(
         this.sourceName,
@@ -73,11 +88,11 @@ export class BaseScraper {
         exceededMax ? { make: query.make, model: query.model } : null
       );
 
-      console.log(`  ✓ Found ${listings.length} listings (${validatedListings.length} validated)`);
+      console.log(`  ✓ Found ${validation.validListings.length} listings (${validatedListings.length} validated)`);
       return allListings;
     } catch (error) {
       console.error(`  ✗ Error:`, error.message);
-      return [];
+      throw error; // Re-throw so run-all.js can handle it
     }
   }
 
