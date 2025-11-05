@@ -457,7 +457,7 @@ function App() {
       <header>
         <div className="header-content">
           <div>
-            <h1>Used EV Tracker</h1>
+            <h1>Used EV Market Tracker</h1>
           </div>
           <NoTeslaToggle enabled={noTesla} onChange={handleNoTeslaToggle} />
         </div>
@@ -471,14 +471,13 @@ function App() {
                   className={`category-tab${tab.id === selectedCategory ? ' active' : ''}`}
                   onClick={() => handleCategorySelect(tab.id)}
                   aria-pressed={tab.id === selectedCategory}
+                  data-description={tab.description}
+                  title={tab.description}
                 >
                   {tab.label}
                 </button>
               ))}
             </div>
-            {categoryDescription && (
-              <p className="category-helper">{categoryDescription}</p>
-            )}
           </div>
         )}
       </header>

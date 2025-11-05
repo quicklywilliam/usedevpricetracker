@@ -164,13 +164,14 @@ header p {
 
 .category-filter {
   margin-top: 1rem;
+  margin-bottom: -4px;
   padding: 0;
 }
 
 .category-tabs {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.25rem;
+  gap: 0.35rem;
   position: relative;
 }
 
@@ -201,6 +202,83 @@ header p {
   z-index: 1;
 }
 
+/* Desktop: show tooltip on hover */
+@media (hover: hover) {
+  .category-tab::after {
+    content: attr(data-description);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 0;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 400;
+    font-style: italic;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 100;
+  }
+
+  .category-tab:last-child::after {
+    left: auto;
+    right: 0;
+  }
+
+  .category-tab:hover::after,
+  .category-tab:focus-visible::after {
+    opacity: 1;
+  }
+}
+
+/* Mobile: flash description on select */
+@media (hover: none) {
+  .category-tab.active::before {
+    content: attr(data-description);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 0;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 400;
+    font-style: italic;
+    white-space: nowrap;
+    z-index: 100;
+    animation: flashDescription 2s ease-in-out;
+    pointer-events: none;
+  }
+
+  .category-tab.active:last-child::before {
+    left: auto;
+    right: 0;
+  }
+}
+
+@keyframes flashDescription {
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+}
+
 .category-tab:hover,
 .category-tab:focus-visible {
   background: rgba(255, 255, 255, 0.2);
@@ -214,14 +292,6 @@ header p {
   border-bottom-color: var(--bg-primary);
   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
   z-index: 2;
-}
-
-.category-helper {
-  font-style: italic;
-  margin-top: 0.5rem;
-  padding-top: 0.4rem;
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.85);
 }
 
 @media (max-width: 1024px) {
