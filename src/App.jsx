@@ -457,7 +457,7 @@ function App() {
       <header>
         <div className="header-content">
           <div>
-            <h1>Used EV Market Tracker</h1>
+            <h1>🤑 Used EVs 📉</h1>
           </div>
           <NoTeslaToggle enabled={noTesla} onChange={handleNoTeslaToggle} />
         </div>
