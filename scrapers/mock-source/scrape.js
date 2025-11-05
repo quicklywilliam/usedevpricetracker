@@ -1,6 +1,6 @@
 import { appendListings } from '../lib/file-writer.js';
 
-export async function scrapeMockSource(query) {
+export async function scrapeMockSource(query, options = {}) {
   // Generate a fake listing for the model
   const basePrice = 30000;
   const listing = {

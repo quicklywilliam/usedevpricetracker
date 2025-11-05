@@ -11,16 +11,43 @@ async function runAllScrapers() {
   const sourceArg = process.argv.find(arg => arg.startsWith('--source='));
   const targetSource = sourceArg ? sourceArg.split('=')[1] : null;
 
+  // Check for --models argument (comma-separated list)
+  const modelsArg = process.argv.find(arg => arg.startsWith('--models='));
+  const targetModels = modelsArg ? modelsArg.split('=')[1].split(',').map(m => m.trim()) : null;
+
+  // Check for --limit argument
+  const limitArg = process.argv.find(arg => arg.startsWith('--limit='));
+  const limit = limitArg ? parseInt(limitArg.split('=')[1], 10) : null;
+
   if (targetSource) {
     console.log(`Starting scraper run for ${targetSource}...\n`);
   } else {
     console.log('Starting scraper run...\n');
   }
 
+  if (targetModels) {
+    console.log(`Filtering models: ${targetModels.join(', ')}\n`);
+  }
+
+  if (limit) {
+    console.log(`Limiting to ${limit} vehicles per model\n`);
+  }
+
   // Read tracked models
   const configPath = path.join(__dirname, '..', 'config', 'tracked-models.json');
   const configData = await fs.readFile(configPath, 'utf-8');
-  const { queries } = JSON.parse(configData);
+  let { queries } = JSON.parse(configData);
+
+  // Filter queries if --models is specified
+  if (targetModels) {
+    queries = queries.filter(q => {
+      const modelName = q.model.toLowerCase().replace(/\s+/g, '');
+      return targetModels.some(tm =>
+        modelName.includes(tm.toLowerCase().replace(/\s+/g, '')) ||
+        tm.toLowerCase().replace(/\s+/g, '').includes(modelName)
+      );
+    });
+  }
 
   // Get list of available scrapers
   const scrapersDir = __dirname;
@@ -74,7 +101,8 @@ async function runAllScrapers() {
     for (const scraper of scrapers) {
       try {
         console.log(`  Running ${scraper.name}...`);
-        await scraper.fn(query);
+        const options = limit ? { limit } : {};
+        await scraper.fn(query, options);
         results.succeeded.push(`${scraper.name}:${query.make} ${query.model}`);
       } catch (error) {
         console.error(`  ✗ ${scraper.name} failed:`, error.message);

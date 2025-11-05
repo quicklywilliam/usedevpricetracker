@@ -31,13 +31,20 @@ class AutotraderScraper extends BaseScraper {
    * Fallback: GenAI API (direct search interpretation)
    */
   async getModelCodes(make, model) {
-    const searchTerm = `used ${make} ${model}`;
+    // Normalize model name - strip "Electric" or "EV" suffix since we filter by engineCodes
+    const normalizedModel = model.replace(/\s+(Electric|EV)$/i, '');
+    const searchTerm = `used ${make} ${normalizedModel}`;
 
     console.log(`    Looking up model codes for "${searchTerm}"...`);
 
     // Try Keywords API first (what provides autocomplete suggestions)
     try {
       const keywordsUrl = `${this.baseUrl}/collections/lcServices/rest/lsc/marketplace/suggested/keywords/${encodeURIComponent(searchTerm)}`;
+
+      if (process.env.DEBUG_AUTOTRADER) {
+        console.log('    DEBUG: Keywords API URL:', keywordsUrl);
+      }
+
       const keywordsResponse = await axios.get(keywordsUrl, {
         headers: {
           'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'
@@ -46,7 +53,11 @@ class AutotraderScraper extends BaseScraper {
 
       if (keywordsResponse.data && keywordsResponse.data.length > 0) {
         const searchTermLower = searchTerm.toLowerCase();
-        const modelWords = model.toLowerCase().split(/\s+/);
+        const modelWords = normalizedModel.toLowerCase().split(/\s+/);
+
+        if (process.env.DEBUG_AUTOTRADER) {
+          console.log('    DEBUG: Keywords API response:', JSON.stringify(keywordsResponse.data, null, 2));
+        }
 
         // Filter valid results with codes
         const validResults = keywordsResponse.data.filter(item =>
@@ -134,7 +145,8 @@ class AutotraderScraper extends BaseScraper {
           numRecords,
           firstRecord: startRecord,
           sortBy: 'relevance',
-          listingType: 'USED'
+          listingType: 'USED',
+          fuelCode: 'E' // Filter for pure electric vehicles only
         },
         headers: {
           'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'
@@ -209,16 +221,23 @@ class AutotraderScraper extends BaseScraper {
   /**
    * Scrape a specific model using Autotrader APIs
    */
-  async scrapeModel(query) {
+  async scrapeModel(query, options = {}) {
     try {
+      const targetCount = options.limit || 100;
+
       // Step 1: Look up model codes using Smart Search API
       const { makeCode, modelCode } = await this.getModelCodes(query.make, query.model);
 
       // Step 2: Fetch listings using Listing API
       console.log(`    Fetching listings...`);
-      const result = await this.fetchListings(makeCode, modelCode);
+      const result = await this.fetchListings(makeCode, modelCode, 0, targetCount);
 
       console.log(`    Found ${result.totalResultCount} total listings`);
+
+      // Debug: Log first listing to check fuel/engine fields
+      if (result.listings.length > 0 && process.env.DEBUG_AUTOTRADER) {
+        console.log('    DEBUG: Sample listing:', JSON.stringify(result.listings[0], null, 2));
+      }
 
       // Step 3: Convert to standard format
       const listings = [];
@@ -232,10 +251,10 @@ class AutotraderScraper extends BaseScraper {
       }
 
       // Check if we need to fetch more listings (pagination)
-      const exceededMax = result.totalResultCount > 100;
+      const exceededMax = result.totalResultCount > targetCount;
 
       if (exceededMax) {
-        console.log(`    ⓘ Note: ${result.totalResultCount} total listings available, returning first 100`);
+        console.log(`    ⓘ Note: ${result.totalResultCount} total listings available, returning first ${targetCount}`);
       }
 
       console.log(`    Returning ${listings.length} valid listings`);
@@ -250,12 +269,12 @@ class AutotraderScraper extends BaseScraper {
   }
 }
 
-export async function scrapeAutotrader(query) {
+export async function scrapeAutotrader(query, options = {}) {
   const scraper = new AutotraderScraper();
   await scraper.launch();
 
   try {
-    return await scraper.scrapeQuery(query);
+    return await scraper.scrapeQuery(query, options);
   } finally {
     await scraper.close();
   }

@@ -61,7 +61,8 @@ class CarvanaScraper extends BaseScraper {
     return 'available';
   }
 
-  async scrapeModel(query) {
+  async scrapeModel(query, options = {}) {
+    const targetCount = options.limit || MIN_VEHICLES;
     const allListings = [];
 
     // Use the search box - let Carvana's autocomplete handle regularization
@@ -91,7 +92,7 @@ class CarvanaScraper extends BaseScraper {
     const maxPages = 100; // High enough to get to 250 vehicles
     let pageNum = 0;
 
-    while (hasMorePages && pageNum < maxPages && allListings.length < MIN_VEHICLES) {
+    while (hasMorePages && pageNum < maxPages && allListings.length < targetCount) {
       pageNum++;
 
       await new Promise(resolve => setTimeout(resolve, 1000));
@@ -104,8 +105,8 @@ class CarvanaScraper extends BaseScraper {
 
       allListings.push(...pageListings);
 
-      // Stop if we've reached the minimum
-      if (allListings.length >= MIN_VEHICLES) {
+      // Stop if we've reached the target count
+      if (allListings.length >= targetCount) {
         hasMorePages = false;
         break;
       }
@@ -130,17 +131,17 @@ class CarvanaScraper extends BaseScraper {
     // Return object with listings and exceeded flag
     return {
       listings: allListings,
-      exceededMax: allListings.length >= MIN_VEHICLES
+      exceededMax: allListings.length >= targetCount
     };
   }
 }
 
-export async function scrapeCarvana(query) {
+export async function scrapeCarvana(query, options = {}) {
   const scraper = new CarvanaScraper();
   await scraper.launch();
 
   try {
-    return await scraper.scrapeQuery(query);
+    return await scraper.scrapeQuery(query, options);
   } finally {
     await scraper.close();
   }

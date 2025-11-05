@@ -70,7 +70,8 @@ class CarMaxScraper extends BaseScraper {
     return 'available';
   }
 
-  async scrapeModel(query) {
+  async scrapeModel(query, options = {}) {
+    const targetCount = options.limit || MIN_VEHICLES;
     const allListings = [];
     const seenIds = new Set();
     const searchUrl = buildSearchUrl(query.make, query.model);
@@ -88,7 +89,7 @@ class CarMaxScraper extends BaseScraper {
     const maxPages = 100; // High enough to get to 250 vehicles
     let pageNum = 0;
 
-    while (hasMorePages && pageNum < maxPages && allListings.length < MIN_VEHICLES) {
+    while (hasMorePages && pageNum < maxPages && allListings.length < targetCount) {
       pageNum++;
 
       // Wait a bit for content to render
@@ -107,8 +108,8 @@ class CarMaxScraper extends BaseScraper {
         }
       }
 
-      // Stop if we've reached the minimum
-      if (allListings.length >= MIN_VEHICLES) {
+      // Stop if we've reached the target count
+      if (allListings.length >= targetCount) {
         hasMorePages = false;
         break;
       }
@@ -127,17 +128,17 @@ class CarMaxScraper extends BaseScraper {
     // Return object with listings and exceeded flag
     return {
       listings: allListings,
-      exceededMax: allListings.length >= MIN_VEHICLES
+      exceededMax: allListings.length >= targetCount
     };
   }
 }
 
-export async function scrapeCarMax(query) {
+export async function scrapeCarMax(query, options = {}) {
   const scraper = new CarMaxScraper();
   await scraper.launch();
 
   try {
-    return await scraper.scrapeQuery(query);
+    return await scraper.scrapeQuery(query, options);
   } finally {
     await scraper.close();
   }

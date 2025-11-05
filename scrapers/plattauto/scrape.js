@@ -54,11 +54,12 @@ class PlattAutoScraper extends BaseScraper {
     return 'available';
   }
 
-  async scrapeModel(query) {
+  async scrapeModel(query, options = {}) {
+    const targetCount = options.limit || MIN_VEHICLES;
     const allListings = [];
     const maxPages = 100; // High enough to get to MIN_VEHICLES
 
-    for (let pageNum = 1; pageNum <= maxPages && allListings.length < MIN_VEHICLES; pageNum++) {
+    for (let pageNum = 1; pageNum <= maxPages && allListings.length < targetCount; pageNum++) {
       const searchUrl = buildSearchUrl(query.make, query.model, pageNum);
 
       await this.page.goto(searchUrl, {
@@ -86,25 +87,25 @@ class PlattAutoScraper extends BaseScraper {
       if (pageListings.length === 0) break;
       allListings.push(...pageListings);
 
-      // Stop if we've reached the minimum
-      if (allListings.length >= MIN_VEHICLES) break;
+      // Stop if we've reached the target count
+      if (allListings.length >= targetCount) break;
       if (pageListings.length < 10) break;
     }
 
     // Return object with listings and exceeded flag
     return {
       listings: allListings,
-      exceededMax: allListings.length >= MIN_VEHICLES
+      exceededMax: allListings.length >= targetCount
     };
   }
 }
 
-export async function scrapePlattAuto(query) {
+export async function scrapePlattAuto(query, options = {}) {
   const scraper = new PlattAutoScraper();
   await scraper.launch();
 
   try {
-    return await scraper.scrapeQuery(query);
+    return await scraper.scrapeQuery(query, options);
   } finally {
     await scraper.close();
   }

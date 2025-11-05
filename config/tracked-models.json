@@ -23,6 +23,14 @@
         },        {
           "make": "Chevrolet",
           "model": "Bolt EUV"
+        },
+        {
+          "make": "Kia",
+          "model": "Niro EV"
+        },
+        {
+          "make": "Hyundai",
+          "model": "Kona Electric"
         }
       ]
     },
@@ -65,6 +73,10 @@
         {
           "make": "Audi",
           "model": "Q4 e-tron"
+        },
+        {
+          "make": "Tesla",
+          "model": "Model Y"
         }
       ]
     },
@@ -79,6 +91,22 @@
         {
           "make": "BMW",
           "model": "i5"
+        },
+        {
+          "make": "Tesla",
+          "model": "Model S"
+        },
+        {
+          "make": "Tesla",
+          "model": "Model X"
+        },
+        {
+          "make": "Rivian",
+          "model": "R1T"
+        },
+        {
+          "make": "Rivian",
+          "model": "R1S"
         }
       ]
     }
@@ -147,6 +175,34 @@
     {
       "make": "BMW",
       "model": "i3"
+    },
+    {
+      "make": "Tesla",
+      "model": "Model Y"
+    },
+    {
+      "make": "Tesla",
+      "model": "Model S"
+    },
+    {
+      "make": "Tesla",
+      "model": "Model X"
+    },
+    {
+      "make": "Rivian",
+      "model": "R1T"
+    },
+    {
+      "make": "Rivian",
+      "model": "R1S"
+    },
+    {
+      "make": "Kia",
+      "model": "Niro EV"
+    },
+    {
+      "make": "Hyundai",
+      "model": "Kona Electric"
     }
   ]
 }

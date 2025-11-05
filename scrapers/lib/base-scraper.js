@@ -48,13 +48,13 @@ export class BaseScraper {
     }
   }
 
-  async scrapeQuery(query) {
+  async scrapeQuery(query, options = {}) {
     console.log(`  Scraping ${query.make} ${query.model}...`);
 
     await this.rateLimiter.waitIfNeeded();
 
     try {
-      const result = await this.scrapeModel(query);
+      const result = await this.scrapeModel(query, options);
 
       // Handle both old format (array) and new format (object with listings and exceededMax)
       const listings = Array.isArray(result) ? result : result.listings;
