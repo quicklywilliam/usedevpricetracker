@@ -97,13 +97,55 @@ class CarvanaScraper extends BaseScraper {
 
       await new Promise(resolve => setTimeout(resolve, 1000));
 
-      // Get page HTML and parse
-      const html = await this.page.content();
-      const $ = cheerio.load(html);
+      // Extract vehicle data from __NEXT_DATA__ script tag
+      const pageListings = await this.page.evaluate((make, model) => {
+        const script = document.getElementById('__NEXT_DATA__');
+        if (!script) return [];
 
-      const pageListings = parseListings($, query.make, query.model);
+        try {
+          const data = JSON.parse(script.textContent);
+          const vehiclesArray = data?.props?.pageProps?.forProviders?.forInventoryContext?.inventoryData?.inventory?.vehicles || [];
 
-      allListings.push(...pageListings);
+          return vehiclesArray.map(v => ({
+            vin: v.vin,
+            year: v.year,
+            make: v.make,
+            model: v.model,
+            trim: v.trim,
+            price: v.price?.total,
+            mileage: v.mileage,
+            vehicleId: v.id
+          }));
+        } catch (e) {
+          return [];
+        }
+      }, query.make, query.model);
+
+      // Filter to only matching make/model and format
+      const formattedListings = pageListings
+        .filter(v => {
+          if (!v.vin) return false;
+          const makeLower = v.make?.toLowerCase() || '';
+          const modelLower = v.model?.toLowerCase() || '';
+          const queryMakeLower = query.make.toLowerCase();
+          const queryModelLower = query.model.toLowerCase();
+          return makeLower.includes(queryMakeLower) && modelLower.includes(queryModelLower);
+        })
+        .map(v => ({
+          id: `carvana-${v.vehicleId}`,
+          vin: v.vin,
+          make: query.make,
+          model: query.model,
+          year: v.year,
+          trim: v.trim,
+          price: v.price || null,
+          mileage: v.mileage || null,
+          location: 'Carvana',
+          url: `https://www.carvana.com/vehicle/${v.vehicleId}`,
+          listing_date: new Date().toISOString().split('T')[0]
+        }));
+
+      allListings.push(...formattedListings);
 
       // Stop if we've reached the target count
       if (allListings.length >= targetCount) {

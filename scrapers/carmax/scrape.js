@@ -95,10 +95,27 @@ class CarMaxScraper extends BaseScraper {
       // Wait a bit for content to render
       await new Promise(resolve => setTimeout(resolve, 1000));
 
-      // Get page HTML and parse
+      // Get page HTML
       const html = await this.page.content();
+
+      // Extract VIN data from JavaScript array: const cars = [{"stockNumber":...,"vin":"..."}...]
+      const vinMap = new Map();
+      const carsMatch = html.match(/const cars = (\[.*?\]);/s);
+      if (carsMatch) {
+        try {
+          const carsData = JSON.parse(carsMatch[1]);
+          for (const car of carsData) {
+            if (car.stockNumber && car.vin) {
+              vinMap.set(car.stockNumber.toString(), car.vin);
+            }
+          }
+        } catch (e) {
+          // Failed to parse, continue without VINs
+        }
+      }
+
       const $ = cheerio.load(html);
-      const pageListings = parseListings($, query.make, query.model);
+      const pageListings = parseListings($, query.make, query.model, vinMap);
 
       // Deduplicate - only add listings we haven't seen before
       for (const listing of pageListings) {
@@ -162,7 +179,7 @@ function buildSearchUrl(make, model) {
   return `https://www.carmax.com/cars/${makeSlug}/${modelSlug}`;
 }
 
-function parseListings($, make, model) {
+function parseListings($, make, model, vinMap = new Map()) {
   const listings = [];
 
   // CarMax car tiles
@@ -176,6 +193,9 @@ function parseListings($, make, model) {
         console.error(`    ⚠ Warning: Could not extract stock ID from listing`);
         return; // Skip listings without valid IDs
       }
+
+      // Get VIN from map
+      const vin = vinMap.get(stockId) || null;
 
       // Extract price
       const priceText = $card.find('.scct--price-miles-info--price').text().trim();
@@ -229,6 +249,7 @@ function parseListings($, make, model) {
 
       listings.push({
         id: stockId,
+        vin,
         make,
         model,
         year,
