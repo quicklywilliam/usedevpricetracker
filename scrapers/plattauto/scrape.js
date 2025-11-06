@@ -165,7 +165,7 @@ function parseListings($, make, model) {
       const stockText = $card.find('.dws-vehicle-field-stock-number').text().trim().replace(/\s+/g, ' ');
       const vinText = $card.find('.dws-vehicle-field-vin').text().trim().replace(/\s+/g, ' ').replace(/^VIN\s+/i, '');
       const vin = vinText || null;
-      const id = stockText || vinText;
+      const id = stockText || vin;
       if (!id) {
         console.error(`    ⚠ Warning: Could not extract stock number or VIN from listing`);
         return; // Skip listings without valid IDs
