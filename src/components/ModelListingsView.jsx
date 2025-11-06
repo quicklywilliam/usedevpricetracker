@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import VehicleListingTabs from './VehicleListingTabs';
 import { findNewListings, findListingsWithPriceChanges, findSoldListings, calculateDaysOnMarket } from '../services/dataLoader';
 import './ModelListingsView.css';
 
-export default function ModelListingsView({ data, model, selectedDate, loading = false }) {
+export default function ModelListingsView({ data, model, selectedDate, loading = false, selectedDateXPosition = null }) {
+  const wrapperRef = useRef(null);
+  const [tailPosition, setTailPosition] = useState(null);
+
+  useEffect(() => {
+    if (selectedDateXPosition !== null && wrapperRef.current) {
+      const wrapperRect = wrapperRef.current.getBoundingClientRect();
+      const relativeX = selectedDateXPosition - wrapperRect.left;
+      setTailPosition(relativeX);
+    } else {
+      setTailPosition(null);
+    }
+  }, [selectedDateXPosition]);
   if (!data || data.length === 0 || !model) {
     if (loading) {
       return <div className="loading">Loading model details...</div>;
@@ -62,7 +74,13 @@ export default function ModelListingsView({ data, model, selectedDate, loading =
     }));
 
   return (
-    <div className="model-listings-view">
+    <div className="model-listings-view" ref={wrapperRef}>
+      {tailPosition !== null && (
+        <div
+          className="model-listings-view__tail"
+          style={{ left: `${tailPosition}px` }}
+        />
+      )}
       <VehicleListingTabs
         newListings={newListings}
         changedListings={priceChangedListings}

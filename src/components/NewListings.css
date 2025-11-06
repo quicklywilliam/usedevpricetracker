@@ -3,8 +3,24 @@
   border-radius: 8px;
   padding: 1.5rem;
   box-shadow: 0 2px 4px var(--shadow-sm);
-  margin-top: 2rem;
-  overflow: hidden;
+  margin-top: 1.0rem;
+  overflow: visible;
+  position: relative;
+  border: 2px solid var(--primary-color);
+}
+
+.new-listings__tail {
+  position: absolute;
+  top: -26px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 16px solid transparent;
+  border-right: 16px solid transparent;
+  border-bottom: 26px solid var(--primary-color);
+  z-index: 100;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 .new-listings-header {

@@ -22,12 +22,14 @@ export default function PriceRangeChart({
   dateLabels,
   availableDates,
   loading = false,
-  enableItemNavigation = true
+  enableItemNavigation = true,
+  onSelectedDatePosition
 }) {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
   const labelsContainerRef = useRef(null);
   const dateLabelsContainerRef = useRef(null);
+  const chartContainerRef = useRef(null);
   const [dotSizeMode, setDotSizeMode] = useState('stock');
   const [showItemLabels, setShowItemLabels] = useState(() => {
     if (typeof window === 'undefined') {
@@ -758,6 +760,22 @@ export default function PriceRangeChart({
             const xScale = chart.scales.x;
             const yScale = chart.scales.y;
 
+            // Find and report selected date position first
+            if (selectedDate && onSelectedDatePosition && chartRef.current) {
+              const selectedIndex = dates.findIndex((date, index) => {
+                const grouped = datasets[0]?.groupedDatesSeries?.[index] || [date];
+                return date === selectedDate || grouped.includes(selectedDate);
+              });
+
+              if (selectedIndex >= 0) {
+                const xPos = xScale.getPixelForValue(selectedIndex);
+                const canvas = chartRef.current;
+                const canvasRect = canvas.getBoundingClientRect();
+                const viewportX = canvasRect.left + xPos;
+                onSelectedDatePosition(viewportX);
+              }
+            }
+
             const clickableDates = dates.filter((date, index) => {
               const axisLabel = formatAxisLabel(index);
               if (!axisLabel) {
@@ -800,6 +818,8 @@ export default function PriceRangeChart({
 
               if (isSelected && hasData) {
                 linkEl.classList.add('selected');
+                // This position reporting is now done earlier in the afterDatasetsDraw hook
+                // to ensure it happens on every chart render
               }
               if (!hasData) {
                 linkEl.classList.add('disabled');
@@ -819,13 +839,7 @@ export default function PriceRangeChart({
               const textSpan = document.createElement('span');
               textSpan.textContent = axisLabel;
 
-              const chevron = document.createElement('span');
-              chevron.textContent = '›';
-              chevron.style.fontSize = '12px';
-              chevron.style.opacity = '0.6';
-
               linkEl.appendChild(textSpan);
-              linkEl.appendChild(chevron);
 
               if (hasData) {
                 linkEl.style.cursor = 'pointer';
@@ -974,7 +988,7 @@ export default function PriceRangeChart({
           })}
         </div>
       )}
-      <div className="chart-container">
+      <div className="chart-container" ref={chartContainerRef}>
         {loading && (!datasets || datasets.length === 0) && (
           <div className="chart-loading">Loading price data...</div>
         )}

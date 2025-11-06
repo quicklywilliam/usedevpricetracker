@@ -37,7 +37,8 @@ export default function DetailChart({
   timeRangeOptions,
   dateLabels,
   availableDates,
-  loading = false
+  loading = false,
+  onSelectedDatePosition
 }) {
   const { datasets, dates } = useMemo(() => {
     if (!data || data.length === 0 || !model) {
@@ -183,9 +184,7 @@ export default function DetailChart({
   }, [data, model, dateLabels, availableDates]);
 
   return (
-    <div className="detail-chart">
-      <h2>{model} - Price History</h2>
-      <PriceRangeChart
+    <PriceRangeChart
         datasets={datasets}
         dates={dates}
         data={data}
@@ -198,7 +197,7 @@ export default function DetailChart({
         availableDates={availableDates}
         loading={loading}
         enableItemNavigation={false}
+        onSelectedDatePosition={onSelectedDatePosition}
       />
-    </div>
   );
 }

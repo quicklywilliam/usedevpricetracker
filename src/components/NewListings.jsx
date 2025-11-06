@@ -1,10 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import VehicleListingTabs from './VehicleListingTabs';
 import { findNewListings, findListingsWithPriceChanges, findSoldListings, calculateDaysOnMarket } from '../services/dataLoader';
 import './NewListings.css';
 
-export default function NewListings({ data, selectedDate, loading = false }) {
+export default function NewListings({ data, selectedDate, loading = false, selectedDateXPosition = null }) {
   const [selectedSource, setSelectedSource] = useState('all');
+  const wrapperRef = useRef(null);
+  const [tailPosition, setTailPosition] = useState(null);
+
+  useEffect(() => {
+    if (selectedDateXPosition !== null && wrapperRef.current) {
+      const wrapperRect = wrapperRef.current.getBoundingClientRect();
+      const relativeX = selectedDateXPosition - wrapperRect.left;
+      setTailPosition(relativeX);
+    } else {
+      setTailPosition(null);
+    }
+  }, [selectedDateXPosition]);
 
   // Load source filter from URL on mount
   useEffect(() => {
@@ -114,7 +126,13 @@ export default function NewListings({ data, selectedDate, loading = false }) {
   );
 
   return (
-    <div className="new-listings">
+    <div className="new-listings" ref={wrapperRef}>
+      {tailPosition !== null && (
+        <div
+          className="new-listings__tail"
+          style={{ left: `${tailPosition}px` }}
+        />
+      )}
       <VehicleListingTabs
         newListings={filteredNewListings}
         changedListings={filteredChangedListings}

@@ -262,17 +262,18 @@
 }
 
 .date-label:hover {
-  color: #2563eb;
+  color: var(--primary-color);
   text-decoration: none;
 }
 
 .date-label.selected {
-  color: #2563eb;
+  color: var(--primary-color);
   font-weight: bold;
 }
 
 .date-label.selected:hover {
-  color: #1d4ed8;
+  color: var(--primary-color);
+  opacity: 0.8;
 }
 
 .date-label.disabled {

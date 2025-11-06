@@ -54,7 +54,8 @@ export default function OverviewChart({
   timeRangeOptions,
   dateLabels,
   availableDates,
-  loading = false
+  loading = false,
+  onSelectedDatePosition
 }) {
   const { datasets, dates } = useMemo(() => {
     if (!data || data.length === 0) {
@@ -207,6 +208,7 @@ export default function OverviewChart({
       dateLabels={dateLabels}
       availableDates={availableDates}
       loading={loading}
+      onSelectedDatePosition={onSelectedDatePosition}
     />
   );
 }

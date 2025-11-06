@@ -33,6 +33,7 @@ function App() {
   const [loadedDays, setLoadedDays] = useState(0);
   const [categoryDataCache, setCategoryDataCache] = useState({});
   const [categoryLoadedDays, setCategoryLoadedDays] = useState({});
+  const [selectedDateXPosition, setSelectedDateXPosition] = useState(null);
 
   const activeRangeOption = useMemo(
     () => getTimeRangeOption(timeRangeId),
@@ -497,8 +498,14 @@ function App() {
               dateLabels={rangeDateLabels}
               availableDates={availableRangeDates}
               loading={dataLoading}
+              onSelectedDatePosition={setSelectedDateXPosition}
             />
-            <NewListings data={filteredData} selectedDate={selectedDate} loading={dataLoading} />
+            <NewListings
+              data={filteredData}
+              selectedDate={selectedDate}
+              loading={dataLoading}
+              selectedDateXPosition={selectedDateXPosition}
+            />
           </>
         ) : (
           <>
@@ -518,12 +525,14 @@ function App() {
               dateLabels={rangeDateLabels}
               availableDates={availableRangeDates}
               loading={dataLoading}
+              onSelectedDatePosition={setSelectedDateXPosition}
             />
             <ModelListingsView
               data={filteredData}
               model={selectedModel}
               selectedDate={selectedDate}
               loading={dataLoading}
+              selectedDateXPosition={selectedDateXPosition}
             />
           </>
         )}
