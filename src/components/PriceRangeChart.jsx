@@ -923,9 +923,14 @@ export default function PriceRangeChart({
                 className={`dot-size-menu-item${dotSizeMode === 'stock' ? ' active' : ''}`}
                 onClick={() => {
                   setDotSizeMode('stock');
-                  setDotSizeMenuOpen(false);
+                  setTimeout(() => setDotSizeMenuOpen(false), 300);
                 }}
               >
+                {dotSizeMode === 'stock' ? (
+                  <span className="dot-size-menu-item__check">✓</span>
+                ) : (
+                  <span className="dot-size-menu-item__spacer"></span>
+                )}
                 Stock Count
               </button>
               <button
@@ -933,9 +938,14 @@ export default function PriceRangeChart({
                 className={`dot-size-menu-item${dotSizeMode === 'days' ? ' active' : ''}`}
                 onClick={() => {
                   setDotSizeMode('days');
-                  setDotSizeMenuOpen(false);
+                  setTimeout(() => setDotSizeMenuOpen(false), 300);
                 }}
               >
+                {dotSizeMode === 'days' ? (
+                  <span className="dot-size-menu-item__check">✓</span>
+                ) : (
+                  <span className="dot-size-menu-item__spacer"></span>
+                )}
                 Avg Days on Market
               </button>
             </div>

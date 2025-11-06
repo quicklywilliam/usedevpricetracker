@@ -86,16 +86,26 @@
   top: calc(100% + 4px);
   right: 0;
   min-width: 180px;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
+  background: var(--bg-primary);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 0.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   z-index: 100;
 }
 
+@media (prefers-color-scheme: light) {
+  .dot-size-menu {
+    background: var(--bg-secondary);
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  }
+}
+
 .dot-size-menu-item {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   width: 100%;
   padding: 0.65rem 0.875rem;
   border: none;
@@ -107,12 +117,41 @@
   transition: background 0.15s ease;
 }
 
+.dot-size-menu-item__check {
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1;
+  width: 1rem;
+  flex-shrink: 0;
+  animation: checkAppear 0.3s ease-out;
+}
+
+.dot-size-menu-item__spacer {
+  width: 1rem;
+  flex-shrink: 0;
+}
+
+@keyframes checkAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .dot-size-menu-item:hover {
   background: var(--hover-bg);
 }
 
 .dot-size-menu-item.active {
-  background: rgba(102, 126, 234, 0.1);
+  background: rgba(102, 126, 234, 0.15);
   color: var(--primary-color);
   font-weight: 600;
 }
