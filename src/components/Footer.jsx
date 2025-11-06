@@ -11,7 +11,7 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            View on GitHub
+            ❤️ View on GitHub
           </a>
         </p>
       </div>

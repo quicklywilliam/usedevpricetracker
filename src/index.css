@@ -249,7 +249,7 @@ header p {
     font-style: italic;
     white-space: nowrap;
     z-index: 100;
-    animation: flashDescription 2s ease-in-out;
+    animation: flashDescription 2s ease-in-out forwards;
     pointer-events: none;
   }
 
