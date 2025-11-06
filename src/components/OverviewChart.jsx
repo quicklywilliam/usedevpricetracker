@@ -6,28 +6,34 @@ import { aggregateMetricsForGroups, collectScalingValues } from '../utils/metric
 import { createInventoryScale } from '../utils/inventoryScale';
 
 const modelColors = {
-  'Hyundai Ioniq 5': '#667eea',
-  'Tesla Model 3': '#f59e0b',
-  'Kia EV6': '#10b981',
-  'Volkswagen ID.4': '#8b5cf6',
-  'Nissan Ariya': '#ec4899',
-  'Ford Mustang Mach-E': '#0ea5e9',
-  'Chevrolet Bolt EV': '#f97316',
-  'Chevrolet Bolt EUV': '#84cc16',
-  'Chevrolet Equinox EV': '#06b6d4',
-  'Honda Prologue': '#6366f1',
-  'Audi Q4 e-tron': '#d946ef',
-  'Volkswagen e-Golf': '#1d4ed8',
-  'BMW i4': '#4c1d95',
-  'BMW i5': '#9333ea',
-  'BMW i3': '#14b8a6',
-  'Tesla Model Y': '#dc2626',
-  'Tesla Model X': '#ea580c',
-  'Tesla Model S': '#f59e0b',
-  'Kia Niro EV': '#65a30d',
-  'Hyundai Kona Electric': '#0891b2',
-  'Rivian R1S': '#7c3aed',
-  'Rivian R1T': '#9333ea'
+  // Mid-range category
+  'Hyundai Ioniq 5': '#667eea',     // indigo
+  'Tesla Model 3': '#f59e0b',       // amber
+  'Kia EV6': '#10b981',             // emerald
+  'Volkswagen ID.4': '#ec4899',     // pink
+  'Nissan Ariya': '#8b5cf6',        // violet
+  'Ford Mustang Mach-E': '#0ea5e9', // sky blue
+  'Chevrolet Equinox EV': '#f97316', // orange
+  'Honda Prologue': '#14b8a6',      // teal
+  'Audi Q4 e-tron': '#d946ef',      // fuchsia
+  'Tesla Model Y': '#dc2626',       // red
+
+  // Cheap category
+  'Volkswagen e-Golf': '#1d4ed8',   // blue
+  'BMW i3': '#06b6d4',              // cyan
+  'Chevrolet Bolt EV': '#ef4444',   // bright red
+  'Chevrolet Bolt EUV': '#84cc16',  // lime
+  'Kia Niro EV': '#a855f7',         // purple
+  'Hyundai Kona Electric': '#f59e0b', // amber
+  'Nissan Leaf': '#ec4899',         // pink
+
+  // Luxury category
+  'BMW i4': '#0891b2',              // dark cyan
+  'BMW i5': '#7c3aed',              // deep purple
+  'Tesla Model S': '#fbbf24',       // yellow
+  'Tesla Model X': '#fb923c',       // orange
+  'Rivian R1T': '#22c55e',          // green
+  'Rivian R1S': '#ec4899'           // pink
 };
 
 const toRgba = (hex, alpha) => {
