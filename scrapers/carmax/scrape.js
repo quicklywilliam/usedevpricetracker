@@ -76,6 +76,26 @@ class CarMaxScraper extends BaseScraper {
     const seenIds = new Set();
     const searchUrl = buildSearchUrl(query.make, query.model);
 
+    // Set up API response interception to capture VIN data from pagination
+    const apiVinData = new Map();
+    this.page.on('response', async (response) => {
+      const url = response.url();
+      if (url.includes('/cars/api/search/run')) {
+        try {
+          const data = await response.json();
+          if (data.items && Array.isArray(data.items)) {
+            for (const item of data.items) {
+              if (item.stockNumber && item.vin) {
+                apiVinData.set(item.stockNumber.toString(), item.vin);
+              }
+            }
+          }
+        } catch (e) {
+          // Ignore parse errors
+        }
+      }
+    });
+
     await this.page.goto(searchUrl, {
       waitUntil: 'networkidle2',
       timeout: 30000
@@ -112,6 +132,11 @@ class CarMaxScraper extends BaseScraper {
         } catch (e) {
           // Failed to parse, continue without VINs
         }
+      }
+
+      // Merge API VIN data (from pagination) with static VIN data
+      for (const [stockNumber, vin] of apiVinData) {
+        vinMap.set(stockNumber, vin);
       }
 
       const $ = cheerio.load(html);
