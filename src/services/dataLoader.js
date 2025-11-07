@@ -155,32 +155,27 @@ export function findNewListings(allData, targetDate = null) {
 
   // Use targetDate if provided, otherwise use most recent
   const mostRecentDate = targetDate || dates[0];
-  const dateIndex = dates.indexOf(mostRecentDate);
-  const previousDate = dateIndex >= 0 && dateIndex < dates.length - 1 ? dates[dateIndex + 1] : null;
 
-  if (!previousDate) {
-    // If no previous date, return all listings for this date as "new"
-    return allData
-      .filter(d => d.scraped_at.startsWith(mostRecentDate))
-      .flatMap(d => d.listings.map(listing => ({ ...listing, source: d.source })))
-      .sort((a, b) => b.price - a.price);
-  }
-
-  // Get all listings from most recent date (include source)
+  // Get all listings from the target date (include source)
   const recentListings = allData
     .filter(d => d.scraped_at.startsWith(mostRecentDate))
     .flatMap(d => d.listings.map(listing => ({ ...listing, source: d.source })));
 
-  // Get all listings from previous date
+  // Get all listings from ALL previous dates (before target date)
   const previousListings = allData
-    .filter(d => d.scraped_at.startsWith(previousDate))
+    .filter(d => d.scraped_at.split('T')[0] < mostRecentDate)
     .flatMap(d => d.listings);
 
-  // Create a Set of previous IDs for fast lookup
-  const previousIds = new Set(previousListings.map(l => l.id));
+  // If there are no previous dates, all listings are "new"
+  if (previousListings.length === 0) {
+    return recentListings.sort((a, b) => b.price - a.price);
+  }
 
-  // Find listings that exist in recent but not in previous
-  const newListings = recentListings.filter(l => !previousIds.has(l.id));
+  // Create a Set of all historical IDs for fast lookup
+  const historicalIds = new Set(previousListings.map(l => l.id));
+
+  // Find listings that have never appeared before
+  const newListings = recentListings.filter(l => !historicalIds.has(l.id));
 
   // Sort by price (descending)
   return newListings.sort((a, b) => b.price - a.price);
