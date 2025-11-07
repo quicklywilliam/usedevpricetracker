@@ -60,7 +60,7 @@ export default function DetailChart({
     // Initialize from URL parameter
     const url = new URL(window.location);
     const groupParam = url.searchParams.get('groupBy');
-    return groupParam === 'trim' ? 'trim' : 'source';
+    return groupParam === 'source' ? 'source' : 'trim';
   });
   const [groupMenuOpen, setGroupMenuOpen] = useState(false);
   const groupButtonRef = useRef(null);
@@ -70,9 +70,9 @@ export default function DetailChart({
     const url = new URL(window.location);
     const groupParam = url.searchParams.get('groupBy');
     if (groupParam) {
-      setGroupMode(groupParam === 'trim' ? 'trim' : 'source');
+      setGroupMode(groupParam === 'source' ? 'source' : 'trim');
     } else {
-      setGroupMode('source');
+      setGroupMode('trim');
     }
   }, []);
 
@@ -300,7 +300,7 @@ export default function DetailChart({
             onClick={() => {
               setGroupMode('source');
               const url = new URL(window.location);
-              url.searchParams.delete('groupBy');
+              url.searchParams.set('groupBy', 'source');
               window.history.pushState({}, '', url);
               setTimeout(() => setGroupMenuOpen(false), 300);
             }}
@@ -318,7 +318,7 @@ export default function DetailChart({
             onClick={() => {
               setGroupMode('trim');
               const url = new URL(window.location);
-              url.searchParams.set('groupBy', 'trim');
+              url.searchParams.delete('groupBy');
               window.history.pushState({}, '', url);
               setTimeout(() => setGroupMenuOpen(false), 300);
             }}
