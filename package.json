@@ -18,6 +18,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@cardog/corgi": "^1.2.2",
     "@vitejs/plugin-react": "^5.0.4",
     "axios": "^1.12.2",
     "chart.js": "^4.5.1",
@@ -28,6 +29,7 @@
     "puppeteer-extra-plugin-stealth": "^2.11.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "tesla-vin": "^0.0.12",
     "vite": "^7.1.11"
   },
   "devDependencies": {

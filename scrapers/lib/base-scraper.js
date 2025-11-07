@@ -3,6 +3,7 @@ import { RateLimiter } from './rate-limiter.js';
 import { appendListings } from './file-writer.js';
 import { loadPreviousData, findMissingListings, validateMissingListings } from './status-validator.js';
 import { validateListings, shouldFailSource, formatValidationErrors } from './listing-validator.js';
+import { normalizeTrim } from './trim-normalizer.js';
 
 /**
  * Base scraper that handles browser management and common logic
@@ -78,8 +79,35 @@ export class BaseScraper {
       // Validate missing listings for this model (only for valid listings)
       const validatedListings = await this.validateMissingListingsForModel(query, validation.validListings);
 
+      // Normalize trims for all listings using VIN decoding
+      const normalizedValidListings = await Promise.all(
+        validation.validListings.map(async (listing) => {
+          const normalized_trim = await normalizeTrim({
+            vin: listing.vin,
+            make: query.make,
+            model: query.model,
+            trim: listing.trim,
+            source: this.sourceName
+          });
+          return { ...listing, normalized_trim };
+        })
+      );
+
+      const normalizedValidatedListings = await Promise.all(
+        validatedListings.map(async (listing) => {
+          const normalized_trim = await normalizeTrim({
+            vin: listing.vin,
+            make: query.make,
+            model: query.model,
+            trim: listing.trim,
+            source: this.sourceName
+          });
+          return { ...listing, normalized_trim };
+        })
+      );
+
       // Combine current valid listings with validated (selling/sold) listings
-      const allListings = [...validation.validListings, ...validatedListings];
+      const allListings = [...normalizedValidListings, ...normalizedValidatedListings];
 
       await appendListings(
         this.sourceName,
@@ -88,7 +116,7 @@ export class BaseScraper {
         exceededMax ? { make: query.make, model: query.model } : null
       );
 
-      console.log(`  ✓ Found ${validation.validListings.length} listings (${validatedListings.length} validated)`);
+      console.log(`  ✓ Found ${normalizedValidListings.length} listings (${normalizedValidatedListings.length} validated)`);
       return allListings;
     } catch (error) {
       console.error(`  ✗ Error:`, error.message);

@@ -141,6 +141,11 @@ tbody tr:hover {
   letter-spacing: 0.04em;
 }
 
+.trim-unverified {
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
 .status-badge {
   display: inline-flex;
   align-items: center;

@@ -69,7 +69,11 @@ export default function ListingsTable({
                   </td>
                 )}
                 <td data-label="Trim">{listing.year || '-'}</td>
-                <td data-label="Trim">{listing.trim || '-'}</td>
+                <td data-label="Trim">
+                  <span className={listing.normalized_trim ? '' : 'trim-unverified'}>
+                    {listing.normalized_trim || listing.trim || '-'}
+                  </span>
+                </td>
                 <td>{formatMileage(listing.mileage)} mi</td>
                 {showStatus && (
                   <td className="col-status" data-label="Status">

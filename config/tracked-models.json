@@ -20,7 +20,8 @@
         {
           "make": "Chevrolet",
           "model": "Bolt EV"
-        },        {
+        },
+        {
           "make": "Chevrolet",
           "model": "Bolt EUV"
         },
@@ -114,67 +115,173 @@
   "queries": [
     {
       "make": "Hyundai",
-      "model": "Ioniq 5"
+      "model": "Ioniq 5",
+      "trims": [
+        "Limited",
+        "SE",
+        "SE Standard Range",
+        "SEL"
+      ]
     },
     {
       "make": "Tesla",
-      "model": "Model 3"
+      "model": "Model 3",
+      "trims": [
+        "Long Range",
+        "Mid Range",
+        "Performance",
+        "Standard",
+        "Standard Range",
+        "Standard Range Plus"
+      ]
     },
     {
       "make": "Kia",
-      "model": "EV6"
+      "model": "EV6",
+      "trims": [
+        "GT",
+        "GT-Line",
+        "Light",
+        "Light Long Range",
+        "Wind"
+      ]
     },
     {
       "make": "Volkswagen",
-      "model": "ID.4"
+      "model": "ID.4",
+      "trims": [
+        "1st Edition",
+        "Pro",
+        "Pro S",
+        "Pro S Plus",
+        "S",
+        "Standard"
+      ]
     },
     {
       "make": "Volkswagen",
-      "model": "e-Golf"
+      "model": "e-Golf",
+      "trims": [
+        "SE Hatchback",
+        "SEL Premium Hatchback"
+      ]
     },
     {
       "make": "Nissan",
-      "model": "Ariya"
+      "model": "Ariya",
+      "trims": [
+        "Empower+",
+        "Engage",
+        "Engage e-4ORCE",
+        "Engage+ e-4ORCE",
+        "Evolve+",
+        "Evolve+ e-4ORCE",
+        "Platinum+ e-4ORCE",
+        "Premiere",
+        "Venture+"
+      ]
     },
     {
       "make": "Nissan",
-      "model": "Leaf"
+      "model": "Leaf",
+      "trims": [
+        "S",
+        "SL",
+        "SL PLUS",
+        "SV",
+        "SV PLUS"
+      ]
     },
     {
       "make": "Ford",
-      "model": "Mustang Mach-E"
+      "model": "Mustang Mach-E",
+      "trims": [
+        "California Route 1",
+        "GT",
+        "Premium",
+        "Select"
+      ]
     },
     {
       "make": "Chevrolet",
-      "model": "Bolt EV"
+      "model": "Bolt EV",
+      "trims": [
+        "1LT",
+        "2LT",
+        "LT",
+        "Premier"
+      ]
     },
     {
       "make": "Chevrolet",
-      "model": "Bolt EUV"
+      "model": "Bolt EUV",
+      "trims": [
+        "LT",
+        "Premier"
+      ]
     },
     {
       "make": "Chevrolet",
-      "model": "Equinox EV"
+      "model": "Equinox EV",
+      "trims": [
+        "LT",
+        "LT 1",
+        "LT 2",
+        "Launch Edition RS",
+        "RS"
+      ]
     },
     {
       "make": "Honda",
-      "model": "Prologue"
+      "model": "Prologue",
+      "trims": [
+        "EX",
+        "Elite",
+        "Touring"
+      ]
     },
     {
       "make": "Audi",
-      "model": "Q4 e-tron"
+      "model": "Q4 e-tron",
+      "trims": [
+        "40 Premium Plus",
+        "45 Premium",
+        "50 Premium",
+        "50 Premium Plus",
+        "50 Prestige",
+        "55 Premium",
+        "55 Premium Plus",
+        "55 Prestige"
+      ]
     },
     {
       "make": "BMW",
-      "model": "i4"
+      "model": "i4",
+      "trims": [
+        "M50",
+        "eDrive35",
+        "eDrive40",
+        "xDrive40"
+      ]
     },
     {
       "make": "BMW",
-      "model": "i5"
+      "model": "i5",
+      "trims": [
+        "eDrive40",
+        "xDrive40"
+      ]
     },
     {
       "make": "BMW",
-      "model": "i3"
+      "model": "i3",
+      "trims": [
+        "Base w/Range Extender",
+        "Range Extender",
+        "base",
+        "s",
+        "s w/Range Extender"
+      ]
     },
     {
       "make": "Tesla",

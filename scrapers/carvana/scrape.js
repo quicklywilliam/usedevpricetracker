@@ -114,7 +114,7 @@ class CarvanaScraper extends BaseScraper {
             trim: v.trim,
             price: v.price?.total,
             mileage: v.mileage,
-            vehicleId: v.id
+            vehicleId: v.vehicleId
           }));
         } catch (e) {
           return [];
