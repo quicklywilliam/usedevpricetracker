@@ -23,7 +23,8 @@ export default function PriceRangeChart({
   availableDates,
   loading = false,
   enableItemNavigation = true,
-  onSelectedDatePosition
+  onSelectedDatePosition,
+  extraControls = null
 }) {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
@@ -902,7 +903,9 @@ export default function PriceRangeChart({
             );
           })}
         </div>
-        <div className="dot-size-selector" ref={dotSizeButtonRef}>
+        <div className="chart-extra-controls">
+          {extraControls}
+          <div className="dot-size-selector" ref={dotSizeButtonRef}>
           <button
             type="button"
             className="dot-size-button"
@@ -950,6 +953,7 @@ export default function PriceRangeChart({
               </button>
             </div>
           )}
+          </div>
         </div>
       </div>
       {!showItemLabels && mobileItemSummaries.length > 0 && (

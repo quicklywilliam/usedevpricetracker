@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState, useRef, useEffect } from 'react';
 import PriceRangeChart from './PriceRangeChart';
 import { aggregateDates } from '../utils/dateAggregation';
 import { aggregateMetricsForGroups, collectScalingValues } from '../utils/metricAggregation';
@@ -12,6 +12,22 @@ const sourceColors = {
   'carvana': '#00a9ce',
   'plattauto': '#43a047'
 };
+
+// Color palette for trims (similar to model colors in OverviewChart)
+const trimColorPalette = [
+  '#667eea', // Primary purple
+  '#f56565', // Red
+  '#48bb78', // Green
+  '#ed8936', // Orange
+  '#4299e1', // Blue
+  '#9f7aea', // Purple
+  '#ed64a6', // Pink
+  '#38b2ac', // Teal
+  '#ecc94b', // Yellow
+  '#fc8181', // Light red
+  '#68d391', // Light green
+  '#f6ad55'  // Light orange
+];
 
 const toRgba = (hex, alpha) => {
   if (!hex) return `rgba(102, 102, 102, ${alpha})`;
@@ -40,13 +56,79 @@ export default function DetailChart({
   loading = false,
   onSelectedDatePosition
 }) {
+  const [groupMode, setGroupMode] = useState(() => {
+    // Initialize from URL parameter
+    const url = new URL(window.location);
+    const groupParam = url.searchParams.get('groupBy');
+    return groupParam === 'trim' ? 'trim' : 'source';
+  });
+  const [groupMenuOpen, setGroupMenuOpen] = useState(false);
+  const groupButtonRef = useRef(null);
+
+  // Handle URL parameter for group mode
+  useEffect(() => {
+    const url = new URL(window.location);
+    const groupParam = url.searchParams.get('groupBy');
+    if (groupParam) {
+      setGroupMode(groupParam === 'trim' ? 'trim' : 'source');
+    } else {
+      setGroupMode('source');
+    }
+  }, []);
+
+  // Handle browser back/forward for group mode
+  useEffect(() => {
+    const handlePopState = () => {
+      const url = new URL(window.location);
+      const groupParam = url.searchParams.get('groupBy');
+      setGroupMode(groupParam === 'trim' ? 'trim' : 'source');
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    if (!groupMenuOpen) return;
+    const handleClickOutside = (event) => {
+      if (groupButtonRef.current && !groupButtonRef.current.contains(event.target)) {
+        setGroupMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [groupMenuOpen]);
+
   const { datasets, dates } = useMemo(() => {
     if (!data || data.length === 0 || !model) {
       return { datasets: [], dates: [] };
     }
 
-    // Extract sources and dates
-    const sources = [...new Set(data.map(d => d.source))];
+    // Extract groups (sources or trims) and dates
+    let groups;
+    let colorMap;
+
+    if (groupMode === 'trim') {
+      // Get all unique normalized trims for this model
+      const trimSet = new Set();
+      data.forEach(sourceData => {
+        sourceData.listings
+          .filter(l => `${l.make} ${l.model}` === model && l.normalized_trim)
+          .forEach(listing => trimSet.add(listing.normalized_trim));
+      });
+      groups = Array.from(trimSet).sort();
+
+      // Assign colors to trims
+      colorMap = {};
+      groups.forEach((trim, index) => {
+        colorMap[trim] = trimColorPalette[index % trimColorPalette.length];
+      });
+    } else {
+      // Use sources
+      groups = [...new Set(data.map(d => d.source))];
+      colorMap = sourceColors;
+    }
     const providedDates = Array.isArray(dateLabels) && dateLabels.length > 0
       ? dateLabels
       : null;
@@ -58,19 +140,27 @@ export default function DetailChart({
     const dateAggregation = aggregateDates(baseDates, availableDates);
     const { dates, dateGroups } = dateAggregation;
 
-    // Aggregate metrics for all sources, filtered by model
+    // Aggregate metrics for all groups, filtered by model and group
     const aggregatedMetrics = aggregateMetricsForGroups(
       data,
-      sources,
+      groups,
       baseDates,
       dateAggregation,
-      (sourceData, source) => {
-        if (sourceData.source !== source) {
-          return [];
+      (sourceData, group) => {
+        const modelListings = sourceData.listings.filter(l => `${l.make} ${l.model}` === model);
+
+        if (groupMode === 'trim') {
+          // Filter by normalized_trim
+          return modelListings
+            .filter(l => l.normalized_trim === group)
+            .map(listing => ({ ...listing, source: sourceData.source }));
+        } else {
+          // Filter by source
+          if (sourceData.source !== group) {
+            return [];
+          }
+          return modelListings.map(listing => ({ ...listing, source: sourceData.source }));
         }
-        return sourceData.listings
-          .filter(l => `${l.make} ${l.model}` === model)
-          .map(listing => ({ ...listing, source: sourceData.source }));
       }
     );
 
@@ -82,8 +172,8 @@ export default function DetailChart({
       : () => 5;
 
     // Transform metrics into datasets
-    const datasets = sources.map(source => {
-      const metricsMap = aggregatedMetrics.get(source);
+    const datasets = groups.map(group => {
+      const metricsMap = aggregatedMetrics.get(group);
 
       const avgPoints = [];
       const minPoints = [];
@@ -136,7 +226,7 @@ export default function DetailChart({
         pointRadiiDays.push(baseRadiusDays * scaleFactor);
       });
 
-      const baseColor = sourceColors[source] || '#666';
+      const baseColor = colorMap[group] || '#666';
 
       // Use dark mode detection
       const prefersDark = typeof window !== 'undefined' && window.matchMedia
@@ -144,8 +234,13 @@ export default function DetailChart({
         : false;
       const rangeFillColor = prefersDark ? toRgba(baseColor, 0.6) : toRgba(baseColor, 0.25);
 
+      // Format label based on group mode
+      const label = groupMode === 'trim'
+        ? group
+        : (group.charAt(0).toUpperCase() + group.slice(1));
+
       return {
-        label: source.charAt(0).toUpperCase() + source.slice(1),
+        label,
         data: avgPoints,
         borderColor: baseColor,
         backgroundColor: baseColor,
@@ -158,7 +253,7 @@ export default function DetailChart({
         pointHitRadius: pointRadiiStock,
         pointBackgroundColor: baseColor,
         isAverageLine: true,
-        modelName: source.charAt(0).toUpperCase() + source.slice(1),
+        modelName: label,
         order: 0,
         z: 10,
         color: baseColor,
@@ -176,12 +271,69 @@ export default function DetailChart({
         hasAggregatedDates: dates.length !== baseDates.length
       };
     }).filter(dataset => {
-      // Filter out sources with no data at all
+      // Filter out groups with no data at all
       return dataset.data.some(price => price !== null);
     });
 
     return { datasets, dates };
-  }, [data, model, dateLabels, availableDates]);
+  }, [data, model, dateLabels, availableDates, groupMode]);
+
+  // Group mode selector component
+  const groupModeSelector = (
+    <div className="group-mode-selector" ref={groupButtonRef}>
+      <button
+        type="button"
+        className="group-mode-button"
+        onClick={() => setGroupMenuOpen(!groupMenuOpen)}
+        aria-label="Change grouping mode"
+        aria-expanded={groupMenuOpen}
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="3,18 7,12 11,15 15,8 19,11 22,6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        </svg>
+      </button>
+      {groupMenuOpen && (
+        <div className="group-mode-menu">
+          <button
+            type="button"
+            className={`group-mode-menu-item${groupMode === 'source' ? ' active' : ''}`}
+            onClick={() => {
+              setGroupMode('source');
+              const url = new URL(window.location);
+              url.searchParams.delete('groupBy');
+              window.history.pushState({}, '', url);
+              setTimeout(() => setGroupMenuOpen(false), 300);
+            }}
+          >
+            {groupMode === 'source' ? (
+              <span className="group-mode-menu-item__check">✓</span>
+            ) : (
+              <span className="group-mode-menu-item__spacer"></span>
+            )}
+            By Source
+          </button>
+          <button
+            type="button"
+            className={`group-mode-menu-item${groupMode === 'trim' ? ' active' : ''}`}
+            onClick={() => {
+              setGroupMode('trim');
+              const url = new URL(window.location);
+              url.searchParams.set('groupBy', 'trim');
+              window.history.pushState({}, '', url);
+              setTimeout(() => setGroupMenuOpen(false), 300);
+            }}
+          >
+            {groupMode === 'trim' ? (
+              <span className="group-mode-menu-item__check">✓</span>
+            ) : (
+              <span className="group-mode-menu-item__spacer"></span>
+            )}
+            By Trim
+          </button>
+        </div>
+      )}
+    </div>
+  );
 
   return (
     <PriceRangeChart
@@ -198,6 +350,7 @@ export default function DetailChart({
         loading={loading}
         enableItemNavigation={false}
         onSelectedDatePosition={onSelectedDatePosition}
+        extraControls={groupModeSelector}
       />
   );
 }

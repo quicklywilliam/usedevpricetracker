@@ -50,6 +50,108 @@
   box-shadow: 0 6px 14px rgba(102, 126, 234, 0.25);
 }
 
+.chart-extra-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.group-mode-selector {
+  position: relative;
+}
+
+.group-mode-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.group-mode-button:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background: var(--hover-bg);
+}
+
+.group-mode-button:focus-visible {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+}
+
+.group-mode-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  min-width: 160px;
+  background: var(--bg-primary);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  z-index: 100;
+}
+
+@media (prefers-color-scheme: light) {
+  .group-mode-menu {
+    background: var(--bg-secondary);
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.group-mode-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.65rem 0.875rem;
+  border: none;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.group-mode-menu-item__check {
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1;
+  width: 1rem;
+  flex-shrink: 0;
+  animation: checkAppear 0.3s ease-out;
+}
+
+.group-mode-menu-item__spacer {
+  width: 1rem;
+  flex-shrink: 0;
+}
+
+.group-mode-menu-item:hover {
+  background: var(--hover-bg);
+}
+
+.group-mode-menu-item.active {
+  background: rgba(102, 126, 234, 0.15);
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.group-mode-menu-item:not(:last-child) {
+  border-bottom: 1px solid var(--border-light);
+}
+
 .dot-size-selector {
   position: relative;
 }
@@ -355,7 +457,12 @@
     flex: 1;
   }
 
-  .dot-size-selector {
+  .chart-extra-controls {
+    flex-shrink: 0;
+  }
+
+  .dot-size-selector,
+  .group-mode-selector {
     flex-shrink: 0;
   }
 
