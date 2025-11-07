@@ -63,96 +63,113 @@ class CarvanaScraper extends BaseScraper {
 
   async scrapeModel(query, options = {}) {
     const targetCount = options.limit || MIN_VEHICLES;
-    const allListings = [];
+    const allVehicles = new Map(); // Use Map to deduplicate by vehicleId
 
-    // Use the search box - let Carvana's autocomplete handle regularization
-    // This is more robust than constructing filter URLs
-    await this.page.goto('https://www.carvana.com', {
+    // Construct filter URL directly instead of using search box
+    // This ensures we get the correct filter structure with parentModels
+    const filterObj = {
+      filters: {
+        makes: [{
+          name: query.make,
+          parentModels: [{
+            name: query.model
+          }]
+        }]
+      }
+    };
+
+    // Base64 encode the filter
+    const cvnaid = Buffer.from(JSON.stringify(filterObj)).toString('base64');
+    const filterUrl = `https://www.carvana.com/cars/filters?cvnaid=${cvnaid}`;
+
+    if (process.env.DEBUG) {
+      console.log(`  Filter URL: ${filterUrl}`);
+    }
+
+    // Set up listener for API responses before navigation
+    // This captures vehicle data from pagination API calls
+    this.page.on('response', async (response) => {
+      const url = response.url();
+
+      if (url.includes('apik.carvana.io/merch/search/api/v2/search')) {
+        try {
+          const data = await response.json();
+          const vehicles = data?.inventory?.vehicles || [];
+
+          vehicles.forEach(v => {
+            if (v.vehicleId && v.vin) {
+              allVehicles.set(v.vehicleId, {
+                vin: v.vin,
+                year: v.year,
+                make: v.make,
+                model: v.model,
+                trim: v.trim,
+                price: v.price?.total,
+                mileage: v.mileage,
+                vehicleId: v.vehicleId
+              });
+            }
+          });
+
+          if (process.env.DEBUG) {
+            console.log(`  API response: ${vehicles.length} vehicles (total unique: ${allVehicles.size})`);
+          }
+        } catch (e) {
+          // Ignore parse errors
+        }
+      }
+    });
+
+    await this.page.goto(filterUrl, {
       waitUntil: 'networkidle2',
       timeout: 30000
     });
 
-    // Find and use the search box
-    await this.page.waitForSelector('input[placeholder*="Search"]', { timeout: 10000 });
-
-    // Type the full search query (make + model)
-    const searchQuery = `${query.make} ${query.model}`;
-    await this.page.type('input[placeholder*="Search"]', searchQuery);
-
-    // Wait a bit for autocomplete to appear
-    await new Promise(resolve => setTimeout(resolve, 1000));
-
-    // Press Enter to search
-    await this.page.keyboard.press('Enter');
-
     // Wait for results page to load
     await this.page.waitForSelector('[data-qa="result-tile"]', { timeout: 10000 });
+    await new Promise(resolve => setTimeout(resolve, 1000));
 
-    let hasMorePages = true;
-    const maxPages = 100; // High enough to get to 250 vehicles
-    let pageNum = 0;
+    // Extract vehicles from __NEXT_DATA__ on page 1
+    const page1Vehicles = await this.page.evaluate(() => {
+      const script = document.getElementById('__NEXT_DATA__');
+      if (!script) return [];
 
-    while (hasMorePages && pageNum < maxPages && allListings.length < targetCount) {
-      pageNum++;
+      try {
+        const data = JSON.parse(script.textContent);
+        const vehiclesArray = data?.props?.pageProps?.forProviders?.forInventoryContext?.inventoryData?.inventory?.vehicles || [];
 
-      await new Promise(resolve => setTimeout(resolve, 1000));
-
-      // Extract vehicle data from __NEXT_DATA__ script tag
-      const pageListings = await this.page.evaluate((make, model) => {
-        const script = document.getElementById('__NEXT_DATA__');
-        if (!script) return [];
-
-        try {
-          const data = JSON.parse(script.textContent);
-          const vehiclesArray = data?.props?.pageProps?.forProviders?.forInventoryContext?.inventoryData?.inventory?.vehicles || [];
-
-          return vehiclesArray.map(v => ({
-            vin: v.vin,
-            year: v.year,
-            make: v.make,
-            model: v.model,
-            trim: v.trim,
-            price: v.price?.total,
-            mileage: v.mileage,
-            vehicleId: v.vehicleId
-          }));
-        } catch (e) {
-          return [];
-        }
-      }, query.make, query.model);
-
-      // Filter to only matching make/model and format
-      const formattedListings = pageListings
-        .filter(v => {
-          if (!v.vin) return false;
-          const makeLower = v.make?.toLowerCase() || '';
-          const modelLower = v.model?.toLowerCase() || '';
-          const queryMakeLower = query.make.toLowerCase();
-          const queryModelLower = query.model.toLowerCase();
-          return makeLower.includes(queryMakeLower) && modelLower.includes(queryModelLower);
-        })
-        .map(v => ({
-          id: `carvana-${v.vehicleId}`,
+        return vehiclesArray.map(v => ({
           vin: v.vin,
-          make: query.make,
-          model: query.model,
           year: v.year,
+          make: v.make,
+          model: v.model,
           trim: v.trim,
-          price: v.price || null,
-          mileage: v.mileage || null,
-          location: 'Carvana',
-          url: `https://www.carvana.com/vehicle/${v.vehicleId}`,
-          listing_date: new Date().toISOString().split('T')[0]
+          price: v.price?.total,
+          mileage: v.mileage,
+          vehicleId: v.vehicleId
         }));
-
-      allListings.push(...formattedListings);
-
-      // Stop if we've reached the target count
-      if (allListings.length >= targetCount) {
-        hasMorePages = false;
-        break;
+      } catch (e) {
+        return [];
       }
+    });
 
+    // Add page 1 vehicles to map
+    page1Vehicles.forEach(v => {
+      if (v.vehicleId && v.vin) {
+        allVehicles.set(v.vehicleId, v);
+      }
+    });
+
+    if (process.env.DEBUG) {
+      console.log(`  Page 1 __NEXT_DATA__: ${page1Vehicles.length} vehicles (total unique: ${allVehicles.size})`);
+    }
+
+    // Click through pages to trigger API calls
+    let hasMorePages = true;
+    const maxPages = 100;
+    let pageNum = 1;
+
+    while (hasMorePages && pageNum < maxPages && allVehicles.size < targetCount) {
       // Check for next page button
       const nextButton = await this.page.evaluateHandle(() => {
         const btn = document.querySelector('[data-qa="next-page"]');
@@ -160,14 +177,59 @@ class CarvanaScraper extends BaseScraper {
       });
 
       if ((await nextButton.jsonValue()) !== null) {
-        await this.page.evaluate(() => {
-          const btn = document.querySelector('[data-qa="next-page"]');
-          btn.click();
-        });
+        pageNum++;
+
+        if (process.env.DEBUG) {
+          console.log(`  Clicking to page ${pageNum}...`);
+        }
+
+        // Click next page button and wait for navigation
+        await Promise.all([
+          this.page.waitForNavigation({ waitUntil: 'networkidle2', timeout: 30000 }),
+          this.page.evaluate(() => {
+            const btn = document.querySelector('[data-qa="next-page"]');
+            btn.click();
+          })
+        ]);
+
+        // Wait for API response to be processed
         await new Promise(resolve => setTimeout(resolve, 2000));
+
+        // Stop if we've reached the target count
+        if (allVehicles.size >= targetCount) {
+          hasMorePages = false;
+        }
       } else {
         hasMorePages = false;
       }
+    }
+
+    // Convert Map to formatted listings array
+    const allListings = Array.from(allVehicles.values())
+      .filter(v => {
+        if (!v.vin) return false;
+        const makeLower = v.make?.toLowerCase() || '';
+        const modelLower = v.model?.toLowerCase() || '';
+        const queryMakeLower = query.make.toLowerCase();
+        const queryModelLower = query.model.toLowerCase();
+        return makeLower.includes(queryMakeLower) && modelLower.includes(queryModelLower);
+      })
+      .map(v => ({
+        id: `carvana-${v.vehicleId}`,
+        vin: v.vin,
+        make: query.make,
+        model: query.model,
+        year: v.year,
+        trim: v.trim,
+        price: v.price || null,
+        mileage: v.mileage || null,
+        location: 'Carvana',
+        url: `https://www.carvana.com/vehicle/${v.vehicleId}`,
+        listing_date: new Date().toISOString().split('T')[0]
+      }));
+
+    if (process.env.DEBUG) {
+      console.log(`  Final: ${allListings.length} matching listings`);
     }
 
     // Return object with listings and exceeded flag
