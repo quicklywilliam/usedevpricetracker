@@ -24,7 +24,9 @@
       "mileage": 25382,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/tesla/model-3/a252131/",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "vin": "5YJ3E1EA9PF663567",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "Stock Number A252120",
@@ -36,7 +38,9 @@
       "mileage": 47895,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/tesla/model-3/a252120/",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "vin": "5YJ3E1EAXPF437036",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "Stock Number A252153",
@@ -48,7 +52,9 @@
       "mileage": 15532,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/tesla/model-3/a252153/",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "vin": "5YJ3E1EA8PF712399",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "Stock Number A252161",
@@ -60,7 +66,9 @@
       "mileage": 18562,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/tesla/model-3/a252161/",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "vin": "5YJ3E1EB1NF166034",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "Stock Number A252108",
@@ -72,7 +80,9 @@
       "mileage": 36863,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/tesla/model-3/a252108/",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "vin": "5YJ3E1EA4NF372682",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "Stock Number A252149",
@@ -84,7 +94,9 @@
       "mileage": 33746,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/tesla/model-3/a252149/",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "vin": "5YJ3E1EA4MF868029",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "Stock Number A252160",
@@ -96,7 +108,9 @@
       "mileage": 43992,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/tesla/model-3/a252160/",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "vin": "5YJ3E1EB6LF735537",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "Stock Number A252147",
@@ -108,7 +122,9 @@
       "mileage": 45349,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/kia/ev6/a252147/",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "vin": "KNDC3DLC4N5053103",
+      "normalized_trim": "Wind"
     },
     {
       "id": "Stock Number A252100",
@@ -120,7 +136,9 @@
       "mileage": 35771,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/volkswagen/id-4/a252100/",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "vin": "WVGKMPE28MP041968",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "Stock Number A252126",
@@ -144,7 +162,9 @@
       "mileage": 21569,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/nissan/ariya/a252138/",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "vin": "JN1DF0BB6PM709620",
+      "normalized_trim": "Engage+ e-4ORCE"
     },
     {
       "id": "Stock Number A252119",
@@ -156,7 +176,9 @@
       "mileage": 17825,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/nissan/ariya/a252119/",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "vin": "JN1DF0CDXPM710026",
+      "normalized_trim": "Platinum+ e-4ORCE"
     },
     {
       "id": "Stock Number A251994",
@@ -168,7 +190,9 @@
       "mileage": 9066,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/nissan/ariya/a251994/",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "vin": "JN1BF0BA4PM408519",
+      "normalized_trim": "Evolve+ e-4ORCE"
     },
     {
       "id": "Stock Number A251991",
@@ -180,7 +204,9 @@
       "mileage": 15684,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/nissan/ariya/a251991/",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "vin": "JN1BF0BA0PM411501",
+      "normalized_trim": "Evolve+ e-4ORCE"
     },
     {
       "id": "Stock Number A251936",
@@ -192,7 +218,9 @@
       "mileage": 15451,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/nissan/ariya/a251936/",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "vin": "JN1DF0BBXPM706204",
+      "normalized_trim": "Engage+ e-4ORCE"
     },
     {
       "id": "Stock Number A252121",
@@ -204,7 +232,9 @@
       "mileage": 12686,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/nissan/ariya/a252121/",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "vin": "JN1DF0CD4PM710975",
+      "normalized_trim": "Platinum+ e-4ORCE"
     },
     {
       "id": "Stock Number A251992",
@@ -216,7 +246,9 @@
       "mileage": 5181,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/nissan/ariya/a251992/",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "vin": "JN1BF0AA5PM408899",
+      "normalized_trim": "Venture+"
     },
     {
       "id": "Stock Number A252123",
@@ -228,7 +260,9 @@
       "mileage": 12335,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/nissan/ariya/a252123/",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "vin": "JN1DF0BB6PM711299",
+      "normalized_trim": "Engage+ e-4ORCE"
     },
     {
       "id": "Stock Number A252135",
@@ -252,7 +286,9 @@
       "mileage": 22468,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/chevrolet/bolt-ev/a252143/",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "vin": "1G1FX6S09N4123097",
+      "normalized_trim": "2LT"
     },
     {
       "id": "Stock Number A251879",
@@ -264,7 +300,9 @@
       "mileage": 30803,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/chevrolet/bolt-euv/a251879/",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "vin": "1G1FZ6S0XN4123488",
+      "normalized_trim": "Premier"
     },
     {
       "id": "Stock Number A252129",
@@ -276,7 +314,9 @@
       "mileage": 42006,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/audi/q4-e-tron/a252129/",
-      "listing_date": "2025-10-26"
+      "listing_date": "2025-10-26",
+      "vin": "WA1BCBFZ0PP016020",
+      "normalized_trim": "40 Premium Plus"
     }
   ],
   "models_exceeded_max_vehicles": []

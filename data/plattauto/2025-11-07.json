@@ -1,6 +1,6 @@
 {
   "source": "plattauto",
-  "scraped_at": "2025-11-07T00:37:58.321Z",
+  "scraped_at": "2025-11-07T01:22:16.522Z",
   "listings": [
     {
       "id": "Stock Number A252117",
@@ -13,7 +13,8 @@
       "mileage": 24065,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252117/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "SEL"
     },
     {
       "id": "Stock Number A252115",
@@ -26,20 +27,8 @@
       "mileage": 26978,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252115/",
-      "listing_date": "2025-11-07"
-    },
-    {
-      "id": "Stock Number A252097",
-      "vin": "KM8KNDAF8PU203852",
-      "make": "Hyundai",
-      "model": "Ioniq 5",
-      "year": 2023,
-      "trim": "SEL SPORT UTILITY 4D",
-      "price": 26120,
-      "mileage": 18806,
-      "location": "Platt Auto",
-      "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252097/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "SEL"
     },
     {
       "id": "Stock Number A252130",
@@ -52,7 +41,22 @@
       "mileage": 16265,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252130/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "SEL"
+    },
+    {
+      "id": "Stock Number A252097",
+      "vin": "KM8KNDAF8PU203852",
+      "make": "Hyundai",
+      "model": "Ioniq 5",
+      "year": 2023,
+      "trim": "SEL SPORT UTILITY 4D",
+      "price": 26120,
+      "mileage": 18806,
+      "location": "Platt Auto",
+      "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252097/",
+      "listing_date": "2025-11-07",
+      "normalized_trim": "SEL"
     },
     {
       "id": "Stock Number A252132",
@@ -65,7 +69,8 @@
       "mileage": 22523,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252132/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "SE"
     },
     {
       "id": "Stock Number A252134",
@@ -78,7 +83,8 @@
       "mileage": 31513,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252134/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "SEL"
     },
     {
       "id": "Stock Number A252116",
@@ -91,7 +97,8 @@
       "mileage": 26596,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252116/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "SEL"
     },
     {
       "id": "Stock Number A252156",
@@ -104,7 +111,8 @@
       "mileage": 29315,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252156/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "SEL"
     },
     {
       "id": "Stock Number A252098",
@@ -117,7 +125,8 @@
       "mileage": 18794,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252098/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "SEL"
     },
     {
       "id": "Stock Number A252133",
@@ -130,20 +139,8 @@
       "mileage": 18193,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252133/",
-      "listing_date": "2025-11-07"
-    },
-    {
-      "id": "Stock Number A252164",
-      "vin": "KM8KN4AE9PU174014",
-      "make": "Hyundai",
-      "model": "Ioniq 5",
-      "year": 2023,
-      "trim": "SEL SPORT UTILITY 4D",
-      "price": 24226,
-      "mileage": 39844,
-      "location": "Platt Auto",
-      "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252164/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "SEL"
     },
     {
       "id": "Stock Number A252155",
@@ -156,7 +153,22 @@
       "mileage": 26383,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252155/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "SEL"
+    },
+    {
+      "id": "Stock Number A252164",
+      "vin": "KM8KN4AE9PU174014",
+      "make": "Hyundai",
+      "model": "Ioniq 5",
+      "year": 2023,
+      "trim": "SEL SPORT UTILITY 4D",
+      "price": 24226,
+      "mileage": 39844,
+      "location": "Platt Auto",
+      "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252164/",
+      "listing_date": "2025-11-07",
+      "normalized_trim": "SEL"
     },
     {
       "id": "Stock Number A252113",
@@ -169,7 +181,8 @@
       "mileage": 32867,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252113/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "Limited"
     },
     {
       "id": "Stock Number A252124",
@@ -182,7 +195,8 @@
       "mileage": 13150,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252124/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "Limited"
     },
     {
       "id": "Stock Number A252118",
@@ -195,7 +209,8 @@
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252118/",
       "listing_date": "2025-11-05",
-      "purchase_status": "sold"
+      "purchase_status": "sold",
+      "normalized_trim": "SEL"
     },
     {
       "id": "Stock Number A252185",
@@ -208,7 +223,8 @@
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252185/",
       "listing_date": "2025-11-05",
-      "purchase_status": "sold"
+      "purchase_status": "sold",
+      "normalized_trim": "Limited"
     },
     {
       "id": "Stock Number A252128",
@@ -221,7 +237,8 @@
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252128/",
       "listing_date": "2025-11-04",
-      "purchase_status": "sold"
+      "purchase_status": "sold",
+      "normalized_trim": "Limited"
     },
     {
       "id": "Stock Number A252141",
@@ -234,7 +251,8 @@
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/hyundai/ioniq-5/a252141/",
       "listing_date": "2025-11-01",
-      "purchase_status": "sold"
+      "purchase_status": "sold",
+      "normalized_trim": "Limited"
     },
     {
       "id": "Stock Number A252178",
@@ -247,7 +265,8 @@
       "mileage": 28180,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/tesla/model-3/a252178/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "Stock Number A252131",
@@ -260,7 +279,8 @@
       "mileage": 25382,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/tesla/model-3/a252131/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "Stock Number A252120",
@@ -273,7 +293,8 @@
       "mileage": 47895,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/tesla/model-3/a252120/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "Stock Number A252153",
@@ -286,7 +307,8 @@
       "mileage": 15532,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/tesla/model-3/a252153/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "Stock Number A252161",
@@ -299,7 +321,8 @@
       "mileage": 18669,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/tesla/model-3/a252161/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "Stock Number A252108",
@@ -312,7 +335,8 @@
       "mileage": 36863,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/tesla/model-3/a252108/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "Stock Number A252191",
@@ -325,7 +349,8 @@
       "mileage": 68396,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/tesla/model-3/a252191/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "Stock Number A252149",
@@ -338,7 +363,8 @@
       "mileage": 33746,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/tesla/model-3/a252149/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "Stock Number A252160",
@@ -351,7 +377,8 @@
       "mileage": 43992,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/tesla/model-3/a252160/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "Stock Number A252182",
@@ -364,7 +391,22 @@
       "mileage": 68651,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/tesla/model-3/a252182/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "Standard Range Plus"
+    },
+    {
+      "id": "Stock Number A252147",
+      "vin": "KNDC3DLC4N5053103",
+      "make": "Kia",
+      "model": "EV6",
+      "year": 2022,
+      "trim": "WIND SPORT UTILITY 4D",
+      "price": 24447,
+      "mileage": 45349,
+      "location": "Platt Auto",
+      "url": "https://www.plattauto.com/inventory/kia/ev6/a252147/",
+      "listing_date": "2025-11-07",
+      "normalized_trim": "Wind"
     },
     {
       "id": "Stock Number A252100",
@@ -377,7 +419,134 @@
       "mileage": 35771,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/volkswagen/id-4/a252100/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "Pro S Plus"
+    },
+    {
+      "id": "Stock Number A252138",
+      "vin": "JN1DF0BB6PM709620",
+      "make": "Nissan",
+      "model": "Ariya",
+      "year": 2023,
+      "trim": "ENGAGE+ E-4ORCE SPORT UTILITY 4D",
+      "price": 26880,
+      "mileage": 21569,
+      "location": "Platt Auto",
+      "url": "https://www.plattauto.com/inventory/nissan/ariya/a252138/",
+      "listing_date": "2025-11-07",
+      "normalized_trim": "Engage+ e-4ORCE"
+    },
+    {
+      "id": "Stock Number A251994",
+      "vin": "JN1BF0BA4PM408519",
+      "make": "Nissan",
+      "model": "Ariya",
+      "year": 2023,
+      "trim": "EVOLVE+ SPORT UTILITY 4D",
+      "price": 27746,
+      "mileage": 9066,
+      "location": "Platt Auto",
+      "url": "https://www.plattauto.com/inventory/nissan/ariya/a251994/",
+      "listing_date": "2025-11-07",
+      "normalized_trim": "Evolve+ e-4ORCE"
+    },
+    {
+      "id": "Stock Number A252119",
+      "vin": "JN1DF0CDXPM710026",
+      "make": "Nissan",
+      "model": "Ariya",
+      "year": 2023,
+      "trim": "PLATINUM+ E-4ORCE SPORT UTILITY 4D",
+      "price": 29558,
+      "mileage": 17825,
+      "location": "Platt Auto",
+      "url": "https://www.plattauto.com/inventory/nissan/ariya/a252119/",
+      "listing_date": "2025-11-07",
+      "normalized_trim": "Platinum+ e-4ORCE"
+    },
+    {
+      "id": "Stock Number A251991",
+      "vin": "JN1BF0BA0PM411501",
+      "make": "Nissan",
+      "model": "Ariya",
+      "year": 2023,
+      "trim": "EVOLVE+ SPORT UTILITY 4D",
+      "price": 26884,
+      "mileage": 15684,
+      "location": "Platt Auto",
+      "url": "https://www.plattauto.com/inventory/nissan/ariya/a251991/",
+      "listing_date": "2025-11-07",
+      "normalized_trim": "Evolve+ e-4ORCE"
+    },
+    {
+      "id": "Stock Number A252125",
+      "vin": "JN1DF0CD2PM707315",
+      "make": "Nissan",
+      "model": "Ariya",
+      "year": 2023,
+      "trim": "PLATINUM+ E-4ORCE W/20\" WHEELS SPORT UTILITY 4D",
+      "price": 31441,
+      "mileage": 11449,
+      "location": "Platt Auto",
+      "url": "https://www.plattauto.com/inventory/nissan/ariya/a252125/",
+      "listing_date": "2025-11-07",
+      "normalized_trim": "Platinum+ e-4ORCE"
+    },
+    {
+      "id": "Stock Number A251936",
+      "vin": "JN1DF0BBXPM706204",
+      "make": "Nissan",
+      "model": "Ariya",
+      "year": 2023,
+      "trim": "ENGAGE+ E-4ORCE SPORT UTILITY 4D",
+      "price": 27888,
+      "mileage": 15451,
+      "location": "Platt Auto",
+      "url": "https://www.plattauto.com/inventory/nissan/ariya/a251936/",
+      "listing_date": "2025-11-07",
+      "normalized_trim": "Engage+ e-4ORCE"
+    },
+    {
+      "id": "Stock Number A252121",
+      "vin": "JN1DF0CD4PM710975",
+      "make": "Nissan",
+      "model": "Ariya",
+      "year": 2023,
+      "trim": "PLATINUM+ E-4ORCE W/20\" WHEELS SPORT UTILITY 4D",
+      "price": 31441,
+      "mileage": 12686,
+      "location": "Platt Auto",
+      "url": "https://www.plattauto.com/inventory/nissan/ariya/a252121/",
+      "listing_date": "2025-11-07",
+      "normalized_trim": "Platinum+ e-4ORCE"
+    },
+    {
+      "id": "Stock Number A252123",
+      "vin": "JN1DF0BB6PM711299",
+      "make": "Nissan",
+      "model": "Ariya",
+      "year": 2023,
+      "trim": "ENGAGE+ E-4ORCE SPORT UTILITY 4D",
+      "price": 27887,
+      "mileage": 12335,
+      "location": "Platt Auto",
+      "url": "https://www.plattauto.com/inventory/nissan/ariya/a252123/",
+      "listing_date": "2025-11-07",
+      "normalized_trim": "Engage+ e-4ORCE"
+    },
+    {
+      "id": "Stock Number A251992",
+      "vin": "JN1BF0AA5PM408899",
+      "make": "Nissan",
+      "model": "Ariya",
+      "year": 2023,
+      "trim": "VENTURE+ SPORT UTILITY 4D",
+      "price": 26448,
+      "mileage": 5181,
+      "location": "Platt Auto",
+      "url": "https://www.plattauto.com/inventory/nissan/ariya/a251992/",
+      "listing_date": "2025-11-07",
+      "normalized_trim": "Venture+"
     },
     {
       "id": "Stock Number A252167",
@@ -390,7 +559,8 @@
       "mileage": 7560,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/nissan/leaf/a252167/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "S"
     },
     {
       "id": "Stock Number A252143",
@@ -403,7 +573,8 @@
       "mileage": 22468,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/chevrolet/bolt-ev/a252143/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "2LT"
     },
     {
       "id": "Stock Number A251879",
@@ -416,7 +587,8 @@
       "mileage": 30803,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/chevrolet/bolt-euv/a251879/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "Premier"
     },
     {
       "id": "Stock Number A252140",
@@ -429,7 +601,8 @@
       "mileage": 39148,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/chevrolet/bolt-euv/a252140/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "Premier"
     },
     {
       "id": "Stock Number A252165",
@@ -442,7 +615,8 @@
       "mileage": 45722,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/chevrolet/bolt-euv/a252165/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "Premier"
     },
     {
       "id": "Stock Number A252129",
@@ -455,7 +629,22 @@
       "mileage": 42006,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/audi/q4-e-tron/a252129/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "40 Premium Plus"
+    },
+    {
+      "id": "Stock Number A241209",
+      "vin": "WBY7Z6C52JVB96821",
+      "make": "BMW",
+      "model": "i3",
+      "year": 2018,
+      "trim": "S HATCHBACK 4D",
+      "price": 14888,
+      "mileage": 58061,
+      "location": "Platt Auto",
+      "url": "https://www.plattauto.com/inventory/bmw/i3/a241209/",
+      "listing_date": "2025-11-07",
+      "normalized_trim": "s"
     },
     {
       "id": "Stock Number A252169",
@@ -465,10 +654,11 @@
       "year": 2023,
       "trim": "LONG RANGE SPORT UTILITY 4D",
       "price": 31870,
-      "mileage": 32144,
+      "mileage": 32155,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/tesla/model-y/a252169/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "Long Range"
     },
     {
       "id": "Stock Number A252163",
@@ -481,7 +671,8 @@
       "mileage": 60411,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/tesla/model-y/a252163/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "Long Range"
     },
     {
       "id": "Stock Number A252084",
@@ -494,7 +685,8 @@
       "mileage": 90463,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/tesla/model-s/a252084/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "P85D"
     },
     {
       "id": "Stock Number A252095",
@@ -507,7 +699,8 @@
       "mileage": 15371,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/kia/niro-ev/a252095/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "Wind"
     },
     {
       "id": "Stock Number A251858",
@@ -520,7 +713,8 @@
       "mileage": 27924,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/kia/niro-ev/a251858/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "Wind"
     },
     {
       "id": "Stock Number A252104",
@@ -533,7 +727,8 @@
       "mileage": 26189,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/kia/niro-ev/a252104/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "EX"
     },
     {
       "id": "Stock Number A252188",
@@ -546,7 +741,8 @@
       "mileage": 39724,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/hyundai/kona-electric/a252188/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "SE"
     },
     {
       "id": "Stock Number A252186",
@@ -559,7 +755,8 @@
       "mileage": 27497,
       "location": "Platt Auto",
       "url": "https://www.plattauto.com/inventory/hyundai/kona-electric/a252186/",
-      "listing_date": "2025-11-07"
+      "listing_date": "2025-11-07",
+      "normalized_trim": "SEL"
     }
   ],
   "models_exceeded_max_vehicles": []

@@ -816,7 +816,9 @@
       "mileage": 28000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3899761?refSource=srp",
-      "listing_date": "2025-11-04"
+      "listing_date": "2025-11-04",
+      "vin": "5YJ3E1EA0LF709233",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "carvana-3957636",
@@ -828,7 +830,9 @@
       "mileage": 50000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3957636?refSource=srp",
-      "listing_date": "2025-11-04"
+      "listing_date": "2025-11-04",
+      "vin": "5YJ3E1EA7MF870938",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "carvana-3932082",
@@ -852,7 +856,9 @@
       "mileage": 28000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3936435?refSource=srp",
-      "listing_date": "2025-11-04"
+      "listing_date": "2025-11-04",
+      "vin": "5YJ3E1EA1PF447020",
+      "normalized_trim": "Standard"
     },
     {
       "id": "carvana-3941360",
@@ -889,7 +895,9 @@
       "mileage": 13000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3954876?refSource=srp",
-      "listing_date": "2025-11-04"
+      "listing_date": "2025-11-04",
+      "vin": "5YJ3E1EA0PF716317",
+      "normalized_trim": "Standard"
     },
     {
       "id": "carvana-3947522",
@@ -937,7 +945,9 @@
       "mileage": 23000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3952151?refSource=srp",
-      "listing_date": "2025-11-04"
+      "listing_date": "2025-11-04",
+      "vin": "5YJ3E1EA1NF374874",
+      "normalized_trim": "Standard"
     },
     {
       "id": "carvana-3933167",
@@ -962,7 +972,9 @@
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3958074?refSource=srp",
       "listing_date": "2025-11-04",
-      "purchase_status": "selling"
+      "purchase_status": "selling",
+      "vin": "5YJ3E1EA3KF307401",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "carvana-3889033",
@@ -986,7 +998,9 @@
       "mileage": 45000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3929481?refSource=srp",
-      "listing_date": "2025-11-04"
+      "listing_date": "2025-11-04",
+      "vin": "5YJ3E1EA3NF360703",
+      "normalized_trim": "Standard"
     },
     {
       "id": "carvana-3946711",
@@ -1023,7 +1037,9 @@
       "mileage": 67000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3915791?refSource=srp",
-      "listing_date": "2025-11-04"
+      "listing_date": "2025-11-04",
+      "vin": "5YJ3E1EB4LF742664",
+      "normalized_trim": "Long Range"
     },
     {
       "id": "carvana-3944063",
@@ -1071,7 +1087,9 @@
       "mileage": 50000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3975963?refSource=srp",
-      "listing_date": "2025-11-04"
+      "listing_date": "2025-11-04",
+      "vin": "5YJ3E1EA6LF633856",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "carvana-3958516",
@@ -1131,7 +1149,9 @@
       "mileage": 30000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3991481?refSource=srp",
-      "listing_date": "2025-11-04"
+      "listing_date": "2025-11-04",
+      "vin": "5YJ3E1EA5MF099458",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "carvana-3932082",
@@ -1155,7 +1175,9 @@
       "mileage": 11000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3973201?refSource=srp",
-      "listing_date": "2025-11-04"
+      "listing_date": "2025-11-04",
+      "vin": "5YJ3E1EA3RF742509",
+      "normalized_trim": "Standard"
     },
     {
       "id": "carvana-3947523",
@@ -1383,7 +1405,9 @@
       "mileage": 60000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3970171?refSource=srp",
-      "listing_date": "2025-11-04"
+      "listing_date": "2025-11-04",
+      "vin": "5YJ3E1EB5KF191904",
+      "normalized_trim": "Long Range"
     },
     {
       "id": "carvana-3889033",
@@ -1455,7 +1479,9 @@
       "mileage": 38000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3949303?refSource=srp",
-      "listing_date": "2025-11-04"
+      "listing_date": "2025-11-04",
+      "vin": "5YJ3E1EA6LF630746",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "carvana-3927284",
@@ -1576,7 +1602,9 @@
       "mileage": 9000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3932419?refSource=srp",
-      "listing_date": "2025-11-04"
+      "listing_date": "2025-11-04",
+      "vin": "5YJ3E1EB5RF817364",
+      "normalized_trim": "Long Range"
     },
     {
       "id": "carvana-3953407",
@@ -1624,7 +1652,9 @@
       "mileage": 18000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3989195?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC3DLCXR5176524",
+      "normalized_trim": "Light Long Range"
     },
     {
       "id": "carvana-3895030",
@@ -1636,7 +1666,9 @@
       "mileage": 30000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3895030?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC34LB6N5042174",
+      "normalized_trim": "Light"
     },
     {
       "id": "carvana-3970651",
@@ -1648,7 +1680,9 @@
       "mileage": 39000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3970651?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC34LA5N5071642",
+      "normalized_trim": "Wind"
     },
     {
       "id": "carvana-3945494",
@@ -1660,7 +1694,9 @@
       "mileage": 65000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3945494?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC3DLC3N5051312",
+      "normalized_trim": "Wind"
     },
     {
       "id": "carvana-3949102",
@@ -1672,7 +1708,9 @@
       "mileage": 32000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3949102?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC34LA6N5080768",
+      "normalized_trim": "Wind"
     },
     {
       "id": "carvana-3960627",
@@ -1684,7 +1722,9 @@
       "mileage": 26000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3960627?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC34LA4N5034565",
+      "normalized_trim": "Wind"
     },
     {
       "id": "carvana-3889989",
@@ -1696,7 +1736,9 @@
       "mileage": 17000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3889989?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC3DLC9P5139056",
+      "normalized_trim": "Wind"
     },
     {
       "id": "carvana-3979550",
@@ -1708,7 +1750,9 @@
       "mileage": 12000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3979550?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC4DLC5N5082509",
+      "normalized_trim": "GT-Line"
     },
     {
       "id": "carvana-3976384",
@@ -1744,7 +1788,9 @@
       "mileage": 35000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3971388?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC34LA3P5602114",
+      "normalized_trim": "Wind"
     },
     {
       "id": "carvana-3910552",
@@ -1756,7 +1802,9 @@
       "mileage": 46000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3910552?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC34LA6N5056776",
+      "normalized_trim": "Wind"
     },
     {
       "id": "carvana-3752392",
@@ -1768,7 +1816,9 @@
       "mileage": 22000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3752392?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC5DLE1P5112753",
+      "normalized_trim": "GT"
     },
     {
       "id": "carvana-3883126",
@@ -1792,7 +1842,9 @@
       "mileage": 66000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3865862?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC4DLC9N5060688",
+      "normalized_trim": "GT-Line"
     },
     {
       "id": "carvana-3861644",
@@ -1804,7 +1856,9 @@
       "mileage": 30000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3861644?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC5DLE1P5110257",
+      "normalized_trim": "GT"
     },
     {
       "id": "carvana-3771672",
@@ -1816,7 +1870,9 @@
       "mileage": 19000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3771672?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC34LA5R5217334",
+      "normalized_trim": "Wind"
     },
     {
       "id": "carvana-3990635",
@@ -1828,7 +1884,9 @@
       "mileage": 57000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3990635?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC34LB3N5042035",
+      "normalized_trim": "Light"
     },
     {
       "id": "carvana-3982643",
@@ -1864,7 +1922,9 @@
       "mileage": 26000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3900560?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC34LA1P5127868",
+      "normalized_trim": "Wind"
     },
     {
       "id": "carvana-3900560",
@@ -1876,7 +1936,9 @@
       "mileage": 26000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3900560?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC34LA1P5127868",
+      "normalized_trim": "Wind"
     },
     {
       "id": "carvana-3860630",
@@ -1888,7 +1950,9 @@
       "mileage": 24000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3860630?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC3DLC8R5205289",
+      "normalized_trim": "Wind"
     },
     {
       "id": "carvana-3963081",
@@ -2008,7 +2072,9 @@
       "mileage": 12000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3905668?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V25MPE81PC021304",
+      "normalized_trim": "S"
     },
     {
       "id": "carvana-3925870",
@@ -2200,7 +2266,9 @@
       "mileage": 28000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3948886?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVGKMPE20MP063513",
+      "normalized_trim": "Pro S"
     },
     {
       "id": "carvana-3922714",
@@ -2236,7 +2304,9 @@
       "mileage": 13000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3946609?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V2CMPE87PC030175",
+      "normalized_trim": "Pro"
     },
     {
       "id": "carvana-3900079",
@@ -2308,7 +2378,9 @@
       "mileage": 48000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3958082?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVGKMPE24MP060744",
+      "normalized_trim": "Pro S"
     },
     {
       "id": "carvana-3877021",
@@ -2380,7 +2452,9 @@
       "mileage": 28000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3913011?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V2DNPE84PC009088",
+      "normalized_trim": "Pro"
     },
     {
       "id": "carvana-3915485",
@@ -2476,7 +2550,9 @@
       "mileage": 21000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3956273?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVGGNPE23NP046712",
+      "normalized_trim": "Pro S"
     },
     {
       "id": "carvana-3893866",
@@ -2488,7 +2564,9 @@
       "mileage": 41000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3893866?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVGTMPE27MP047183",
+      "normalized_trim": "Pro S"
     },
     {
       "id": "carvana-3754413",
@@ -2680,7 +2758,9 @@
       "mileage": 8000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3900153?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V2WNPE89PC043486",
+      "normalized_trim": "Pro S"
     },
     {
       "id": "carvana-3902543",
@@ -2692,7 +2772,9 @@
       "mileage": 25000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3902543?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVGGNPE27NP053467",
+      "normalized_trim": "Pro S"
     },
     {
       "id": "carvana-3918787",
@@ -2716,7 +2798,9 @@
       "mileage": 19000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3957544?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVGDMPE26MP009481",
+      "normalized_trim": "1st Edition"
     },
     {
       "id": "carvana-3900028",
@@ -2728,7 +2812,9 @@
       "mileage": 34000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3900028?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVGRMPE24MP058913",
+      "normalized_trim": "Pro"
     },
     {
       "id": "carvana-3944950",
@@ -2764,7 +2850,9 @@
       "mileage": 34000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3968063?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVGRMPE28MP043654",
+      "normalized_trim": "Pro"
     },
     {
       "id": "carvana-3898369",
@@ -2776,7 +2864,9 @@
       "mileage": 27000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3898369?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVGRMPE24MP043957",
+      "normalized_trim": "Pro"
     },
     {
       "id": "carvana-3988496",
@@ -2860,7 +2950,9 @@
       "mileage": 42000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3921416?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVWKR7AU9KW914207",
+      "normalized_trim": "SE Hatchback"
     },
     {
       "id": "carvana-3927047",
@@ -2872,7 +2964,9 @@
       "mileage": 44000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3927047?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVWKR7AU3KW919113",
+      "normalized_trim": "SE Hatchback"
     },
     {
       "id": "carvana-3679426",
@@ -2908,7 +3002,9 @@
       "mileage": 57000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3834974?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVWKP7AU5GW905310",
+      "normalized_trim": "SE Hatchback"
     },
     {
       "id": "carvana-3938451",
@@ -2932,7 +3028,9 @@
       "mileage": 44000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3870557?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVWKP7AU7GW914638",
+      "normalized_trim": "SE Hatchback"
     },
     {
       "id": "carvana-3643640",
@@ -2956,7 +3054,9 @@
       "mileage": 31000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3791984?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVWKR7AU8JW907070",
+      "normalized_trim": "SE Hatchback"
     },
     {
       "id": "carvana-3744853",
@@ -3076,7 +3176,9 @@
       "mileage": 64000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3733633?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVWKP7AU0GW911631",
+      "normalized_trim": "SE Hatchback"
     },
     {
       "id": "carvana-3929551",
@@ -3112,7 +3214,9 @@
       "mileage": 16000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3968399?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "JN1AF0BAXPM408004",
+      "normalized_trim": "Engage"
     },
     {
       "id": "carvana-3979182",
@@ -3124,7 +3228,9 @@
       "mileage": 4000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3979182?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "JN1AF0BA2RM431666",
+      "normalized_trim": "Engage"
     },
     {
       "id": "carvana-3988215",
@@ -3160,7 +3266,9 @@
       "mileage": 17000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3974457?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "JN1AF0BA4PM400724",
+      "normalized_trim": "Engage"
     },
     {
       "id": "carvana-3968414",
@@ -3172,7 +3280,9 @@
       "mileage": 16000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3968414?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "JN1DF0BB7RM738840",
+      "normalized_trim": "Engage e-4ORCE"
     },
     {
       "id": "carvana-3987620",
@@ -3220,7 +3330,9 @@
       "mileage": 9000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3967083?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "JN1AF0BA6PM407514",
+      "normalized_trim": "Engage"
     },
     {
       "id": "carvana-3948953",
@@ -3232,7 +3344,9 @@
       "mileage": 13000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3948953?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "JN1CF0BB2PM709612",
+      "normalized_trim": "Engage e-4ORCE"
     },
     {
       "id": "carvana-3963372",
@@ -3244,7 +3358,9 @@
       "mileage": 29000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3963372?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "JN1AF0BA1PM403094",
+      "normalized_trim": "Engage"
     },
     {
       "id": "carvana-3972043",
@@ -3412,7 +3528,9 @@
       "mileage": 8000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3984539?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "JN1CF0BB6PM710892",
+      "normalized_trim": "Engage e-4ORCE"
     },
     {
       "id": "carvana-3975011",
@@ -3448,7 +3566,9 @@
       "mileage": 10000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3980436?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "JN1AF0BA9RM430742",
+      "normalized_trim": "Engage"
     },
     {
       "id": "carvana-3982471",
@@ -3460,7 +3580,9 @@
       "mileage": 21000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3982471?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "JN1BF0AA7RM433094",
+      "normalized_trim": "Venture+"
     },
     {
       "id": "carvana-3983295",
@@ -3472,7 +3594,9 @@
       "mileage": 20000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3983295?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "JN1CF0BB4PM702788",
+      "normalized_trim": "Engage e-4ORCE"
     },
     {
       "id": "carvana-3983338",
@@ -3484,7 +3608,9 @@
       "mileage": 12000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3983338?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "JN1BF0BAXRM430821",
+      "normalized_trim": "Evolve+"
     },
     {
       "id": "carvana-3972623",
@@ -3496,7 +3622,9 @@
       "mileage": 27000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3972623?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "JN1CF0BB2PM709268",
+      "normalized_trim": "Engage e-4ORCE"
     },
     {
       "id": "carvana-3961908",
@@ -3508,7 +3636,9 @@
       "mileage": 23000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3961908?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "JN1BF0BA0PM403365",
+      "normalized_trim": "Evolve+"
     },
     {
       "id": "carvana-3966590",
@@ -3520,7 +3650,9 @@
       "mileage": 6000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3966590?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "JN8AF0BE1SM462062",
+      "normalized_trim": "Engage"
     },
     {
       "id": "carvana-3981935",
@@ -3592,7 +3724,9 @@
       "mileage": 13000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3983292?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "JN1AF0BA7RM432330",
+      "normalized_trim": "Engage"
     },
     {
       "id": "carvana-3986755",
@@ -3892,7 +4026,9 @@
       "mileage": 14000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3963297?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1BV9RC550873",
+      "normalized_trim": "S"
     },
     {
       "id": "carvana-3975816",
@@ -3988,7 +4124,9 @@
       "mileage": 14000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3963297?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1BV9RC550873",
+      "normalized_trim": "S"
     },
     {
       "id": "carvana-3893951",
@@ -4012,7 +4150,9 @@
       "mileage": 7000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3960326?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1BV0SC559791",
+      "normalized_trim": "S"
     },
     {
       "id": "carvana-3978004",
@@ -4072,7 +4212,9 @@
       "mileage": 16000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3969468?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1BV2SC559582",
+      "normalized_trim": "S"
     },
     {
       "id": "carvana-3971173",
@@ -4084,7 +4226,9 @@
       "mileage": 11000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3971173?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1BV9SC550748",
+      "normalized_trim": "S"
     },
     {
       "id": "carvana-3943271",
@@ -4108,7 +4252,9 @@
       "mileage": 11000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3973594?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1BV0SC557944",
+      "normalized_trim": "S"
     },
     {
       "id": "carvana-3951568",
@@ -4144,7 +4290,9 @@
       "mileage": 12000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3973589?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1BV5SC558328",
+      "normalized_trim": "S"
     },
     {
       "id": "carvana-3873664",
@@ -4492,7 +4640,9 @@
       "mileage": 25000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3948985?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK1RM8NMA60000",
+      "normalized_trim": "Select"
     },
     {
       "id": "carvana-3952813",
@@ -4516,7 +4666,9 @@
       "mileage": 37000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3939662?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK1R48PMB04032",
+      "normalized_trim": "Select"
     },
     {
       "id": "carvana-3971034",
@@ -4564,7 +4716,9 @@
       "mileage": 63000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3937121?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK3SS6PMA03981",
+      "normalized_trim": "Premium"
     },
     {
       "id": "carvana-3968954",
@@ -4576,7 +4730,9 @@
       "mileage": 37000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3968954?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK2R74NMA31125",
+      "normalized_trim": "California Route 1"
     },
     {
       "id": "carvana-3977980",
@@ -4624,7 +4780,9 @@
       "mileage": 22000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3960103?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK1RM4NMA59944",
+      "normalized_trim": "Select"
     },
     {
       "id": "carvana-3906345",
@@ -4684,7 +4842,9 @@
       "mileage": 31000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3641279?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK1RM8NMA13971",
+      "normalized_trim": "Select"
     },
     {
       "id": "carvana-3952200",
@@ -4708,7 +4868,9 @@
       "mileage": 42000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3958869?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK3SU8NMA15662",
+      "normalized_trim": "Premium"
     },
     {
       "id": "carvana-3939656",
@@ -4780,7 +4942,9 @@
       "mileage": 20000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3982601?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK3SS2NMA27644",
+      "normalized_trim": "Premium"
     },
     {
       "id": "carvana-3972705",
@@ -4792,7 +4956,9 @@
       "mileage": 41000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3972705?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK3SUXNMA02699",
+      "normalized_trim": "Premium"
     },
     {
       "id": "carvana-3967721",
@@ -4804,7 +4970,9 @@
       "mileage": 25000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3967721?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK3SU4PMA76848",
+      "normalized_trim": "Premium"
     },
     {
       "id": "carvana-3979377",
@@ -4852,7 +5020,9 @@
       "mileage": 26000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3562011?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK3SU9PMA73895",
+      "normalized_trim": "Premium"
     },
     {
       "id": "carvana-3912941",
@@ -4900,7 +5070,9 @@
       "mileage": 43000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3966996?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK4SX4NMA25363",
+      "normalized_trim": "GT"
     },
     {
       "id": "carvana-3906616",
@@ -4924,7 +5096,9 @@
       "mileage": 19000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3891615?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK4SX5NMA24447",
+      "normalized_trim": "GT"
     },
     {
       "id": "carvana-3949676",
@@ -5020,7 +5194,9 @@
       "mileage": 38000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3991011?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK3SU8NMA41484",
+      "normalized_trim": "Premium"
     },
     {
       "id": "carvana-3976367",
@@ -5056,7 +5232,9 @@
       "mileage": 6000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3981983?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK3SU8SMA12059",
+      "normalized_trim": "Premium"
     },
     {
       "id": "carvana-3978567",
@@ -5224,7 +5402,9 @@
       "mileage": 25000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3928073?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK1SS7MMA55331",
+      "normalized_trim": "Select"
     },
     {
       "id": "carvana-3953050",
@@ -5680,7 +5860,9 @@
       "mileage": 47000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3865421?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FW6S04L4144603",
+      "normalized_trim": "LT"
     },
     {
       "id": "carvana-3927566",
@@ -5800,7 +5982,9 @@
       "mileage": 61000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3957965?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FW6S01P4168038",
+      "normalized_trim": "1LT"
     },
     {
       "id": "carvana-3956496",
@@ -5944,7 +6128,9 @@
       "mileage": 67000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3974598?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FX6S02J4134484",
+      "normalized_trim": "Premier"
     },
     {
       "id": "carvana-3980431",
@@ -5956,7 +6142,9 @@
       "mileage": 36000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3980431?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S00K4107859",
+      "normalized_trim": "Premier"
     },
     {
       "id": "carvana-3912494",
@@ -6004,7 +6192,9 @@
       "mileage": 32000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3987657?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FW6S05N4133192",
+      "normalized_trim": "1LT"
     },
     {
       "id": "carvana-3845761",
@@ -6100,7 +6290,9 @@
       "mileage": 27000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3928853?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S03P4105260",
+      "normalized_trim": "LT"
     },
     {
       "id": "carvana-3828957",
@@ -6136,7 +6328,9 @@
       "mileage": 26000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3891626?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S07P4193455",
+      "normalized_trim": "LT"
     },
     {
       "id": "carvana-3984645",
@@ -6160,7 +6354,9 @@
       "mileage": 27000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3931415?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S03P4190455",
+      "normalized_trim": "LT"
     },
     {
       "id": "carvana-3921625",
@@ -6208,7 +6404,9 @@
       "mileage": 21000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3920480?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S03N4125468",
+      "normalized_trim": "Premier"
     },
     {
       "id": "carvana-3946927",
@@ -6328,7 +6526,9 @@
       "mileage": 22000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3951603?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S06N4124895",
+      "normalized_trim": "Premier"
     },
     {
       "id": "carvana-3959244",
@@ -6352,7 +6552,9 @@
       "mileage": 22000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3951603?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S06N4124895",
+      "normalized_trim": "Premier"
     },
     {
       "id": "carvana-3858310",
@@ -6424,7 +6626,9 @@
       "mileage": 22000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3934436?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S09N4125168",
+      "normalized_trim": "LT"
     },
     {
       "id": "carvana-3886050",
@@ -6436,7 +6640,9 @@
       "mileage": 20000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3886050?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S06P4180759",
+      "normalized_trim": "LT"
     },
     {
       "id": "carvana-3946376",
@@ -6496,7 +6702,9 @@
       "mileage": 20000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3981145?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S06P4203129",
+      "normalized_trim": "Premier"
     },
     {
       "id": "carvana-3962966",
@@ -6580,7 +6788,9 @@
       "mileage": 18000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3970437?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S02P4112832",
+      "normalized_trim": "LT"
     },
     {
       "id": "carvana-3941760",
@@ -6676,7 +6886,9 @@
       "mileage": 32000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3990639?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S06P4126958",
+      "normalized_trim": "LT"
     },
     {
       "id": "carvana-3964043",
@@ -6688,7 +6900,9 @@
       "mileage": 28000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3964043?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S02P4156455",
+      "normalized_trim": "Premier"
     },
     {
       "id": "carvana-3979121",
@@ -6700,7 +6914,9 @@
       "mileage": 22000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3979121?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S0XN4111339",
+      "normalized_trim": "Premier"
     },
     {
       "id": "carvana-3929350",
@@ -6712,7 +6928,9 @@
       "mileage": 60000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3929350?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S08P4119056",
+      "normalized_trim": "LT"
     },
     {
       "id": "carvana-3953527",
@@ -6724,7 +6942,9 @@
       "mileage": 27000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3953527?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S08N4112654",
+      "normalized_trim": "LT"
     },
     {
       "id": "carvana-3876821",
@@ -6748,7 +6968,9 @@
       "mileage": 32000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3988551?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S08P4124189",
+      "normalized_trim": "LT"
     },
     {
       "id": "carvana-3950714",
@@ -6760,7 +6982,9 @@
       "mileage": 54000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3950714?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S04P4142654",
+      "normalized_trim": "Premier"
     },
     {
       "id": "carvana-3961799",
@@ -6868,7 +7092,9 @@
       "mileage": 42000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3984820?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S08N4127493",
+      "normalized_trim": "LT"
     },
     {
       "id": "carvana-3915567",
@@ -6880,7 +7106,9 @@
       "mileage": 22000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3915567?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S06P4176310",
+      "normalized_trim": "LT"
     },
     {
       "id": "carvana-3963140",
@@ -7000,7 +7228,9 @@
       "mileage": 11000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3967973?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GN7DLRP7SS190046",
+      "normalized_trim": "LT"
     },
     {
       "id": "carvana-3935079",
@@ -7012,7 +7242,9 @@
       "mileage": 12000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3935079?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GN7DLRP8SS121401",
+      "normalized_trim": "LT"
     },
     {
       "id": "carvana-3977563",
@@ -7036,7 +7268,9 @@
       "mileage": 900,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3856632?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GN7DNRP8SS207724",
+      "normalized_trim": "LT 2"
     },
     {
       "id": "carvana-3957619",
@@ -7108,7 +7342,9 @@
       "mileage": 12000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3967749?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GPKHVRJ9RS521877",
+      "normalized_trim": "EX"
     },
     {
       "id": "carvana-3961220",
@@ -7120,7 +7356,9 @@
       "mileage": 4000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3961220?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GPKHVRJ3RS535984",
+      "normalized_trim": "EX"
     },
     {
       "id": "carvana-3961230",
@@ -7132,7 +7370,9 @@
       "mileage": 12000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3961230?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GPKHVRJ0RS527969",
+      "normalized_trim": "EX"
     },
     {
       "id": "carvana-3981728",
@@ -7168,7 +7408,9 @@
       "mileage": 5000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3953754?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GPKHVRJ3RS539291",
+      "normalized_trim": "EX"
     },
     {
       "id": "carvana-3978134",
@@ -7180,7 +7422,9 @@
       "mileage": 13000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3978134?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GPKHWRM0RS534968",
+      "normalized_trim": "Touring"
     },
     {
       "id": "carvana-3874931",
@@ -7192,7 +7436,9 @@
       "mileage": 13000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3874931?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GPKHXRJXRS512116",
+      "normalized_trim": "Touring"
     },
     {
       "id": "carvana-3944662",
@@ -7204,7 +7450,9 @@
       "mileage": 33000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3944662?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GPKHVRJ3RS504587",
+      "normalized_trim": "EX"
     },
     {
       "id": "carvana-3963996",
@@ -7216,7 +7464,9 @@
       "mileage": 11000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3963996?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GPKHZRJ5RS545116",
+      "normalized_trim": "Elite"
     },
     {
       "id": "carvana-3984927",
@@ -7228,7 +7478,9 @@
       "mileage": 8000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3984927?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GPKHZRJ8RS508075",
+      "normalized_trim": "Elite"
     },
     {
       "id": "carvana-3966945",
@@ -7240,7 +7492,9 @@
       "mileage": 9000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3966945?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GPKHURM7RS505875",
+      "normalized_trim": "EX"
     },
     {
       "id": "carvana-3987509",
@@ -7252,7 +7506,9 @@
       "mileage": 22000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3987509?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GPKHVRJ5RS502081",
+      "normalized_trim": "EX"
     },
     {
       "id": "carvana-3954135",
@@ -7276,7 +7532,9 @@
       "mileage": 12000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3963463?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GPKHXRJ3RS532689",
+      "normalized_trim": "Touring"
     },
     {
       "id": "carvana-3981326",
@@ -7300,7 +7558,9 @@
       "mileage": 4000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3977418?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GPKHVRJ4SS501011",
+      "normalized_trim": "EX"
     },
     {
       "id": "carvana-3975696",
@@ -7312,7 +7572,9 @@
       "mileage": 27000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3975696?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GPKHZRJ7RS509430",
+      "normalized_trim": "Elite"
     },
     {
       "id": "carvana-3982512",
@@ -7324,7 +7586,9 @@
       "mileage": 5000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3982512?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GPKHWRM8RS538217",
+      "normalized_trim": "Touring"
     },
     {
       "id": "carvana-3981994",
@@ -7336,7 +7600,9 @@
       "mileage": 9000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3981994?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GPKHURM8RS534446",
+      "normalized_trim": "EX"
     },
     {
       "id": "carvana-3982520",
@@ -7348,7 +7614,9 @@
       "mileage": 25000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3982520?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GPKHWRM8RS509266",
+      "normalized_trim": "Touring"
     },
     {
       "id": "carvana-3980636",
@@ -7408,7 +7676,9 @@
       "mileage": 18000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3849228?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WA1M2BFZ2PP065554",
+      "normalized_trim": "50 Prestige"
     },
     {
       "id": "carvana-3987136",
@@ -7420,7 +7690,9 @@
       "mileage": 15000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3987136?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WA1M2BFZ1RP025887",
+      "normalized_trim": "50 Prestige"
     },
     {
       "id": "carvana-3979585",
@@ -7432,7 +7704,9 @@
       "mileage": 22000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3979585?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WA1M2BFZ2RP027003",
+      "normalized_trim": "50 Prestige"
     },
     {
       "id": "carvana-3969234",
@@ -7444,7 +7718,9 @@
       "mileage": 27000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3969234?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WA1L2BFZ3NP049890",
+      "normalized_trim": "50 Premium Plus"
     },
     {
       "id": "carvana-3980257",
@@ -7468,7 +7744,9 @@
       "mileage": 2000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3986957?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WA1B5BFZ3SP054201",
+      "normalized_trim": "40 Premium Plus"
     },
     {
       "id": "carvana-3936616",
@@ -7492,7 +7770,9 @@
       "mileage": 9000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3981202?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WA1A5BFZ4SP014818",
+      "normalized_trim": "45 Premium"
     },
     {
       "id": "carvana-3872426",
@@ -7504,7 +7784,9 @@
       "mileage": 8000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3872426?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WA1K2BFZ6RP015864",
+      "normalized_trim": "50 Premium"
     },
     {
       "id": "carvana-3677875",
@@ -7516,7 +7798,9 @@
       "mileage": 40000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3677875?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WA1BCBFZXPP014338",
+      "normalized_trim": "40 Premium Plus"
     },
     {
       "id": "carvana-3932726",
@@ -7528,7 +7812,9 @@
       "mileage": 44000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3932726?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WA1G2BFZ2NP041815",
+      "normalized_trim": "50 Premium"
     },
     {
       "id": "carvana-3826358",
@@ -7540,7 +7826,9 @@
       "mileage": 9000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3826358?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WA1KUBFZ1RP041220",
+      "normalized_trim": "55 Premium"
     },
     {
       "id": "carvana-3913207",
@@ -7552,7 +7840,9 @@
       "mileage": 28000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3913207?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WA1K2BFZ2RP013982",
+      "normalized_trim": "50 Premium"
     },
     {
       "id": "carvana-3959036",
@@ -7660,7 +7950,9 @@
       "mileage": 10000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3918009?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WA1A5BFZ4SP012843",
+      "normalized_trim": "45 Premium"
     },
     {
       "id": "carvana-3779841",
@@ -7732,7 +8024,9 @@
       "mileage": 24000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3951455?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY73AW04PFP01326",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "carvana-3982361",
@@ -7744,7 +8038,9 @@
       "mileage": 11000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3982361?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY73AW07PFN90982",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "carvana-3782546",
@@ -7768,7 +8064,9 @@
       "mileage": 24000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3984034?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY73AW09PFP20101",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "carvana-3669340",
@@ -7780,7 +8078,9 @@
       "mileage": 10000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3669340?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY83FB09RFR89404",
+      "normalized_trim": "xDrive40"
     },
     {
       "id": "carvana-3867816",
@@ -7792,7 +8092,9 @@
       "mileage": 7000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3867816?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY83FB04RFS39201",
+      "normalized_trim": "xDrive40"
     },
     {
       "id": "carvana-3898613",
@@ -7804,7 +8106,9 @@
       "mileage": 9000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3898613?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY23HD08SFT99635",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "carvana-3927176",
@@ -7816,7 +8120,9 @@
       "mileage": 600,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3927176?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY43HD03SFU92278",
+      "normalized_trim": "xDrive40"
     },
     {
       "id": "carvana-3607800",
@@ -7840,7 +8146,9 @@
       "mileage": 31000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3964047?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY43AW06RFS07894",
+      "normalized_trim": "eDrive35"
     },
     {
       "id": "carvana-3971943",
@@ -7852,7 +8160,9 @@
       "mileage": 42000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3971943?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY73AW06NFN21228",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "carvana-3910969",
@@ -7864,7 +8174,9 @@
       "mileage": 11000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3910969?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY23HD08SFT93303",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "carvana-3862596",
@@ -7876,7 +8188,9 @@
       "mileage": 15000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3862596?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY83FB04RFT18643",
+      "normalized_trim": "xDrive40"
     },
     {
       "id": "carvana-3862593",
@@ -7888,7 +8202,9 @@
       "mileage": 16000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3862593?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY43HD08SFT92726",
+      "normalized_trim": "xDrive40"
     },
     {
       "id": "carvana-3870489",
@@ -7900,7 +8216,9 @@
       "mileage": 10000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3870489?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY23HD08SFT92913",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "carvana-3895277",
@@ -7936,7 +8254,9 @@
       "mileage": 3000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3700460?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY73AW03RFR67679",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "carvana-3779334",
@@ -7948,7 +8268,9 @@
       "mileage": 16000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3779334?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY83FB00RFT38016",
+      "normalized_trim": "xDrive40"
     },
     {
       "id": "carvana-3974267",
@@ -7972,7 +8294,9 @@
       "mileage": 20000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3971031?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY73AW01PFP59653",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "carvana-3773777",
@@ -8020,7 +8344,9 @@
       "mileage": 8000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3782605?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY33FK03RCS43445",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "carvana-3784612",
@@ -8032,7 +8358,9 @@
       "mileage": 9000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3784612?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY33FK06RCS43441",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "carvana-3875962",
@@ -8044,7 +8372,9 @@
       "mileage": 12000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3875962?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY13HG04SCT65779",
+      "normalized_trim": "xDrive40"
     },
     {
       "id": "carvana-3865468",
@@ -8056,7 +8386,9 @@
       "mileage": 15000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3865468?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY33FK0XRCR91237",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "carvana-3863381",
@@ -8068,7 +8400,9 @@
       "mileage": 21000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3863381?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY33FK08RCS84993",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "carvana-3863182",
@@ -8080,7 +8414,9 @@
       "mileage": 13000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3863182?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY33FK01RCS85595",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "carvana-3859503",
@@ -8092,7 +8428,9 @@
       "mileage": 15000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3859503?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY33FK08RCS11672",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "carvana-3812481",
@@ -8104,7 +8442,9 @@
       "mileage": 9000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3812481?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY33FK07SCT64436",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "carvana-3882949",
@@ -8116,7 +8456,9 @@
       "mileage": 15000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3882949?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY33FK0XSCT64589",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "carvana-3875475",
@@ -8128,7 +8470,9 @@
       "mileage": 700,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3875475?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY13HG04SCT78578",
+      "normalized_trim": "xDrive40"
     },
     {
       "id": "carvana-3777553",
@@ -8140,7 +8484,9 @@
       "mileage": 17000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3777553?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY33FK0XRCS83313",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "carvana-3781364",
@@ -8152,7 +8498,9 @@
       "mileage": 6000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3781364?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY33FK07RCR13921",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "carvana-3871225",
@@ -8164,7 +8512,9 @@
       "mileage": 17000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3871225?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY33FK05RCS80027",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "carvana-3863928",
@@ -8176,7 +8526,9 @@
       "mileage": 16000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3863928?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY33FK02RCS83368",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "carvana-3776003",
@@ -8188,7 +8540,9 @@
       "mileage": 15000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3776003?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY33FK03RCR91208",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "carvana-3774611",
@@ -8200,7 +8554,9 @@
       "mileage": 11000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3774611?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY33FK05RCS37890",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "carvana-3857686",
@@ -8212,7 +8568,9 @@
       "mileage": 16000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3857686?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY33FK06RCS86855",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "carvana-3864906",
@@ -8224,7 +8582,9 @@
       "mileage": 12000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3864906?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY13HG02SCT65733",
+      "normalized_trim": "xDrive40"
     },
     {
       "id": "carvana-3760184",
@@ -8236,7 +8596,9 @@
       "mileage": 10000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3760184?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY33FK00RCS09561",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "carvana-3962356",
@@ -8308,7 +8670,9 @@
       "mileage": 37000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3884775?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY1Z8C33HV892613",
+      "normalized_trim": "Range Extender"
     },
     {
       "id": "carvana-3886518",
@@ -8332,7 +8696,9 @@
       "mileage": 74000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3924987?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY1Z4C58FV504699",
+      "normalized_trim": "Range Extender"
     },
     {
       "id": "carvana-3969659",
@@ -8380,7 +8746,9 @@
       "mileage": 45000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3840893?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY7Z4C5XJVD97306",
+      "normalized_trim": "Base w/Range Extender"
     },
     {
       "id": "carvana-3926268",
@@ -8392,7 +8760,9 @@
       "mileage": 54000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3926268?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY1Z6C51HV548140",
+      "normalized_trim": "base"
     },
     {
       "id": "carvana-3897332",
@@ -8404,7 +8774,9 @@
       "mileage": 75000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3897332?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY7Z4C5XJVD95443",
+      "normalized_trim": "Base w/Range Extender"
     },
     {
       "id": "carvana-3954501",
@@ -8428,7 +8800,9 @@
       "mileage": 52000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3824113?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY7Z6C57JVB88990",
+      "normalized_trim": "s"
     },
     {
       "id": "carvana-3951246",
@@ -8452,7 +8826,9 @@
       "mileage": 70000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3847566?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY7Z4C57JVC34550",
+      "normalized_trim": "Base w/Range Extender"
     },
     {
       "id": "carvana-3887740",
@@ -8476,7 +8852,9 @@
       "mileage": 55000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3961167?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY8P6C57K7D23725",
+      "normalized_trim": "s"
     },
     {
       "id": "carvana-3622303",
@@ -8488,7 +8866,9 @@
       "mileage": 43000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3622303?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY1Z4C59GV506432",
+      "normalized_trim": "Range Extender"
     },
     {
       "id": "carvana-3789182",
@@ -8500,7 +8880,9 @@
       "mileage": 26000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3789182?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY1Z2C58FV287630",
+      "normalized_trim": "base"
     },
     {
       "id": "carvana-3914328",
@@ -8512,7 +8894,9 @@
       "mileage": 64000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3914328?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY1Z2C59GV556641",
+      "normalized_trim": "base"
     },
     {
       "id": "carvana-3891613",
@@ -8524,7 +8908,9 @@
       "mileage": 49000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3891613?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY1Z4C51FV504446",
+      "normalized_trim": "Range Extender"
     },
     {
       "id": "carvana-3808457",
@@ -8536,7 +8922,9 @@
       "mileage": 50000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3808457?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY1Z4C53FV500236",
+      "normalized_trim": "Range Extender"
     },
     {
       "id": "carvana-3909727",
@@ -8632,7 +9020,9 @@
       "mileage": 49000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3974450?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY7Z6C50JVB97028",
+      "normalized_trim": "s"
     },
     {
       "id": "carvana-3869687",
@@ -9556,7 +9946,9 @@
       "mileage": 67000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3991157?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJSA1E29JF272765",
+      "normalized_trim": "100D"
     },
     {
       "id": "carvana-3922204",
@@ -9568,7 +9960,9 @@
       "mileage": 43000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3922204?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJSA1E25FF115712",
+      "normalized_trim": "85D"
     },
     {
       "id": "carvana-3983761",
@@ -9592,7 +9986,9 @@
       "mileage": 49000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3966140?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJSA1E23GF144420",
+      "normalized_trim": "75D"
     },
     {
       "id": "carvana-3905723",
@@ -9616,7 +10012,9 @@
       "mileage": 40000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3793460?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJSA1E44GF131130",
+      "normalized_trim": "P90D"
     },
     {
       "id": "carvana-3759891",
@@ -9628,7 +10026,9 @@
       "mileage": 56000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3759891?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJSA1H12EFP32423",
+      "normalized_trim": "base"
     },
     {
       "id": "carvana-3698490",
@@ -9640,7 +10040,9 @@
       "mileage": 92000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3698490?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJSA1E16HF183172",
+      "normalized_trim": "75"
     },
     {
       "id": "carvana-3975165",
@@ -9664,7 +10066,9 @@
       "mileage": 45000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3944665?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJSA1E11HF217955",
+      "normalized_trim": "75"
     },
     {
       "id": "carvana-3946414",
@@ -9676,7 +10080,9 @@
       "mileage": 69000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3946414?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJSA1E28JF244875",
+      "normalized_trim": "75D"
     },
     {
       "id": "carvana-3877843",
@@ -9700,7 +10106,9 @@
       "mileage": 76000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3879213?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJSA1H1XEFP51429",
+      "normalized_trim": "base"
     },
     {
       "id": "carvana-3939171",
@@ -9712,7 +10120,9 @@
       "mileage": 91000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3939171?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJSA1E27LF410807",
+      "normalized_trim": "Long Range Plus"
     },
     {
       "id": "carvana-3965320",
@@ -9760,7 +10170,9 @@
       "mileage": 71000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3954502?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJSA1E13HF196087",
+      "normalized_trim": "60"
     },
     {
       "id": "carvana-3900662",
@@ -9820,7 +10232,9 @@
       "mileage": 16000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3932607?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJSA1H24EFP68459",
+      "normalized_trim": "P85D"
     },
     {
       "id": "carvana-3979236",
@@ -9844,7 +10258,9 @@
       "mileage": 44000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3972733?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJSA1E27FF102962",
+      "normalized_trim": "70D"
     },
     {
       "id": "carvana-3841171",
@@ -9880,7 +10296,9 @@
       "mileage": 68000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3785440?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJSA1E21GF130418",
+      "normalized_trim": "90D"
     },
     {
       "id": "carvana-3958842",
@@ -9940,7 +10358,9 @@
       "mileage": 49000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3985930?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJSA1E10HF185435",
+      "normalized_trim": "60"
     },
     {
       "id": "carvana-3977505",
@@ -10288,7 +10708,9 @@
       "mileage": 51000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3955425?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJSA1E55PF517046",
+      "normalized_trim": "Standard"
     },
     {
       "id": "carvana-3913608",
@@ -10312,7 +10734,9 @@
       "mileage": 43000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3966223?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJSA1E27GF172785",
+      "normalized_trim": "75D"
     },
     {
       "id": "carvana-3956181",
@@ -10348,7 +10772,9 @@
       "mileage": 43000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3967779?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJSA1E66PF510941",
+      "normalized_trim": "Plaid"
     },
     {
       "id": "carvana-3951424",
@@ -10360,7 +10786,9 @@
       "mileage": 44000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3951424?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJXCDE21LF261523",
+      "normalized_trim": "Long Range Plus"
     },
     {
       "id": "carvana-3493257",
@@ -10372,7 +10800,9 @@
       "mileage": 54000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3493257?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJXCDE21LF284963",
+      "normalized_trim": "Long Range Plus"
     },
     {
       "id": "carvana-3942065",
@@ -10396,7 +10826,9 @@
       "mileage": 66000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3933550?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJXCDE21LF239005",
+      "normalized_trim": "Long Range Plus"
     },
     {
       "id": "carvana-3876621",
@@ -10420,7 +10852,9 @@
       "mileage": 66000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3638443?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJXCBE21HF052794",
+      "normalized_trim": "75D"
     },
     {
       "id": "carvana-2555021",
@@ -10432,7 +10866,9 @@
       "mileage": 13000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/2555021?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJXCBE48KF206894",
+      "normalized_trim": "P100D"
     },
     {
       "id": "carvana-3874472",
@@ -10444,7 +10880,9 @@
       "mileage": 106000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3874472?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJXCBE21HF044176",
+      "normalized_trim": "100D"
     },
     {
       "id": "carvana-3988813",
@@ -10468,7 +10906,9 @@
       "mileage": 66000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3976659?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJXCDE28JF119912",
+      "normalized_trim": "75D"
     },
     {
       "id": "carvana-3972133",
@@ -10492,7 +10932,9 @@
       "mileage": 76000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3948512?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJXCBE25HF075348",
+      "normalized_trim": "75D"
     },
     {
       "id": "carvana-3844523",
@@ -10504,7 +10946,9 @@
       "mileage": 74000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3844523?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJXCBE48HF061302",
+      "normalized_trim": "P100D"
     },
     {
       "id": "carvana-3833728",
@@ -10516,7 +10960,9 @@
       "mileage": 68000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3833728?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJXCAE28HF064807",
+      "normalized_trim": "75D"
     },
     {
       "id": "carvana-3726612",
@@ -10552,7 +10998,9 @@
       "mileage": 64000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3536803?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJXCAE27GF002328",
+      "normalized_trim": "90D"
     },
     {
       "id": "carvana-3723901",
@@ -10564,7 +11012,9 @@
       "mileage": 59000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3723901?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJXCBE26HF054010",
+      "normalized_trim": "75D"
     },
     {
       "id": "carvana-3884450",
@@ -10588,7 +11038,9 @@
       "mileage": 63000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3982916?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJXCDE27MF324383",
+      "normalized_trim": "Long Range Plus"
     },
     {
       "id": "carvana-3981280",
@@ -10624,7 +11076,9 @@
       "mileage": 60000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3948315?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJXCDE20LF248150",
+      "normalized_trim": "Long Range Plus"
     },
     {
       "id": "carvana-3968620",
@@ -10672,7 +11126,9 @@
       "mileage": 102000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3970220?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJXCAE23LF233415",
+      "normalized_trim": "Long Range"
     },
     {
       "id": "carvana-3533143",
@@ -10732,7 +11188,9 @@
       "mileage": 85000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3852444?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJXCAE2XJF113396",
+      "normalized_trim": "75D"
     },
     {
       "id": "carvana-3586616",
@@ -10792,7 +11250,9 @@
       "mileage": 53000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3966532?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJXCDE48LF273444",
+      "normalized_trim": "Performance"
     },
     {
       "id": "carvana-3787368",
@@ -11068,7 +11528,9 @@
       "mileage": 94000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3826263?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJXCBE2XHF076527",
+      "normalized_trim": "100D"
     },
     {
       "id": "carvana-3981491",
@@ -11092,7 +11554,9 @@
       "mileage": 7000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3831673?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGBAA7RN033339",
+      "normalized_trim": "Dual Standard 4 1/2 ft Dual-Motor"
     },
     {
       "id": "carvana-3956025",
@@ -11104,7 +11568,9 @@
       "mileage": 48000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3956025?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAA3NN008006",
+      "normalized_trim": "Adventure 4 1/2 ft Quad-Motor"
     },
     {
       "id": "carvana-3974719",
@@ -11128,7 +11594,9 @@
       "mileage": 11000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3714402?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGBAA1PN027324",
+      "normalized_trim": "Adventure 4 1/2 ft Dual-Motor"
     },
     {
       "id": "carvana-3652059",
@@ -11140,7 +11608,9 @@
       "mileage": 9000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3652059?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAA1NN009073",
+      "normalized_trim": "Adventure 4 1/2 ft Quad-Motor"
     },
     {
       "id": "carvana-3898585",
@@ -11176,7 +11646,9 @@
       "mileage": 20000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3896072?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAA3NN013044",
+      "normalized_trim": "Adventure 4 1/2 ft Quad-Motor"
     },
     {
       "id": "carvana-3649548",
@@ -11188,7 +11660,9 @@
       "mileage": 47000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3649548?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAA2NN006506",
+      "normalized_trim": "Adventure 4 1/2 ft Quad-Motor"
     },
     {
       "id": "carvana-3818219",
@@ -11200,7 +11674,9 @@
       "mileage": 21000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3818219?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAA4PN021186",
+      "normalized_trim": "Adventure 4 1/2 ft Quad-Motor"
     },
     {
       "id": "carvana-3988743",
@@ -11212,7 +11688,9 @@
       "mileage": 36000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3988743?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAA8PN017948",
+      "normalized_trim": "Adventure 4 1/2 ft Quad-Motor"
     },
     {
       "id": "carvana-3609278",
@@ -11224,7 +11702,9 @@
       "mileage": 26000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3609278?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAA1NN006786",
+      "normalized_trim": "Adventure 4 1/2 ft Dual-Motor"
     },
     {
       "id": "carvana-3861719",
@@ -11236,7 +11716,9 @@
       "mileage": 14000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3861719?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGBAA5PN025558",
+      "normalized_trim": "Adventure 4 1/2 ft Dual-Motor"
     },
     {
       "id": "carvana-3897138",
@@ -11248,7 +11730,9 @@
       "mileage": 9000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3897138?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAA0PN000450",
+      "normalized_trim": "Adventure 4 1/2 ft Dual-Motor"
     },
     {
       "id": "carvana-3689702",
@@ -11260,7 +11744,9 @@
       "mileage": 66000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3689702?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAA2NN006859",
+      "normalized_trim": "Adventure 4 1/2 ft Dual-Motor"
     },
     {
       "id": "carvana-3949561",
@@ -11272,7 +11758,9 @@
       "mileage": 46000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3949561?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGBAA6PN027951",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
     },
     {
       "id": "carvana-3965381",
@@ -11368,7 +11856,9 @@
       "mileage": 48000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3973216?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAA2NN011396",
+      "normalized_trim": "Adventure 4 1/2 ft Dual-Motor"
     },
     {
       "id": "carvana-3973988",
@@ -11416,7 +11906,9 @@
       "mileage": 17000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3660609?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABA4PN022086",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "carvana-3544490",
@@ -11428,7 +11920,9 @@
       "mileage": 8000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3544490?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGBBA9RN044416",
+      "normalized_trim": "Dual Large Dual-Motor"
     },
     {
       "id": "carvana-3795792",
@@ -11440,7 +11934,9 @@
       "mileage": 32000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3795792?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABL9NN002804",
+      "normalized_trim": "Launch Edition Quad-Motor"
     },
     {
       "id": "carvana-3647595",
@@ -11452,7 +11948,9 @@
       "mileage": 20000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3647595?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABA4PN023576",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "carvana-3645066",
@@ -11464,7 +11962,9 @@
       "mileage": 28000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3645066?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABL6NN000878",
+      "normalized_trim": "Launch Edition Quad-Motor"
     },
     {
       "id": "carvana-3909509",
@@ -11476,7 +11976,9 @@
       "mileage": 8000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3909509?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGBBA4SN046628",
+      "normalized_trim": "Dual Standard Dual-Motor"
     },
     {
       "id": "carvana-3868435",
@@ -11488,7 +11990,9 @@
       "mileage": 21000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3868435?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABA6PN023563",
+      "normalized_trim": "Adventure Quad-Motor"
     },
     {
       "id": "carvana-3874454",
@@ -11500,7 +12004,9 @@
       "mileage": 48000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3874454?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABL8NN000512",
+      "normalized_trim": "Launch Edition Quad-Motor"
     },
     {
       "id": "carvana-3986979",
@@ -11512,7 +12018,9 @@
       "mileage": 16000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3986979?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGBBA7SN064413",
+      "normalized_trim": "Dual Standard Dual-Motor"
     },
     {
       "id": "carvana-3989479",
@@ -11524,7 +12032,9 @@
       "mileage": 18000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3989479?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGBBA7SN057011",
+      "normalized_trim": "Dual Standard Dual-Motor"
     },
     {
       "id": "carvana-3946320",
@@ -11536,7 +12046,9 @@
       "mileage": 48000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3946320?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABA9PN026991",
+      "normalized_trim": "Adventure Quad-Motor"
     },
     {
       "id": "carvana-3658379",
@@ -11548,7 +12060,9 @@
       "mileage": 32000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3658379?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABL0NN001492",
+      "normalized_trim": "Launch Edition Quad-Motor"
     },
     {
       "id": "carvana-3950982",
@@ -11560,7 +12074,9 @@
       "mileage": 11000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3950982?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGBBA5SN056293",
+      "normalized_trim": "Dual Standard Dual-Motor"
     },
     {
       "id": "carvana-3991712",
@@ -11572,7 +12088,9 @@
       "mileage": 36000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3991712?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABA0PN016303",
+      "normalized_trim": "Adventure Quad-Motor"
     },
     {
       "id": "carvana-3632609",
@@ -11584,7 +12102,9 @@
       "mileage": 2000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3632609?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGBBA2SN062732",
+      "normalized_trim": "Dual Large Dual-Motor"
     },
     {
       "id": "carvana-3978477",
@@ -11596,7 +12116,9 @@
       "mileage": 8000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3978477?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABA4RN033186",
+      "normalized_trim": "Quad Large Quad-Motor"
     },
     {
       "id": "carvana-3873638",
@@ -11608,7 +12130,9 @@
       "mileage": 19000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3873638?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABA9PN011746",
+      "normalized_trim": "Adventure Quad-Motor"
     },
     {
       "id": "carvana-3923658",
@@ -11620,7 +12144,9 @@
       "mileage": 4000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3923658?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGCBP4SN063746",
+      "normalized_trim": "Tri Max"
     },
     {
       "id": "carvana-3869667",
@@ -11632,7 +12158,9 @@
       "mileage": 2000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3869667?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGCBP9SN063581",
+      "normalized_trim": "Tri Max"
     },
     {
       "id": "carvana-3818978",
@@ -11644,7 +12172,9 @@
       "mileage": 3000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3818978?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGCBPXSN074010",
+      "normalized_trim": "Tri Max"
     },
     {
       "id": "carvana-3961018",
@@ -11740,7 +12270,9 @@
       "mileage": 36000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3890403?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDCC3LG7K5030214",
+      "normalized_trim": "EX"
     },
     {
       "id": "carvana-3934959",
@@ -11764,7 +12296,9 @@
       "mileage": 15000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3965832?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDCR3L12P5040277",
+      "normalized_trim": "Wind"
     },
     {
       "id": "carvana-3966975",
@@ -11776,7 +12310,9 @@
       "mileage": 17000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3966975?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDCR3L17P5059701",
+      "normalized_trim": "Wind"
     },
     {
       "id": "carvana-3965529",
@@ -11908,7 +12444,9 @@
       "mileage": 54000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3389506?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDCC3LG2L5055409",
+      "normalized_trim": "EX"
     },
     {
       "id": "carvana-3936325",
@@ -12184,7 +12722,9 @@
       "mileage": 30000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3967315?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8K33AG9PU173124",
+      "normalized_trim": "SEL"
     },
     {
       "id": "carvana-3866621",
@@ -12340,7 +12880,9 @@
       "mileage": 45000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3929362?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8K23AG6MU123084",
+      "normalized_trim": "SEL"
     },
     {
       "id": "carvana-3966246",
@@ -12388,7 +12930,9 @@
       "mileage": 22000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3816928?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8K53AG3LU059009",
+      "normalized_trim": "Ultimate"
     },
     {
       "id": "carvana-3790030",
@@ -12436,7 +12980,9 @@
       "mileage": 64000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3975892?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8K23AG5PU169719",
+      "normalized_trim": "SE"
     },
     {
       "id": "carvana-3914348",
@@ -12496,7 +13042,9 @@
       "mileage": 42000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3985137?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8K23AG6PU164089",
+      "normalized_trim": "SE"
     },
     {
       "id": "carvana-3976580",
@@ -12568,7 +13116,9 @@
       "mileage": 20000,
       "location": "Carvana",
       "url": "https://www.carvana.com/vehicle/3976302?refSource=srp",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8K53AG6MU126669",
+      "normalized_trim": "Ultimate"
     },
     {
       "id": "carvana-3977354",

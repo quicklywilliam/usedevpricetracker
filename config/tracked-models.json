@@ -285,31 +285,92 @@
     },
     {
       "make": "Tesla",
-      "model": "Model Y"
+      "model": "Model Y",
+      "trims": [
+        "Long Range",
+        "Performance",
+        "Standard"
+      ]
     },
     {
       "make": "Tesla",
-      "model": "Model S"
+      "model": "Model S",
+      "trims": [
+        "100D",
+        "60",
+        "70D",
+        "75",
+        "75D",
+        "85D",
+        "90D",
+        "Long Range",
+        "Long Range Plus",
+        "P85D",
+        "P90D",
+        "Plaid",
+        "Standard",
+        "base"
+      ]
     },
     {
       "make": "Tesla",
-      "model": "Model X"
+      "model": "Model X",
+      "trims": [
+        "100D",
+        "60D",
+        "75D",
+        "90D",
+        "Long Range",
+        "Long Range Plus",
+        "P100D",
+        "Performance"
+      ]
     },
     {
       "make": "Rivian",
-      "model": "R1T"
+      "model": "R1T",
+      "trims": [
+        "Adventure 4 1/2 ft Dual Performance-Motor",
+        "Adventure 4 1/2 ft Dual-Motor",
+        "Adventure 4 1/2 ft Quad-Motor",
+        "Dual Large 4 1/2 ft Dual-Motor",
+        "Dual Standard 4 1/2 ft Dual-Motor",
+        "Launch Edition 4 1/2 ft Quad-Motor"
+      ]
     },
     {
       "make": "Rivian",
-      "model": "R1S"
+      "model": "R1S",
+      "trims": [
+        "Adventure Dual-Motor",
+        "Adventure Quad-Motor",
+        "Dual Large Dual-Motor",
+        "Dual Standard Dual-Motor",
+        "Launch Edition Quad-Motor",
+        "Quad Large Quad-Motor",
+        "Tri Max"
+      ]
     },
     {
       "make": "Kia",
-      "model": "Niro EV"
+      "model": "Niro EV",
+      "trims": [
+        "EX",
+        "EX Premium",
+        "S",
+        "Wave",
+        "Wind"
+      ]
     },
     {
       "make": "Hyundai",
-      "model": "Kona Electric"
+      "model": "Kona Electric",
+      "trims": [
+        "Limited",
+        "SE",
+        "SEL",
+        "Ultimate"
+      ]
     }
   ]
 }

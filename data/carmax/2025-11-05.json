@@ -12,7 +12,9 @@
       "mileage": 21000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27713976",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KNDAF0PU230205",
+      "normalized_trim": "SEL"
     },
     {
       "id": "28039767",
@@ -24,7 +26,9 @@
       "mileage": 27000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28039767",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KRDAF7PU130249",
+      "normalized_trim": "Limited"
     },
     {
       "id": "27635523",
@@ -36,7 +40,9 @@
       "mileage": 18000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27635523",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KNDAF1PU152601",
+      "normalized_trim": "SEL"
     },
     {
       "id": "27766458",
@@ -48,7 +54,9 @@
       "mileage": 36000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27766458",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KNDAF8PU152577",
+      "normalized_trim": "SEL"
     },
     {
       "id": "27766221",
@@ -60,7 +68,9 @@
       "mileage": 10000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27766221",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KRDDF0RU333093",
+      "normalized_trim": "Limited"
     },
     {
       "id": "27959266",
@@ -72,7 +82,9 @@
       "mileage": 22000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27959266",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KRDAF2PU194392",
+      "normalized_trim": "Limited"
     },
     {
       "id": "27838986",
@@ -84,7 +96,9 @@
       "mileage": 18000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27838986",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KNDAF9NU098932",
+      "normalized_trim": "SEL"
     },
     {
       "id": "27450966",
@@ -96,7 +110,9 @@
       "mileage": 8000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27450966",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KM4AE6PU163250",
+      "normalized_trim": "SE"
     },
     {
       "id": "27957196",
@@ -108,7 +124,9 @@
       "mileage": 25000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27957196",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KNDAF5PU164752",
+      "normalized_trim": "SEL"
     },
     {
       "id": "27984498",
@@ -120,7 +138,9 @@
       "mileage": 20000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27984498",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KRDAF0PU145160",
+      "normalized_trim": "Limited"
     },
     {
       "id": "27455702",
@@ -132,7 +152,9 @@
       "mileage": 42000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27455702",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KRDAF5NU067360",
+      "normalized_trim": "Limited"
     },
     {
       "id": "28065464",
@@ -144,7 +166,9 @@
       "mileage": 1000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28065464",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KRDDF6RU256519",
+      "normalized_trim": "Limited"
     },
     {
       "id": "28065492",
@@ -156,7 +180,9 @@
       "mileage": 1000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28065492",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KRDDF6RU259940",
+      "normalized_trim": "Limited"
     },
     {
       "id": "27960513",
@@ -168,7 +194,8 @@
       "mileage": 9000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27960513",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "normalized_trim": "Limited"
     },
     {
       "id": "28065493",
@@ -180,7 +207,9 @@
       "mileage": 1000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28065493",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KRDDFXRU270200",
+      "normalized_trim": "Limited"
     },
     {
       "id": "27977461",
@@ -192,7 +221,9 @@
       "mileage": 31000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27977461",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KN4AE0PU150233",
+      "normalized_trim": "SEL"
     },
     {
       "id": "27236415",
@@ -204,7 +235,9 @@
       "mileage": 21000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27236415",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KNDAF3NU093967",
+      "normalized_trim": "SEL"
     },
     {
       "id": "27415783",
@@ -216,7 +249,9 @@
       "mileage": 24000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27415783",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KNDAF2PU201353",
+      "normalized_trim": "SEL"
     },
     {
       "id": "28018151",
@@ -228,7 +263,9 @@
       "mileage": 22000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28018151",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KR4DE5RU288904",
+      "normalized_trim": "Limited"
     },
     {
       "id": "26434907",
@@ -240,7 +277,9 @@
       "mileage": 10000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/26434907",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KRDAF3PU200555",
+      "normalized_trim": "Limited"
     },
     {
       "id": "27426404",
@@ -252,7 +291,9 @@
       "mileage": 35000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27426404",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KNDAF7NU103528",
+      "normalized_trim": "SEL"
     },
     {
       "id": "27837334",
@@ -264,7 +305,9 @@
       "mileage": 30000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27837334",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KN4AE2NU093675",
+      "normalized_trim": "SEL"
     },
     {
       "id": "27751833",
@@ -276,7 +319,9 @@
       "mileage": 29000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27751833",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KRDAF6NU065035",
+      "normalized_trim": "Limited"
     },
     {
       "id": "27557013",
@@ -288,7 +333,9 @@
       "mileage": 25000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27557013",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KNDAF6PU132151",
+      "normalized_trim": "SEL"
     },
     {
       "id": "27685434",
@@ -300,7 +347,9 @@
       "mileage": 10000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27685434",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KRDDF4RU236723",
+      "normalized_trim": "Limited"
     },
     {
       "id": "27633272",
@@ -312,7 +361,9 @@
       "mileage": 20000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27633272",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KN4AE8PU147483",
+      "normalized_trim": "SEL"
     },
     {
       "id": "27445990",
@@ -324,7 +375,9 @@
       "mileage": 50000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27445990",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KN4AE3NU108006",
+      "normalized_trim": "SEL"
     },
     {
       "id": "27125057",
@@ -336,7 +389,9 @@
       "mileage": 15000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27125057",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KR4DE9RU243643",
+      "normalized_trim": "Limited"
     },
     {
       "id": "27992246",
@@ -348,7 +403,9 @@
       "mileage": 26000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27992246",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KNDAF6PU181172",
+      "normalized_trim": "SEL"
     },
     {
       "id": "27868904",
@@ -360,7 +417,9 @@
       "mileage": 8000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27868904",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KNDAF1PU188384",
+      "normalized_trim": "SEL"
     },
     {
       "id": "27403935",
@@ -372,7 +431,9 @@
       "mileage": 18000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27403935",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KN4AE3PU126475",
+      "normalized_trim": "SEL"
     },
     {
       "id": "27484884",
@@ -384,7 +445,9 @@
       "mileage": 9000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27484884",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KRDAF3PU158629",
+      "normalized_trim": "Limited"
     },
     {
       "id": "27705880",
@@ -396,7 +459,9 @@
       "mileage": 19000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27705880",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KRDAF1PU159813",
+      "normalized_trim": "Limited"
     },
     {
       "id": "27974798",
@@ -408,7 +473,9 @@
       "mileage": 25000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27974798",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KN4AE2PU151559",
+      "normalized_trim": "SEL"
     },
     {
       "id": "27810772",
@@ -420,7 +487,9 @@
       "mileage": 12000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27810772",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KRDDF5RU274199",
+      "normalized_trim": "Limited"
     },
     {
       "id": "27490467",
@@ -432,7 +501,9 @@
       "mileage": 14000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27490467",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KRDDF3RU239693",
+      "normalized_trim": "Limited"
     },
     {
       "id": "28094826",
@@ -444,7 +515,9 @@
       "mileage": 27000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28094826",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KRDAF7PU212904",
+      "normalized_trim": "Limited"
     },
     {
       "id": "26828635",
@@ -456,7 +529,9 @@
       "mileage": 5000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/26828635",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KN4AE7NU088830",
+      "normalized_trim": "SEL"
     },
     {
       "id": "27567255",
@@ -468,7 +543,9 @@
       "mileage": 5000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27567255",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7YAKR4DA1SY001129",
+      "normalized_trim": "Limited"
     },
     {
       "id": "27765879",
@@ -480,7 +557,9 @@
       "mileage": 24000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27765879",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KNDAF1PU153960",
+      "normalized_trim": "SEL"
     },
     {
       "id": "27939326",
@@ -492,7 +571,9 @@
       "mileage": 33000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27939326",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KNDAF7PU152831",
+      "normalized_trim": "SEL"
     },
     {
       "id": "27935215",
@@ -504,7 +585,9 @@
       "mileage": 2000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27935215",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7YAKMDDC1SY021882",
+      "normalized_trim": "SE"
     },
     {
       "id": "27622330",
@@ -516,7 +599,9 @@
       "mileage": 36000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27622330",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KN4AE9PU179407",
+      "normalized_trim": "SEL"
     },
     {
       "id": "27777988",
@@ -528,7 +613,9 @@
       "mileage": 18000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27777988",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KM4AE9NU073474",
+      "normalized_trim": "SE"
     },
     {
       "id": "28050854",
@@ -540,7 +627,9 @@
       "mileage": 34000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28050854",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KM4AE2NU071730",
+      "normalized_trim": "SE"
     },
     {
       "id": "27773364",
@@ -552,7 +641,9 @@
       "mileage": 38000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27773364",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KRDAF3PU123881",
+      "normalized_trim": "Limited"
     },
     {
       "id": "27415498",
@@ -564,7 +655,9 @@
       "mileage": 23000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27415498",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KMDAF7PU201139",
+      "normalized_trim": "SE"
     },
     {
       "id": "28065494",
@@ -576,7 +669,9 @@
       "mileage": 1000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28065494",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KRDDF2RU267680",
+      "normalized_trim": "Limited"
     },
     {
       "id": "27720737",
@@ -588,7 +683,9 @@
       "mileage": 24000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27720737",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KRDAF4NU091388",
+      "normalized_trim": "Limited"
     },
     {
       "id": "27613347",
@@ -600,7 +697,9 @@
       "mileage": 47000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27613347",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KMDAF7NU055824",
+      "normalized_trim": "SE"
     },
     {
       "id": "27693340",
@@ -612,7 +711,9 @@
       "mileage": 17000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27693340",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KRDAF3PU169260",
+      "normalized_trim": "Limited"
     },
     {
       "id": "28124291",
@@ -624,7 +725,9 @@
       "mileage": 44000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28124291",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KM4AE5PU127940",
+      "normalized_trim": "SE"
     },
     {
       "id": "26324755",
@@ -636,7 +739,8 @@
       "mileage": 35000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/26324755",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "normalized_trim": "Limited"
     },
     {
       "id": "28043595",
@@ -648,7 +752,9 @@
       "mileage": 13000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28043595",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KM4AE5NU064481",
+      "normalized_trim": "SE"
     },
     {
       "id": "28007084",
@@ -660,7 +766,9 @@
       "mileage": 13000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28007084",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KRDAFXPU157770",
+      "normalized_trim": "Limited"
     },
     {
       "id": "28050709",
@@ -672,7 +780,9 @@
       "mileage": 28000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28050709",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KNDAF2PU200896",
+      "normalized_trim": "SEL"
     },
     {
       "id": "27077719",
@@ -684,7 +794,9 @@
       "mileage": 35000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27077719",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KNDAF6PU156188",
+      "normalized_trim": "SEL"
     },
     {
       "id": "28104328",
@@ -696,7 +808,9 @@
       "mileage": 11000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28104328",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KRDAF9PU166878",
+      "normalized_trim": "Limited"
     },
     {
       "id": "27307428",
@@ -708,7 +822,9 @@
       "mileage": 50000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27307428",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KM4AE5NU056221",
+      "normalized_trim": "SE"
     },
     {
       "id": "28070009",
@@ -720,7 +836,9 @@
       "mileage": 21000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28070009",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KRDDF0RU242812",
+      "normalized_trim": "Limited"
     },
     {
       "id": "28046056",
@@ -732,7 +850,9 @@
       "mileage": 7000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28046056",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KR4DE5RU331198",
+      "normalized_trim": "Limited"
     },
     {
       "id": "27953425",
@@ -744,7 +864,9 @@
       "mileage": 22000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27953425",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KNDAF2PU164529",
+      "normalized_trim": "SEL"
     },
     {
       "id": "27967607",
@@ -756,7 +878,9 @@
       "mileage": 31000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27967607",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8KN4AE7PU172472",
+      "normalized_trim": "SEL"
     },
     {
       "id": "27223704",
@@ -769,7 +893,8 @@
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27223704",
       "listing_date": "2025-11-05",
-      "purchase_status": "sold"
+      "purchase_status": "sold",
+      "normalized_trim": "Limited"
     },
     {
       "id": "26937725",
@@ -782,7 +907,8 @@
       "location": "CarMax",
       "url": "https://www.carmax.com/car/26937725",
       "listing_date": "2025-11-04",
-      "purchase_status": "sold"
+      "purchase_status": "sold",
+      "normalized_trim": "SEL"
     },
     {
       "id": "27578987",
@@ -795,7 +921,8 @@
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27578987",
       "listing_date": "2025-11-04",
-      "purchase_status": "sold"
+      "purchase_status": "sold",
+      "normalized_trim": "SE"
     },
     {
       "id": "27638256",
@@ -808,7 +935,8 @@
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27638256",
       "listing_date": "2025-11-01",
-      "purchase_status": "sold"
+      "purchase_status": "sold",
+      "normalized_trim": "SEL"
     },
     {
       "id": "27667643",
@@ -821,7 +949,8 @@
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27667643",
       "listing_date": "2025-10-31",
-      "purchase_status": "sold"
+      "purchase_status": "sold",
+      "normalized_trim": "SEL"
     },
     {
       "id": "27257472",
@@ -834,7 +963,8 @@
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27257472",
       "listing_date": "2025-10-29",
-      "purchase_status": "sold"
+      "purchase_status": "sold",
+      "normalized_trim": "Limited"
     },
     {
       "id": "27362923",
@@ -847,7 +977,8 @@
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27362923",
       "listing_date": "2025-10-29",
-      "purchase_status": "selling"
+      "purchase_status": "selling",
+      "normalized_trim": "SEL"
     },
     {
       "id": "27925970",
@@ -860,7 +991,8 @@
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27925970",
       "listing_date": "2025-10-29",
-      "purchase_status": "sold"
+      "purchase_status": "sold",
+      "normalized_trim": "Limited"
     },
     {
       "id": "26282507",
@@ -873,7 +1005,8 @@
       "location": "CarMax",
       "url": "https://www.carmax.com/car/26282507",
       "listing_date": "2025-10-29",
-      "purchase_status": "sold"
+      "purchase_status": "sold",
+      "normalized_trim": "SEL"
     },
     {
       "id": "27069250",
@@ -886,7 +1019,8 @@
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27069250",
       "listing_date": "2025-10-29",
-      "purchase_status": "sold"
+      "purchase_status": "sold",
+      "normalized_trim": "SEL"
     },
     {
       "id": "27739511",
@@ -898,7 +1032,9 @@
       "mileage": 22000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27739511",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EB1MF072962",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "27665111",
@@ -910,7 +1046,9 @@
       "mileage": 57000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27665111",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EA5PF475533",
+      "normalized_trim": null
     },
     {
       "id": "27805042",
@@ -922,7 +1060,9 @@
       "mileage": 8000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27805042",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EA6RF731231",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "27704956",
@@ -934,7 +1074,9 @@
       "mileage": 23000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27704956",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EA6PF586172",
+      "normalized_trim": null
     },
     {
       "id": "27817396",
@@ -946,7 +1088,9 @@
       "mileage": 9000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27817396",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EB8PF637776",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "27703667",
@@ -970,7 +1114,9 @@
       "mileage": 40000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27672798",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EC5LF624857",
+      "normalized_trim": "Performance"
     },
     {
       "id": "27766203",
@@ -982,7 +1128,9 @@
       "mileage": 86000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27766203",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EA1MF938831",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "27766483",
@@ -994,7 +1142,9 @@
       "mileage": 19000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27766483",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EA6PF622989",
+      "normalized_trim": null
     },
     {
       "id": "27013428",
@@ -1006,7 +1156,9 @@
       "mileage": 61000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27013428",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EAXPF459036",
+      "normalized_trim": null
     },
     {
       "id": "28040150",
@@ -1018,7 +1170,9 @@
       "mileage": 53000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28040150",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EB2KF195134",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "27673606",
@@ -1030,7 +1184,9 @@
       "mileage": 20000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27673606",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EB7NF207086",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "26045948",
@@ -1042,7 +1198,9 @@
       "mileage": 45000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/26045948",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EB8LF808259",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "27885015",
@@ -1066,7 +1224,9 @@
       "mileage": 42000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27995104",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EA2NF119487",
+      "normalized_trim": null
     },
     {
       "id": "27069226",
@@ -1090,7 +1250,9 @@
       "mileage": 48000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27360006",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EA4MF921182",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "27747919",
@@ -1102,7 +1264,9 @@
       "mileage": 34000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27747919",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EA6MF058773",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "27995349",
@@ -1126,7 +1290,9 @@
       "mileage": 55000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27839100",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EA8PF563234",
+      "normalized_trim": null
     },
     {
       "id": "27995225",
@@ -1138,7 +1304,9 @@
       "mileage": 85000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27995225",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EB4NF177738",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "27839129",
@@ -1150,7 +1318,9 @@
       "mileage": 31000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27839129",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EA9PF673063",
+      "normalized_trim": null
     },
     {
       "id": "27994810",
@@ -1162,7 +1332,9 @@
       "mileage": 43000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27994810",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EA7MF937439",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "27995236",
@@ -1174,7 +1346,9 @@
       "mileage": 67000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27995236",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EC6NF262167",
+      "normalized_trim": "Performance"
     },
     {
       "id": "27747695",
@@ -1198,7 +1372,9 @@
       "mileage": 51000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27922789",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EA8MF066373",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "27602534",
@@ -1246,7 +1422,9 @@
       "mileage": 2000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27817033",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EA1SF951303",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "27602625",
@@ -1258,7 +1436,9 @@
       "mileage": 22000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27602625",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EB8PF388654",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "28021278",
@@ -1270,7 +1450,9 @@
       "mileage": 40000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28021278",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EB1MF974110",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "28072758",
@@ -1282,7 +1464,9 @@
       "mileage": 34000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28072758",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EAXMF940237",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "27923125",
@@ -1294,7 +1478,9 @@
       "mileage": 48000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27923125",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EA6MF096603",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "27817395",
@@ -1306,7 +1492,9 @@
       "mileage": 44000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27817395",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EA4NF296221",
+      "normalized_trim": null
     },
     {
       "id": "28021425",
@@ -1330,7 +1518,9 @@
       "mileage": 16000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27007298",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EA1SF918236",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "28021353",
@@ -1342,7 +1532,9 @@
       "mileage": 16000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28021353",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EA2PF680906",
+      "normalized_trim": null
     },
     {
       "id": "27681781",
@@ -1354,7 +1546,9 @@
       "mileage": 12000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27681781",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EA0PF663148",
+      "normalized_trim": null
     },
     {
       "id": "27907360",
@@ -1366,7 +1560,9 @@
       "mileage": 21000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27907360",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EA0PF577984",
+      "normalized_trim": null
     },
     {
       "id": "28021316",
@@ -1390,7 +1586,9 @@
       "mileage": 16000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27681847",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EC3NF130872",
+      "normalized_trim": "Performance"
     },
     {
       "id": "27947185",
@@ -1402,7 +1600,9 @@
       "mileage": 3000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27947185",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EA8SF981527",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "27681641",
@@ -1414,7 +1614,9 @@
       "mileage": 36000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27681641",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EA7PF460208",
+      "normalized_trim": null
     },
     {
       "id": "27681830",
@@ -1450,7 +1652,9 @@
       "mileage": 40000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27747742",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EA1PF453223",
+      "normalized_trim": null
     },
     {
       "id": "27748197",
@@ -1462,7 +1666,9 @@
       "mileage": 34000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27748197",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EB6NF257736",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "27816885",
@@ -1474,7 +1680,9 @@
       "mileage": 68000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27816885",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EA5MF071739",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "27681404",
@@ -1486,7 +1694,9 @@
       "mileage": 36000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27681404",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EA9LF717668",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "27923408",
@@ -1498,7 +1708,9 @@
       "mileage": 3000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27923408",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EA8SF068718",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "27675395",
@@ -1510,7 +1722,9 @@
       "mileage": 19000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27675395",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EA0PF687014",
+      "normalized_trim": null
     },
     {
       "id": "27337229",
@@ -1546,7 +1760,9 @@
       "mileage": 39000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27923154",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EA9PF714503",
+      "normalized_trim": null
     },
     {
       "id": "27923702",
@@ -1570,7 +1786,9 @@
       "mileage": 54000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27748172",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EA0NF126468",
+      "normalized_trim": null
     },
     {
       "id": "27947021",
@@ -1582,7 +1800,9 @@
       "mileage": 85000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27947021",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EBXKF511685",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "27816953",
@@ -1606,7 +1826,9 @@
       "mileage": 37000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27457979",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EB0MF847932",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "27748082",
@@ -1618,7 +1840,9 @@
       "mileage": 33000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27748082",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EA6MF878805",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "27089680",
@@ -1642,7 +1866,9 @@
       "mileage": 27000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27817371",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EA9PF512700",
+      "normalized_trim": null
     },
     {
       "id": "28073377",
@@ -1678,7 +1904,9 @@
       "mileage": 17000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28073337",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EA3PF641760",
+      "normalized_trim": null
     },
     {
       "id": "27816887",
@@ -1702,7 +1930,9 @@
       "mileage": 14000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27838997",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EB4NF297491",
+      "normalized_trim": "Standard Range Plus"
     },
     {
       "id": "27747539",
@@ -1714,7 +1944,9 @@
       "mileage": 32000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27747539",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EC4PF383279",
+      "normalized_trim": "Performance"
     },
     {
       "id": "28072791",
@@ -1726,7 +1958,9 @@
       "mileage": 12000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28072791",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJ3E1EC2PF399125",
+      "normalized_trim": "Performance"
     },
     {
       "id": "27927000",
@@ -1738,7 +1972,9 @@
       "mileage": 20000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27927000",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC5DLE6P5093763",
+      "normalized_trim": "GT"
     },
     {
       "id": "27835083",
@@ -1750,7 +1986,9 @@
       "mileage": 44000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27835083",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC34LA6N5071231",
+      "normalized_trim": "Wind"
     },
     {
       "id": "27529836",
@@ -1762,7 +2000,9 @@
       "mileage": 29000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27529836",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC4DLC4N5042857",
+      "normalized_trim": "GT-Line"
     },
     {
       "id": "27588218",
@@ -1774,7 +2014,9 @@
       "mileage": 28000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27588218",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC3DLC0N5043443",
+      "normalized_trim": "Wind"
     },
     {
       "id": "27824227",
@@ -1786,7 +2028,9 @@
       "mileage": 18000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27824227",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC3DLC9N5088784",
+      "normalized_trim": "Wind"
     },
     {
       "id": "27794449",
@@ -1798,7 +2042,9 @@
       "mileage": 27000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27794449",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC5DLE9P5123452",
+      "normalized_trim": "GT"
     },
     {
       "id": "28066282",
@@ -1810,7 +2056,9 @@
       "mileage": 23000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28066282",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC34LA8R5162295",
+      "normalized_trim": "Wind"
     },
     {
       "id": "28072999",
@@ -1822,7 +2070,9 @@
       "mileage": 34000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28072999",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC44LA5P5102047",
+      "normalized_trim": "GT-Line"
     },
     {
       "id": "27069364",
@@ -1846,7 +2096,9 @@
       "mileage": 14000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27681113",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC34LA9N5065021",
+      "normalized_trim": "Wind"
     },
     {
       "id": "28008547",
@@ -1858,7 +2110,9 @@
       "mileage": 34000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28008547",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC34LA3N5047551",
+      "normalized_trim": "Wind"
     },
     {
       "id": "27732684",
@@ -1870,7 +2124,9 @@
       "mileage": 50000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27732684",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC3DLC9N5045224",
+      "normalized_trim": "Wind"
     },
     {
       "id": "28044521",
@@ -1882,7 +2138,9 @@
       "mileage": 14000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28044521",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC34LB9R5181625",
+      "normalized_trim": "Light"
     },
     {
       "id": "28015331",
@@ -1894,7 +2152,9 @@
       "mileage": 46000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28015331",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC44LAXN5048371",
+      "normalized_trim": "GT-Line"
     },
     {
       "id": "27898778",
@@ -1906,7 +2166,9 @@
       "mileage": 20000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27898778",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC3DLC0P5150835",
+      "normalized_trim": "Wind"
     },
     {
       "id": "27967022",
@@ -1918,7 +2180,9 @@
       "mileage": 48000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27967022",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KNDC44LA7N5026845",
+      "normalized_trim": "GT-Line"
     },
     {
       "id": "27537695",
@@ -1930,7 +2194,9 @@
       "mileage": 8000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27537695",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVGTMPE29NP074161",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "28050507",
@@ -1942,7 +2208,9 @@
       "mileage": 31000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28050507",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V25MPE84PC029493",
+      "normalized_trim": "S"
     },
     {
       "id": "27976802",
@@ -1954,7 +2222,9 @@
       "mileage": 21000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27976802",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVGGNPE22NP060164",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "27930591",
@@ -1966,7 +2236,9 @@
       "mileage": 27000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27930591",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V2FMPE85PC008690",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "27886514",
@@ -1978,7 +2250,9 @@
       "mileage": 23000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27886514",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVGKMPE25MP062115",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "28050511",
@@ -1990,7 +2264,9 @@
       "mileage": 16000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28050511",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V2CMPE83PC029573",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "27941105",
@@ -2002,7 +2278,9 @@
       "mileage": 13000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27941105",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V25MPE81PC024932",
+      "normalized_trim": "S"
     },
     {
       "id": "28065411",
@@ -2014,7 +2292,9 @@
       "mileage": 8000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28065411",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V2BMPE87PC056917",
+      "normalized_trim": "Standard"
     },
     {
       "id": "28050515",
@@ -2026,7 +2306,9 @@
       "mileage": 10000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28050515",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V25MPE80PC014649",
+      "normalized_trim": "S"
     },
     {
       "id": "28051659",
@@ -2038,7 +2320,9 @@
       "mileage": 22000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28051659",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V2VMPE89PC047097",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "28050512",
@@ -2050,7 +2334,9 @@
       "mileage": 20000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28050512",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V2BMPE87PC050180",
+      "normalized_trim": "Standard"
     },
     {
       "id": "28050506",
@@ -2062,7 +2348,9 @@
       "mileage": 19000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28050506",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V2VMPE85PC041801",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "28050998",
@@ -2074,7 +2362,9 @@
       "mileage": 31000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28050998",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V2VMPE8XPC024976",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "28050505",
@@ -2086,7 +2376,9 @@
       "mileage": 20000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28050505",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V25MPE87PC036096",
+      "normalized_trim": "S"
     },
     {
       "id": "27770135",
@@ -2098,7 +2390,9 @@
       "mileage": 28000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27770135",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVGRMPE26NP060986",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "27563833",
@@ -2110,7 +2404,9 @@
       "mileage": 34000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27563833",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVGKMPE21NP065918",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "27637334",
@@ -2122,7 +2418,9 @@
       "mileage": 37000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27637334",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V2GNPE88PC001265",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "27754093",
@@ -2134,7 +2432,9 @@
       "mileage": 21000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27754093",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V2FMPE83PC003830",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "27925251",
@@ -2146,7 +2446,9 @@
       "mileage": 22000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27925251",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V2GNPE85PC004690",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "27257589",
@@ -2158,7 +2460,9 @@
       "mileage": 7000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27257589",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V2DNPE87PC024555",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "27460054",
@@ -2170,7 +2474,9 @@
       "mileage": 24000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27460054",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V25MPE85PC046268",
+      "normalized_trim": "S"
     },
     {
       "id": "28059668",
@@ -2182,7 +2488,9 @@
       "mileage": 4000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28059668",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V2WNPE80PC015205",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "27925848",
@@ -2194,7 +2502,9 @@
       "mileage": 9000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27925848",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V25MPE85RC003388",
+      "normalized_trim": "S"
     },
     {
       "id": "25827705",
@@ -2206,7 +2516,9 @@
       "mileage": 12000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/25827705",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVGJNPE20NP047404",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "27741859",
@@ -2218,7 +2530,9 @@
       "mileage": 13000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27741859",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V2VMPE86PC022268",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "27244056",
@@ -2230,7 +2544,9 @@
       "mileage": 29000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27244056",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVGTMPE26MP029709",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "27904698",
@@ -2242,7 +2558,9 @@
       "mileage": 39000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27904698",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVGRMPE21MP029191",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "27099082",
@@ -2254,7 +2572,9 @@
       "mileage": 26000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27099082",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVGTMPE29MP023550",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "28050513",
@@ -2266,7 +2586,9 @@
       "mileage": 26000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28050513",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V2BMPE80PC057634",
+      "normalized_trim": "Standard"
     },
     {
       "id": "27805041",
@@ -2278,7 +2600,9 @@
       "mileage": 7000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27805041",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVGDMPE23MP020292",
+      "normalized_trim": "1st Edition"
     },
     {
       "id": "27923642",
@@ -2290,7 +2614,9 @@
       "mileage": 28000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27923642",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V2GNPE82PC005263",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "27806556",
@@ -2302,7 +2628,9 @@
       "mileage": 29000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27806556",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V2BMPE81RC004041",
+      "normalized_trim": "Standard"
     },
     {
       "id": "27678067",
@@ -2314,7 +2642,9 @@
       "mileage": 48000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27678067",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVGTMPE2XMP056122",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "27707282",
@@ -2326,7 +2656,9 @@
       "mileage": 15000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27707282",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVGUNPE25NP072215",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "28050516",
@@ -2338,7 +2670,9 @@
       "mileage": 24000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28050516",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V2VMPE8XPC016702",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "27884393",
@@ -2350,7 +2684,9 @@
       "mileage": 30000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27884393",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVGUNPE21NP060966",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "27530290",
@@ -2362,7 +2698,9 @@
       "mileage": 48000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27530290",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVGDMPE23MP013214",
+      "normalized_trim": "1st Edition"
     },
     {
       "id": "27695188",
@@ -2374,7 +2712,9 @@
       "mileage": 44000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27695188",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVGTMPE26MP034604",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "27688385",
@@ -2386,7 +2726,9 @@
       "mileage": 43000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27688385",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V2FMPE86PC013929",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "27588122",
@@ -2398,7 +2740,9 @@
       "mileage": 19000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27588122",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V2GNPE82PC001214",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "27344877",
@@ -2410,7 +2754,9 @@
       "mileage": 15000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27344877",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V2FMPE80PC013120",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "27856385",
@@ -2422,7 +2768,9 @@
       "mileage": 8000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27856385",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V2BMPE85RC006911",
+      "normalized_trim": "Standard"
     },
     {
       "id": "28021015",
@@ -2434,7 +2782,9 @@
       "mileage": 28000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28021015",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V2WNPE83PC027137",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "27791737",
@@ -2446,7 +2796,9 @@
       "mileage": 17000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27791737",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V2CMPE85PC011141",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "27855983",
@@ -2458,7 +2810,9 @@
       "mileage": 40000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27855983",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVGDMPE2XMP020760",
+      "normalized_trim": "1st Edition"
     },
     {
       "id": "27695818",
@@ -2470,7 +2824,9 @@
       "mileage": 24000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27695818",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V25MPE82PC034563",
+      "normalized_trim": "S"
     },
     {
       "id": "27695709",
@@ -2482,7 +2838,9 @@
       "mileage": 34000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27695709",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVGUNPE20MP057989",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "27527504",
@@ -2494,7 +2852,9 @@
       "mileage": 9000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27527504",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVGKMPE28NP070002",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "28050997",
@@ -2506,7 +2866,9 @@
       "mileage": 45000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28050997",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V25MPE86PC022674",
+      "normalized_trim": "S"
     },
     {
       "id": "27939838",
@@ -2518,7 +2880,9 @@
       "mileage": 5000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27939838",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V2BMPE8XRC015362",
+      "normalized_trim": "Standard"
     },
     {
       "id": "27901914",
@@ -2542,7 +2906,9 @@
       "mileage": 9000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28118246",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1V2GNPE82PC006316",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "28019650",
@@ -2554,7 +2920,9 @@
       "mileage": 16000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28019650",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WVGTMPE26NP038234",
+      "normalized_trim": "Pro S Plus"
     },
     {
       "id": "27984830",
@@ -2566,7 +2934,9 @@
       "mileage": 3000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27984830",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "JN8AF0BEXSM463579",
+      "normalized_trim": "Engage"
     },
     {
       "id": "27737153",
@@ -2590,7 +2960,9 @@
       "mileage": 15000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27637177",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "JN1AF0BA7PM405903",
+      "normalized_trim": "Engage"
     },
     {
       "id": "27974204",
@@ -2602,7 +2974,9 @@
       "mileage": 3000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27974204",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "JN1AF0BA6RM436224",
+      "normalized_trim": "Engage"
     },
     {
       "id": "27898341",
@@ -2614,7 +2988,9 @@
       "mileage": 2000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27898341",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "JN8BF0BE6SM464474",
+      "normalized_trim": "Evolve+"
     },
     {
       "id": "27700148",
@@ -2626,7 +3002,9 @@
       "mileage": 13000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27700148",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "JN1DF0BB3PM702477",
+      "normalized_trim": "Evolve+ e-4ORCE"
     },
     {
       "id": "27973971",
@@ -2638,7 +3016,9 @@
       "mileage": 12000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27973971",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "JN1BF0BA4RM434539",
+      "normalized_trim": "Evolve+"
     },
     {
       "id": "27512160",
@@ -2650,7 +3030,9 @@
       "mileage": 1000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27512160",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "JN8AF0BE9SM463542",
+      "normalized_trim": "Engage"
     },
     {
       "id": "28066193",
@@ -2662,7 +3044,9 @@
       "mileage": 9000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28066193",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "JN8AF0BE7SM460204",
+      "normalized_trim": "Engage"
     },
     {
       "id": "27638139",
@@ -2674,7 +3058,9 @@
       "mileage": 19000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27638139",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "JN1DF0BBXPM704856",
+      "normalized_trim": "Evolve+ e-4ORCE"
     },
     {
       "id": "27939653",
@@ -2686,7 +3072,9 @@
       "mileage": 20000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27939653",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "JN1DF0CD5PM704764",
+      "normalized_trim": "Platinum+ e-4ORCE"
     },
     {
       "id": "27875085",
@@ -2698,7 +3086,9 @@
       "mileage": 12000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27875085",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "JN1BF0BA8PM402934",
+      "normalized_trim": "Premiere"
     },
     {
       "id": "27939746",
@@ -2710,7 +3100,9 @@
       "mileage": 13000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27939746",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "JN1CF0BB2PM705205",
+      "normalized_trim": "Engage e-4ORCE"
     },
     {
       "id": "27800798",
@@ -2722,7 +3114,9 @@
       "mileage": 17000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27800798",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "JN1DF0BB8RM732027",
+      "normalized_trim": "Engage e-4ORCE"
     },
     {
       "id": "27765982",
@@ -2746,7 +3140,9 @@
       "mileage": 46000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27470372",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1BP5LC310034",
+      "normalized_trim": "S"
     },
     {
       "id": "27288607",
@@ -2758,7 +3154,9 @@
       "mileage": 6000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27288607",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1CPXKC307014",
+      "normalized_trim": "S"
     },
     {
       "id": "27537793",
@@ -2770,7 +3168,9 @@
       "mileage": 24000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27537793",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4CZ1CV1PC553318",
+      "normalized_trim": "SV PLUS"
     },
     {
       "id": "27947221",
@@ -2782,7 +3182,9 @@
       "mileage": 18000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27947221",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4CZ1CV5PC553340",
+      "normalized_trim": "SV PLUS"
     },
     {
       "id": "27923314",
@@ -2794,7 +3196,9 @@
       "mileage": 37000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27923314",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4CZ1CVXPC561160",
+      "normalized_trim": "SV PLUS"
     },
     {
       "id": "28021453",
@@ -2806,7 +3210,9 @@
       "mileage": 26000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28021453",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1CP2KC311963",
+      "normalized_trim": "S"
     },
     {
       "id": "27838708",
@@ -2818,7 +3224,9 @@
       "mileage": 37000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27838708",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1CP4KC307347",
+      "normalized_trim": "S"
     },
     {
       "id": "27923056",
@@ -2830,7 +3238,9 @@
       "mileage": 20000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27923056",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1CV3NC553843",
+      "normalized_trim": "SV"
     },
     {
       "id": "27831412",
@@ -2842,7 +3252,9 @@
       "mileage": 52000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27831412",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4BZ1BV2NC564046",
+      "normalized_trim": "SL PLUS"
     },
     {
       "id": "27602921",
@@ -2854,7 +3266,9 @@
       "mileage": 39000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27602921",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1CP6KC302506",
+      "normalized_trim": "SL"
     },
     {
       "id": "27886298",
@@ -2866,7 +3280,9 @@
       "mileage": 28000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27886298",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4BZ1BV2NC560563",
+      "normalized_trim": "SL PLUS"
     },
     {
       "id": "27658079",
@@ -2878,7 +3294,9 @@
       "mileage": 20000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27658079",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1BV6PC554537",
+      "normalized_trim": "S"
     },
     {
       "id": "28051018",
@@ -2890,7 +3308,9 @@
       "mileage": 25000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28051018",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1CV4MC552487",
+      "normalized_trim": "SV"
     },
     {
       "id": "27602765",
@@ -2902,7 +3322,9 @@
       "mileage": 19000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27602765",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1CP6KC303946",
+      "normalized_trim": "S"
     },
     {
       "id": "28132310",
@@ -2914,7 +3336,9 @@
       "mileage": 36000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28132310",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4BZ1CV3NC559601",
+      "normalized_trim": "SV PLUS"
     },
     {
       "id": "28145338",
@@ -2926,7 +3350,9 @@
       "mileage": 43000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28145338",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4BZ1BVXNC558544",
+      "normalized_trim": "SL PLUS"
     },
     {
       "id": "28145353",
@@ -2938,7 +3364,9 @@
       "mileage": 61000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28145353",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4BZ1DV7MC556729",
+      "normalized_trim": "SL PLUS"
     },
     {
       "id": "27941019",
@@ -2950,7 +3378,9 @@
       "mileage": 20000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27941019",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4BZ1DV1NC555691",
+      "normalized_trim": "SL PLUS"
     },
     {
       "id": "27120925",
@@ -2962,7 +3392,9 @@
       "mileage": 41000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27120925",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1CPXLC308567",
+      "normalized_trim": "SV"
     },
     {
       "id": "27620849",
@@ -2974,7 +3406,9 @@
       "mileage": 56000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27620849",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1CP5JC308344",
+      "normalized_trim": "SV"
     },
     {
       "id": "27831890",
@@ -2986,7 +3420,9 @@
       "mileage": 22000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27831890",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1BV3PC550994",
+      "normalized_trim": "S"
     },
     {
       "id": "27939314",
@@ -2998,7 +3434,9 @@
       "mileage": 9000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27939314",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1BV4SC561530",
+      "normalized_trim": "S"
     },
     {
       "id": "27394914",
@@ -3010,7 +3448,9 @@
       "mileage": 42000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27394914",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1CP5JC303466",
+      "normalized_trim": "SV"
     },
     {
       "id": "27944617",
@@ -3022,7 +3462,9 @@
       "mileage": 25000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27944617",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1CV7NC561797",
+      "normalized_trim": "SV"
     },
     {
       "id": "27577237",
@@ -3034,7 +3476,9 @@
       "mileage": 60000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27577237",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4BZ1CP1KC312039",
+      "normalized_trim": "SV PLUS"
     },
     {
       "id": "26282854",
@@ -3046,7 +3490,9 @@
       "mileage": 64000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/26282854",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1CPXJC304239",
+      "normalized_trim": "SV"
     },
     {
       "id": "27203997",
@@ -3058,7 +3504,9 @@
       "mileage": 61000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27203997",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4BZ1CP0KC321279",
+      "normalized_trim": "SV PLUS"
     },
     {
       "id": "27974366",
@@ -3070,7 +3518,9 @@
       "mileage": 4000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27974366",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4CZ1CV8PC563117",
+      "normalized_trim": "SV PLUS"
     },
     {
       "id": "27362852",
@@ -3082,7 +3532,9 @@
       "mileage": 24000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27362852",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4BZ1CP9KC308417",
+      "normalized_trim": "SL PLUS"
     },
     {
       "id": "27208951",
@@ -3094,7 +3546,9 @@
       "mileage": 37000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27208951",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1BV3PC559632",
+      "normalized_trim": "S"
     },
     {
       "id": "27362787",
@@ -3106,7 +3560,9 @@
       "mileage": 16000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27362787",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4BZ1CV9NC562583",
+      "normalized_trim": "SV PLUS"
     },
     {
       "id": "27546458",
@@ -3118,7 +3574,9 @@
       "mileage": 39000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27546458",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1BP4LC308744",
+      "normalized_trim": "S"
     },
     {
       "id": "27888912",
@@ -3130,7 +3588,9 @@
       "mileage": 1000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27888912",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4CZ1CVXPC558341",
+      "normalized_trim": "SV PLUS"
     },
     {
       "id": "27715474",
@@ -3142,7 +3602,9 @@
       "mileage": 34000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27715474",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4BZ1CP0KC312503",
+      "normalized_trim": "SV PLUS"
     },
     {
       "id": "27303553",
@@ -3154,7 +3616,9 @@
       "mileage": 75000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27303553",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1CP9KC306484",
+      "normalized_trim": "SV"
     },
     {
       "id": "27748076",
@@ -3166,7 +3630,9 @@
       "mileage": 56000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27748076",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1CV8NC552705",
+      "normalized_trim": "SV"
     },
     {
       "id": "28065454",
@@ -3178,7 +3644,9 @@
       "mileage": 24000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28065454",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1BV7PC555325",
+      "normalized_trim": "S"
     },
     {
       "id": "27530504",
@@ -3190,7 +3658,9 @@
       "mileage": 27000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27530504",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1BV5NC561606",
+      "normalized_trim": "S"
     },
     {
       "id": "27767484",
@@ -3202,7 +3672,9 @@
       "mileage": 48000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27767484",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4CZ1CVXPC553124",
+      "normalized_trim": "SV PLUS"
     },
     {
       "id": "27914634",
@@ -3214,7 +3686,9 @@
       "mileage": 57000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27914634",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1CP7KC307696",
+      "normalized_trim": "S"
     },
     {
       "id": "27406070",
@@ -3226,7 +3700,9 @@
       "mileage": 40000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27406070",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1CP7KC302112",
+      "normalized_trim": "SV"
     },
     {
       "id": "27630321",
@@ -3238,7 +3714,9 @@
       "mileage": 83000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27630321",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4BZ1CP6KC312148",
+      "normalized_trim": "SV PLUS"
     },
     {
       "id": "27630891",
@@ -3250,7 +3728,9 @@
       "mileage": 25000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27630891",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1CP8LC310009",
+      "normalized_trim": "SV"
     },
     {
       "id": "27590286",
@@ -3262,7 +3742,9 @@
       "mileage": 32000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27590286",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1CPXKC307885",
+      "normalized_trim": "SL"
     },
     {
       "id": "26699876",
@@ -3274,7 +3756,9 @@
       "mileage": 54000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/26699876",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1CP7JC301315",
+      "normalized_trim": "SV"
     },
     {
       "id": "27526585",
@@ -3286,7 +3770,9 @@
       "mileage": 11000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27526585",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1BV8RC555109",
+      "normalized_trim": "S"
     },
     {
       "id": "27761794",
@@ -3298,7 +3784,9 @@
       "mileage": 50000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27761794",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4BZ1CP6KC311937",
+      "normalized_trim": "SL PLUS"
     },
     {
       "id": "27904615",
@@ -3310,7 +3798,9 @@
       "mileage": 36000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27904615",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4BZ1CP5KC309046",
+      "normalized_trim": "SV PLUS"
     },
     {
       "id": "27202470",
@@ -3322,7 +3812,9 @@
       "mileage": 27000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27202470",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1BV2NC562163",
+      "normalized_trim": "S"
     },
     {
       "id": "28020014",
@@ -3334,7 +3826,9 @@
       "mileage": 32000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28020014",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1CVXNC561048",
+      "normalized_trim": "SV"
     },
     {
       "id": "27973935",
@@ -3346,7 +3840,9 @@
       "mileage": 10000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27973935",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4BZ1DV4NC550629",
+      "normalized_trim": "SL PLUS"
     },
     {
       "id": "27748175",
@@ -3358,7 +3854,9 @@
       "mileage": 39000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27748175",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1CP3LC302996",
+      "normalized_trim": "SV"
     },
     {
       "id": "28050949",
@@ -3370,7 +3868,9 @@
       "mileage": 38000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28050949",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1CV6MC550806",
+      "normalized_trim": "SV"
     },
     {
       "id": "27563883",
@@ -3382,7 +3882,9 @@
       "mileage": 22000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27563883",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1CV2MC550981",
+      "normalized_trim": "SV"
     },
     {
       "id": "27684270",
@@ -3394,7 +3896,9 @@
       "mileage": 53000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27684270",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4AZ1CPXKC304274",
+      "normalized_trim": "S"
     },
     {
       "id": "27850592",
@@ -3406,7 +3910,9 @@
       "mileage": 64000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27850592",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1N4BZ1DP5LC305207",
+      "normalized_trim": "SL PLUS"
     },
     {
       "id": "27673794",
@@ -3418,7 +3924,9 @@
       "mileage": 18000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27673794",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK4SE1NMA45794",
+      "normalized_trim": "GT"
     },
     {
       "id": "27563666",
@@ -3430,7 +3938,9 @@
       "mileage": 19000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27563666",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK3R74PMA13426",
+      "normalized_trim": "Premium"
     },
     {
       "id": "27068990",
@@ -3442,7 +3952,9 @@
       "mileage": 26000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27068990",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK2R79NMA49135",
+      "normalized_trim": "California Route 1"
     },
     {
       "id": "27658420",
@@ -3454,7 +3966,9 @@
       "mileage": 21000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27658420",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK4SE4NMA20193",
+      "normalized_trim": "GT"
     },
     {
       "id": "27561347",
@@ -3466,7 +3980,9 @@
       "mileage": 31000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27561347",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK1SSXMMA43822",
+      "normalized_trim": "Select"
     },
     {
       "id": "27457890",
@@ -3478,7 +3994,9 @@
       "mileage": 25000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27457890",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK2R78NMA20211",
+      "normalized_trim": "California Route 1"
     },
     {
       "id": "27637781",
@@ -3490,7 +4008,9 @@
       "mileage": 33000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27637781",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK3SS5NMA27332",
+      "normalized_trim": "Premium"
     },
     {
       "id": "27705981",
@@ -3502,7 +4022,9 @@
       "mileage": 32000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27705981",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK3RM9NMA01193",
+      "normalized_trim": "Premium"
     },
     {
       "id": "28042783",
@@ -3514,7 +4036,9 @@
       "mileage": 11000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28042783",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK3R73NMA43420",
+      "normalized_trim": "Premium"
     },
     {
       "id": "27461150",
@@ -3526,7 +4050,9 @@
       "mileage": 30000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27461150",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK3SU5MMA01541",
+      "normalized_trim": "Premium"
     },
     {
       "id": "27548053",
@@ -3538,7 +4064,9 @@
       "mileage": 28000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27548053",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK2SU7NMA24153",
+      "normalized_trim": "California Route 1"
     },
     {
       "id": "27891597",
@@ -3550,7 +4078,9 @@
       "mileage": 22000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27891597",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK3R74NMA25847",
+      "normalized_trim": "Premium"
     },
     {
       "id": "27881081",
@@ -3562,7 +4092,9 @@
       "mileage": 7000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27881081",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK3SU2PMA05616",
+      "normalized_trim": "Premium"
     },
     {
       "id": "27912184",
@@ -3574,7 +4106,9 @@
       "mileage": 14000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27912184",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK3RM5PMA05891",
+      "normalized_trim": "Premium"
     },
     {
       "id": "27975078",
@@ -3586,7 +4120,9 @@
       "mileage": 16000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27975078",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK1S54PMB01356",
+      "normalized_trim": "Select"
     },
     {
       "id": "28124296",
@@ -3598,7 +4134,9 @@
       "mileage": 15000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28124296",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK3S53PMA89888",
+      "normalized_trim": "Premium"
     },
     {
       "id": "27923294",
@@ -3610,7 +4148,9 @@
       "mileage": 12000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27923294",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK2SU6NMA27206",
+      "normalized_trim": "California Route 1"
     },
     {
       "id": "28051040",
@@ -3622,7 +4162,9 @@
       "mileage": 17000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28051040",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK4SE0NMA08350",
+      "normalized_trim": "GT"
     },
     {
       "id": "27784572",
@@ -3634,7 +4176,9 @@
       "mileage": 28000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27784572",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK4SE8NMA22139",
+      "normalized_trim": "GT"
     },
     {
       "id": "27885088",
@@ -3646,7 +4190,9 @@
       "mileage": 27000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27885088",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK1RMXNMA05032",
+      "normalized_trim": "Select"
     },
     {
       "id": "27764662",
@@ -3658,7 +4204,9 @@
       "mileage": 12000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27764662",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK1S55PMB03066",
+      "normalized_trim": "Select"
     },
     {
       "id": "27942051",
@@ -3670,7 +4218,9 @@
       "mileage": 21000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27942051",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK3R41PMA88915",
+      "normalized_trim": "Premium"
     },
     {
       "id": "28017963",
@@ -3682,7 +4232,9 @@
       "mileage": 16000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28017963",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK4SX4PMA93066",
+      "normalized_trim": "GT"
     },
     {
       "id": "27610180",
@@ -3694,7 +4246,9 @@
       "mileage": 30000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27610180",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK3SU8MMA26028",
+      "normalized_trim": "Premium"
     },
     {
       "id": "27755264",
@@ -3706,7 +4260,9 @@
       "mileage": 22000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27755264",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK4SE5PMA45350",
+      "normalized_trim": "GT"
     },
     {
       "id": "28019672",
@@ -3718,7 +4274,9 @@
       "mileage": 6000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28019672",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK1R46SMA02009",
+      "normalized_trim": "Select"
     },
     {
       "id": "27855429",
@@ -3730,7 +4288,9 @@
       "mileage": 20000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27855429",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK3RM2NMA25772",
+      "normalized_trim": "Premium"
     },
     {
       "id": "28057900",
@@ -3742,7 +4302,9 @@
       "mileage": 10000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28057900",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK3SU0PMA65152",
+      "normalized_trim": "Premium"
     },
     {
       "id": "28065631",
@@ -3754,7 +4316,9 @@
       "mileage": 24000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28065631",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK3R49PMA92579",
+      "normalized_trim": "Premium"
     },
     {
       "id": "28018385",
@@ -3766,7 +4330,9 @@
       "mileage": 11000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28018385",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK3SUXNMA49599",
+      "normalized_trim": "Premium"
     },
     {
       "id": "27794508",
@@ -3778,7 +4344,9 @@
       "mileage": 14000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27794508",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK4SE5PMA28919",
+      "normalized_trim": "GT"
     },
     {
       "id": "27628865",
@@ -3790,7 +4358,9 @@
       "mileage": 19000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27628865",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3FMTK2SU7PMA89135",
+      "normalized_trim": "California Route 1"
     },
     {
       "id": "27766336",
@@ -3802,7 +4372,9 @@
       "mileage": 15000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27766336",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FX6S07N4105889",
+      "normalized_trim": "2LT"
     },
     {
       "id": "27765963",
@@ -3814,7 +4386,9 @@
       "mileage": 32000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27765963",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FW6S00N4125467",
+      "normalized_trim": "1LT"
     },
     {
       "id": "27837401",
@@ -3826,7 +4400,9 @@
       "mileage": 5000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27837401",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FW6S07P4191923",
+      "normalized_trim": "LT"
     },
     {
       "id": "27952883",
@@ -3838,7 +4414,9 @@
       "mileage": 41000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27952883",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FW6S04N4121051",
+      "normalized_trim": "1LT"
     },
     {
       "id": "27800681",
@@ -3850,7 +4428,9 @@
       "mileage": 22000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27800681",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FX6S02P4129276",
+      "normalized_trim": "2LT"
     },
     {
       "id": "27815916",
@@ -3862,7 +4442,9 @@
       "mileage": 29000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27815916",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FW6S05P4126262",
+      "normalized_trim": "LT"
     },
     {
       "id": "27926426",
@@ -3874,7 +4456,9 @@
       "mileage": 20000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27926426",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S00K4112897",
+      "normalized_trim": "Premier"
     },
     {
       "id": "27602830",
@@ -3886,7 +4470,9 @@
       "mileage": 37000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27602830",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S04M4103903",
+      "normalized_trim": "LT"
     },
     {
       "id": "27734412",
@@ -3898,7 +4484,9 @@
       "mileage": 30000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27734412",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FX6S09P4105783",
+      "normalized_trim": "2LT"
     },
     {
       "id": "27706575",
@@ -3910,7 +4498,9 @@
       "mileage": 49000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27706575",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S03L4131626",
+      "normalized_trim": "LT"
     },
     {
       "id": "26887385",
@@ -3922,7 +4512,9 @@
       "mileage": 45000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/26887385",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S03L4123851",
+      "normalized_trim": "LT"
     },
     {
       "id": "27216841",
@@ -3934,7 +4526,9 @@
       "mileage": 7000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27216841",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FW6S0XP4194847",
+      "normalized_trim": "LT"
     },
     {
       "id": "27842788",
@@ -3946,7 +4540,9 @@
       "mileage": 21000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27842788",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FW6S0XP4201179",
+      "normalized_trim": "LT"
     },
     {
       "id": "27974963",
@@ -3958,7 +4554,9 @@
       "mileage": 8000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27974963",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FX6S03P4156812",
+      "normalized_trim": "2LT"
     },
     {
       "id": "27824607",
@@ -3970,7 +4568,9 @@
       "mileage": 6000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27824607",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FX6S05P4161428",
+      "normalized_trim": "2LT"
     },
     {
       "id": "27639940",
@@ -3994,7 +4594,9 @@
       "mileage": 42000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28044568",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FX6S08P4159866",
+      "normalized_trim": "2LT"
     },
     {
       "id": "28124540",
@@ -4006,7 +4608,9 @@
       "mileage": 31000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28124540",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FW6S00P4113371",
+      "normalized_trim": "LT"
     },
     {
       "id": "27926095",
@@ -4018,7 +4622,9 @@
       "mileage": 44000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27926095",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FW6S01P4116778",
+      "normalized_trim": "LT"
     },
     {
       "id": "27805541",
@@ -4030,7 +4636,9 @@
       "mileage": 23000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27805541",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S00N4117170",
+      "normalized_trim": "Premier"
     },
     {
       "id": "27360136",
@@ -4042,7 +4650,9 @@
       "mileage": 9000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27360136",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S01P4166605",
+      "normalized_trim": "Premier"
     },
     {
       "id": "27682998",
@@ -4054,7 +4664,9 @@
       "mileage": 15000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27682998",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S02P4140448",
+      "normalized_trim": "Premier"
     },
     {
       "id": "27635502",
@@ -4066,7 +4678,9 @@
       "mileage": 28000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27635502",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S08P4134041",
+      "normalized_trim": "Premier"
     },
     {
       "id": "27818234",
@@ -4078,7 +4692,9 @@
       "mileage": 27000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27818234",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S09P4199268",
+      "normalized_trim": "Premier"
     },
     {
       "id": "27747910",
@@ -4090,7 +4706,9 @@
       "mileage": 30000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27747910",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S00N4127486",
+      "normalized_trim": "LT"
     },
     {
       "id": "27839160",
@@ -4102,7 +4720,9 @@
       "mileage": 34000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27839160",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S09P4189584",
+      "normalized_trim": "LT"
     },
     {
       "id": "27915527",
@@ -4114,7 +4734,9 @@
       "mileage": 34000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27915527",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S08P4135595",
+      "normalized_trim": "LT"
     },
     {
       "id": "28087396",
@@ -4126,7 +4748,9 @@
       "mileage": 25000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28087396",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S0XP4161659",
+      "normalized_trim": "Premier"
     },
     {
       "id": "28050534",
@@ -4138,7 +4762,9 @@
       "mileage": 35000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28050534",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S03P4127548",
+      "normalized_trim": "LT"
     },
     {
       "id": "28093359",
@@ -4150,7 +4776,9 @@
       "mileage": 12000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28093359",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S02P4178083",
+      "normalized_trim": "Premier"
     },
     {
       "id": "28006927",
@@ -4162,7 +4790,9 @@
       "mileage": 28000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28006927",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S03P4128425",
+      "normalized_trim": "LT"
     },
     {
       "id": "28142608",
@@ -4174,7 +4804,9 @@
       "mileage": 36000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28142608",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S09N4109536",
+      "normalized_trim": "LT"
     },
     {
       "id": "28103907",
@@ -4186,7 +4818,9 @@
       "mileage": 19000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28103907",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S02P4108339",
+      "normalized_trim": "Premier"
     },
     {
       "id": "27670828",
@@ -4198,7 +4832,9 @@
       "mileage": 51000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27670828",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S0XN4128271",
+      "normalized_trim": "Premier"
     },
     {
       "id": "27374213",
@@ -4210,7 +4846,9 @@
       "mileage": 15000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27374213",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S01N4124657",
+      "normalized_trim": "Premier"
     },
     {
       "id": "27934189",
@@ -4222,7 +4860,9 @@
       "mileage": 34000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27934189",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S08P4129213",
+      "normalized_trim": "Premier"
     },
     {
       "id": "27529874",
@@ -4234,7 +4874,9 @@
       "mileage": 15000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27529874",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S02N4135179",
+      "normalized_trim": "Premier"
     },
     {
       "id": "27792211",
@@ -4246,7 +4888,9 @@
       "mileage": 33000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27792211",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S09P4145176",
+      "normalized_trim": "Premier"
     },
     {
       "id": "27695783",
@@ -4258,7 +4902,9 @@
       "mileage": 24000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27695783",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S09P4177416",
+      "normalized_trim": "Premier"
     },
     {
       "id": "27611494",
@@ -4270,7 +4916,9 @@
       "mileage": 36000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27611494",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S02N4118365",
+      "normalized_trim": "Premier"
     },
     {
       "id": "28003883",
@@ -4282,7 +4930,9 @@
       "mileage": 24000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28003883",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S0XN4135756",
+      "normalized_trim": "LT"
     },
     {
       "id": "28101999",
@@ -4294,7 +4944,9 @@
       "mileage": 41000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28101999",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S08N4103093",
+      "normalized_trim": "Premier"
     },
     {
       "id": "27954562",
@@ -4306,7 +4958,9 @@
       "mileage": 5000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27954562",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S0XP4127544",
+      "normalized_trim": "Premier"
     },
     {
       "id": "27332965",
@@ -4318,7 +4972,9 @@
       "mileage": 15000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27332965",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S07P4102584",
+      "normalized_trim": "Premier"
     },
     {
       "id": "27548223",
@@ -4330,7 +4986,9 @@
       "mileage": 33000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27548223",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S02P4118016",
+      "normalized_trim": "LT"
     },
     {
       "id": "27859969",
@@ -4342,7 +5000,9 @@
       "mileage": 8000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27859969",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S02P4122421",
+      "normalized_trim": "Premier"
     },
     {
       "id": "27811448",
@@ -4354,7 +5014,9 @@
       "mileage": 26000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27811448",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S09N4117183",
+      "normalized_trim": "LT"
     },
     {
       "id": "27942393",
@@ -4366,7 +5028,9 @@
       "mileage": 16000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27942393",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S07P4111558",
+      "normalized_trim": "Premier"
     },
     {
       "id": "27933199",
@@ -4378,7 +5042,9 @@
       "mileage": 30000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27933199",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S03P4170283",
+      "normalized_trim": "Premier"
     },
     {
       "id": "27689369",
@@ -4390,7 +5056,9 @@
       "mileage": 32000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27689369",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S02P4122127",
+      "normalized_trim": "Premier"
     },
     {
       "id": "28050887",
@@ -4402,7 +5070,9 @@
       "mileage": 14000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28050887",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S03P4204662",
+      "normalized_trim": "LT"
     },
     {
       "id": "27681638",
@@ -4414,7 +5084,9 @@
       "mileage": 33000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27681638",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S04P4109544",
+      "normalized_trim": "LT"
     },
     {
       "id": "27681610",
@@ -4426,7 +5098,9 @@
       "mileage": 50000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27681610",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S09P4106719",
+      "normalized_trim": "LT"
     },
     {
       "id": "27807593",
@@ -4438,7 +5112,9 @@
       "mileage": 50000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27807593",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S01N4110001",
+      "normalized_trim": "Premier"
     },
     {
       "id": "27808224",
@@ -4450,7 +5126,9 @@
       "mileage": 25000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27808224",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S00P4111322",
+      "normalized_trim": "Premier"
     },
     {
       "id": "27977460",
@@ -4462,7 +5140,9 @@
       "mileage": 48000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27977460",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S02P4157544",
+      "normalized_trim": "LT"
     },
     {
       "id": "27808001",
@@ -4474,7 +5154,9 @@
       "mileage": 24000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27808001",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S06P4133411",
+      "normalized_trim": "LT"
     },
     {
       "id": "27404271",
@@ -4486,7 +5168,9 @@
       "mileage": 31000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27404271",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S01N4122276",
+      "normalized_trim": "Premier"
     },
     {
       "id": "27752020",
@@ -4498,7 +5182,9 @@
       "mileage": 36000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27752020",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S08P4114307",
+      "normalized_trim": "Premier"
     },
     {
       "id": "27829212",
@@ -4510,7 +5196,9 @@
       "mileage": 18000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27829212",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S07P4201745",
+      "normalized_trim": "Premier"
     },
     {
       "id": "27992183",
@@ -4546,7 +5234,9 @@
       "mileage": 25000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27560890",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S05P4164195",
+      "normalized_trim": "LT"
     },
     {
       "id": "27810887",
@@ -4558,7 +5248,9 @@
       "mileage": 11000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27810887",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S03N4107345",
+      "normalized_trim": "LT"
     },
     {
       "id": "27461389",
@@ -4570,7 +5262,9 @@
       "mileage": 12000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27461389",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S08P4195552",
+      "normalized_trim": "Premier"
     },
     {
       "id": "28069951",
@@ -4582,7 +5276,9 @@
       "mileage": 6000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28069951",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S01P4107554",
+      "normalized_trim": "Premier"
     },
     {
       "id": "27706089",
@@ -4594,7 +5290,9 @@
       "mileage": 38000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27706089",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S04P4162645",
+      "normalized_trim": "Premier"
     },
     {
       "id": "27546290",
@@ -4606,7 +5304,9 @@
       "mileage": 31000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27546290",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S03P4146553",
+      "normalized_trim": "LT"
     },
     {
       "id": "27728619",
@@ -4618,7 +5318,9 @@
       "mileage": 7000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27728619",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S04N4109361",
+      "normalized_trim": "Premier"
     },
     {
       "id": "28104195",
@@ -4630,7 +5332,9 @@
       "mileage": 36000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28104195",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S04P4129292",
+      "normalized_trim": "LT"
     },
     {
       "id": "27923629",
@@ -4642,7 +5346,9 @@
       "mileage": 29000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27923629",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FY6S04N4110707",
+      "normalized_trim": "LT"
     },
     {
       "id": "28116324",
@@ -4654,7 +5360,9 @@
       "mileage": 25000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28116324",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S04N4134809",
+      "normalized_trim": "Premier"
     },
     {
       "id": "27341628",
@@ -4666,7 +5374,9 @@
       "mileage": 22000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27341628",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "1G1FZ6S03N4117435",
+      "normalized_trim": "Premier"
     },
     {
       "id": "27995084",
@@ -4678,7 +5388,9 @@
       "mileage": 3000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27995084",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GN7DNRP4SS199346",
+      "normalized_trim": "LT"
     },
     {
       "id": "27090157",
@@ -4690,7 +5402,9 @@
       "mileage": 6000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27090157",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GN7DMRP4SS195694",
+      "normalized_trim": "LT"
     },
     {
       "id": "28142384",
@@ -4702,7 +5416,9 @@
       "mileage": 3000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28142384",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GN7DMRPXSS253758",
+      "normalized_trim": "LT"
     },
     {
       "id": "28083280",
@@ -4714,7 +5430,9 @@
       "mileage": 9000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28083280",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GN7DLRP4SS157263",
+      "normalized_trim": "LT"
     },
     {
       "id": "27630558",
@@ -4726,7 +5444,9 @@
       "mileage": 5000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27630558",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GN7DLRP2SS197339",
+      "normalized_trim": "LT"
     },
     {
       "id": "27870463",
@@ -4738,7 +5458,9 @@
       "mileage": 5000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27870463",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GN7DSRP2SS189770",
+      "normalized_trim": "RS"
     },
     {
       "id": "28085804",
@@ -4750,7 +5472,9 @@
       "mileage": 4000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28085804",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GN7DMRP2SS238316",
+      "normalized_trim": "LT"
     },
     {
       "id": "27686988",
@@ -4762,7 +5486,9 @@
       "mileage": 2000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27686988",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GN7DMRP5SS234759",
+      "normalized_trim": "LT"
     },
     {
       "id": "27161331",
@@ -4774,7 +5500,9 @@
       "mileage": 5000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27161331",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GN7DMRP2SS202822",
+      "normalized_trim": "LT"
     },
     {
       "id": "28020177",
@@ -4786,7 +5514,9 @@
       "mileage": 14000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28020177",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GN7DLRP5SS125034",
+      "normalized_trim": "LT"
     },
     {
       "id": "28044533",
@@ -4810,7 +5540,9 @@
       "mileage": 3000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27418006",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GN7DSRP4SS144748",
+      "normalized_trim": "RS"
     },
     {
       "id": "27988819",
@@ -4822,7 +5554,9 @@
       "mileage": 10000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27988819",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GN7DSRP1SS118978",
+      "normalized_trim": "RS"
     },
     {
       "id": "27343553",
@@ -4834,7 +5568,9 @@
       "mileage": 6000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27343553",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GPKHVRJ0RS510895",
+      "normalized_trim": "EX"
     },
     {
       "id": "27871760",
@@ -4846,7 +5582,9 @@
       "mileage": 14000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27871760",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GPKHVRJ5RS504350",
+      "normalized_trim": "EX"
     },
     {
       "id": "27791225",
@@ -4858,7 +5596,9 @@
       "mileage": 25000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27791225",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GPKHVRJ1RS501784",
+      "normalized_trim": "EX"
     },
     {
       "id": "27362957",
@@ -4870,7 +5610,9 @@
       "mileage": 8000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27362957",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GPKHZRJ6RS526736",
+      "normalized_trim": "Elite"
     },
     {
       "id": "27596677",
@@ -4882,7 +5624,9 @@
       "mileage": 6000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27596677",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GPKHXRJ6RS530449",
+      "normalized_trim": "Touring"
     },
     {
       "id": "27753612",
@@ -4894,7 +5638,9 @@
       "mileage": 9000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27753612",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GPKHURM8RS540358",
+      "normalized_trim": "EX"
     },
     {
       "id": "27794177",
@@ -4906,7 +5652,9 @@
       "mileage": 2000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27794177",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GPKHZRJ4RS523852",
+      "normalized_trim": "Elite"
     },
     {
       "id": "27924752",
@@ -4918,7 +5666,9 @@
       "mileage": 12000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27924752",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GPKHXRJ8RS523843",
+      "normalized_trim": "Touring"
     },
     {
       "id": "27974019",
@@ -4930,7 +5680,9 @@
       "mileage": 3000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27974019",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GPKHZRJ5RS515498",
+      "normalized_trim": "Elite"
     },
     {
       "id": "28073106",
@@ -4942,7 +5694,9 @@
       "mileage": 18000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28073106",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GPKHVRJ5RS503165",
+      "normalized_trim": "EX"
     },
     {
       "id": "26736344",
@@ -4954,7 +5708,9 @@
       "mileage": 5000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/26736344",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GPKHZRJ9RS517187",
+      "normalized_trim": "Elite"
     },
     {
       "id": "27811281",
@@ -4966,7 +5722,9 @@
       "mileage": 2000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27811281",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "3GPKHWRM7SS507904",
+      "normalized_trim": "Touring"
     },
     {
       "id": "28021330",
@@ -4978,7 +5736,9 @@
       "mileage": 13000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28021330",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WA1L2BFZ8NP030686",
+      "normalized_trim": "40 Premium Plus"
     },
     {
       "id": "27637913",
@@ -4990,7 +5750,9 @@
       "mileage": 29000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27637913",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WA1BCBFZ6PP010402",
+      "normalized_trim": "40 Premium Plus"
     },
     {
       "id": "26925363",
@@ -5002,7 +5764,9 @@
       "mileage": 28000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/26925363",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WA1M2BFZ9NP048134",
+      "normalized_trim": "50 Prestige"
     },
     {
       "id": "27667869",
@@ -5014,7 +5778,9 @@
       "mileage": 28000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27667869",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WA1H2BFZXNP048726",
+      "normalized_trim": "40 Premium Plus"
     },
     {
       "id": "27695662",
@@ -5026,7 +5792,9 @@
       "mileage": 17000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27695662",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WA1L2BFZ0PP044505",
+      "normalized_trim": "40 Premium Plus"
     },
     {
       "id": "27844434",
@@ -5038,7 +5806,9 @@
       "mileage": 4000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27844434",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WA1MUBFZ5SP043504",
+      "normalized_trim": "50 Prestige"
     },
     {
       "id": "27695660",
@@ -5050,7 +5820,9 @@
       "mileage": 28000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27695660",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WA1L2BFZ3PP049374",
+      "normalized_trim": "40 Premium Plus"
     },
     {
       "id": "27932647",
@@ -5062,7 +5834,9 @@
       "mileage": 14000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27932647",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WA1J2BFZ4NP050070",
+      "normalized_trim": "50 Prestige"
     },
     {
       "id": "27977554",
@@ -5074,7 +5848,9 @@
       "mileage": 15000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27977554",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WA1L2BFZ0PP028529",
+      "normalized_trim": "40 Premium Plus"
     },
     {
       "id": "27929946",
@@ -5086,7 +5862,9 @@
       "mileage": 5000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27929946",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WA1J2BFZ3NP052778",
+      "normalized_trim": "50 Prestige"
     },
     {
       "id": "27695314",
@@ -5098,7 +5876,9 @@
       "mileage": 25000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27695314",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WA1BCBFZ7PP022350",
+      "normalized_trim": "40 Premium Plus"
     },
     {
       "id": "28020512",
@@ -5110,7 +5890,9 @@
       "mileage": 2000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28020512",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WA1LUBFZ5SP016430",
+      "normalized_trim": "40 Premium Plus"
     },
     {
       "id": "27695742",
@@ -5122,7 +5904,9 @@
       "mileage": 13000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27695742",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WA1M2BFZ3PP039660",
+      "normalized_trim": "50 Prestige"
     },
     {
       "id": "27695622",
@@ -5134,7 +5918,9 @@
       "mileage": 27000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27695622",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WA1BCBFZ8PP004892",
+      "normalized_trim": "40 Premium Plus"
     },
     {
       "id": "27695244",
@@ -5146,7 +5932,9 @@
       "mileage": 16000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27695244",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WA1L2BFZ6PP029524",
+      "normalized_trim": "40 Premium Plus"
     },
     {
       "id": "27744936",
@@ -5158,7 +5946,9 @@
       "mileage": 23000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27744936",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WA1L2BFZ2NP051047",
+      "normalized_trim": "40 Premium Plus"
     },
     {
       "id": "27748173",
@@ -5170,7 +5960,9 @@
       "mileage": 21000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27748173",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WA1M2BFZ1PP072513",
+      "normalized_trim": "50 Prestige"
     },
     {
       "id": "27749903",
@@ -5182,7 +5974,9 @@
       "mileage": 30000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27749903",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WA1M2BFZ3NP054785",
+      "normalized_trim": "50 Prestige"
     },
     {
       "id": "27817883",
@@ -5194,7 +5988,9 @@
       "mileage": 33000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27817883",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY43AW09RFR77636",
+      "normalized_trim": "eDrive35"
     },
     {
       "id": "28093270",
@@ -5206,7 +6002,9 @@
       "mileage": 15000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28093270",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY73AW01PFP79000",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "28066063",
@@ -5218,7 +6016,9 @@
       "mileage": 40000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28066063",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY73AW01PFR02049",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "27527715",
@@ -5230,7 +6030,9 @@
       "mileage": 28000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27527715",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY33AW07PFR06797",
+      "normalized_trim": "M50"
     },
     {
       "id": "28051418",
@@ -5242,7 +6044,9 @@
       "mileage": 20000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28051418",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY73AW05PFN97249",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "27936647",
@@ -5254,7 +6058,9 @@
       "mileage": 27000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27936647",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY73AW01PFN76964",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "27206093",
@@ -5266,7 +6072,9 @@
       "mileage": 6000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27206093",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY73AW07PFN83997",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "28087437",
@@ -5278,7 +6086,9 @@
       "mileage": 43000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28087437",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY73AW01NFM60273",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "28018627",
@@ -5290,7 +6100,9 @@
       "mileage": 14000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28018627",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY73AW04PFN75923",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "27907914",
@@ -5302,7 +6114,9 @@
       "mileage": 44000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27907914",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY73AW02PFN42662",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "28050857",
@@ -5314,7 +6128,9 @@
       "mileage": 23000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28050857",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY73AW02PFR43242",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "28050676",
@@ -5326,7 +6142,9 @@
       "mileage": 20000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28050676",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY33AW08PFR01530",
+      "normalized_trim": "M50"
     },
     {
       "id": "27543493",
@@ -5338,7 +6156,9 @@
       "mileage": 9000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27543493",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY73AW0XPFN39797",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "27795934",
@@ -5350,7 +6170,9 @@
       "mileage": 19000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27795934",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY73AW06PFR35077",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "27729656",
@@ -5362,7 +6184,9 @@
       "mileage": 12000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27729656",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY43AW06RFR47882",
+      "normalized_trim": "eDrive35"
     },
     {
       "id": "27695693",
@@ -5374,7 +6198,9 @@
       "mileage": 19000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27695693",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY83FB03RFR88474",
+      "normalized_trim": "xDrive40"
     },
     {
       "id": "27569738",
@@ -5386,7 +6212,9 @@
       "mileage": 23000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27569738",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY83FB04RFS56628",
+      "normalized_trim": "xDrive40"
     },
     {
       "id": "27783939",
@@ -5398,7 +6226,9 @@
       "mileage": 21000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27783939",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY33AW05PFP30459",
+      "normalized_trim": "M50"
     },
     {
       "id": "28020017",
@@ -5410,7 +6240,9 @@
       "mileage": 20000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28020017",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY83FB0XRFS26663",
+      "normalized_trim": "xDrive40"
     },
     {
       "id": "27970778",
@@ -5422,7 +6254,9 @@
       "mileage": 11000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27970778",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY83FB0XRFT24429",
+      "normalized_trim": "xDrive40"
     },
     {
       "id": "26834775",
@@ -5434,7 +6268,9 @@
       "mileage": 25000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/26834775",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY73AW06PFN75972",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "28020171",
@@ -5446,7 +6282,9 @@
       "mileage": 13000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28020171",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY43AW0XPFP80200",
+      "normalized_trim": "eDrive35"
     },
     {
       "id": "27199838",
@@ -5458,7 +6296,9 @@
       "mileage": 23000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27199838",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY73AW00PFR47418",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "27681655",
@@ -5470,7 +6310,9 @@
       "mileage": 6000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27681655",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY23HD00SFU04424",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "27984867",
@@ -5482,7 +6324,9 @@
       "mileage": 20000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27984867",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY73AW02PFR01556",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "27939214",
@@ -5494,7 +6338,9 @@
       "mileage": 25000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27939214",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY43AW01RFS17037",
+      "normalized_trim": "eDrive35"
     },
     {
       "id": "27940700",
@@ -5506,7 +6352,9 @@
       "mileage": 11000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27940700",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY43AW01RFS09441",
+      "normalized_trim": "eDrive35"
     },
     {
       "id": "27705354",
@@ -5518,7 +6366,9 @@
       "mileage": 14000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27705354",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY43AW05PFR40516",
+      "normalized_trim": "eDrive35"
     },
     {
       "id": "28082749",
@@ -5530,7 +6380,9 @@
       "mileage": 6000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28082749",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY33AW0XRFT05547",
+      "normalized_trim": "M50"
     },
     {
       "id": "27939753",
@@ -5542,7 +6394,9 @@
       "mileage": 15000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27939753",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY83FB05RFS78590",
+      "normalized_trim": "xDrive40"
     },
     {
       "id": "27555620",
@@ -5554,7 +6408,9 @@
       "mileage": 35000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27555620",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY73AW01PFN70355",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "27457523",
@@ -5566,7 +6422,9 @@
       "mileage": 13000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27457523",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY33FK03RCR94447",
+      "normalized_trim": "eDrive40"
     },
     {
       "id": "27805254",
@@ -5578,7 +6436,9 @@
       "mileage": 30000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27805254",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY8P4C51K7E87945",
+      "normalized_trim": "Range Extender"
     },
     {
       "id": "27766114",
@@ -5590,7 +6450,9 @@
       "mileage": 34000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27766114",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY7Z6C56JVB96921",
+      "normalized_trim": "s"
     },
     {
       "id": "27529999",
@@ -5602,7 +6464,9 @@
       "mileage": 49000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27529999",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY7Z4C57JVD96131",
+      "normalized_trim": "Base w/Range Extender"
     },
     {
       "id": "27223903",
@@ -5614,7 +6478,9 @@
       "mileage": 51000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27223903",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY1Z8C33HV890456",
+      "normalized_trim": "Base w/Range Extender"
     },
     {
       "id": "27647617",
@@ -5626,7 +6492,9 @@
       "mileage": 73000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27647617",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY1Z8C56HV551479",
+      "normalized_trim": null
     },
     {
       "id": "27411594",
@@ -5638,7 +6506,9 @@
       "mileage": 73000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27411594",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY1Z6C38H7A39569",
+      "normalized_trim": null
     },
     {
       "id": "27192707",
@@ -5650,7 +6520,9 @@
       "mileage": 70000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27192707",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY1Z2C54FV287169",
+      "normalized_trim": null
     },
     {
       "id": "27375557",
@@ -5662,7 +6534,9 @@
       "mileage": 52000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27375557",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY1Z8C32HV893526",
+      "normalized_trim": "Base w/Range Extender"
     },
     {
       "id": "27815698",
@@ -5674,7 +6548,9 @@
       "mileage": 54000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27815698",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY1Z8C34HV895407",
+      "normalized_trim": null
     },
     {
       "id": "27930854",
@@ -5686,7 +6562,9 @@
       "mileage": 44000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27930854",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY8P4C56K7E36246",
+      "normalized_trim": "Range Extender"
     },
     {
       "id": "27682711",
@@ -5698,7 +6576,9 @@
       "mileage": 73000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27682711",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY1Z6C38HV949649",
+      "normalized_trim": null
     },
     {
       "id": "27804894",
@@ -5710,7 +6590,9 @@
       "mileage": 68000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27804894",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY1Z4C57GV508244",
+      "normalized_trim": "Range Extender"
     },
     {
       "id": "27707983",
@@ -5722,7 +6604,9 @@
       "mileage": 59000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27707983",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY1Z2C58GV556632",
+      "normalized_trim": null
     },
     {
       "id": "27785039",
@@ -5734,7 +6618,9 @@
       "mileage": 50000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27785039",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY1Z4C58GV509001",
+      "normalized_trim": "Base w/Range Extender"
     },
     {
       "id": "27719208",
@@ -5746,7 +6632,9 @@
       "mileage": 57000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27719208",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY1Z4C56FV501865",
+      "normalized_trim": "Base w/Range Extender"
     },
     {
       "id": "27003399",
@@ -5758,7 +6646,9 @@
       "mileage": 46000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27003399",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY1Z2C51FV555692",
+      "normalized_trim": null
     },
     {
       "id": "26567654",
@@ -5770,7 +6660,9 @@
       "mileage": 48000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/26567654",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY1Z2C58FV286638",
+      "normalized_trim": null
     },
     {
       "id": "27830021",
@@ -5782,7 +6674,9 @@
       "mileage": 50000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27830021",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY1Z4C59GV506267",
+      "normalized_trim": "Range Extender"
     },
     {
       "id": "26513819",
@@ -5794,7 +6688,9 @@
       "mileage": 63000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/26513819",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY1Z4C50GV507825",
+      "normalized_trim": "Base w/Range Extender"
     },
     {
       "id": "27728366",
@@ -5806,7 +6702,9 @@
       "mileage": 70000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27728366",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY1Z8C31HV890598",
+      "normalized_trim": "Base w/Range Extender"
     },
     {
       "id": "27606954",
@@ -5818,7 +6716,9 @@
       "mileage": 35000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27606954",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY1Z4C5XGV505211",
+      "normalized_trim": "Base w/Range Extender"
     },
     {
       "id": "27493572",
@@ -5830,7 +6730,9 @@
       "mileage": 61000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27493572",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY1Z8C54HV550878",
+      "normalized_trim": "Base w/Range Extender"
     },
     {
       "id": "27618296",
@@ -5842,7 +6744,9 @@
       "mileage": 69000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27618296",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY8P4C50K7D22064",
+      "normalized_trim": "Range Extender"
     },
     {
       "id": "27893882",
@@ -5854,7 +6758,9 @@
       "mileage": 45000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27893882",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY7Z4C53JVD95395",
+      "normalized_trim": "Range Extender"
     },
     {
       "id": "27023639",
@@ -5866,7 +6772,9 @@
       "mileage": 51000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27023639",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY1Z2C5XFV287242",
+      "normalized_trim": null
     },
     {
       "id": "27618572",
@@ -5878,7 +6786,9 @@
       "mileage": 51000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27618572",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "WBY1Z4C56FV279487",
+      "normalized_trim": "Base w/Range Extender"
     },
     {
       "id": "27098892",
@@ -5890,7 +6800,9 @@
       "mileage": 56000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27098892",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7SAYGDEEXNF343176",
+      "normalized_trim": "Long Range"
     },
     {
       "id": "27704974",
@@ -5914,7 +6826,9 @@
       "mileage": 29000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27196995",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7SAYGDEF7PF598265",
+      "normalized_trim": "Performance"
     },
     {
       "id": "27665542",
@@ -5926,7 +6840,9 @@
       "mileage": 37000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27665542",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7SAYGAEE9PF740735",
+      "normalized_trim": "Long Range"
     },
     {
       "id": "28057747",
@@ -5938,7 +6854,9 @@
       "mileage": 34000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28057747",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJYGDED1MF118292",
+      "normalized_trim": "Standard"
     },
     {
       "id": "27704908",
@@ -5950,7 +6868,9 @@
       "mileage": 45000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27704908",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7SAYGDEE0PA123433",
+      "normalized_trim": "Long Range"
     },
     {
       "id": "28021415",
@@ -5962,7 +6882,9 @@
       "mileage": 50000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28021415",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7SAYGDEF3PF741213",
+      "normalized_trim": "Performance"
     },
     {
       "id": "27886295",
@@ -5974,7 +6896,9 @@
       "mileage": 58000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27886295",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7SAYGDEE0PF582626",
+      "normalized_trim": "Long Range"
     },
     {
       "id": "27680894",
@@ -5986,7 +6910,9 @@
       "mileage": 28000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27680894",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7SAYGDEE5NF415787",
+      "normalized_trim": "Long Range"
     },
     {
       "id": "27562495",
@@ -6010,7 +6936,9 @@
       "mileage": 56000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27336804",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJYGDEE0MF150885",
+      "normalized_trim": "Long Range"
     },
     {
       "id": "27602571",
@@ -6022,7 +6950,9 @@
       "mileage": 40000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27602571",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7SAYGDEF8PF739215",
+      "normalized_trim": "Performance"
     },
     {
       "id": "27946968",
@@ -6034,7 +6964,9 @@
       "mileage": 63000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27946968",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7SAYGDEF5NF391502",
+      "normalized_trim": "Performance"
     },
     {
       "id": "27838721",
@@ -6046,7 +6978,9 @@
       "mileage": 37000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27838721",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7SAYGAEE7PF903057",
+      "normalized_trim": "Long Range"
     },
     {
       "id": "28073229",
@@ -6058,7 +6992,9 @@
       "mileage": 63000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28073229",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJYGDEF7MF091844",
+      "normalized_trim": "Performance"
     },
     {
       "id": "28072782",
@@ -6106,7 +7042,9 @@
       "mileage": 59000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27748008",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7SAYGAEE3PF628755",
+      "normalized_trim": "Long Range"
     },
     {
       "id": "27007465",
@@ -6118,7 +7056,9 @@
       "mileage": 59000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27007465",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJYGDEF5MF240137",
+      "normalized_trim": "Performance"
     },
     {
       "id": "27947289",
@@ -6130,7 +7070,9 @@
       "mileage": 53000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27947289",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7SAYGDEE2NF422776",
+      "normalized_trim": "Long Range"
     },
     {
       "id": "27694183",
@@ -6154,7 +7096,9 @@
       "mileage": 25000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28021259",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7SAYGDEE6NF363098",
+      "normalized_trim": "Long Range"
     },
     {
       "id": "28021302",
@@ -6166,7 +7110,9 @@
       "mileage": 30000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28021302",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7SAYGDEE9PF914871",
+      "normalized_trim": "Long Range"
     },
     {
       "id": "27658679",
@@ -6190,7 +7136,9 @@
       "mileage": 50000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27817483",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7SAYGDEFXPF778369",
+      "normalized_trim": "Performance"
     },
     {
       "id": "27923207",
@@ -6214,7 +7162,9 @@
       "mileage": 37000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27922934",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7SAYGDEE2PF616663",
+      "normalized_trim": "Long Range"
     },
     {
       "id": "27984444",
@@ -6226,7 +7176,9 @@
       "mileage": 17000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27984444",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7SAYGDEE1PA027570",
+      "normalized_trim": "Long Range"
     },
     {
       "id": "27784907",
@@ -6238,7 +7190,9 @@
       "mileage": 48000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27784907",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJYGDEF1LF023036",
+      "normalized_trim": "Performance"
     },
     {
       "id": "27784956",
@@ -6250,7 +7204,9 @@
       "mileage": 10000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27784956",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJYGDEE5MF076671",
+      "normalized_trim": "Long Range"
     },
     {
       "id": "27707965",
@@ -6262,7 +7218,9 @@
       "mileage": 43000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27707965",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7SAYGDEE2NF405251",
+      "normalized_trim": "Long Range"
     },
     {
       "id": "27930819",
@@ -6286,7 +7244,9 @@
       "mileage": 50000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27817978",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7SAYGDEE8RF985630",
+      "normalized_trim": "Long Range"
     },
     {
       "id": "27494265",
@@ -6298,7 +7258,9 @@
       "mileage": 19000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27494265",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJYGDEE6LF023556",
+      "normalized_trim": "Long Range"
     },
     {
       "id": "28087493",
@@ -6358,7 +7320,9 @@
       "mileage": 60000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27807496",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7SAYGDEF6NF312581",
+      "normalized_trim": "Performance"
     },
     {
       "id": "27681121",
@@ -6370,7 +7334,9 @@
       "mileage": 57000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27681121",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7SAYGDEF4NF390423",
+      "normalized_trim": "Performance"
     },
     {
       "id": "27959982",
@@ -6406,7 +7372,9 @@
       "mileage": 36000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27784454",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7SAYGDEF3NF561453",
+      "normalized_trim": "Performance"
     },
     {
       "id": "27784640",
@@ -6442,7 +7410,9 @@
       "mileage": 69000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28050220",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJYGDEE9MF262097",
+      "normalized_trim": "Long Range"
     },
     {
       "id": "27727848",
@@ -6478,7 +7448,9 @@
       "mileage": 50000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28050848",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJYGDEF9MF261640",
+      "normalized_trim": "Performance"
     },
     {
       "id": "27885577",
@@ -6490,7 +7462,9 @@
       "mileage": 64000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27885577",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJYGDED7MF106325",
+      "normalized_trim": "Standard"
     },
     {
       "id": "27427756",
@@ -6502,7 +7476,9 @@
       "mileage": 30000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27427756",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJYGDEEXMF285632",
+      "normalized_trim": "Long Range"
     },
     {
       "id": "28142614",
@@ -6514,7 +7490,9 @@
       "mileage": 88000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28142614",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJYGDEE1MF276186",
+      "normalized_trim": "Long Range"
     },
     {
       "id": "27675455",
@@ -6526,7 +7504,9 @@
       "mileage": 66000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27675455",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7SAYGDEF0PF582716",
+      "normalized_trim": "Performance"
     },
     {
       "id": "27770187",
@@ -6538,7 +7518,9 @@
       "mileage": 28000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27770187",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7SAYGDEF6NF513199",
+      "normalized_trim": "Performance"
     },
     {
       "id": "27936626",
@@ -6550,7 +7532,9 @@
       "mileage": 59000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27936626",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7SAYGDEF4NF510236",
+      "normalized_trim": "Performance"
     },
     {
       "id": "28006713",
@@ -6574,7 +7558,9 @@
       "mileage": 79000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28051116",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJYGDEE5MF093129",
+      "normalized_trim": "Long Range"
     },
     {
       "id": "28023384",
@@ -6598,7 +7584,9 @@
       "mileage": 50000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28050697",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7SAYGDEE8PA034161",
+      "normalized_trim": "Long Range"
     },
     {
       "id": "27816255",
@@ -6610,7 +7598,9 @@
       "mileage": 89000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27816255",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJYGDEE8MF274547",
+      "normalized_trim": "Long Range"
     },
     {
       "id": "28008346",
@@ -6622,7 +7612,9 @@
       "mileage": 33000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28008346",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJYGDEE0MF161658",
+      "normalized_trim": "Long Range"
     },
     {
       "id": "27592794",
@@ -6658,7 +7650,9 @@
       "mileage": 20000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27941883",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7SAYGDEEXPA080090",
+      "normalized_trim": "Long Range"
     },
     {
       "id": "27885266",
@@ -6670,7 +7664,9 @@
       "mileage": 34000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27885266",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJYGDEE3LF051153",
+      "normalized_trim": "Long Range"
     },
     {
       "id": "27368565",
@@ -6718,7 +7714,9 @@
       "mileage": 50000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27984348",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7SAYGDEF5NF340257",
+      "normalized_trim": "Performance"
     },
     {
       "id": "22706600",
@@ -6730,7 +7728,9 @@
       "mileage": 10000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/22706600",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJSA1E66MF432012",
+      "normalized_trim": "Plaid"
     },
     {
       "id": "27768680",
@@ -6742,7 +7742,9 @@
       "mileage": 58000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27768680",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJSA1E54NF483744",
+      "normalized_trim": "Long Range Plus"
     },
     {
       "id": "27789231",
@@ -6754,7 +7756,9 @@
       "mileage": 3000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27789231",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJSA1E54SF551746",
+      "normalized_trim": "Long Range Plus"
     },
     {
       "id": "27602831",
@@ -6766,7 +7770,9 @@
       "mileage": 22000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27602831",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJSA1E67MF447246",
+      "normalized_trim": "Plaid"
     },
     {
       "id": "26170404",
@@ -6778,7 +7784,9 @@
       "mileage": 13000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/26170404",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJSA1E6XPF510781",
+      "normalized_trim": "Plaid"
     },
     {
       "id": "27128083",
@@ -6790,7 +7798,9 @@
       "mileage": 31000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27128083",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJSA1E21MF426339",
+      "normalized_trim": "Long Range Plus"
     },
     {
       "id": "27685606",
@@ -6814,7 +7824,9 @@
       "mileage": 18000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27905970",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJSA1E59PF498470",
+      "normalized_trim": "Long Range Plus"
     },
     {
       "id": "27663057",
@@ -6838,7 +7850,9 @@
       "mileage": 30000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/26917607",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJSA1E25MF426330",
+      "normalized_trim": "Long Range Plus"
     },
     {
       "id": "28045976",
@@ -6850,7 +7864,9 @@
       "mileage": 25000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28045976",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJSA1E59NF485988",
+      "normalized_trim": "Long Range Plus"
     },
     {
       "id": "23316750",
@@ -6862,7 +7878,9 @@
       "mileage": 40000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/23316750",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJXCDE29JF126173",
+      "normalized_trim": "75D"
     },
     {
       "id": "27712079",
@@ -6874,7 +7892,9 @@
       "mileage": 57000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27712079",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "5YJXCDE42KF153816",
+      "normalized_trim": "P100D"
     },
     {
       "id": "27835719",
@@ -6886,7 +7906,9 @@
       "mileage": 54000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27835719",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7SAXCDE53PF415782",
+      "normalized_trim": null
     },
     {
       "id": "27712834",
@@ -6898,7 +7920,9 @@
       "mileage": 39000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27712834",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAA9PN025153",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
     },
     {
       "id": "27297606",
@@ -6910,7 +7934,9 @@
       "mileage": 17000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27297606",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGCAA9RN030352",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
     },
     {
       "id": "27681028",
@@ -6922,7 +7948,9 @@
       "mileage": 25000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27681028",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAA4PN018675",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
     },
     {
       "id": "28072734",
@@ -6934,7 +7962,9 @@
       "mileage": 31000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28072734",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGBAA7PN028123",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
     },
     {
       "id": "27941256",
@@ -6946,7 +7976,9 @@
       "mileage": 20000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27941256",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAL8NN001005",
+      "normalized_trim": "Launch Edition 4 1/2 ft Quad-Motor"
     },
     {
       "id": "27884265",
@@ -6958,7 +7990,9 @@
       "mileage": 37000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27884265",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAAXNN007693",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
     },
     {
       "id": "27854118",
@@ -6970,7 +8004,9 @@
       "mileage": 25000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27854118",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAA8PN017805",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
     },
     {
       "id": "28020379",
@@ -6982,7 +8018,9 @@
       "mileage": 14000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28020379",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGBAA9PN025837",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
     },
     {
       "id": "27611464",
@@ -6994,7 +8032,9 @@
       "mileage": 22000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27611464",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAA2NN015948",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
     },
     {
       "id": "26612664",
@@ -7006,7 +8046,9 @@
       "mileage": 7000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/26612664",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAA9NN013467",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
     },
     {
       "id": "27802512",
@@ -7018,7 +8060,9 @@
       "mileage": 18000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27802512",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAA8NN012584",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
     },
     {
       "id": "27844941",
@@ -7030,7 +8074,9 @@
       "mileage": 29000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27844941",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAL3NN005642",
+      "normalized_trim": "Launch Edition 4 1/2 ft Quad-Motor"
     },
     {
       "id": "27060487",
@@ -7042,7 +8088,9 @@
       "mileage": 37000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27060487",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAA4PN021737",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
     },
     {
       "id": "28004155",
@@ -7054,7 +8102,9 @@
       "mileage": 32000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28004155",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAA4PN019115",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
     },
     {
       "id": "27724698",
@@ -7066,7 +8116,9 @@
       "mileage": 3000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27724698",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGBAA7SN041883",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
     },
     {
       "id": "27800683",
@@ -7078,7 +8130,9 @@
       "mileage": 10000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27800683",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAA9PN026321",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
     },
     {
       "id": "27766080",
@@ -7090,7 +8144,9 @@
       "mileage": 25000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27766080",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAA6PN023988",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
     },
     {
       "id": "27963800",
@@ -7102,7 +8158,9 @@
       "mileage": 6000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27963800",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGBAA4RN031709",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
     },
     {
       "id": "27930742",
@@ -7114,7 +8172,9 @@
       "mileage": 23000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27930742",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAL1NN004926",
+      "normalized_trim": "Launch Edition 4 1/2 ft Quad-Motor"
     },
     {
       "id": "27963729",
@@ -7138,7 +8198,9 @@
       "mileage": 20000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27630852",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAA8PN019215",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
     },
     {
       "id": "28008597",
@@ -7150,7 +8212,9 @@
       "mileage": 35000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28008597",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAA8NN009989",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
     },
     {
       "id": "27885045",
@@ -7162,7 +8226,9 @@
       "mileage": 39000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27885045",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAA8NN007577",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
     },
     {
       "id": "27808127",
@@ -7174,7 +8240,9 @@
       "mileage": 24000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27808127",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAA7NN014083",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
     },
     {
       "id": "27586036",
@@ -7186,7 +8254,9 @@
       "mileage": 21000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27586036",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAA9NN015848",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
     },
     {
       "id": "27807891",
@@ -7198,7 +8268,9 @@
       "mileage": 9000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27807891",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAA7PN021649",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
     },
     {
       "id": "27628513",
@@ -7210,7 +8282,9 @@
       "mileage": 16000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27628513",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGBAA1RN032588",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
     },
     {
       "id": "27762302",
@@ -7222,7 +8296,9 @@
       "mileage": 21000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27762302",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAA3NN009902",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
     },
     {
       "id": "27905070",
@@ -7234,7 +8310,9 @@
       "mileage": 13000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27905070",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGCAP3SN036688",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
     },
     {
       "id": "27846054",
@@ -7246,7 +8324,9 @@
       "mileage": 31000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27846054",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAA1NN008599",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
     },
     {
       "id": "27762290",
@@ -7258,7 +8338,9 @@
       "mileage": 39000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27762290",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAL5NN011720",
+      "normalized_trim": "Launch Edition 4 1/2 ft Quad-Motor"
     },
     {
       "id": "27590309",
@@ -7270,7 +8352,9 @@
       "mileage": 31000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27590309",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAA8PN018873",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
     },
     {
       "id": "27229690",
@@ -7282,7 +8366,9 @@
       "mileage": 26000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27229690",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAL7NN009791",
+      "normalized_trim": "Launch Edition 4 1/2 ft Quad-Motor"
     },
     {
       "id": "27829612",
@@ -7294,7 +8380,9 @@
       "mileage": 23000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27829612",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAA9PN021989",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
     },
     {
       "id": "27543216",
@@ -7318,7 +8406,9 @@
       "mileage": 20000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27125550",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAL1NN001055",
+      "normalized_trim": "Launch Edition 4 1/2 ft Quad-Motor"
     },
     {
       "id": "27200381",
@@ -7330,7 +8420,9 @@
       "mileage": 38000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27200381",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAAA8PN022132",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
     },
     {
       "id": "27628791",
@@ -7342,7 +8434,9 @@
       "mileage": 18000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27628791",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7FCTGAALXPN025289",
+      "normalized_trim": "Launch Edition 4 1/2 ft Quad-Motor"
     },
     {
       "id": "27297021",
@@ -7354,7 +8448,9 @@
       "mileage": 36000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27297021",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABA1PN020375",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27806231",
@@ -7366,7 +8462,9 @@
       "mileage": 41000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27806231",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABL9NN000924",
+      "normalized_trim": "Launch Edition Quad-Motor"
     },
     {
       "id": "27762266",
@@ -7378,7 +8476,9 @@
       "mileage": 20000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27762266",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABL5NN001603",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27638315",
@@ -7390,7 +8490,9 @@
       "mileage": 25000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27638315",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABA7PN008361",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27452075",
@@ -7402,7 +8504,9 @@
       "mileage": 30000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27452075",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABA9PN013173",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27939844",
@@ -7414,7 +8518,9 @@
       "mileage": 23000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27939844",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABLXNN001564",
+      "normalized_trim": "Launch Edition Quad-Motor"
     },
     {
       "id": "27721057",
@@ -7426,7 +8532,9 @@
       "mileage": 21000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27721057",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABA7PN024978",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27739653",
@@ -7438,7 +8546,9 @@
       "mileage": 7000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27739653",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABA3RN033860",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27762274",
@@ -7450,7 +8560,9 @@
       "mileage": 26000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27762274",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGBBA6PN024248",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27824627",
@@ -7462,7 +8574,9 @@
       "mileage": 21000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27824627",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABA1PN008985",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27967059",
@@ -7474,7 +8588,9 @@
       "mileage": 34000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27967059",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABA5PN029550",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27868221",
@@ -7486,7 +8602,9 @@
       "mileage": 29000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27868221",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABA0RN044735",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27588840",
@@ -7498,7 +8616,9 @@
       "mileage": 26000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27588840",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABL9PN003664",
+      "normalized_trim": "Launch Edition Quad-Motor"
     },
     {
       "id": "27975385",
@@ -7510,7 +8630,9 @@
       "mileage": 31000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27975385",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABA8PN019806",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27471635",
@@ -7522,7 +8644,9 @@
       "mileage": 30000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27471635",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGCBA3RN030839",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "28043553",
@@ -7534,7 +8658,9 @@
       "mileage": 10000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28043553",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGCBA7RN037681",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27762313",
@@ -7546,7 +8672,9 @@
       "mileage": 34000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27762313",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABL0PN000247",
+      "normalized_trim": "Launch Edition Quad-Motor"
     },
     {
       "id": "27939394",
@@ -7558,7 +8686,9 @@
       "mileage": 4000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27939394",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGBBAXSN071310",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27978374",
@@ -7570,7 +8700,9 @@
       "mileage": 4000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27978374",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABA1RN041925",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27963856",
@@ -7582,7 +8714,9 @@
       "mileage": 5000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27963856",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGBBA5SN046847",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27536655",
@@ -7594,7 +8728,9 @@
       "mileage": 22000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27536655",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABA9PN018728",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27923741",
@@ -7618,7 +8754,9 @@
       "mileage": 15000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27591406",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABA9PN013237",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27470557",
@@ -7630,7 +8768,9 @@
       "mileage": 10000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27470557",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGCBP8SN057786",
+      "normalized_trim": "Launch Edition Quad-Motor"
     },
     {
       "id": "27681122",
@@ -7642,7 +8782,9 @@
       "mileage": 11000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27681122",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGBBA3SN046166",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27868780",
@@ -7654,7 +8796,9 @@
       "mileage": 10000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27868780",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGBBA5SN047240",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27762288",
@@ -7666,7 +8810,9 @@
       "mileage": 28000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27762288",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABL5NN000449",
+      "normalized_trim": "Launch Edition Quad-Motor"
     },
     {
       "id": "27762297",
@@ -7678,7 +8824,9 @@
       "mileage": 17000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27762297",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGBBA3PN017743",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27856662",
@@ -7690,7 +8838,9 @@
       "mileage": 50000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27856662",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABA4RN033575",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27658567",
@@ -7702,7 +8852,9 @@
       "mileage": 25000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27658567",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABA0RN030351",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27672513",
@@ -7714,7 +8866,9 @@
       "mileage": 10000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27672513",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABA2RN031551",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27637800",
@@ -7726,7 +8880,9 @@
       "mileage": 17000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27637800",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABA9RN033877",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27977007",
@@ -7738,7 +8894,9 @@
       "mileage": 37000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27977007",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGCBA8RN037768",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "28029492",
@@ -7750,7 +8908,9 @@
       "mileage": 13000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28029492",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGCBA6RN032701",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27953580",
@@ -7762,7 +8922,9 @@
       "mileage": 3000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27953580",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGBBA9SN074215",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27762268",
@@ -7774,7 +8936,9 @@
       "mileage": 7000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27762268",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABA8PN029025",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27762320",
@@ -7786,7 +8950,9 @@
       "mileage": 23000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27762320",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGBBAXPN026648",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27762251",
@@ -7798,7 +8964,9 @@
       "mileage": 21000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27762251",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABL4PN007590",
+      "normalized_trim": "Launch Edition Quad-Motor"
     },
     {
       "id": "27762282",
@@ -7810,7 +8978,9 @@
       "mileage": 29000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27762282",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABL8NN001269",
+      "normalized_trim": "Launch Edition Quad-Motor"
     },
     {
       "id": "27339702",
@@ -7822,7 +8992,9 @@
       "mileage": 34000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27339702",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABL6NN001528",
+      "normalized_trim": "Launch Edition Quad-Motor"
     },
     {
       "id": "27667606",
@@ -7834,7 +9006,9 @@
       "mileage": 26000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27667606",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABA4PN020371",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27762273",
@@ -7846,7 +9020,9 @@
       "mileage": 31000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27762273",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGBBA8PN022856",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27699374",
@@ -7870,7 +9046,9 @@
       "mileage": 32000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27975062",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGCBA6RN030513",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27762265",
@@ -7882,7 +9060,9 @@
       "mileage": 9000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27762265",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABA8PN022981",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27762258",
@@ -7894,7 +9074,9 @@
       "mileage": 29000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27762258",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABAXPN014039",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27947122",
@@ -7906,7 +9088,9 @@
       "mileage": 24000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27947122",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGBBAXSN054779",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27828454",
@@ -7918,7 +9102,9 @@
       "mileage": 34000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27828454",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGABL3PN003322",
+      "normalized_trim": "Launch Edition Quad-Motor"
     },
     {
       "id": "27871698",
@@ -7930,7 +9116,9 @@
       "mileage": 15000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27871698",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "7PDSGBBA0SN065404",
+      "normalized_trim": "Adventure Dual-Motor"
     },
     {
       "id": "27391436",
@@ -7942,7 +9130,9 @@
       "mileage": 9000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27391436",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8K53AG3PU179219",
+      "normalized_trim": "Limited"
     },
     {
       "id": "27939254",
@@ -7954,7 +9144,9 @@
       "mileage": 13000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27939254",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8K53AG5PU171137",
+      "normalized_trim": "Limited"
     },
     {
       "id": "27939711",
@@ -7966,7 +9158,9 @@
       "mileage": 23000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27939711",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8K53AG9PU173036",
+      "normalized_trim": "Limited"
     },
     {
       "id": "27730792",
@@ -7978,7 +9172,9 @@
       "mileage": 31000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27730792",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8K33AG6MU118562",
+      "normalized_trim": "Limited"
     },
     {
       "id": "27471439",
@@ -7990,7 +9186,9 @@
       "mileage": 45000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27471439",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8K53AG3KU036392",
+      "normalized_trim": "Ultimate"
     },
     {
       "id": "27650119",
@@ -8002,7 +9200,9 @@
       "mileage": 47000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27650119",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8K53AG7LU065654",
+      "normalized_trim": "Ultimate"
     },
     {
       "id": "27151757",
@@ -8014,7 +9214,9 @@
       "mileage": 41000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27151757",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8K33AG6MU126645",
+      "normalized_trim": "Limited"
     },
     {
       "id": "27328883",
@@ -8026,7 +9228,9 @@
       "mileage": 50000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27328883",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8K33AG1LU069561",
+      "normalized_trim": "Limited"
     },
     {
       "id": "27712035",
@@ -8038,7 +9242,9 @@
       "mileage": 30000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/27712035",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8K33AG4MU110394",
+      "normalized_trim": "Limited"
     },
     {
       "id": "28104900",
@@ -8050,7 +9256,9 @@
       "mileage": 5000,
       "location": "CarMax",
       "url": "https://www.carmax.com/car/28104900",
-      "listing_date": "2025-11-05"
+      "listing_date": "2025-11-05",
+      "vin": "KM8HB3A7XSU022735",
+      "normalized_trim": "SE"
     }
   ],
   "models_exceeded_max_vehicles": [
