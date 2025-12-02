@@ -27,9 +27,9 @@ function App() {
   const [error, setError] = useState(null);
   const [selectedModel, setSelectedModel] = useState(null);
   const [noTesla, setNoTesla] = useState(() => {
-    // Initialize from localStorage, fallback to false
+    // Initialize from localStorage, default to true (no Tesla)
     const saved = localStorage.getItem('noTesla');
-    return saved === 'true';
+    return saved !== 'false';
   });
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(DEFAULT_CATEGORY);
