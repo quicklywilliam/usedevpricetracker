@@ -515,39 +515,48 @@ export default function PriceRangeChart({
 
             const itemName = dataset.modelName || dataset.label;
             const isHovered = hasHover && itemName === hovered;
-            const fillAlpha = hasHover
-              ? (isHovered ? (prefersDark ? 0.45 : 0.28) : (prefersDark ? 0.05 : 0.03))
-              : (prefersDark ? 0.18 : 0.12);
-            const strokeAlpha = hasHover
-              ? (isHovered ? 0.9 : 0.18)
-              : 0.35;
+
+            // Only show range for the currently hovered item
+            if (!isHovered) {
+              // Update line styles to normal (no dimming) but skip range rendering
+              if (meta.dataset) {
+                const line = meta.dataset;
+                line.options.borderWidth = hasHover ? 1.25 : 2;
+                line.options.borderColor = hasHover ? toRgba(baseColor, prefersDark ? 0.15 : 0.1) : baseColor;
+                const pointFill = hasHover ? toRgba(baseColor, (prefersDark ? 0.15 : 0.1) * 1.2) : baseColor;
+                const pointBorderBase = adjustLightness(baseColor, -0.08);
+                const pointBorder = hasHover ? toRgba(pointBorderBase, prefersDark ? 0.15 : 0.1) : pointBorderBase;
+                line.options.pointBackgroundColor = pointFill;
+                line.options.pointBorderColor = pointBorder;
+                meta.data.forEach((point, pointIndex) => {
+                  const radiusArray = Array.isArray(dataset.pointRadius) ? dataset.pointRadius : [];
+                  const radius = radiusArray.length > 0
+                    ? radiusArray[pointIndex] ?? radiusArray[radiusArray.length - 1]
+                    : dataset.pointRadius || point.options?.radius || 4;
+                  point.options.radius = radius;
+                  point.options.backgroundColor = pointFill;
+                  point.options.borderColor = pointBorder;
+                });
+              }
+              return; // Skip range rendering for non-hovered items
+            }
+
+            const fillAlpha = isHovered ? (prefersDark ? 0.45 : 0.28) : (prefersDark ? 0.18 : 0.12);
+            const strokeAlpha = isHovered ? 0.9 : 0.35;
             const fillStyle = toRgba(baseColor, fillAlpha);
             const borderColor = toRgba(baseColor, strokeAlpha);
 
             if (meta.dataset) {
               const line = meta.dataset;
-              line.options.borderWidth = isHovered ? 3 : hasHover ? 1.25 : 2;
-
-              const lineAlpha = hasHover
-                ? (isHovered ? 1.0 : (prefersDark ? 0.15 : 0.1))
-                : 1.0;
-
-              line.options.borderColor = isHovered
-                ? baseColor
-                : hasHover ? toRgba(baseColor, lineAlpha) : baseColor;
-              const pointFill = isHovered
-                ? baseColor
-                : hasHover ? toRgba(baseColor, lineAlpha * 1.2) : baseColor;
-
+              line.options.borderWidth = isHovered ? 3 : 2;
+              line.options.borderColor = baseColor;
+              const pointFill = baseColor;
               const pointBorderBase = isHovered
                 ? adjustLightness(baseColor, -0.12)
                 : adjustLightness(baseColor, -0.08);
-              const pointBorder = hasHover && !isHovered
-                ? toRgba(pointBorderBase, lineAlpha)
-                : pointBorderBase;
 
               line.options.pointBackgroundColor = pointFill;
-              line.options.pointBorderColor = pointBorder;
+              line.options.pointBorderColor = pointBorderBase;
 
               meta.data.forEach((point, pointIndex) => {
                 const radiusArray = Array.isArray(dataset.pointRadius) ? dataset.pointRadius : [];
@@ -556,7 +565,7 @@ export default function PriceRangeChart({
                   : dataset.pointRadius || point.options?.radius || 4;
                 point.options.radius = radius;
                 point.options.backgroundColor = pointFill;
-                point.options.borderColor = pointBorder;
+                point.options.borderColor = pointBorderBase;
               });
             }
 
