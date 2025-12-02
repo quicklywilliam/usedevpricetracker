@@ -26,7 +26,11 @@ function App() {
   const [dataLoading, setDataLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedModel, setSelectedModel] = useState(null);
-  const [noTesla, setNoTesla] = useState(false);
+  const [noTesla, setNoTesla] = useState(() => {
+    // Initialize from localStorage, fallback to false
+    const saved = localStorage.getItem('noTesla');
+    return saved === 'true';
+  });
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(DEFAULT_CATEGORY);
   const [timeRangeId, setTimeRangeId] = useState(DEFAULT_RANGE_ID);
@@ -160,6 +164,10 @@ function App() {
           const noTeslaParam = url.searchParams.get('noTesla');
           if (noTeslaParam === 'true') {
             setNoTesla(true);
+            localStorage.setItem('noTesla', 'true');
+          } else if (noTeslaParam === 'false') {
+            setNoTesla(false);
+            localStorage.setItem('noTesla', 'false');
           }
 
           setSelectedCategory(initialCategory);
@@ -268,6 +276,8 @@ function App() {
 
   const handleNoTeslaToggle = (enabled) => {
     setNoTesla(enabled);
+    // Save to localStorage for persistence
+    localStorage.setItem('noTesla', enabled.toString());
     const url = new URL(window.location);
     if (enabled) {
       url.searchParams.set('noTesla', 'true');
