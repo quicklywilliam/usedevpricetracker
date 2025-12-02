@@ -1,9 +1,11 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState, useRef, useEffect } from 'react';
 import PriceRangeChart from './PriceRangeChart';
 import { getModelKey } from '../services/dataLoader';
 import { aggregateDates } from '../utils/dateAggregation';
 import { aggregateMetricsForGroups, collectScalingValues } from '../utils/metricAggregation';
 import { createInventoryScale } from '../utils/inventoryScale';
+import { CATEGORY_TABS, getCategoriesForModel } from '../utils/modelCategories';
+import './DetailChart.css'; // Reuse DetailChart styles for the toggle
 
 const modelColors = {
   // Mid-range category
@@ -36,6 +38,13 @@ const modelColors = {
   'Rivian R1S': '#ec4899'           // pink
 };
 
+// Category colors (bold, distinct)
+const categoryColors = {
+  'cheap': '#ef4444',      // bright red
+  'mid-range': '#3b82f6',  // bright blue
+  'luxury': '#8b5cf6'      // bright purple
+};
+
 const toRgba = (hex, alpha) => {
   if (!hex) return `rgba(102, 102, 102, ${alpha})`;
   let normalized = hex.replace('#', '');
@@ -63,12 +72,56 @@ export default function OverviewChart({
   loading = false,
   onSelectedDatePosition
 }) {
-  const { datasets, dates } = useMemo(() => {
+  const [averageMode, setAverageMode] = useState(() => {
+    // Initialize from URL parameter, default to 'normalized'
+    const url = new URL(window.location);
+    const avgParam = url.searchParams.get('averageMode');
+    return avgParam === 'raw' ? 'raw' : 'normalized';
+  });
+  const [avgMenuOpen, setAvgMenuOpen] = useState(false);
+  const avgButtonRef = useRef(null);
+
+  // Handle URL parameter for average mode
+  useEffect(() => {
+    const url = new URL(window.location);
+    const avgParam = url.searchParams.get('averageMode');
+    if (avgParam) {
+      setAverageMode(avgParam === 'raw' ? 'raw' : 'normalized');
+    } else {
+      setAverageMode('normalized');
+    }
+  }, []);
+
+  // Handle browser back/forward for average mode
+  useEffect(() => {
+    const handlePopState = () => {
+      const url = new URL(window.location);
+      const avgParam = url.searchParams.get('averageMode');
+      setAverageMode(avgParam === 'raw' ? 'raw' : 'normalized');
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    if (!avgMenuOpen) return;
+    const handleClickOutside = (event) => {
+      if (avgButtonRef.current && !avgButtonRef.current.contains(event.target)) {
+        setAvgMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [avgMenuOpen]);
+
+  // Memoize models and dates separately (doesn't depend on averageMode)
+  const { models, baseDates, dateAggregation } = useMemo(() => {
     if (!data || data.length === 0) {
-      return { datasets: [], dates: [] };
+      return { models: [], baseDates: [], dateAggregation: { dates: [], dateGroups: new Map() } };
     }
 
-    // Extract models and dates
     const models = [...new Set(data.flatMap(d => d.listings.map(getModelKey)))];
     const providedDates = Array.isArray(dateLabels) && dateLabels.length > 0
       ? [...dateLabels]
@@ -77,22 +130,134 @@ export default function OverviewChart({
       ? [...providedDates]
       : [...new Set(data.map(d => d.scraped_at.split('T')[0]))].sort();
 
-    // Aggregate dates into weekly buckets if needed
     const dateAggregation = aggregateDates(baseDates, availableDates);
-    const { dates, dateGroups } = dateAggregation;
 
-    // Aggregate metrics for all models
-    const aggregatedMetrics = aggregateMetricsForGroups(
+    return { models, baseDates, dateAggregation };
+  }, [data, dateLabels, availableDates]);
+
+  // Memoize avgDays calculation separately (expensive, but doesn't depend on averageMode)
+  const avgDaysCache = useMemo(() => {
+    if (!data || data.length === 0 || models.length === 0 || loading) {
+      return null;
+    }
+
+    const { dates } = dateAggregation;
+    const categories = CATEGORY_TABS.map(cat => cat.id);
+    const allGroups = [...models, ...categories.map(id => `category:${id}`)];
+
+    // Calculate with raw mode and avgDays enabled - only do this once
+    const metricsWithAvgDays = aggregateMetricsForGroups(
       data,
-      models,
+      allGroups,
       baseDates,
       dateAggregation,
-      (sourceData, model) => {
-        return sourceData.listings
-          .filter(l => getModelKey(l) === model)
-          .map(listing => ({ ...listing, source: sourceData.source }));
-      }
+      (sourceData, group) => {
+        if (group.startsWith('category:')) {
+          const categoryId = group.substring(9);
+          return sourceData.listings
+            .filter(listing => {
+              const modelKey = getModelKey(listing);
+              const modelCategories = getCategoriesForModel(modelKey);
+              return modelCategories.includes(categoryId);
+            })
+            .map(listing => ({ ...listing, source: sourceData.source }));
+        } else {
+          return sourceData.listings
+            .filter(l => getModelKey(l) === group)
+            .map(listing => ({ ...listing, source: sourceData.source }));
+        }
+      },
+      'raw', // Mode doesn't matter for avgDays
+      false // Calculate avgDays
     );
+
+    // Extract just the avgDays values
+    const cache = new Map();
+    allGroups.forEach(group => {
+      const metricsMap = metricsWithAvgDays.get(group);
+      if (metricsMap) {
+        const avgDaysMap = new Map();
+        metricsMap.forEach((metrics, date) => {
+          avgDaysMap.set(date, metrics.avgDays);
+        });
+        cache.set(group, avgDaysMap);
+      }
+    });
+
+    return cache;
+  }, [data, dateLabels, availableDates, models, baseDates, dateAggregation, loading]);
+
+  // Memoize metrics calculation (fast, recalculates when averageMode changes)
+  const { aggregatedMetrics, categoryMetrics, dates } = useMemo(() => {
+    if (!data || data.length === 0 || models.length === 0) {
+      return { aggregatedMetrics: new Map(), categoryMetrics: new Map(), dates: [] };
+    }
+
+    const { dates } = dateAggregation;
+    const categories = CATEGORY_TABS.map(cat => cat.id);
+    const allGroups = [...models, ...categories.map(id => `category:${id}`)];
+
+    const allMetrics = aggregateMetricsForGroups(
+      data,
+      allGroups,
+      baseDates,
+      dateAggregation,
+      (sourceData, group) => {
+        if (group.startsWith('category:')) {
+          const categoryId = group.substring(9);
+          return sourceData.listings
+            .filter(listing => {
+              const modelKey = getModelKey(listing);
+              const modelCategories = getCategoriesForModel(modelKey);
+              return modelCategories.includes(categoryId);
+            })
+            .map(listing => ({ ...listing, source: sourceData.source }));
+        } else {
+          return sourceData.listings
+            .filter(l => getModelKey(l) === group)
+            .map(listing => ({ ...listing, source: sourceData.source }));
+        }
+      },
+      averageMode,
+      true // Skip avgDays, we'll merge from cache
+    );
+
+    // Merge avgDays from cache if available
+    if (avgDaysCache) {
+      allGroups.forEach(group => {
+        const metricsMap = allMetrics.get(group);
+        const avgDaysMap = avgDaysCache.get(group);
+        if (metricsMap && avgDaysMap) {
+          metricsMap.forEach((metrics, date) => {
+            metrics.avgDays = avgDaysMap.get(date) || null;
+          });
+        }
+      });
+    }
+
+    // Split metrics back into models and categories
+    const aggregatedMetrics = new Map();
+    const categoryMetrics = new Map();
+
+    models.forEach(model => {
+      aggregatedMetrics.set(model, allMetrics.get(model));
+    });
+
+    categories.forEach(categoryId => {
+      categoryMetrics.set(categoryId, allMetrics.get(`category:${categoryId}`));
+    });
+
+    return { aggregatedMetrics, categoryMetrics, dates };
+  }, [data, dateLabels, availableDates, averageMode, loading, models, baseDates, dateAggregation, avgDaysCache]);
+
+  // Memoize dataset creation separately (only recalculates if metrics change)
+  const datasets = useMemo(() => {
+    if (aggregatedMetrics.size === 0) {
+      return [];
+    }
+
+    const { dateGroups } = dateAggregation;
+    const categories = CATEGORY_TABS.map(cat => cat.id);
 
     // Collect scaling values for point sizes
     const { allCounts, allAvgDays } = collectScalingValues(aggregatedMetrics);
@@ -197,8 +362,155 @@ export default function OverviewChart({
       };
     });
 
-    return { datasets, dates };
-  }, [data, dateLabels, availableDates]);
+    // Create category datasets
+    const categoryDatasets = categories.map(categoryId => {
+      const categoryInfo = CATEGORY_TABS.find(cat => cat.id === categoryId);
+      const metricsMap = categoryMetrics.get(categoryId);
+
+      const avgPoints = [];
+      const avgCountsSeries = [];
+      const maxCountsSeries = [];
+      const avgDaysSeries = [];
+      const groupedDatesSeries = [];
+      const pointRadiiStock = [];
+      const pointRadiiDays = [];
+
+      dates.forEach(date => {
+        const metrics = metricsMap.get(date);
+        const grouped = metrics?.groupedDates ?? dateGroups.get(date) ?? [date];
+        groupedDatesSeries.push(grouped);
+
+        if (!metrics || !metrics.hasData) {
+          avgPoints.push(null);
+          avgCountsSeries.push(0);
+          maxCountsSeries.push(0);
+          avgDaysSeries.push(null);
+          pointRadiiStock.push(5);
+          pointRadiiDays.push(5);
+          return;
+        }
+
+        avgPoints.push(metrics.avgPrice);
+        avgCountsSeries.push(metrics.avgCount);
+        maxCountsSeries.push(metrics.maxCount);
+        avgDaysSeries.push(metrics.avgDays);
+
+        const baseRadiusStock = metrics.avgCount > 0 ? getPointSizeFromStock(metrics.avgCount) : 5;
+        const baseRadiusDays = metrics.avgDays !== null ? getPointSizeFromDays(metrics.avgDays) : 5;
+
+        const getScaleFactor = () => {
+          if (typeof window === 'undefined') return 1;
+          const width = window.innerWidth;
+          if (width >= 1200) return 1;
+          if (width <= 320) return 0.3;
+          return 0.3 + ((width - 320) / (1200 - 320)) * 0.7;
+        };
+
+        const scaleFactor = getScaleFactor();
+        pointRadiiStock.push(baseRadiusStock * scaleFactor);
+        pointRadiiDays.push(baseRadiusDays * scaleFactor);
+      });
+
+      // Grey color: light in dark mode, dark in light mode
+      const prefersDark = typeof window !== 'undefined' && window.matchMedia
+        ? window.matchMedia('(prefers-color-scheme: dark)').matches
+        : false;
+      const greyBorderColor = prefersDark ? '#9ca3af' : '#6b7280'; // gray-400 in dark, gray-500 in light
+      const greyFillColor = prefersDark ? toRgba('#9ca3af', 0.4) : toRgba('#6b7280', 0.4); // Semi-transparent fill
+
+      return {
+        label: `${categoryInfo?.label || categoryId} Average`,
+        data: avgPoints,
+        borderColor: greyBorderColor,
+        backgroundColor: greyFillColor,
+        borderWidth: 3,
+        borderDash: [8, 4], // Dashed line for visual distinction
+        tension: 0.3,
+        pointRadius: pointRadiiStock,
+        pointRadiiStock,
+        pointRadiiDays,
+        pointHoverRadius: pointRadiiStock.map(r => r + 2),
+        pointHitRadius: pointRadiiStock,
+        pointBackgroundColor: greyFillColor,
+        isAverageLine: true,
+        isCategoryLine: true,
+        categoryId,
+        modelName: `${categoryInfo?.label || categoryId} Average`,
+        order: -1, // Render categories behind individual models
+        z: 5,
+        color: greyBorderColor,
+        // No priceRange property = no shaded region
+        avgCountsSeries,
+        maxCountsSeries,
+        avgDaysSeries,
+        groupedDatesSeries,
+        hasAggregatedDates: dates.length !== baseDates.length,
+        nonClickable: true // Show label but make it non-clickable
+      };
+    });
+
+    // Combine model datasets and category datasets
+    const allDatasets = [...datasets, ...categoryDatasets];
+
+    return allDatasets;
+  }, [aggregatedMetrics, categoryMetrics, dates, models, dateAggregation]);
+
+  // Average mode selector component
+  const avgModeSelector = (
+    <div className="group-mode-selector" ref={avgButtonRef}>
+      <button
+        type="button"
+        className="group-mode-button"
+        onClick={() => setAvgMenuOpen(!avgMenuOpen)}
+        aria-label="Change averaging mode"
+        aria-expanded={avgMenuOpen}
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="3,18 7,12 11,15 15,8 19,11 22,6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        </svg>
+      </button>
+      {avgMenuOpen && (
+        <div className="group-mode-menu">
+          <button
+            type="button"
+            className={`group-mode-menu-item${averageMode === 'normalized' ? ' active' : ''}`}
+            onClick={() => {
+              setAverageMode('normalized');
+              const url = new URL(window.location);
+              url.searchParams.delete('averageMode');
+              window.history.pushState({}, '', url);
+              setTimeout(() => setAvgMenuOpen(false), 300);
+            }}
+          >
+            {averageMode === 'normalized' ? (
+              <span className="group-mode-menu-item__check">✓</span>
+            ) : (
+              <span className="group-mode-menu-item__spacer"></span>
+            )}
+            Normalized Average
+          </button>
+          <button
+            type="button"
+            className={`group-mode-menu-item${averageMode === 'raw' ? ' active' : ''}`}
+            onClick={() => {
+              setAverageMode('raw');
+              const url = new URL(window.location);
+              url.searchParams.set('averageMode', 'raw');
+              window.history.pushState({}, '', url);
+              setTimeout(() => setAvgMenuOpen(false), 300);
+            }}
+          >
+            {averageMode === 'raw' ? (
+              <span className="group-mode-menu-item__check">✓</span>
+            ) : (
+              <span className="group-mode-menu-item__spacer"></span>
+            )}
+            Raw Average
+          </button>
+        </div>
+      )}
+    </div>
+  );
 
   return (
     <PriceRangeChart
@@ -215,6 +527,7 @@ export default function OverviewChart({
       availableDates={availableDates}
       loading={loading}
       onSelectedDatePosition={onSelectedDatePosition}
+      extraControls={avgModeSelector}
     />
   );
 }

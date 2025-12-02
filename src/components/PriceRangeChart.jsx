@@ -658,7 +658,8 @@ export default function PriceRangeChart({
                 dataPointY: lastPoint.y,
                 x: lastPoint.x + 20,
                 y: lastPoint.y,
-                height: 16
+                height: 16,
+                nonClickable: dataset.nonClickable || false
               });
             });
 
@@ -695,8 +696,9 @@ export default function PriceRangeChart({
               labelsContainerRef.current.innerHTML = '';
 
               labels.forEach(label => {
-                const linkEl = document.createElement(enableItemNavigation ? 'a' : 'button');
-                if (enableItemNavigation) {
+                const isClickable = !label.nonClickable && enableItemNavigation;
+                const linkEl = document.createElement(isClickable ? 'a' : (label.nonClickable ? 'span' : 'button'));
+                if (isClickable) {
                   linkEl.href = `?model=${encodeURIComponent(label.item)}`;
                 }
                 linkEl.className = 'chart-label';
@@ -712,7 +714,11 @@ export default function PriceRangeChart({
                 linkEl.style.display = 'flex';
                 linkEl.style.alignItems = 'center';
                 linkEl.style.gap = '4px';
-                if (!enableItemNavigation) {
+
+                if (label.nonClickable) {
+                  linkEl.style.fontStyle = 'italic';
+                  linkEl.style.cursor = 'default';
+                } else if (!enableItemNavigation) {
                   linkEl.style.background = 'none';
                   linkEl.style.border = 'none';
                   linkEl.style.padding = '0';
@@ -723,7 +729,7 @@ export default function PriceRangeChart({
                 textSpan.textContent = label.text;
                 linkEl.appendChild(textSpan);
 
-                if (enableItemNavigation) {
+                if (enableItemNavigation && !label.nonClickable) {
                   const chevron = document.createElement('span');
                   chevron.textContent = '›';
                   chevron.style.fontSize = '14px';
@@ -731,15 +737,17 @@ export default function PriceRangeChart({
                   linkEl.appendChild(chevron);
                 }
 
-                linkEl.addEventListener('click', (e) => {
-                  if (!e.metaKey && !e.ctrlKey && !e.shiftKey && e.button === 0) {
-                    e.preventDefault();
-                    setActiveItem(label.item);
-                    if (onItemSelect) {
-                      onItemSelect(label.item);
+                if (!label.nonClickable) {
+                  linkEl.addEventListener('click', (e) => {
+                    if (!e.metaKey && !e.ctrlKey && !e.shiftKey && e.button === 0) {
+                      e.preventDefault();
+                      setActiveItem(label.item);
+                      if (onItemSelect) {
+                        onItemSelect(label.item);
+                      }
                     }
-                  }
-                });
+                  });
+                }
 
                 linkEl.addEventListener('mouseenter', () => {
                   setHoveredItem(label.item);

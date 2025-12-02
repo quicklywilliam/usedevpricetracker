@@ -341,6 +341,79 @@ export function findSellingListings(allData) {
 }
 
 /**
+ * Build a lookup index for listing first-seen and status-change dates
+ * This is much faster than repeatedly searching through allData
+ * @param {Array} allData - All data from all sources
+ * @returns {Map} Map of "source:listingId" -> { firstSeen, statusChanged }
+ */
+export function buildListingDateIndex(allData) {
+  const index = new Map();
+
+  // Sort allData by date (oldest first) to find first-seen dates efficiently
+  const sortedData = [...allData].sort((a, b) => {
+    const dateA = a.scraped_at.split('T')[0];
+    const dateB = b.scraped_at.split('T')[0];
+    return dateA.localeCompare(dateB);
+  });
+
+  // Single pass through sorted data
+  for (const sourceData of sortedData) {
+    const source = sourceData.source;
+    const date = sourceData.scraped_at.split('T')[0];
+
+    for (const listing of sourceData.listings) {
+      const key = `${source}:${listing.id}`;
+      let entry = index.get(key);
+
+      if (!entry) {
+        // First time seeing this listing - record first seen date
+        entry = { firstSeen: date, statusChanged: null };
+        index.set(key, entry);
+      }
+
+      // Track when status changed to selling or sold (first occurrence)
+      if ((listing.purchase_status === 'selling' || listing.purchase_status === 'sold') && !entry.statusChanged) {
+        entry.statusChanged = date;
+      }
+    }
+  }
+
+  return index;
+}
+
+/**
+ * Calculate days on market for a listing using a pre-built index
+ * @param {Map} listingIndex - Pre-built index from buildListingDateIndex
+ * @param {string} listingId - The listing ID
+ * @param {string} source - The source name
+ * @param {string} targetDate - The date to calculate from (YYYY-MM-DD format)
+ * @param {string} purchaseStatus - Current purchase status
+ * @returns {number|null} Days on market or null if can't be calculated
+ */
+function calculateDaysOnMarketFromIndex(listingIndex, listingId, source, targetDate, purchaseStatus) {
+  const key = `${source}:${listingId}`;
+  const entry = listingIndex.get(key);
+
+  if (!entry) return null;
+
+  // Calculate end date based on status
+  let endDate;
+  if (purchaseStatus === 'selling' || purchaseStatus === 'sold') {
+    endDate = entry.statusChanged || targetDate;
+  } else {
+    endDate = targetDate;
+  }
+
+  // Calculate days difference
+  const firstDate = new Date(entry.firstSeen);
+  const lastDate = new Date(endDate);
+  const diffTime = Math.abs(lastDate - firstDate);
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+  return diffDays;
+}
+
+/**
  * Calculate days on market for a listing
  * @param {Array} allData - All data from all sources
  * @param {string} listingId - The listing ID
@@ -350,67 +423,30 @@ export function findSellingListings(allData) {
  * @returns {number|null} Days on market or null if can't be calculated
  */
 export function calculateDaysOnMarket(allData, listingId, source, targetDate, purchaseStatus) {
-  // Get all dates, sorted oldest to newest
-  const dates = [...new Set(allData.map(d => d.scraped_at.split('T')[0]))].sort();
-
-  // Find first date this listing appeared
-  let firstSeenDate = null;
-  let statusChangeDate = null;
-
-  for (const date of dates) {
-    const dataForDate = allData.filter(
-      d => d.source === source && d.scraped_at.startsWith(date)
-    );
-
-    for (const sourceData of dataForDate) {
-      const listing = sourceData.listings.find(l => l.id === listingId);
-
-      if (listing) {
-        if (!firstSeenDate) {
-          firstSeenDate = date;
-        }
-
-        // Track when status changed to selling or sold
-        if ((listing.purchase_status === 'selling' || listing.purchase_status === 'sold') && !statusChangeDate) {
-          statusChangeDate = date;
-        }
-      }
-    }
-  }
-
-  if (!firstSeenDate) return null;
-
-  // Calculate end date based on status
-  let endDate;
-  if (purchaseStatus === 'selling' || purchaseStatus === 'sold') {
-    // Use the date when status first changed
-    endDate = statusChangeDate || targetDate;
-  } else {
-    // For available vehicles, use target date
-    endDate = targetDate;
-  }
-
-  // Calculate days difference
-  const firstDate = new Date(firstSeenDate);
-  const lastDate = new Date(endDate);
-  const diffTime = Math.abs(lastDate - firstDate);
-  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-
-  return diffDays;
+  // Build index and use it (for backwards compatibility with single-call usage)
+  const index = buildListingDateIndex(allData);
+  return calculateDaysOnMarketFromIndex(index, listingId, source, targetDate, purchaseStatus);
 }
 
 /**
  * Calculate average days on market for a set of listings
- * @param {Array} allData - All data from all sources
+ * OPTIMIZED: Accepts pre-built index to avoid rebuilding it for each call
+ * @param {Array} allData - All data from all sources (only used if listingIndex not provided)
  * @param {Array} listings - Array of listings
  * @param {string} targetDate - The date to calculate from
+ * @param {Map} listingIndex - Optional pre-built index from buildListingDateIndex
  * @returns {number|null} Average days on market
  */
-export function calculateAverageDaysOnMarket(allData, listings, targetDate) {
+export function calculateAverageDaysOnMarket(allData, listings, targetDate, listingIndex = null) {
   if (!listings || listings.length === 0) return null;
 
+  // Build index if not provided (for backwards compatibility)
+  if (!listingIndex) {
+    listingIndex = buildListingDateIndex(allData);
+  }
+
   const daysOnMarket = listings.map(listing =>
-    calculateDaysOnMarket(allData, listing.id, listing.source, targetDate, listing.purchase_status)
+    calculateDaysOnMarketFromIndex(listingIndex, listing.id, listing.source, targetDate, listing.purchase_status)
   ).filter(days => days !== null);
 
   if (daysOnMarket.length === 0) return null;

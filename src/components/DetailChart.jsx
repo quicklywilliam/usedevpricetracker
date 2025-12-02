@@ -161,7 +161,8 @@ export default function DetailChart({
           }
           return modelListings.map(listing => ({ ...listing, source: sourceData.source }));
         }
-      }
+      },
+      'raw' // DetailChart uses raw average (no normalization needed for single model)
     );
 
     // Collect scaling values for point sizes
