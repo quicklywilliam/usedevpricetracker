@@ -65,11 +65,45 @@ jobs:
           # Check if there are changes to commit
           if git diff --staged --quiet; then
             echo "No new data to commit"
+            exit 0
+          fi
+
+          DATE=$(date +%Y-%m-%d)
+          SOURCE_COUNT=$(find data -name "*.json" | wc -l | tr -d ' ')
+          git commit -m "chore: update prices for $DATE ($SOURCE_COUNT sources)" -m "Generated with GitHub Actions"
+
+          # Try to push, handle concurrent commits
+          if git push; then
+            echo "✓ Push succeeded"
           else
-            DATE=$(date +%Y-%m-%d)
-            SOURCE_COUNT=$(find data -name "*.json" | wc -l | tr -d ' ')
-            git commit -m "chore: update prices for $DATE ($SOURCE_COUNT sources)" -m "Generated with GitHub Actions"
-            git push
+            echo "⚠️ Push failed, attempting to recover..."
+
+            # Stash our commit temporarily
+            git reset --soft HEAD~1
+            git stash
+
+            # Pull latest changes
+            git pull --rebase
+
+            # Try to restore our changes
+            if git stash pop; then
+              echo "✓ Stash applied successfully, retrying commit..."
+
+              # Re-add and commit
+              git add data/
+              if git diff --staged --quiet; then
+                echo "No new data after merge (likely already committed)"
+                exit 0
+              fi
+
+              SOURCE_COUNT=$(find data -name "*.json" | wc -l | tr -d ' ')
+              git commit -m "chore: update prices for $DATE ($SOURCE_COUNT sources)" -m "Generated with GitHub Actions"
+              git push
+            else
+              echo "✗ Conflict detected - scrape data for this day may already exist"
+              git stash drop || true
+              exit 1
+            fi
           fi
 
       - name: Build frontend
