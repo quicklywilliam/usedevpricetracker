@@ -345,6 +345,10 @@
   box-shadow: inset 0 0 0 2px rgba(102, 126, 234, 0.35);
 }
 
+.mobile-item-list-item.non-clickable .mobile-item-list-item__name {
+  font-style: italic;
+}
+
 .chart-labels {
   position: absolute;
   top: 0;
@@ -358,7 +362,7 @@
 .chart-label {
   pointer-events: auto;
   cursor: pointer;
-  transition: all 0.2s ease;
+  /* No transition - labels should NEVER animate or move */
 }
 
 .chart-label:hover {

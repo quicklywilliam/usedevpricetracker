@@ -64,6 +64,7 @@ export default function OverviewChart({
   onModelSelect,
   onDateSelect,
   selectedDate,
+  selectedCategory,
   timeRangeId,
   onTimeRangeChange,
   timeRangeOptions,
@@ -449,11 +450,16 @@ export default function OverviewChart({
       };
     });
 
+    // Filter category datasets to only include the selected category
+    const filteredCategoryDatasets = selectedCategory
+      ? categoryDatasets.filter(ds => ds.categoryId === selectedCategory)
+      : categoryDatasets;
+
     // Combine model datasets and category datasets
-    const allDatasets = [...datasets, ...categoryDatasets];
+    const allDatasets = [...datasets, ...filteredCategoryDatasets];
 
     return allDatasets;
-  }, [aggregatedMetrics, categoryMetrics, dates, models, dateAggregation]);
+  }, [aggregatedMetrics, categoryMetrics, dates, models, dateAggregation, selectedCategory]);
 
   // Average mode selector component
   const avgModeSelector = (

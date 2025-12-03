@@ -44,6 +44,9 @@ export default function PriceRangeChart({
   const [dotSizeMenuOpen, setDotSizeMenuOpen] = useState(false);
   const hoveredItemRef = useRef(null);
   const dotSizeButtonRef = useRef(null);
+  const baselineScaleRef = useRef({ min: undefined, max: undefined });
+  const labelPositionsRef = useRef(new Map());
+  const loadingRef = useRef(loading);
 
   const hexToRgb = (hex) => {
     if (!hex) return null;
@@ -183,7 +186,8 @@ export default function PriceRangeChart({
     hoveredItemRef.current = highlightItem;
     const chart = chartInstance.current;
     if (chart && chart.ctx) {
-      chart.draw();
+      // Use update('active') to recalculate scales with animation when hovering changes
+      chart.update('active');
     }
 
     if (labelsContainerRef.current) {
@@ -197,8 +201,25 @@ export default function PriceRangeChart({
     }
   }, [hoveredItem, activeItem]);
 
+  // Keep loadingRef in sync with loading prop
+  useEffect(() => {
+    loadingRef.current = loading;
+    // Trigger chart update when loading changes so labels can be cached
+    const chart = chartInstance.current;
+    if (chart && chart.ctx) {
+      chart.update('none');
+    }
+  }, [loading]);
+
   useEffect(() => {
     if (!datasets || datasets.length === 0 || !dates) return;
+
+    // Clear cache only if the items (model names) have changed, not when just data updates
+    const currentItems = datasets.map(d => d.modelName || d.label).sort().join(',');
+    const cachedItems = Array.from(labelPositionsRef.current.keys()).sort().join(',');
+    if (currentItems !== cachedItems && labelPositionsRef.current.size > 0) {
+      labelPositionsRef.current.clear();
+    }
 
     const availableDateSet = new Set(Array.isArray(availableDates) ? availableDates : []);
 
@@ -212,15 +233,23 @@ export default function PriceRangeChart({
         item: dataset.label,
         average: lastValue,
         date: lastDataIndex >= 0 ? dates[lastDataIndex] : null,
-        color: dataset.color || dataset.borderColor
+        color: dataset.color || dataset.borderColor,
+        nonClickable: dataset.nonClickable || false
       };
     });
 
-    const withAverage = summaries
-      .filter(summary => summary.average !== null && summary.average !== undefined)
+    // Separate clickable items from non-clickable (category averages)
+    const clickable = summaries.filter(s => !s.nonClickable);
+    const nonClickable = summaries.filter(s => s.nonClickable);
+
+    // Sort clickable items by price (highest first), then items without average
+    const clickableWithAvg = clickable
+      .filter(s => s.average !== null && s.average !== undefined)
       .sort((a, b) => b.average - a.average);
-    const withoutAverage = summaries.filter(summary => summary.average === null || summary.average === undefined);
-    const sortedSummaries = [...withAverage, ...withoutAverage];
+    const clickableWithoutAvg = clickable.filter(s => s.average === null || s.average === undefined);
+
+    // Non-clickable items (category averages) always last
+    const sortedSummaries = [...clickableWithAvg, ...clickableWithoutAvg, ...nonClickable];
 
     setMobileItemSummaries(prev => {
       const prevKey = JSON.stringify(prev);
@@ -253,28 +282,26 @@ export default function PriceRangeChart({
     const labelCount = dates.length;
 
     // Calculate global min/max for y-axis scaling
+    // Only use line data (average prices), not ranges, so axis isn't too zoomed out
     let globalMin = Infinity;
     let globalMax = -Infinity;
 
     datasetsWithCorrectRadii.forEach(dataset => {
-      if (dataset.priceRange) {
-        const { min, max } = dataset.priceRange;
-        if (Array.isArray(min)) {
-          min.forEach(val => {
-            if (Number.isFinite(val)) {
-              globalMin = Math.min(globalMin, val);
-            }
-          });
-        }
-        if (Array.isArray(max)) {
-          max.forEach(val => {
-            if (Number.isFinite(val)) {
-              globalMax = Math.max(globalMax, val);
-            }
-          });
-        }
+      if (Array.isArray(dataset.data)) {
+        dataset.data.forEach(val => {
+          if (Number.isFinite(val)) {
+            globalMin = Math.min(globalMin, val);
+            globalMax = Math.max(globalMax, val);
+          }
+        });
       }
     });
+
+    // Store baseline scale for use in hover adjustments
+    baselineScaleRef.current = {
+      min: Number.isFinite(globalMin) ? globalMin - 500 : undefined,
+      max: Number.isFinite(globalMax) ? globalMax + 500 : undefined
+    };
 
     const formatAxisLabel = (index) => {
       if (index < 0 || index >= labelCount) return '';
@@ -342,11 +369,16 @@ export default function PriceRangeChart({
       options: {
         responsive: true,
         maintainAspectRatio: false,
-        animation: false,
+        // No animations for initial render or data updates
+        animation: {
+          duration: 0
+        },
+        // Only animate on hover/active transitions (Y-axis zoom)
         transitions: {
           active: {
             animation: {
-              duration: 0
+              duration: 300,
+              easing: 'easeInOutQuart'
             }
           }
         },
@@ -450,23 +482,15 @@ export default function PriceRangeChart({
           y: {
             position: 'left',
             beginAtZero: false,
-            min: Number.isFinite(globalMin) ? globalMin - 500 : undefined,
-            max: Number.isFinite(globalMax) ? globalMax + 500 : undefined,
+            suggestedMin: Number.isFinite(globalMin) ? globalMin - 500 : undefined,
+            suggestedMax: Number.isFinite(globalMax) ? globalMax + 500 : undefined,
             ticks: {
               callback: value => formatCurrencyShort(value)
             }
           }
         },
         onHover: (_event, elements, chart) => {
-          if (elements.length > 0) {
-            const element = elements[0];
-            const dataset = chart.data.datasets[element.datasetIndex];
-            if (dataset && dataset.isAverageLine) {
-              setHoveredItem(dataset.modelName || dataset.label);
-              return;
-            }
-          }
-          setHoveredItem(null);
+          // Don't trigger zoom on line hover - only on label hover
         },
         onLeave: () => {
           setHoveredItem(null);
@@ -487,6 +511,58 @@ export default function PriceRangeChart({
         }
       },
       plugins: [{
+        afterDataLimits: (chart) => {
+          // This hook runs after data limits are calculated, perfect for adjusting scale
+          const hovered = hoveredItemRef.current;
+          const hasHover = Boolean(hovered);
+          const yScale = chart.scales.y;
+
+          if (!yScale) return;
+
+          // Skip zoom behavior while loading
+          if (loadingRef.current) return;
+
+          // Dynamically adjust Y-axis to include range when hovering
+          if (hasHover) {
+            let rangeMin = Infinity;
+            let rangeMax = -Infinity;
+
+            // Find the hovered dataset's range
+            chart.data.datasets.forEach(dataset => {
+              const itemName = dataset.modelName || dataset.label;
+              if (dataset.priceRange && itemName === hovered) {
+                const { min, max } = dataset.priceRange;
+                if (Array.isArray(min)) {
+                  min.forEach(val => {
+                    if (Number.isFinite(val)) rangeMin = Math.min(rangeMin, val);
+                  });
+                }
+                if (Array.isArray(max)) {
+                  max.forEach(val => {
+                    if (Number.isFinite(val)) rangeMax = Math.max(rangeMax, val);
+                  });
+                }
+              }
+            });
+
+            // Update Y-axis scale to include range
+            if (Number.isFinite(rangeMin) && Number.isFinite(rangeMax)) {
+              const padding = 500;
+              yScale.min = rangeMin - padding;
+              yScale.max = rangeMax + padding;
+            }
+          } else {
+            // Reset to baseline scale (based on line data only)
+            const baseline = baselineScaleRef.current;
+            // Directly set the scale's min/max
+            if (baseline.min !== undefined) {
+              yScale.min = baseline.min;
+            }
+            if (baseline.max !== undefined) {
+              yScale.max = baseline.max;
+            }
+          }
+        },
         beforeDatasetsDraw: (chart) => {
           const ctx = chart.ctx;
           const xScale = chart.scales.x;
@@ -499,7 +575,7 @@ export default function PriceRangeChart({
           const hasHover = Boolean(hovered);
 
           chart.data.datasets.forEach((dataset, datasetIndex) => {
-            if (!dataset.isAverageLine || !dataset.priceRange) {
+            if (!dataset.isAverageLine) {
               return;
             }
 
@@ -508,24 +584,19 @@ export default function PriceRangeChart({
               return;
             }
 
-            const { min, max, baseColor } = dataset.priceRange;
-            if (!Array.isArray(min) || !Array.isArray(max)) {
-              return;
-            }
-
             const itemName = dataset.modelName || dataset.label;
             const isHovered = hasHover && itemName === hovered;
+            const baseColor = dataset.priceRange?.baseColor || dataset.borderColor || dataset.color;
 
-            // Only show range for the currently hovered item
-            if (!isHovered) {
-              // Update line styles to normal (no dimming) but skip range rendering
+            // Apply dimming to non-hovered lines
+            if (!isHovered && hasHover) {
               if (meta.dataset) {
                 const line = meta.dataset;
-                line.options.borderWidth = hasHover ? 1.25 : 2;
-                line.options.borderColor = hasHover ? toRgba(baseColor, prefersDark ? 0.15 : 0.1) : baseColor;
-                const pointFill = hasHover ? toRgba(baseColor, (prefersDark ? 0.15 : 0.1) * 1.2) : baseColor;
+                line.options.borderWidth = 1.25;
+                line.options.borderColor = toRgba(baseColor, prefersDark ? 0.15 : 0.1);
+                const pointFill = toRgba(baseColor, (prefersDark ? 0.15 : 0.1) * 1.2);
                 const pointBorderBase = adjustLightness(baseColor, -0.08);
-                const pointBorder = hasHover ? toRgba(pointBorderBase, prefersDark ? 0.15 : 0.1) : pointBorderBase;
+                const pointBorder = toRgba(pointBorderBase, prefersDark ? 0.15 : 0.1);
                 line.options.pointBackgroundColor = pointFill;
                 line.options.pointBorderColor = pointBorder;
                 meta.data.forEach((point, pointIndex) => {
@@ -538,7 +609,21 @@ export default function PriceRangeChart({
                   point.options.borderColor = pointBorder;
                 });
               }
-              return; // Skip range rendering for non-hovered items
+            }
+
+            // Skip range rendering if no priceRange
+            if (!dataset.priceRange) {
+              return;
+            }
+
+            const { min, max } = dataset.priceRange;
+            if (!Array.isArray(min) || !Array.isArray(max)) {
+              return;
+            }
+
+            // Skip range rendering for non-hovered items
+            if (!isHovered) {
+              return;
             }
 
             const fillAlpha = isHovered ? (prefersDark ? 0.45 : 0.28) : (prefersDark ? 0.18 : 0.12);
@@ -672,6 +757,41 @@ export default function PriceRangeChart({
               });
             });
 
+            // Cache positions BEFORE collision detection, when not hovering
+            const hovered = hoveredItemRef.current;
+            const hasHover = Boolean(hovered);
+            const isCacheEmpty = labelPositionsRef.current.size === 0;
+
+            // Cache only when: empty cache, not hovering, and we have all the items we expect
+            // Optimize: only check cache validity if cache exists
+            const needsRecache = isCacheEmpty ||
+              labelPositionsRef.current.size !== labels.length ||
+              labels.some(l => !labelPositionsRef.current.has(l.item));
+
+            if (needsRecache && !hasHover) {
+              // Check that Y positions are actually spread out (not collapsed to a single point)
+              // Optimize: single loop instead of map + double spread
+              let minY = Infinity;
+              let maxY = -Infinity;
+              for (const label of labels) {
+                if (label.y < minY) minY = label.y;
+                if (label.y > maxY) maxY = label.y;
+              }
+              const yRange = maxY - minY;
+
+              // Only cache if labels are spread out over at least 200px (good spread)
+              if (yRange > 200) {
+                // Clear old cache if items have changed
+                if (!isCacheEmpty) {
+                  labelPositionsRef.current.clear();
+                }
+                labels.forEach(label => {
+                  const pos = label.y - label.height / 2;
+                  labelPositionsRef.current.set(label.item, pos);
+                });
+              }
+            }
+
             labels.sort((a, b) => a.y - b.y);
 
             const minSpacing = 18;
@@ -702,9 +822,29 @@ export default function PriceRangeChart({
             });
 
             if (labelsContainerRef.current) {
+              const hovered = hoveredItemRef.current;
+              const hasHover = Boolean(hovered);
+
+              // Skip re-rendering labels when hovering - just update styling
+              if (hasHover && labelPositionsRef.current.size > 0) {
+                // Just update hover/dimmed classes without re-positioning
+                const existingLabels = labelsContainerRef.current.querySelectorAll('.chart-label');
+                existingLabels.forEach(labelEl => {
+                  const itemName = labelEl.dataset.item;
+                  if (itemName === hovered) {
+                    labelEl.classList.add('hovered');
+                    labelEl.classList.remove('dimmed');
+                  } else {
+                    labelEl.classList.remove('hovered');
+                    labelEl.classList.add('dimmed');
+                  }
+                });
+                return; // Skip full re-render
+              }
+
               labelsContainerRef.current.innerHTML = '';
 
-              labels.forEach(label => {
+              labels.forEach((label) => {
                 const isClickable = !label.nonClickable && enableItemNavigation;
                 const linkEl = document.createElement(isClickable ? 'a' : (label.nonClickable ? 'span' : 'button'));
                 if (isClickable) {
@@ -714,7 +854,17 @@ export default function PriceRangeChart({
                 linkEl.dataset.item = label.item;
                 linkEl.style.position = 'absolute';
                 linkEl.style.left = label.x + 'px';
-                linkEl.style.top = (label.y - label.height / 2) + 'px';
+
+                // ALWAYS use cached position if available, never recalculate
+                const cachedPosition = labelPositionsRef.current.get(label.item);
+                const fallbackPosition = label.y - label.height / 2;
+                const topPosition = cachedPosition !== undefined ? cachedPosition : fallbackPosition;
+
+                linkEl.style.top = topPosition + 'px';
+
+                // Disable transitions so labels never animate
+                linkEl.style.transition = 'none';
+
                 linkEl.style.color = label.color;
                 linkEl.style.fontWeight = 'bold';
                 linkEl.style.fontSize = '12px';
@@ -887,7 +1037,7 @@ export default function PriceRangeChart({
         chartInstance.current = null;
       }
     };
-  }, [datasets, dates, data, onItemSelect, onDateSelect, selectedDate, dotSizeMode, prefersDark, dateLabels, availableDates, showItemLabels, loading]);
+  }, [datasets, dates, data, selectedDate, dotSizeMode, prefersDark, dateLabels, availableDates, showItemLabels]);
 
   const rangeOptions = Array.isArray(timeRangeOptions) ? timeRangeOptions : [];
   const activeRangeId = timeRangeId ?? (rangeOptions[0]?.id ?? null);
@@ -977,10 +1127,11 @@ export default function PriceRangeChart({
         <div className="mobile-item-list" role="list">
           {mobileItemSummaries.map(summary => {
             const isActive = highlightedItem === summary.item;
+            const isClickable = !summary.nonClickable;
             return (
               <div
                 key={summary.item}
-                className={`mobile-item-list-item${isActive ? ' active' : ''}`}
+                className={`mobile-item-list-item${isActive ? ' active' : ''}${!isClickable ? ' non-clickable' : ''}`}
                 role="listitem"
               >
                 <button
@@ -998,22 +1149,24 @@ export default function PriceRangeChart({
                     <span className="mobile-item-list-item__name">{summary.item}</span>
                   </span>
                 </button>
-                <a
-                  className="mobile-item-list-item__disclosure"
-                  href={`?model=${encodeURIComponent(summary.item)}`}
-                  aria-label={`View details for ${summary.item}`}
-                  onClick={(e) => {
-                    if (!e.metaKey && !e.ctrlKey && !e.shiftKey && e.button === 0) {
-                      e.preventDefault();
-                      setActiveItem(summary.item);
-                      if (onItemSelect) {
-                        onItemSelect(summary.item);
+                {isClickable && (
+                  <a
+                    className="mobile-item-list-item__disclosure"
+                    href={`?model=${encodeURIComponent(summary.item)}`}
+                    aria-label={`View details for ${summary.item}`}
+                    onClick={(e) => {
+                      if (!e.metaKey && !e.ctrlKey && !e.shiftKey && e.button === 0) {
+                        e.preventDefault();
+                        setActiveItem(summary.item);
+                        if (onItemSelect) {
+                          onItemSelect(summary.item);
+                        }
                       }
-                    }
-                  }}
-                >
-                  ›
-                </a>
+                    }}
+                  >
+                    ›
+                  </a>
+                )}
               </div>
             );
           })}

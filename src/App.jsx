@@ -502,6 +502,7 @@ function App() {
               onModelSelect={handleModelSelect}
               onDateSelect={handleDateSelect}
               selectedDate={selectedDate}
+              selectedCategory={selectedCategory}
               timeRangeId={timeRangeId}
               onTimeRangeChange={handleTimeRangeChange}
               timeRangeOptions={TIME_RANGE_OPTIONS}
