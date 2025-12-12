@@ -291,7 +291,36 @@ export default function ModelListingsView({ data, model, selectedDate, loading =
     } else if (selectedYears.length === 1) {
       return selectedYears[0];
     } else {
-      return `${selectedYears.length} Years`;
+      // Filter out "Unknown" for formatting
+      const numericYears = selectedYears.filter(y => y !== 'Unknown').map(Number).sort((a, b) => a - b);
+      const hasUnknown = selectedYears.includes('Unknown');
+
+      // Check if years form a continuous range
+      let isRange = numericYears.length > 1;
+      for (let i = 1; i < numericYears.length; i++) {
+        if (numericYears[i] !== numericYears[i - 1] + 1) {
+          isRange = false;
+          break;
+        }
+      }
+
+      let text = '';
+      if (isRange && numericYears.length > 0) {
+        // Show as range: "'22-'24"
+        const start = numericYears[0].toString().slice(-2);
+        const end = numericYears[numericYears.length - 1].toString().slice(-2);
+        text = `'${start}-'${end}`;
+      } else if (numericYears.length > 0) {
+        // Show as comma list: "'22,'24"
+        text = numericYears.map(y => `'${y.toString().slice(-2)}`).join(',');
+      }
+
+      // Add "Unknown" if selected
+      if (hasUnknown) {
+        text = text ? `${text},?` : '?';
+      }
+
+      return text;
     }
   };
 
