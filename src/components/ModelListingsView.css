@@ -23,13 +23,24 @@
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
-/* Trim filter positioned absolutely in top-right */
-.trim-filter {
+/* Filters container positioned absolutely in top-right */
+.filters-container {
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
-  width: 200px;
+  display: flex;
+  gap: 0.75rem;
   z-index: 50;
+}
+
+/* Year filter */
+.year-filter {
+  width: 150px;
+}
+
+/* Trim filter */
+.trim-filter {
+  width: 200px;
 }
 
 .trim-filter__button {
@@ -118,22 +129,119 @@
   opacity: 0.8;
 }
 
+/* Year filter button */
+.year-filter__button {
+  width: 100%;
+  padding: 0.65rem 1rem;
+  border-radius: 6px;
+  border: 2px solid rgba(102, 126, 234, 0.3);
+  background: rgba(102, 126, 234, 0.1);
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.year-filter__button:hover,
+.year-filter__button:focus-visible {
+  background: rgba(102, 126, 234, 0.2);
+  border-color: rgba(102, 126, 234, 0.5);
+  outline: none;
+}
+
+.year-filter__arrow {
+  font-size: 0.7rem;
+  transition: transform 0.2s ease;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.year-filter__arrow.open {
+  transform: rotate(180deg);
+}
+
+.year-filter__menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  background: var(--bg-primary);
+  border: 2px solid rgba(102, 126, 234, 0.3);
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 100;
+  padding: 0.5rem 0;
+}
+
+.year-filter__menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  font-size: 0.9rem;
+  color: white;
+}
+
+.year-filter__menu-item:hover {
+  background: rgba(102, 126, 234, 0.15);
+}
+
+.year-filter__menu-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--primary-color);
+}
+
+.year-filter__clear {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.15s ease;
+}
+
+.year-filter__clear:hover {
+  opacity: 0.8;
+}
+
 @media (max-width: 900px) {
   .model-listings-view {
     padding: 1.35rem;
   }
 
-  .trim-filter {
+  .filters-container {
     top: 1.35rem;
     right: 1.35rem;
+    gap: 0.65rem;
+  }
+
+  .year-filter {
+    width: 140px;
+  }
+
+  .trim-filter {
     width: 180px;
   }
 
+  .year-filter__button,
   .trim-filter__button {
     padding: 0.6rem 0.9rem;
     font-size: 0.875rem;
   }
 
+  .year-filter__menu-item,
   .trim-filter__menu-item {
     padding: 0.55rem 0.9rem;
     font-size: 0.875rem;
@@ -143,24 +251,33 @@
 @media (max-width: 768px) {
   .model-listings-view {
     padding: 1.25rem;
-    padding-top: 4.5rem; /* Make room for filter at top */
+    padding-top: 7.5rem; /* Make room for filters at top */
     margin-top: 1.5rem;
   }
 
-  /* Mobile: position at top left */
-  .trim-filter {
+  /* Mobile: stack filters vertically at top left */
+  .filters-container {
     top: 1.25rem;
     right: auto;
     left: 1.25rem;
+    flex-direction: column;
+    gap: 0.75rem;
     width: calc(100% - 2.5rem);
     max-width: 300px;
   }
 
+  .year-filter,
+  .trim-filter {
+    width: 100%;
+  }
+
+  .year-filter__button,
   .trim-filter__button {
     padding: 0.65rem 1rem;
     font-size: 0.9rem;
   }
 
+  .year-filter__menu-item,
   .trim-filter__menu-item {
     padding: 0.6rem 1rem;
     font-size: 0.9rem;
@@ -170,23 +287,31 @@
 @media (max-width: 540px) {
   .model-listings-view {
     padding: 1rem;
-    padding-top: 4.25rem;
+    padding-top: 7.25rem;
     margin-top: 1.25rem;
   }
 
-  .trim-filter {
+  .filters-container {
     top: 1rem;
     left: 1rem;
     right: 1rem;
     width: calc(100% - 2rem);
     max-width: none;
+    gap: 0.65rem;
   }
 
+  .year-filter,
+  .trim-filter {
+    width: 100%;
+  }
+
+  .year-filter__button,
   .trim-filter__button {
     padding: 0.6rem 0.85rem;
     font-size: 0.875rem;
   }
 
+  .year-filter__menu-item,
   .trim-filter__menu-item {
     padding: 0.55rem 0.85rem;
     font-size: 0.875rem;
