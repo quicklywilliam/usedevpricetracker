@@ -3,6 +3,7 @@ import PriceRangeChart from './PriceRangeChart';
 import { aggregateDates } from '../utils/dateAggregation';
 import { aggregateMetricsForGroups, collectScalingValues } from '../utils/metricAggregation';
 import { createInventoryScale } from '../utils/inventoryScale';
+import { loadCarGurusData, extractYear, isAggregateLine } from '../utils/cargurusData';
 import './DetailChart.css';
 
 const sourceColors = {
@@ -43,6 +44,104 @@ const toRgba = (hex, alpha) => {
   return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 };
 
+// Muted colors for CarGurus trend lines
+const cargurusColors = {
+  '2022': '#94a3b8', // slate-400
+  '2023': '#a78bfa', // violet-400
+  '2024': '#fb923c', // orange-400
+  '2025': '#4ade80', // green-400
+  'aggregate': '#64748b' // slate-500
+};
+
+/**
+ * Create CarGurus trend line datasets
+ */
+function createCarGurusTrendLines(cargurusData, dates, model) {
+  const trendLines = [];
+
+  Object.keys(cargurusData).forEach(carType => {
+    const year = extractYear(carType);
+    const isAggregate = isAggregateLine(carType, model);
+
+    // Skip CarGurus Index and other non-relevant lines
+    if (!year && !isAggregate) return;
+
+    const dataPoints = cargurusData[carType];
+    const priceData = [];
+
+    // Map CarGurus data to chart dates (find nearest date within 7 days)
+    let matchCount = 0;
+    dates.forEach(chartDate => {
+      // Find the closest CarGurus data point within 7 days
+      let closestPoint = null;
+      let minDiff = Infinity;
+
+      const chartTime = new Date(chartDate).getTime();
+      dataPoints.forEach(dp => {
+        const dpTime = new Date(dp.date).getTime();
+        const diff = Math.abs(chartTime - dpTime);
+        const daysDiff = diff / (1000 * 60 * 60 * 24);
+
+        // Only consider points within 7 days
+        if (daysDiff <= 7 && diff < minDiff) {
+          minDiff = diff;
+          closestPoint = dp;
+        }
+      });
+
+      if (closestPoint) matchCount++;
+      priceData.push(closestPoint ? closestPoint.price : null);
+    });
+
+    // Determine color and label
+    let color, label;
+    if (isAggregate) {
+      color = cargurusColors.aggregate;
+      label = 'CarGurus All Years';
+    } else {
+      color = cargurusColors[year] || '#999';
+      label = `CarGurus ${year}`;
+    }
+
+    // Create constant radius arrays for CarGurus lines
+    const constantRadii = priceData.map(() => 2);
+
+    trendLines.push({
+      label,
+      data: priceData,
+      borderColor: color,
+      backgroundColor: color,
+      borderWidth: 2,
+      borderDash: [6, 3], // Dashed line
+      tension: 0.3,
+      pointRadius: constantRadii,
+      pointRadiiStock: constantRadii,
+      pointRadiiDays: constantRadii,
+      pointHoverRadius: constantRadii.map(r => r + 2),
+      pointHitRadius: constantRadii,
+      pointBackgroundColor: color,
+      isAverageLine: true, // Enable label rendering
+      isCarGurusTrend: true,
+      isTrendLine: true,
+      modelName: label, // Used for label positioning
+      order: -2, // Render behind other lines
+      z: 3,
+      color,
+      year: year || 'all',
+      nonClickable: true
+    });
+  });
+
+  // Sort: year-specific lines first (by year), then aggregate
+  trendLines.sort((a, b) => {
+    if (a.year === 'all') return 1;
+    if (b.year === 'all') return -1;
+    return a.year.localeCompare(b.year);
+  });
+
+  return trendLines;
+}
+
 export default function DetailChart({
   data,
   model,
@@ -64,6 +163,20 @@ export default function DetailChart({
   });
   const [groupMenuOpen, setGroupMenuOpen] = useState(false);
   const groupButtonRef = useRef(null);
+  const [cargurusData, setCargurusData] = useState(null);
+  const [showCarGurus, setShowCarGurus] = useState(true);
+
+  // Load CarGurus data when model changes
+  useEffect(() => {
+    if (!model) {
+      setCargurusData(null);
+      return;
+    }
+
+    loadCarGurusData(model).then(data => {
+      setCargurusData(data);
+    });
+  }, [model]);
 
   // Handle URL parameter for group mode
   useEffect(() => {
@@ -276,8 +389,30 @@ export default function DetailChart({
       return dataset.data.some(price => price !== null);
     });
 
+    // Add CarGurus trend lines if available and enabled
+    if (cargurusData && showCarGurus) {
+      const cargurusTrendLines = createCarGurusTrendLines(cargurusData, dates, model);
+      datasets.push(...cargurusTrendLines);
+    }
+
     return { datasets, dates };
-  }, [data, model, dateLabels, availableDates, groupMode]);
+  }, [data, model, dateLabels, availableDates, groupMode, cargurusData, showCarGurus]);
+
+  // CarGurus toggle button
+  const cargurusToggle = (
+    <button
+      type="button"
+      className={`cargurus-toggle-button${showCarGurus ? ' active' : ''}`}
+      onClick={() => setShowCarGurus(!showCarGurus)}
+      aria-label="Toggle CarGurus trend lines"
+      aria-pressed={showCarGurus}
+      title="Toggle CarGurus trend lines"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text x="12" y="16" textAnchor="middle" fontSize="10" fontWeight="bold" fill="currentColor" fontFamily="Arial, sans-serif">CG</text>
+      </svg>
+    </button>
+  );
 
   // Group mode selector component
   const groupModeSelector = (
@@ -351,7 +486,7 @@ export default function DetailChart({
         loading={loading}
         enableItemNavigation={false}
         onSelectedDatePosition={onSelectedDatePosition}
-        extraControls={groupModeSelector}
+        extraControls={<>{cargurusToggle}{groupModeSelector}</>}
       />
   );
 }

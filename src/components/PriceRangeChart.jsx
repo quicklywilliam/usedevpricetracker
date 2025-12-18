@@ -451,9 +451,14 @@ export default function PriceRangeChart({
                   : null;
 
                 const result = [
-                  `${datasetLabel}: $${price.toLocaleString()}`,
-                  `Stock: ${stockLabel}`
+                  `${datasetLabel}: $${price.toLocaleString()}`
                 ];
+
+                // Only show stock info if dataset has stock data (not for CarGurus trends)
+                const hasStockData = avgCountsSeries.length > 0 && !context.dataset.isCarGurusTrend;
+                if (hasStockData && countForLabel > 0) {
+                  result.push(`Stock: ${stockLabel}`);
+                }
 
                 if (daysLabel) {
                   result.push(daysLabel);
@@ -753,7 +758,8 @@ export default function PriceRangeChart({
                 x: lastPoint.x + 20,
                 y: lastPoint.y,
                 height: 16,
-                nonClickable: dataset.nonClickable || false
+                nonClickable: dataset.nonClickable || false,
+                isCarGurusTrend: dataset.isCarGurusTrend || false
               });
             });
 
@@ -768,6 +774,24 @@ export default function PriceRangeChart({
               labelPositionsRef.current.size !== labels.length ||
               labels.some(l => !labelPositionsRef.current.has(l.item));
 
+            // Do collision detection first
+            labels.sort((a, b) => a.y - b.y);
+
+            const minSpacing = 18;
+            labels.forEach(label => {
+              label.originalY = label.y;
+            });
+
+            for (let i = 1; i < labels.length; i++) {
+              const current = labels[i];
+              const previous = labels[i - 1];
+
+              if (current.y - previous.y < minSpacing) {
+                current.y = previous.y + minSpacing;
+              }
+            }
+
+            // Cache positions AFTER collision detection
             if (needsRecache && !hasHover) {
               // Check that Y positions are actually spread out (not collapsed to a single point)
               // Optimize: single loop instead of map + double spread
@@ -789,22 +813,6 @@ export default function PriceRangeChart({
                   const pos = label.y - label.height / 2;
                   labelPositionsRef.current.set(label.item, pos);
                 });
-              }
-            }
-
-            labels.sort((a, b) => a.y - b.y);
-
-            const minSpacing = 18;
-            labels.forEach(label => {
-              label.originalY = label.y;
-            });
-
-            for (let i = 1; i < labels.length; i++) {
-              const current = labels[i];
-              const previous = labels[i - 1];
-
-              if (current.y - previous.y < minSpacing) {
-                current.y = previous.y + minSpacing;
               }
             }
 
@@ -908,6 +916,7 @@ export default function PriceRangeChart({
                   });
                 }
 
+                // Add hover effects for all labels
                 linkEl.addEventListener('mouseenter', () => {
                   setHoveredItem(label.item);
                 });
@@ -957,7 +966,11 @@ export default function PriceRangeChart({
               }
               // Check if any grouped dates are available
               const grouped = datasets[0]?.groupedDatesSeries?.[index] || [];
-              return grouped.some(d => availableDateSet.has(d));
+              if (grouped.some(d => availableDateSet.has(d))) {
+                return true;
+              }
+              // Check if any dataset (including CarGurus trends) has data at this date
+              return datasets.some(ds => ds.data[index] !== null && ds.data[index] !== undefined);
             });
 
             clickableDates.forEach((date) => {

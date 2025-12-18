@@ -5,6 +5,7 @@ import { aggregateDates } from '../utils/dateAggregation';
 import { aggregateMetricsForGroups, collectScalingValues } from '../utils/metricAggregation';
 import { createInventoryScale } from '../utils/inventoryScale';
 import { CATEGORY_TABS, getCategoriesForModel } from '../utils/modelCategories';
+import { loadCarGurusData } from '../utils/cargurusData';
 import './DetailChart.css'; // Reuse DetailChart styles for the toggle
 
 const modelColors = {
@@ -81,6 +82,7 @@ export default function OverviewChart({
   });
   const [avgMenuOpen, setAvgMenuOpen] = useState(false);
   const avgButtonRef = useRef(null);
+  const [cargurusDataByModel, setCargurusDataByModel] = useState(new Map());
 
   // Handle URL parameter for average mode
   useEffect(() => {
@@ -135,6 +137,30 @@ export default function OverviewChart({
 
     return { models, baseDates, dateAggregation };
   }, [data, dateLabels, availableDates]);
+
+  // Load CarGurus data for all models
+  useEffect(() => {
+    if (models.length === 0) {
+      setCargurusDataByModel(new Map());
+      return;
+    }
+
+    // Load data for all models in parallel
+    Promise.all(
+      models.map(async (model) => {
+        const data = await loadCarGurusData(model);
+        return { model, data };
+      })
+    ).then((results) => {
+      const dataMap = new Map();
+      results.forEach(({ model, data }) => {
+        if (data) {
+          dataMap.set(model, data);
+        }
+      });
+      setCargurusDataByModel(dataMap);
+    });
+  }, [models]);
 
   // Memoize avgDays calculation separately (expensive, but doesn't depend on averageMode)
   const avgDaysCache = useMemo(() => {
@@ -250,6 +276,153 @@ export default function OverviewChart({
 
     return { aggregatedMetrics, categoryMetrics, dates };
   }, [data, dateLabels, availableDates, averageMode, loading, models, baseDates, dateAggregation, avgDaysCache]);
+
+  // Memoize CarGurus datasets separately (only recalculates when CarGurus data changes)
+  const cargurusDatasets = useMemo(() => {
+    console.log('CarGurus datasets calculation triggered:', {
+      modelsCount: models.length,
+      cargurusDataCount: cargurusDataByModel.size,
+      selectedCategory,
+      loading
+    });
+
+    if (models.length === 0 || cargurusDataByModel.size === 0) {
+      console.log('Skipping all CarGurus: no models or no data');
+      return [];
+    }
+
+    const { dates } = dateAggregation;
+    const categories = CATEGORY_TABS.map(cat => cat.id);
+
+    // Only process categories that will be shown
+    const categoriesToProcess = selectedCategory
+      ? categories.filter(id => id === selectedCategory)
+      : categories;
+
+    console.log('Processing categories:', categoriesToProcess);
+
+    const datasets = categoriesToProcess.map(categoryId => {
+      const categoryInfo = CATEGORY_TABS.find(cat => cat.id === categoryId);
+
+      // Get all models in this category
+      const categoryModels = models.filter(model => {
+        const modelCategories = getCategoriesForModel(model);
+        return modelCategories.includes(categoryId);
+      });
+
+      // Check if ALL models have CarGurus data
+      const allModelsHaveData = categoryModels.every(model =>
+        cargurusDataByModel.has(model)
+      );
+
+      // If any model is missing data, skip this category
+      if (!allModelsHaveData || categoryModels.length === 0) {
+        const missingModels = categoryModels.filter(model => !cargurusDataByModel.has(model));
+        console.log(`Skipping CarGurus avg for ${categoryInfo?.label || categoryId}:`, {
+          categoryId,
+          categoryModels,
+          missingModels,
+          totalModels: categoryModels.length,
+          modelsWithData: categoryModels.length - missingModels.length
+        });
+        return null;
+      }
+
+      console.log(`Creating CarGurus avg for ${categoryInfo?.label || categoryId} with ${categoryModels.length} models`);
+
+      // Calculate average CarGurus price for each date
+      const avgPoints = [];
+      const constantRadii = [];
+
+      dates.forEach(date => {
+        const prices = [];
+
+        // Collect prices from all models for this date
+        categoryModels.forEach(model => {
+          const cgData = cargurusDataByModel.get(model);
+          if (!cgData) return;
+
+          // Find aggregate line data (all years combined)
+          Object.keys(cgData).forEach(carType => {
+            // Look for aggregate line (model name without year prefix)
+            if (!carType.match(/^\d{4}\s/)) {
+              const dataPoints = cgData[carType];
+
+              // Find closest data point within 7 days
+              let closestPoint = null;
+              let minDiff = Infinity;
+              const chartTime = new Date(date).getTime();
+
+              dataPoints.forEach(dp => {
+                const dpTime = new Date(dp.date).getTime();
+                const diff = Math.abs(chartTime - dpTime);
+                const daysDiff = diff / (1000 * 60 * 60 * 24);
+
+                if (daysDiff <= 7 && diff < minDiff) {
+                  minDiff = diff;
+                  closestPoint = dp;
+                }
+              });
+
+              if (closestPoint) {
+                prices.push(closestPoint.price);
+              }
+            }
+          });
+        });
+
+        // Calculate average only if we have data from all models
+        if (prices.length === categoryModels.length) {
+          const avg = prices.reduce((sum, p) => sum + p, 0) / prices.length;
+          avgPoints.push(avg);
+          constantRadii.push(3);
+        } else {
+          avgPoints.push(null);
+          constantRadii.push(3);
+        }
+      });
+
+      // Skip if no data at all
+      if (avgPoints.every(p => p === null)) {
+        return null;
+      }
+
+      // Use same color scheme as DetailChart CarGurus lines
+      const cgColor = '#64748b'; // slate-500 for aggregate
+
+      return {
+        label: `${categoryInfo?.label || categoryId} Avg (CarGurus)`,
+        data: avgPoints,
+        borderColor: cgColor,
+        backgroundColor: cgColor,
+        borderWidth: 2,
+        borderDash: [6, 3], // Dashed line like detail chart
+        tension: 0.3,
+        pointRadius: constantRadii,
+        pointRadiiStock: constantRadii,
+        pointRadiiDays: constantRadii,
+        pointHoverRadius: constantRadii.map(r => r + 2),
+        pointHitRadius: constantRadii,
+        pointBackgroundColor: cgColor,
+        isAverageLine: true,
+        isCarGurusTrend: true,
+        isCategoryLine: true,
+        categoryId,
+        modelName: `${categoryInfo?.label || categoryId} CG Avg`,
+        order: -2, // Render behind category averages
+        z: 3,
+        color: cgColor,
+        avgCountsSeries: [],
+        maxCountsSeries: [],
+        avgDaysSeries: [],
+        groupedDatesSeries: dates.map(d => [d]),
+        hasAggregatedDates: dates.length !== baseDates.length,
+        nonClickable: true
+      };
+    }).filter(ds => ds !== null);
+
+    return datasets;
+  }, [cargurusDataByModel, models, dateAggregation, selectedCategory, baseDates, loading]);
 
   // Memoize dataset creation separately (only recalculates if metrics change)
   const datasets = useMemo(() => {
@@ -455,11 +628,19 @@ export default function OverviewChart({
       ? categoryDatasets.filter(ds => ds.categoryId === selectedCategory)
       : categoryDatasets;
 
-    // Combine model datasets and category datasets
-    const allDatasets = [...datasets, ...filteredCategoryDatasets];
+    // Combine model datasets, category datasets, and CarGurus datasets
+    console.log('Combining datasets:', {
+      modelDatasets: datasets.length,
+      categoryDatasets: filteredCategoryDatasets.length,
+      cargurusDatasets: cargurusDatasets.length,
+      cargurusLabels: cargurusDatasets.map(ds => ds.label)
+    });
+    const allDatasets = [...datasets, ...filteredCategoryDatasets, ...cargurusDatasets];
+
+    console.log('Final allDatasets:', allDatasets.length, allDatasets.map(ds => ds.label));
 
     return allDatasets;
-  }, [aggregatedMetrics, categoryMetrics, dates, models, dateAggregation, selectedCategory]);
+  }, [aggregatedMetrics, categoryMetrics, dates, models, dateAggregation, selectedCategory, cargurusDatasets]);
 
   // Average mode selector component
   const avgModeSelector = (

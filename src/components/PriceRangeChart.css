@@ -56,6 +56,39 @@
   gap: 0.5rem;
 }
 
+.cargurus-toggle-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cargurus-toggle-button:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background: var(--hover-bg);
+}
+
+.cargurus-toggle-button:focus-visible {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+}
+
+.cargurus-toggle-button.active {
+  background: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
+}
+
 .group-mode-selector {
   position: relative;
 }
@@ -466,7 +499,8 @@
   }
 
   .dot-size-selector,
-  .group-mode-selector {
+  .group-mode-selector,
+  .cargurus-toggle-button {
     flex-shrink: 0;
   }
 

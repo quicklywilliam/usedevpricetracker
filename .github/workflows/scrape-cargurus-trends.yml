@@ -1,0 +1,105 @@
+name: Scrape CarGurus Price Trends
+
+on:
+  # Run every other day at 2 AM UTC
+  schedule:
+    - cron: '0 2 */2 * *'
+
+  # Allow manual trigger for testing
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  scrape-cargurus:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Chromium for Puppeteer
+        run: |
+          npx puppeteer browsers install chrome
+
+      - name: Run CarGurus trends scraper
+        run: |
+          node scrapers/run-all.js --source=cargurus-trend
+        continue-on-error: true
+        env:
+          # Run in CI mode (headless, no sandbox)
+          CI: true
+
+      - name: Check scraper results
+        id: scraper-status
+        run: |
+          if [ -d "data/cargurus-trend" ] && [ "$(ls -A data/cargurus-trend/*.csv 2>/dev/null | wc -l)" -gt 0 ]; then
+            echo "scrapers_succeeded=true" >> $GITHUB_OUTPUT
+            echo "✓ CarGurus scraper completed successfully"
+          else
+            echo "scrapers_succeeded=false" >> $GITHUB_OUTPUT
+            echo "⚠️ No CarGurus data found"
+          fi
+
+      - name: Commit CarGurus data
+        if: steps.scraper-status.outputs.scrapers_succeeded == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Add only CarGurus trend data
+          git add data/cargurus-trend/
+
+          # Check if there are changes to commit
+          if git diff --staged --quiet; then
+            echo "No new data to commit"
+            exit 0
+          fi
+
+          DATE=$(date +%Y-%m-%d)
+          CSV_COUNT=$(find data/cargurus-trend -name "*.csv" | wc -l | tr -d ' ')
+          git commit -m "chore: update CarGurus trends for $DATE ($CSV_COUNT models)" -m "Generated with GitHub Actions"
+
+          # Try to push, handle concurrent commits
+          if git push; then
+            echo "✓ Push succeeded"
+          else
+            echo "⚠️ Push failed, attempting to recover..."
+
+            # Stash our commit temporarily
+            git reset --soft HEAD~1
+            git stash
+
+            # Pull latest changes
+            git pull --rebase
+
+            # Try to restore our changes
+            if git stash pop; then
+              echo "✓ Stash applied successfully, retrying commit..."
+
+              # Re-add and commit
+              git add data/cargurus-trend/
+              if git diff --staged --quiet; then
+                echo "No new data after merge (likely already committed)"
+                exit 0
+              fi
+
+              CSV_COUNT=$(find data/cargurus-trend -name "*.csv" | wc -l | tr -d ' ')
+              git commit -m "chore: update CarGurus trends for $DATE ($CSV_COUNT models)" -m "Generated with GitHub Actions"
+              git push
+            else
+              echo "✗ Conflict detected - scrape data for this day may already exist"
+              git stash drop || true
+              exit 1
+            fi
+          fi

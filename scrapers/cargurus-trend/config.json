@@ -1,0 +1,5 @@
+{
+  "enabled": true,
+  "name": "CarGurus Price Trends",
+  "description": "Scrapes historical price trend data from CarGurus"
+}
