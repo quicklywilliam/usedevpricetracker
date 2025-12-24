@@ -96,10 +96,27 @@ class CarMaxScraper extends BaseScraper {
       }
     });
 
-    await this.page.goto(searchUrl, {
+    const response = await this.page.goto(searchUrl, {
       waitUntil: 'networkidle2',
       timeout: 30000
     });
+
+    // Check for HTTP errors (403 Forbidden, etc.)
+    if (response && response.status() >= 400) {
+      throw new Error(`HTTP ${response.status()} error - likely blocked by anti-bot protection`);
+    }
+
+    // Check page content for bot detection (but ignore meta robots tag)
+    const html = await this.page.content();
+    const bodyText = html.toLowerCase();
+    // Check for actual bot detection messages, but exclude meta robots tag
+    const hasAccessDenied = bodyText.includes('access denied') || bodyText.includes('access blocked');
+    const hasCaptcha = bodyText.includes('captcha');
+    const hasRobotBlock = bodyText.includes('detected as a robot') || bodyText.includes('automated access');
+
+    if (hasAccessDenied || hasCaptcha || hasRobotBlock) {
+      throw new Error('Bot detection triggered - access denied or CAPTCHA page');
+    }
 
     // Wait for page body and give time for dynamic content
     await this.page.waitForSelector('body', { timeout: 5000 });
@@ -118,29 +135,71 @@ class CarMaxScraper extends BaseScraper {
       // Get page HTML
       const html = await this.page.content();
 
-      // Extract VIN data from JavaScript array: const cars = [{"stockNumber":...,"vin":"..."}...]
-      const vinMap = new Map();
-      const carsMatch = html.match(/const cars = (\[.*?\]);/s);
-      if (carsMatch) {
+      // CarMax now uses const searchResponse = {...} with items array
+      const searchResponseMatch = html.match(/const searchResponse = (\{[\s\S]*?\});/);
+      let pageListings = [];
+
+      if (searchResponseMatch) {
         try {
-          const carsData = JSON.parse(carsMatch[1]);
-          for (const car of carsData) {
-            if (car.stockNumber && car.vin) {
-              vinMap.set(car.stockNumber.toString(), car.vin);
-            }
+          const searchResponse = JSON.parse(searchResponseMatch[1]);
+          if (searchResponse.items && Array.isArray(searchResponse.items)) {
+            const queryModelLower = query.model.toLowerCase();
+
+            pageListings = searchResponse.items
+              .filter(item => {
+                // Filter to only items matching our query model (allows "ID.4 EV" when searching for "ID.4")
+                const itemModelLower = (item.model || '').toLowerCase();
+                return itemModelLower.includes(queryModelLower) || queryModelLower.includes(itemModelLower);
+              })
+              .map(item => ({
+                id: item.stockNumber.toString(),
+                vin: item.vin,
+                make: item.make,
+                model: query.model, // Use query model for consistency with validation
+                year: item.year,
+                trim: item.trim || 'Base', // Use 'Base' if trim is null/empty
+                price: item.basePrice,
+                mileage: item.mileage,
+                location: 'CarMax',
+                url: `https://www.carmax.com/car/${item.stockNumber}`,
+                listing_date: new Date().toISOString().split('T')[0]
+              }));
           }
         } catch (e) {
-          // Failed to parse, continue without VINs
+          console.error(`  ⚠ Error parsing searchResponse JSON:`, e.message);
         }
+      } else {
+        // Fallback to old HTML parsing method
+        const vinMap = new Map();
+        const carsMatch = html.match(/const cars = (\[.*?\]);/s);
+        if (carsMatch) {
+          try {
+            const carsData = JSON.parse(carsMatch[1]);
+            for (const car of carsData) {
+              if (car.stockNumber && car.vin) {
+                vinMap.set(car.stockNumber.toString(), car.vin);
+              }
+            }
+          } catch (e) {
+            // Failed to parse
+          }
+        }
+
+        // Merge API VIN data
+        for (const [stockNumber, vin] of apiVinData) {
+          vinMap.set(stockNumber, vin);
+        }
+
+        const $ = cheerio.load(html);
+        pageListings = parseListings($, query.make, query.model, vinMap);
       }
 
-      // Merge API VIN data (from pagination) with static VIN data
-      for (const [stockNumber, vin] of apiVinData) {
-        vinMap.set(stockNumber, vin);
+      // If page 1 has 0 results, stop immediately (model doesn't exist on CarMax)
+      if (pageNum === 1 && pageListings.length === 0) {
+        console.log(`  ℹ No listings found for ${query.make} ${query.model} on CarMax`);
+        hasMorePages = false;
+        break;
       }
-
-      const $ = cheerio.load(html);
-      const pageListings = parseListings($, query.make, query.model, vinMap);
 
       // Deduplicate - only add listings we haven't seen before
       for (const listing of pageListings) {
