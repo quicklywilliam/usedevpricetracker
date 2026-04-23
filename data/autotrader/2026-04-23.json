@@ -1,0 +1,77 @@
+{
+  "source": "autotrader",
+  "scraped_at": "2026-04-23T01:56:21.339Z",
+  "listings": [
+    {
+      "id": "autotrader-777552974",
+      "make": "Rivian",
+      "model": "R1T",
+      "year": 2025,
+      "trim": "Adventure",
+      "price": 67476,
+      "mileage": 4529,
+      "location": "Autotrader",
+      "url": "https://www.autotrader.com/cars-for-sale/vehicle/777552974",
+      "listing_date": "2026-04-23",
+      "vin": "7FCTGBAA0SN037027",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
+    },
+    {
+      "id": "autotrader-777021979",
+      "make": "Rivian",
+      "model": "R1T",
+      "year": 2022,
+      "trim": "Adventure",
+      "price": 53535,
+      "mileage": 51325,
+      "location": "Autotrader",
+      "url": "https://www.autotrader.com/cars-for-sale/vehicle/777021979",
+      "listing_date": "2026-04-23",
+      "vin": "7FCTGAAA8NN006946",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
+    },
+    {
+      "id": "autotrader-777642082",
+      "make": "Rivian",
+      "model": "R1T",
+      "year": 2022,
+      "trim": "Adventure",
+      "price": 37990,
+      "mileage": 101346,
+      "location": "Autotrader",
+      "url": "https://www.autotrader.com/cars-for-sale/vehicle/777642082",
+      "listing_date": "2026-04-23",
+      "vin": "7FCTGAAA2NN003721",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
+    },
+    {
+      "id": "autotrader-778318196",
+      "make": "Rivian",
+      "model": "R1T",
+      "year": 2023,
+      "trim": "Adventure",
+      "price": 51990,
+      "mileage": 40251,
+      "location": "Autotrader",
+      "url": "https://www.autotrader.com/cars-for-sale/vehicle/778318196",
+      "listing_date": "2026-04-23",
+      "vin": "7FCTGAAA0PN020357",
+      "normalized_trim": "Adventure 4 1/2 ft Dual Performance-Motor"
+    },
+    {
+      "id": "autotrader-774814821",
+      "make": "Rivian",
+      "model": "R1T",
+      "year": 2022,
+      "trim": "Launch Edition",
+      "price": 49890,
+      "mileage": 37567,
+      "location": "Autotrader",
+      "url": "https://www.autotrader.com/cars-for-sale/vehicle/774814821",
+      "listing_date": "2026-04-23",
+      "vin": "7FCTGAAL3NN000733",
+      "normalized_trim": "Launch Edition 4 1/2 ft Quad-Motor"
+    }
+  ],
+  "models_exceeded_max_vehicles": []
+}
