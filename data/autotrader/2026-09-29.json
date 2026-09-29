@@ -1,0 +1,49 @@
+{
+  "source": "autotrader",
+  "scraped_at": "2026-09-29T06:17:31.946Z",
+  "listings": [
+    {
+      "id": "autotrader-789160831",
+      "make": "BMW",
+      "model": "i3",
+      "year": 2019,
+      "trim": "s",
+      "price": 16995,
+      "mileage": 89310,
+      "location": "Autotrader",
+      "url": "https://www.autotrader.com/cars-for-sale/vehicle/789160831",
+      "listing_date": "2026-09-29",
+      "vin": "WBY8P6C51K7E09726",
+      "normalized_trim": "s"
+    },
+    {
+      "id": "autotrader-790403317",
+      "make": "BMW",
+      "model": "i3",
+      "year": 2018,
+      "trim": "s",
+      "price": 15210,
+      "mileage": 58061,
+      "location": "Autotrader",
+      "url": "https://www.autotrader.com/cars-for-sale/vehicle/790403317",
+      "listing_date": "2026-09-29",
+      "vin": "WBY7Z6C52JVB96821",
+      "normalized_trim": "s"
+    },
+    {
+      "id": "autotrader-788907724",
+      "make": "BMW",
+      "model": "i3",
+      "year": 2014,
+      "trim": "w/ Range Extender",
+      "price": 9477,
+      "mileage": 22223,
+      "location": "Autotrader",
+      "url": "https://www.autotrader.com/cars-for-sale/vehicle/788907724",
+      "listing_date": "2026-09-29",
+      "vin": "WBY1Z4C58EV273334",
+      "normalized_trim": "Base w/Range Extender"
+    }
+  ],
+  "models_exceeded_max_vehicles": []
+}
